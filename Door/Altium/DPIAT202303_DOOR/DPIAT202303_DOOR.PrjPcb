@@ -43,6 +43,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=Capteur mouvement
 
 [Preferences]
 PrefsVaultGUID=
@@ -88,7 +89,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document3]
-DocumentPath=Test.SchDoc
+DocumentPath=Test1.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -102,7 +103,16 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SNMUTUSE
+DocumentUniqueId=UXENYQJS
+
+[ProjectVariant1]
+UniqueID=A8CCAEFE-1E0F-44C6-80F4-9E156020D104
+Description=Capteur mouvement
+AllowFabrication=1
+ParameterCount=0
+VariationCount=1
+Variation1=Designator=S?|UniqueId=\IFVQGNLC|Kind=0|AlternatePart= 
+ParamVariationCount=0
 
 [Configuration1]
 Name=Sources
