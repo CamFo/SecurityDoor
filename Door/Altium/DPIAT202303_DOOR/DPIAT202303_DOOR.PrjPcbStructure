@@ -1,7 +1,7 @@
-Record=TopLevelDocument|FileName=Alimentation.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Buzzer,LED,Infrared Receptor.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Camera.SchDoc|SheetNumber=7
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=MCU.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=MotorCtrl.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=NFC.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Recorder, speaker.SchDoc|SheetNumber=6
+Record=TopLevelDocument|FileName=Alimentation.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Buzzer, LED, Infrarrouge.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Camera.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=DriveMoteur.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=MCU.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=NFC.SchDoc|SheetNumber=6
+Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Speaker et enregistreur.SchDoc|SheetNumber=7
