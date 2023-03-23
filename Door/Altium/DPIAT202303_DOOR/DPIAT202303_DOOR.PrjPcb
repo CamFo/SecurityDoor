@@ -54,6 +54,23 @@ ReleaseFolderPath=[OutputPath]
 ReleaseZipPath=[OutputPath][ProjectName].zip
 
 [Document1]
+DocumentPath=C:\ProgramData\Altium\Altium Designer {2FA1C54B-4B13-4B95-98A6-9AFEA35A66E5}\VaultEditCache\EE7055F7-2BA0-47C1-887B-CC1C861C760C\Released\New Component.CmpLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document2]
 DocumentPath=Schematics\Alimentation.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -70,7 +87,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HQDTKYCO
 
-[Document2]
+[Document3]
 DocumentPath=Assembly.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -87,7 +104,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document3]
+[Document4]
 DocumentPath=Fabrication.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -104,7 +121,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document4]
+[Document5]
 DocumentPath=Schematics\Buzzer, LED, Infrarrouge.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -121,7 +138,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QEYMPLSY
 
-[Document5]
+[Document6]
 DocumentPath=Schematics\Camera.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -138,7 +155,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NXFPDJZE
 
-[Document6]
+[Document7]
 DocumentPath=Schematics\DriveMoteur.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -155,7 +172,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BHQIABCO
 
-[Document7]
+[Document8]
 DocumentPath=Schematics\MCU.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -172,7 +189,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ZUSBIOVT
 
-[Document8]
+[Document9]
 DocumentPath=Schematics\NFC.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -189,7 +206,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QEFEQHKV
 
-[Document9]
+[Document10]
 DocumentPath=Schematics\Speaker et enregistreur.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
