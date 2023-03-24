@@ -223,6 +223,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EGNAFEZD
 
+[Document11]
+DocumentPath=USB-UART.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XRQSZUEO
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
