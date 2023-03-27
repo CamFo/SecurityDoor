@@ -1,7 +1,9 @@
-Record=TopLevelDocument|FileName=Alimentation.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Buzzer, LED, Infrarrouge.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Camera.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=DriveMoteur.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=MCU.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=NFC.SchDoc|SheetNumber=6
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Speaker et enregistreur.SchDoc|SheetNumber=7
+Record=TopLevelDocument|FileName=Top-Sheet.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_Alimentation|SchDesignator=U_Alimentation|FileName=Alimentation.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=Alimentation.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_Buzzer, LED, Infrarrouge|SchDesignator=U_Buzzer, LED, Infrarrouge|FileName=Buzzer, LED, Infrarrouge.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=Buzzer, LED, Infrarrouge.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_Camera|SchDesignator=U_Camera|FileName=Camera.SchDoc|SheetNumber=5|SymbolType=Normal|RawFileName=Camera.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_DriveMoteur|SchDesignator=U_DriveMoteur|FileName=DriveMoteur.SchDoc|SheetNumber=6|SymbolType=Normal|RawFileName=DriveMoteur.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_MCU|SchDesignator=U_MCU|FileName=MCU.SchDoc|SheetNumber=7|SymbolType=Normal|RawFileName=MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_NFC|SchDesignator=U_NFC|FileName=NFC.SchDoc|SheetNumber=8|SymbolType=Normal|RawFileName=NFC.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_Speaker et enregistreur|SchDesignator=U_Speaker et enregistreur|FileName=Speaker et enregistreur.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=Speaker et enregistreur.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_USB-UART|SchDesignator=U_USB-UART|FileName=USB-UART.SchDoc|SheetNumber=9|SymbolType=Normal|RawFileName=USB-UART.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
