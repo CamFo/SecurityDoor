@@ -43,6 +43,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=12V Battery + M PAP 12V
 
 [Preferences]
 PrefsVaultGUID=
@@ -71,7 +72,7 @@ GenerateClassCluster=0
 DocumentUniqueId=BHQIABCO
 
 [Document2]
-DocumentPath=Schematics\Speaker et enregistreur.SchDoc
+DocumentPath=Schematics\MultiEnvironnemental_Sensor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -256,6 +257,55 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QORLAMVT
+
+[Document13]
+DocumentPath=PCB\Design\DoorComponantsTest.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=YYEYRUEN
+
+[ProjectVariant1]
+UniqueID=965F7464-D508-4E90-9B31-7AFE80456A1A
+Description=12V Battery + M PAP 12V
+AllowFabrication=0
+ParameterCount=0
+VariationCount=7
+Variation1=Designator=J4|UniqueId=\BDZVPGPB|Kind=1|AlternatePart= 
+Variation2=Designator=U2|UniqueId=\MLQDMCPX|Kind=1|AlternatePart= 
+Variation3=Designator=J3|UniqueId=\CQVBYCYX|Kind=1|AlternatePart= 
+Variation4=Designator=C4|UniqueId=\IHARITTE|Kind=1|AlternatePart= 
+Variation5=Designator=C3|UniqueId=\PZHANHAS|Kind=1|AlternatePart= 
+Variation6=Designator=R11|UniqueId=\MXGEDYUC|Kind=1|AlternatePart= 
+Variation7=Designator=R12|UniqueId=\WRGMVJVT|Kind=1|AlternatePart= 
+ParamVariationCount=0
+
+[ProjectVariant2]
+UniqueID=9F93D410-8B1E-4C71-9D7F-6248F1B8C1CE
+Description=5V Battery + 5V Moteur DC
+AllowFabrication=0
+ParameterCount=0
+VariationCount=9
+Variation1=Designator=J2|UniqueId=\XFCUQNLC|Kind=1|AlternatePart= 
+Variation2=Designator=JH1|UniqueId=\KLVUZRAV|Kind=1|AlternatePart= 
+Variation3=Designator=Q1|UniqueId=\NMIHWAOJ|Kind=1|AlternatePart= 
+Variation4=Designator=Q3|UniqueId=\WNRVHCDM|Kind=1|AlternatePart= 
+Variation5=Designator=Q5|UniqueId=\HWAHKKYY|Kind=1|AlternatePart= 
+Variation6=Designator=Q2|UniqueId=\VGJZPNGG|Kind=1|AlternatePart= 
+Variation7=Designator=Q4|UniqueId=\CQTQTVCW|Kind=1|AlternatePart= 
+Variation8=Designator=J5|UniqueId=\CQDIMYCI|Kind=1|AlternatePart= 
+Variation9=Designator=U3|UniqueId=\QVASSSKG|Kind=1|AlternatePart= 
+ParamVariationCount=0
 
 [Configuration1]
 Name=Sources
