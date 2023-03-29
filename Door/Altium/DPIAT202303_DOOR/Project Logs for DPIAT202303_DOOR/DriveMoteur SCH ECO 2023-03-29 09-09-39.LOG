@@ -1,0 +1,10 @@
+Replace Part C3 Capacitor in U:\Projet de fin de DEC\SecurityDoor\Door\Altium\DPIAT202303_DOOR\Schematics\DriveMoteur.SchDoc with Capacitor from Celestial Altium Library - altium_library.DbLib
+Replace Part C4 Capacitor in U:\Projet de fin de DEC\SecurityDoor\Door\Altium\DPIAT202303_DOOR\Schematics\DriveMoteur.SchDoc with Capacitor from Celestial Altium Library - altium_library.DbLib
+Update Managed Component J2 From CMP-068-000025-3[CONN 4P 5mm HDR] To CMP-068-000025-3[CONN 4P 5mm HDR] in DriveMoteur.SchDoc
+Update Managed Component JH1 From CMP-068-000026-2[CONN 4P 5mm Housing] To CMP-068-000026-2[CONN 4P 5mm Housing] in DriveMoteur.SchDoc
+Update Managed Component Q1 From CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] To CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] in DriveMoteur.SchDoc
+Update Managed Component Q2 From CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] To CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] in DriveMoteur.SchDoc
+Update Managed Component Q3 From CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] To CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] in DriveMoteur.SchDoc
+Update Managed Component Q4 From CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] To CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] in DriveMoteur.SchDoc
+Update Managed Component Q5 From CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] To CMP-045-000020-1[TRANS N-CHANNEL 30V 5.8A SOT23] in DriveMoteur.SchDoc
+Replace Part U2 DRV8837CDSGT in U:\Projet de fin de DEC\SecurityDoor\Door\Altium\DPIAT202303_DOOR\Schematics\DriveMoteur.SchDoc with DRV8837CDSGT from DPIAT_202303_DOOR.SCHLIB
