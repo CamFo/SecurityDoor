@@ -43,6 +43,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=5V Battery + 5V Moteur DC
 
 [Preferences]
 PrefsVaultGUID=
@@ -274,6 +275,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YYEYRUEN
 
+[Document14]
+DocumentPath=..\..\..\Libraries\TRANS\N-CHANNEL 30V 5.8A.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=MTQESACQ
+
 [ProjectVariant1]
 UniqueID=965F7464-D508-4E90-9B31-7AFE80456A1A
 Description=12V Battery + M PAP 12V
@@ -294,7 +312,7 @@ UniqueID=9F93D410-8B1E-4C71-9D7F-6248F1B8C1CE
 Description=5V Battery + 5V Moteur DC
 AllowFabrication=0
 ParameterCount=0
-VariationCount=9
+VariationCount=12
 Variation1=Designator=J2|UniqueId=\XFCUQNLC|Kind=1|AlternatePart= 
 Variation2=Designator=JH1|UniqueId=\KLVUZRAV|Kind=1|AlternatePart= 
 Variation3=Designator=Q1|UniqueId=\NMIHWAOJ|Kind=1|AlternatePart= 
@@ -304,6 +322,9 @@ Variation6=Designator=Q2|UniqueId=\VGJZPNGG|Kind=1|AlternatePart=
 Variation7=Designator=Q4|UniqueId=\CQTQTVCW|Kind=1|AlternatePart= 
 Variation8=Designator=J5|UniqueId=\CQDIMYCI|Kind=1|AlternatePart= 
 Variation9=Designator=U3|UniqueId=\QVASSSKG|Kind=1|AlternatePart= 
+Variation10=Designator=U?|UniqueId=\PGKGYLDH|Kind=1|AlternatePart= 
+Variation11=Designator=C?|UniqueId=\UCRYMUUO|Kind=1|AlternatePart= 
+Variation12=Designator=C?|UniqueId=\OOFDDRNB|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [Configuration1]
