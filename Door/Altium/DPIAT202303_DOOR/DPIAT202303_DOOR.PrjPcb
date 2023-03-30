@@ -72,7 +72,7 @@ GenerateClassCluster=0
 DocumentUniqueId=BHQIABCO
 
 [Document2]
-DocumentPath=Schematics\MultiEnvironnemental_Sensor.SchDoc
+DocumentPath=Schematics\3DSensor, Magnet.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
