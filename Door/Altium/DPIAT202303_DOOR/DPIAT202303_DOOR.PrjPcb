@@ -43,6 +43,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=5V Reg
 
 [Preferences]
 PrefsVaultGUID=
@@ -307,6 +308,33 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VHCSATET
+
+[ProjectVariant1]
+UniqueID=682C46D4-1CD0-4D8E-BFCC-7D6CB7229553
+Description=5V Reg
+AllowFabrication=0
+ParameterCount=0
+VariationCount=6
+Variation1=Designator=IC?|UniqueId=\JMHUBDWY|Kind=1|AlternatePart= 
+Variation2=Designator=C?|UniqueId=\DCUHUIOM|Kind=1|AlternatePart= 
+Variation3=Designator=D?|UniqueId=\HFETVKZE|Kind=1|AlternatePart= 
+Variation4=Designator=R?|UniqueId=\GJURBIBN|Kind=1|AlternatePart= 
+Variation5=Designator=R?|UniqueId=\WOCGQZCE|Kind=1|AlternatePart= 
+Variation6=Designator=J?|UniqueId=\PRVOUHLC|Kind=1|AlternatePart= 
+ParamVariationCount=0
+
+[ProjectVariant2]
+UniqueID=8CCAA1EA-4A78-45F3-896C-E7DD48FD1694
+Description=5V Bat
+AllowFabrication=0
+ParameterCount=0
+VariationCount=5
+Variation1=Designator=J?|UniqueId=\PRVOUHLC|Kind=0|AlternatePart= 
+Variation2=Designator=U?|UniqueId=\YNNWDYDR|Kind=1|AlternatePart= 
+Variation3=Designator=C?|UniqueId=\HJCLVFZY|Kind=1|AlternatePart= 
+Variation4=Designator=C?|UniqueId=\TXIIFQDL|Kind=1|AlternatePart= 
+Variation5=Designator=J?|UniqueId=\CQDIMYCI|Kind=1|AlternatePart= 
+ParamVariationCount=0
 
 [Configuration1]
 Name=Sources
