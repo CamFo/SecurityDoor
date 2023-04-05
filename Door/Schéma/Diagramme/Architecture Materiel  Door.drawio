@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-03T17:13:12.202Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="oATnSA93hOJlJWzOBEv9" version="21.1.1" type="device">
+<mxfile host="app.diagrams.net" modified="2023-04-05T01:55:24.007Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="ilGoAdAno_DJbrtoaZzh" version="21.1.4" type="device">
   <diagram name="Page-1" id="_A-Z0996iPiGHyi5JEkH">
-    <mxGraphModel dx="591" dy="1198" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="707" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -96,7 +96,7 @@
         <mxCell id="WsD50GdEpe7IqlJUJexw-14" value="Drive d&#39;alimentation et recharge" style="whiteSpace=wrap;html=1;rounded=0;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="140" y="420" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WsD50GdEpe7IqlJUJexw-18" target="EoIKlgUE7raE-BOLyVbn-9">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="WsD50GdEpe7IqlJUJexw-18" target="EoIKlgUE7raE-BOLyVbn-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WsD50GdEpe7IqlJUJexw-18" value="Enregistreur Audio" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -110,7 +110,7 @@
         <mxCell id="WsD50GdEpe7IqlJUJexw-20" value="Buzzer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="510" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="WsD50GdEpe7IqlJUJexw-24" target="EoIKlgUE7raE-BOLyVbn-14">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="WsD50GdEpe7IqlJUJexw-24" target="EoIKlgUE7raE-BOLyVbn-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WsD50GdEpe7IqlJUJexw-24" value="Drive Speaker Audio" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -160,7 +160,7 @@
         <mxCell id="WsD50GdEpe7IqlJUJexw-59" value="Port micro USB" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="200" y="505" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.417;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="WsD50GdEpe7IqlJUJexw-1">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.417;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="WsD50GdEpe7IqlJUJexw-1" edge="1">
           <mxGeometry x="-0.7828" relative="1" as="geometry">
             <mxPoint x="130" y="716" as="targetPoint" />
             <Array as="points">
@@ -170,10 +170,10 @@
             <mxPoint x="410" y="519" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-3" value="Magnetometre" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-3" value="Magnetometre" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="30" y="700" width="100" height="26.5" as="geometry" />
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
           <mxGeometry x="-0.7828" relative="1" as="geometry">
             <mxPoint x="130" y="766" as="targetPoint" />
             <Array as="points">
@@ -183,18 +183,18 @@
             <mxPoint x="410" y="470" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-5" value="SPI/I2C" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="EoIKlgUE7raE-BOLyVbn-4">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-5" value="SPI/I2C" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="EoIKlgUE7raE-BOLyVbn-4" vertex="1" connectable="0">
           <mxGeometry x="-0.8588" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-6" value="3D sensor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-6" value="3D sensor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="30" y="750" width="100" height="26.5" as="geometry" />
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-9" value="Microphone" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-9" value="Microphone" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="30" y="653.5" width="100" height="26.5" as="geometry" />
         </mxCell>
-        <mxCell id="EoIKlgUE7raE-BOLyVbn-14" value="Speaker Audio" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="EoIKlgUE7raE-BOLyVbn-14" value="Speaker Audio" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="30" y="560" width="100" height="30" as="geometry" />
         </mxCell>
       </root>
