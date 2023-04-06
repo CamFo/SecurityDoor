@@ -43,7 +43,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
-CurrentVariant=5V Reg
+CurrentVariant=USB B
 
 [Preferences]
 PrefsVaultGUID=
@@ -309,31 +309,41 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VHCSATET
 
+[Document16]
+DocumentPath=..\..\..\Libraries\DPIAT202303_DOOR_v2.SCHLIB
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=VQBEZIEP
+
 [ProjectVariant1]
-UniqueID=682C46D4-1CD0-4D8E-BFCC-7D6CB7229553
-Description=5V Reg
+UniqueID=F00FC753-7E50-4721-949D-E6D89634FBA9
+Description=USB C
 AllowFabrication=0
 ParameterCount=0
-VariationCount=6
-Variation1=Designator=IC?|UniqueId=\JMHUBDWY|Kind=1|AlternatePart= 
-Variation2=Designator=C?|UniqueId=\DCUHUIOM|Kind=1|AlternatePart= 
-Variation3=Designator=D?|UniqueId=\HFETVKZE|Kind=1|AlternatePart= 
-Variation4=Designator=R?|UniqueId=\GJURBIBN|Kind=1|AlternatePart= 
-Variation5=Designator=R?|UniqueId=\WOCGQZCE|Kind=1|AlternatePart= 
-Variation6=Designator=J?|UniqueId=\PRVOUHLC|Kind=1|AlternatePart= 
+VariationCount=2
+Variation1=Designator=J?|UniqueId=\DHRSCBGD|Kind=1|AlternatePart= 
+Variation2=Designator=F?|UniqueId=\BBBYYCMY|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [ProjectVariant2]
-UniqueID=8CCAA1EA-4A78-45F3-896C-E7DD48FD1694
-Description=5V Bat
+UniqueID=E43D2FF1-3D00-4C3F-AC64-C008D7ECD1A6
+Description=USB B
 AllowFabrication=0
 ParameterCount=0
-VariationCount=5
-Variation1=Designator=J?|UniqueId=\PRVOUHLC|Kind=0|AlternatePart= 
-Variation2=Designator=U?|UniqueId=\YNNWDYDR|Kind=1|AlternatePart= 
-Variation3=Designator=C?|UniqueId=\HJCLVFZY|Kind=1|AlternatePart= 
-Variation4=Designator=C?|UniqueId=\TXIIFQDL|Kind=1|AlternatePart= 
-Variation5=Designator=J?|UniqueId=\CQDIMYCI|Kind=1|AlternatePart= 
+VariationCount=2
+Variation1=Designator=J?|UniqueId=\LRGABUVS|Kind=1|AlternatePart= 
+Variation2=Designator=F?|UniqueId=\NGMOUUZV|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [Configuration1]
