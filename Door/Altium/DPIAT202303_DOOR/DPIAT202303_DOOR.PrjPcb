@@ -259,7 +259,7 @@ GenerateClassCluster=0
 DocumentUniqueId=VHCSATET
 
 [Document13]
-DocumentPath=..\..\..\Libraries\DPIAT202303_DOOR_v2.SCHLIB
+DocumentPath=..\..\..\Libraries\ADAM LIBRARY.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
