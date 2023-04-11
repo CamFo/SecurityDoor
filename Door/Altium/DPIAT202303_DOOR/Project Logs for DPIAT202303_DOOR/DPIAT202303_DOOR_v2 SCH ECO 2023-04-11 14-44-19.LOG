@@ -1,0 +1,17 @@
+Removed Parameter Manufacturer_Part_Number:ESP32-WROOM-32 (8MB) from Part U?
+Removed Parameter Manufacturer Part Number:DS04-254-2-03BK-SMT from Part S?
+Removed Parameter Manufacturer Part Number:DS04-254-2-04BK-SMT from Part S?
+Removed Parameter Manufacturer Part Number:ESP32-WROOM-32D-N4 from Part U?
+Removed Parameter Manufacturer Part Number:L7805CDT-TR from Part U?
+Removed Parameter Manufacturer Part Number:LIS3MDLTR from Part U?
+Removed Parameter Manufacturer Part Number:LSM6DSMTR from Part U?
+Removed Parameter Manufacturer Part Number:RC0603JR-070RL from Part R?
+Removed Parameter Manufacturer Part Number:SI3404-TP from Part Q?
+Change Value of Parameter ADAM Inventory Number 1 in Part Q? Old= New=E00047
+Added Parameter Manufacturer Part Number 1=DRV8837CDSGT to Part U?
+Added Parameter Manufacturer Part Number 1=ESP32-WROOM-32D-N4 to Part U?
+Added Parameter Manufacturer Part Number 1=L7805CDT-TR to Part U?
+Added Parameter Manufacturer Part Number 1=LIS3MDLTR to Part U?
+Added Parameter Manufacturer Part Number 1=LSM6DSMTR to Part U?
+Added Parameter Manufacturer Part Number 1=RC0603JR-070RL to Part R?
+Added Parameter Manufacturer Part Number 1=SI3404-TP to Part Q?
