@@ -259,23 +259,6 @@ GenerateClassCluster=0
 DocumentUniqueId=YYEYRUEN
 
 [Document13]
-DocumentPath=..\..\..\Libraries\TRANS\N-CHANNEL 30V 5.8A.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MTQESACQ
-
-[Document14]
 DocumentPath=Front Board.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -292,7 +275,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VHCSATET
 
-[Document15]
+[Document14]
 DocumentPath=..\..\..\Libraries\DPIAT202303_DOOR_v2.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -309,7 +292,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VQBEZIEP
 
-[Document16]
+[Document15]
 DocumentPath=..\..\..\Libraries\DPIAT_202303.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
