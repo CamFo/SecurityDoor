@@ -1,0 +1,32 @@
+Removed Parameter Manufacturer_Part_Number:1050170001 from Part J1
+Removed Parameter Manufacturer_Part_Number:CP2104-F03-GMR from Part U1
+Removed Parameter Manufacturer_Part_Number:ESP32-WROOM-32 (8MB) from Part U2
+Removed Parameter Manufacturer_Part_Number:MCP73831T-2ACI/OT from Part U3
+Added Parameter Manufacturer Part Number 1=1050170001 to Part J1
+Added Parameter Manufacturer Part Number 1=CP2104-F03-GMR to Part U1
+Added Parameter Manufacturer Part Number 1=CPF0603B1K0E to Part R4
+Added Parameter Manufacturer Part Number 1=CPF0603B1K0E to Part R10
+Added Parameter Manufacturer Part Number 1=CPF0603B100KE to Part R1
+Added Parameter Manufacturer Part Number 1=CPF0603B100KE to Part R2
+Added Parameter Manufacturer Part Number 1=CPF0603B100KE to Part R3
+Added Parameter Manufacturer Part Number 1=CPF0603B100KE to Part R5
+Added Parameter Manufacturer Part Number 1=ESP32-WROOM-32 (8MB) to Part U2
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C1
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C2
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C3
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C4
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C5
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C6
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C7
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C8
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C9
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C10
+Added Parameter Manufacturer Part Number 1=GRM188C81A106MA73D to Part C11
+Added Parameter Manufacturer Part Number 1=KMR741NG ULC LFS to Part S1
+Added Parameter Manufacturer Part Number 1=MCP73831T-2ACI/OT to Part U3
+Added Parameter Manufacturer Part Number 1=MMBT2222ATT1G to Part Q1
+Added Parameter Manufacturer Part Number 1=MMBT2222ATT1G to Part Q2
+Added Parameter Manufacturer Part Number 1=RNCS0603BKE10K0 to Part R6
+Added Parameter Manufacturer Part Number 1=RNCS0603BKE10K0 to Part R7
+Added Parameter Manufacturer Part Number 1=RNCS0603BKE10K0 to Part R8
+Added Parameter Manufacturer Part Number 1=RT0603FRE074K7L to Part R9
