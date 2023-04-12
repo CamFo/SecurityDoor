@@ -43,7 +43,6 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
-CurrentVariant=USB B
 
 [Preferences]
 PrefsVaultGUID=
@@ -297,9 +296,10 @@ UniqueID=F00FC753-7E50-4721-949D-E6D89634FBA9
 Description=USB C
 AllowFabrication=0
 ParameterCount=0
-VariationCount=2
+VariationCount=3
 Variation1=Designator=J?|UniqueId=\DHRSCBGD|Kind=1|AlternatePart= 
 Variation2=Designator=F?|UniqueId=\BBBYYCMY|Kind=1|AlternatePart= 
+Variation3=Designator=J3|UniqueId=\RNOOFSYA|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [ProjectVariant2]
@@ -307,9 +307,10 @@ UniqueID=E43D2FF1-3D00-4C3F-AC64-C008D7ECD1A6
 Description=USB B
 AllowFabrication=0
 ParameterCount=0
-VariationCount=2
+VariationCount=3
 Variation1=Designator=J?|UniqueId=\LRGABUVS|Kind=1|AlternatePart= 
 Variation2=Designator=F?|UniqueId=\NGMOUUZV|Kind=1|AlternatePart= 
+Variation3=Designator=J2|UniqueId=\HZASUTFC|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [Configuration1]
