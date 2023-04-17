@@ -1,0 +1,25 @@
+Added Component: Designator=T3(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T4(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T5(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T6(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=E/S EN Pin=T3-1
+Added Pin To Net: NetName=MOSI Pin=T4-1
+Added Pin To Net: NetName=MISO Pin=T5-1
+Added Pin To Net: NetName=SCL/CLK Pin=T6-1
+Add Class Member: Failed to add class member : Component H1 JST 4POS 2MM NOFP
+Added Member To Class: ClassName=Top-Sheet Member=Component T3 TEST POINTS
+Added Member To Class: ClassName=Top-Sheet Member=Component T4 TEST POINTS
+Added Member To Class: ClassName=Top-Sheet Member=Component T5 TEST POINTS
+Added Member To Class: ClassName=Top-Sheet Member=Component T6 TEST POINTS
+Added Room: Name=Top-Sheet
+Added Room: Name=U_Buzzer, LED
+Added Room: Name=U_Enregistreur et Speaker Audio
+Added Room: Name=U_FrontDoorConnecteur
