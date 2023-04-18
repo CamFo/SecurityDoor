@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=MPAP_C1 Pin=MPC1-1
+Removed Pin From Net: NetName=MPAP_C2 Pin=MPC2-1
+Removed Member From Class: ClassName=Top-Sheet Member=MPC1
+Removed Member From Class: ClassName=Top-Sheet Member=MPC2
+Change Component Designator: OldDesignator=3V3 NewDesignator=T10
+Change Component Designator: OldDesignator=5V NewDesignator=T11
+Change Component Designator: OldDesignator=GND NewDesignator=T7
+Change Component Designator: OldDesignator=MISO NewDesignator=T6
+Change Component Designator: OldDesignator=MOSI NewDesignator=T5
+Change Component Designator: OldDesignator=SCL NewDesignator=T4
+Change Component Designator: OldDesignator=SDA NewDesignator=T3
+Change Component Designator: OldDesignator=VBat NewDesignator=T8
+Change Component Designator: OldDesignator=Vesp NewDesignator=T9
+Added Component: Designator=T1(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T2(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJ4_1 Pin=T1-1
+Added Pin To Net: NetName=NetJ4_2 Pin=T2-1
+Add Class Member: Failed to add class member : Component H1 CABLE JST 10POS
+Add Class Member: Failed to add class member : Component H2 CABLE JST 4POS
+Added Member To Class: ClassName=DriveMoteur Member=Component T1 TEST POINTS
+Added Member To Class: ClassName=DriveMoteur Member=Component T2 TEST POINTS
+Added Room: Name=3DSensor, Magnet
+Added Room: Name=Alimentation
+Added Room: Name=DriveMoteur
+Added Room: Name=FrontDoorConnecteur
+Added Room: Name=Infrarouge R&T, LED SMD
+Added Room: Name=MCU
+Added Room: Name=Top-Sheet
+Added Room: Name=USB-UART

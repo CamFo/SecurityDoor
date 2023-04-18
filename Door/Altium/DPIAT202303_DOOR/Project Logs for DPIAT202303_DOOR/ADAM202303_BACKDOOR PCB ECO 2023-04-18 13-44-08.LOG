@@ -1,0 +1,16 @@
+Added Pin To Net: NetName=MPAP_C1 Pin=T1-1
+Added Pin To Net: NetName=MPAP_C2 Pin=T2-1
+Added Pin To Net: NetName=SDA Pin=T3-1
+Added Pin To Net: NetName=SCL/CLK Pin=T4-1
+Added Pin To Net: NetName=MOSI Pin=T5-1
+Added Pin To Net: NetName=MISO Pin=T6-1
+Add Class Member: Failed to add class member : Component H1 CABLE JST 10POS
+Add Class Member: Failed to add class member : Component H2 CABLE JST 4POS
+Added Room: Name=3DSensor, Magnet
+Added Room: Name=Alimentation
+Added Room: Name=DriveMoteur
+Added Room: Name=FrontDoorConnecteur
+Added Room: Name=Infrarouge R&T, LED SMD
+Added Room: Name=MCU
+Added Room: Name=Top-Sheet
+Added Room: Name=USB-UART
