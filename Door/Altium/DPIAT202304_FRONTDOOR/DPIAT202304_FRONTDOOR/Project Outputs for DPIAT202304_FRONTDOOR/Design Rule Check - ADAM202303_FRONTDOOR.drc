@@ -1,17 +1,13 @@
 Protel Design System Design Rule Check
 PCB File : U:\Projet de fin de DEC\SecurityDoor\Door\Altium\DPIAT202304_FRONTDOOR\DPIAT202304_FRONTDOOR\PCB\ADAM202303_FRONTDOOR.PcbDoc
-Date     : 2023-04-14
-Time     : 12:57:59
+Date     : 2023-04-18
+Time     : 15:59:10
 
-Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
-   Violation between Clearance Constraint: (Collision < 10mil) Between Pad J7-2(2100mil,1750mil) on Multi-Layer And Track (1047.165mil,1750mil)(2160mil,1750mil) on Bottom Layer 
-   Violation between Clearance Constraint: (Collision < 10mil) Between Pad J7-3(2100mil,1650mil) on Multi-Layer And Track (1777.5mil,1652.5mil)(2212.5mil,1652.5mil) on Bottom Layer 
-Rule Violations :2
+Processing Rule : Clearance Constraint (Gap=8mil) (All),(All)
+Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
-   Violation between Short-Circuit Constraint: Between Pad J7-2(2100mil,1750mil) on Multi-Layer And Track (1047.165mil,1750mil)(2160mil,1750mil) on Bottom Layer Location : [X = 3100mil][Y = 2750mil]
-   Violation between Short-Circuit Constraint: Between Pad J7-3(2100mil,1650mil) on Multi-Layer And Track (1777.5mil,1652.5mil)(2212.5mil,1652.5mil) on Bottom Layer Location : [X = 3100mil][Y = 2652.5mil]
-Rule Violations :2
+Rule Violations :0
 
 Processing Rule : Un-Routed Net Constraint ( (All) )
 Rule Violations :0
@@ -19,43 +15,26 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=10mil) (Max=20mil) (Preferred=10mil) (All)
+Processing Rule : Width Constraint (Min=8mil) (Max=1000mil) (Preferred=8mil) (All)
 Rule Violations :0
 
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (InPadClass('PowerPads'))
 Rule Violations :0
 
-Processing Rule : Hole Size Constraint (Min=1mil) (Max=120mil) (All)
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=11.811mil) (Conductor Width=8mil) (Air Gap=8mil) (Entries=4) (All)
 Rule Violations :0
 
-Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Processing Rule : Minimum Annular Ring (Minimum=3mil) (All)
 Rule Violations :0
 
-Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (9.717mil < 10mil) Between Pad C11-1(1075.394mil,1506.299mil) on Top Layer And Pad C11-2(1124.606mil,1506.299mil) on Top Layer [Top Solder] Mask Sliver [9.717mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.717mil < 10mil) Between Pad C2-1(1124.709mil,1158.609mil) on Top Layer And Pad C2-2(1075.496mil,1158.609mil) on Top Layer [Top Solder] Mask Sliver [9.717mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.717mil < 10mil) Between Pad C3-1(1124.606mil,1100mil) on Top Layer And Pad C3-2(1075.394mil,1100mil) on Top Layer [Top Solder] Mask Sliver [9.717mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.717mil < 10mil) Between Pad C5-1(1725mil,1319.606mil) on Top Layer And Pad C5-2(1725mil,1270.394mil) on Top Layer [Top Solder] Mask Sliver [9.717mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.717mil < 10mil) Between Pad C7-1(1150mil,1665.394mil) on Top Layer And Pad C7-2(1150mil,1714.606mil) on Top Layer [Top Solder] Mask Sliver [9.717mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.717mil < 10mil) Between Pad C9-1(1075.496mil,958.609mil) on Top Layer And Pad C9-2(1124.709mil,958.609mil) on Top Layer [Top Solder] Mask Sliver [9.717mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R10-1(199.409mil,670mil) on Top Layer And Pad R10-2(250.59mil,670mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R1-1(825mil,475.591mil) on Top Layer And Pad R1-2(825mil,424.409mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R11-1(115mil,595mil) on Top Layer And Pad R11-2(63.819mil,595mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R2-1(650mil,475.591mil) on Top Layer And Pad R2-2(650mil,424.409mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R3-1(475mil,475.591mil) on Top Layer And Pad R3-2(475mil,424.409mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R4-1(425.591mil,1875mil) on Top Layer And Pad R4-2(374.409mil,1875mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R5-1(2349.409mil,1100mil) on Top Layer And Pad R5-2(2400.59mil,1100mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R6-1(2400.591mil,1350mil) on Top Layer And Pad R6-2(2349.41mil,1350mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R7-1(1775.591mil,1406.992mil) on Top Layer And Pad R7-2(1724.409mil,1406.992mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R8-1(1125.591mil,1565mil) on Top Layer And Pad R8-2(1074.409mil,1565mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad R9-1(1775.591mil,1206.992mil) on Top Layer And Pad R9-2(1724.409mil,1206.992mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (1.545mil < 10mil) Between Pad S7-1(230.394mil,493.11mil) on Top Layer And Via (279.208mil,540.194mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [1.545mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (8.475mil < 10mil) Between Pad U1-11(1245.076mil,1106.439mil) on Top Layer And Via (1305mil,1105mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [8.475mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (8.824mil < 10mil) Between Pad U1-13(1245.076mil,1006.439mil) on Top Layer And Via (1305mil,995mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [8.824mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (6.48mil < 10mil) Between Pad U1-25(1614.367mil,1456.439mil) on Top Layer And Via (1556.439mil,1456.439mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [6.48mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (8.475mil < 10mil) Between Pad U1-3(1245.076mil,1506.439mil) on Top Layer And Via (1305mil,1505mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [8.475mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9mil < 10mil) Between Via (1550mil,1225mil) from Top Layer to Bottom Layer And Via (1550mil,1260mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [9mil] / [Bottom Solder] Mask Sliver [9mil]
-Rule Violations :23
+Processing Rule : Hole Size Constraint (Min=11.811mil) (Max=248.031mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=9.842mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (All),(All)
+Rule Violations :0
 
 Processing Rule : Silk To Solder Mask (Clearance=0mil) (IsPad),(All)
 Rule Violations :0
@@ -66,10 +45,23 @@ Rule Violations :0
 Processing Rule : Net Antennae (Tolerance=0mil) (All)
 Rule Violations :0
 
-Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Processing Rule : Board Clearance Constraint (Gap=0mil) (All)
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (1032.087mil,2182.874mil)(1032.087mil,2521.457mil) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (1032.087mil,2521.457mil)(1102.953mil,2521.457mil) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (1102.953mil,2521.457mil)(1102.953mil,2698.622mil) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (1102.953mil,2698.622mil)(1347.047mil,2698.622mil) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (1347.047mil,2521.457mil)(1347.047mil,2698.622mil) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (1347.047mil,2521.457mil)(1417.913mil,2521.457mil) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (1417.913mil,2182.874mil)(1417.913mil,2521.457mil) on Bottom Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (-22.795mil,463.583mil)(-22.795mil,522.638mil) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (-22.795mil,463.583mil)(55.945mil,463.583mil) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 7.874mil) Between Board Edge And Track (-22.795mil,522.638mil)(55.945mil,522.638mil) on Top Overlay 
+Rule Violations :10
+
+Processing Rule : Height Constraint (Min=0mil) (Max=71497.938mil) (Prefered=500mil) (All)
 Rule Violations :0
 
 
-Violations Detected : 27
+Violations Detected : 10
 Waived Violations : 0
 Time Elapsed        : 00:00:01

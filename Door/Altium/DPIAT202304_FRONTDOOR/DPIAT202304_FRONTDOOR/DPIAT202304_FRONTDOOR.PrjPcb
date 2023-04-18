@@ -43,6 +43,7 @@ CrossRefPorts=0
 CrossRefCrossSheets=0
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=COMPLETED TEST VERSION
 
 [Preferences]
 PrefsVaultGUID=
@@ -188,6 +189,33 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JLTHAEUW
+
+[ProjectVariant1]
+UniqueID=0AA26F40-EDEA-4E7E-B737-7DF6486C34E9
+Description=TEST VERSIONS
+AllowFabrication=0
+ParameterCount=0
+VariationCount=4
+Variation1=Designator=J7|UniqueId=\WEFYHJBI\HNWFZLSC|Kind=1|AlternatePart= 
+Variation2=Designator=J8|UniqueId=\WEFYHJBI\ZQJNCQPR|Kind=1|AlternatePart= 
+Variation3=Designator=J2|UniqueId=\GAVVWJPP\SHYUXTVC|Kind=1|AlternatePart= 
+Variation4=Designator=J3|UniqueId=\GAVVWJPP\KKVEKTQF|Kind=1|AlternatePart= 
+ParamVariationCount=0
+
+[ProjectVariant2]
+UniqueID=0C1095BA-4D12-44E1-93D1-0ED3EBB716D3
+Description=COMPLETED TEST VERSION
+AllowFabrication=0
+ParameterCount=0
+VariationCount=7
+Variation1=Designator=J6|UniqueId=\WEFYHJBI\TMSYPMHU|Kind=1|AlternatePart= 
+Variation2=Designator=J5|UniqueId=\WEFYHJBI\SVDWMGDK|Kind=1|AlternatePart= 
+Variation3=Designator=J7|UniqueId=\WEFYHJBI\HNWFZLSC|Kind=1|AlternatePart= 
+Variation4=Designator=J8|UniqueId=\WEFYHJBI\ZQJNCQPR|Kind=1|AlternatePart= 
+Variation5=Designator=J4|UniqueId=\JBEALUPV\AYJXEGBM|Kind=1|AlternatePart= 
+Variation6=Designator=J2|UniqueId=\GAVVWJPP\SHYUXTVC|Kind=1|AlternatePart= 
+Variation7=Designator=J3|UniqueId=\GAVVWJPP\KKVEKTQF|Kind=1|AlternatePart= 
+ParamVariationCount=0
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for DPIAT202304_FRONTDOOR\Design Rule Check - ADAM202303_FRONTDOOR.html
