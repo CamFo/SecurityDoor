@@ -1,0 +1,15 @@
+Added Component: Designator=MTH1(Mounting Hole)
+Added Component: Designator=MTH2(Mounting Hole)
+Added Component: Designator=MTH3(Mounting Hole)
+Added Component: Designator=MTH4(Mounting Hole)
+Added Pin To Net: NetName=GND Pin=MTH1-1
+Added Pin To Net: NetName=GND Pin=MTH2-1
+Added Pin To Net: NetName=GND Pin=MTH3-1
+Added Pin To Net: NetName=GND Pin=MTH4-1
+Added Member To Class: ClassName=Sheet1 Member=Component MTH1 NTENNA
+Added Member To Class: ClassName=Sheet1 Member=Component MTH2 ANTENNA
+Added Member To Class: ClassName=Sheet1 Member=Component MTH3 ANTENNA
+Added Member To Class: ClassName=Sheet1 Member=Component MTH4 ANTENNA
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3
