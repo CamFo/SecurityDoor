@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=MISO Pin=S1-4
+Removed Pin From Net: NetName=MISO Pin=U1-1
+Removed Pin From Net: NetName=MISO Pin=U2-9
+Added Pin To Net: NetName=DSM Pin=S1-4
+Added Pin To Net: NetName=DSM Pin=U1-1
+Added Pin To Net: NetName=DSM Pin=U2-9
+Added Net: Name=DSM
+Add Class Member: Failed to add class member : Component H1 CABLE JST 10POS
+Add Class Member: Failed to add class member : Component H2 CABLE JST 4POS
+Added Room: Name=3DSensor, Magnet
+Added Room: Name=Alimentation
+Added Room: Name=DriveMoteur
+Added Room: Name=FrontDoorConnecteur
+Added Room: Name=Infrarouge R&T, LED SMD
+Added Room: Name=MCU
+Added Room: Name=Top-Sheet
+Added Room: Name=USB-UART

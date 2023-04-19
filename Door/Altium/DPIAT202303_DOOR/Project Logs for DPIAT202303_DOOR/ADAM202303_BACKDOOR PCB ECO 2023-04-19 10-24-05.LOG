@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=VUSB Pin=J3-1
+Removed Pin From Net: NetName=D+ Pin=J3-2
+Removed Pin From Net: NetName=D- Pin=J3-3
+Removed Pin From Net: NetName=GND Pin=J3-5
+Removed Pin From Net: NetName=GND Pin=J3-S
+Removed Pin From Net: NetName=GND Pin=J3-S
+Removed Pin From Net: NetName=GND Pin=J3-S
+Removed Pin From Net: NetName=GND Pin=J3-S
+Removed Member From Class: ClassName=USB-UART Member=J3
+Change Component Designator: OldDesignator=3V3 NewDesignator=T10
+Change Component Designator: OldDesignator=5V NewDesignator=T11
+Change Component Designator: OldDesignator=GND NewDesignator=T7
+Change Component Designator: OldDesignator=M+ NewDesignator=T2
+Change Component Designator: OldDesignator=M- NewDesignator=T1
+Change Component Designator: OldDesignator=MISO NewDesignator=T6
+Change Component Designator: OldDesignator=MOSI NewDesignator=T5
+Change Component Designator: OldDesignator=SCL NewDesignator=T4
+Change Component Designator: OldDesignator=SDA NewDesignator=T3
+Change Component Designator: OldDesignator=VBat NewDesignator=T8
+Change Component Designator: OldDesignator=Vesp NewDesignator=T9
+Add Class Member: Failed to add class member : Component H1 CABLE JST 10POS
+Add Class Member: Failed to add class member : Component H2 CABLE JST 4POS
+Added Room: Name=3DSensor, Magnet
+Added Room: Name=Alimentation
+Added Room: Name=DriveMoteur
+Added Room: Name=FrontDoorConnecteur
+Added Room: Name=Infrarouge R&T, LED SMD
+Added Room: Name=MCU
+Added Room: Name=Top-Sheet
+Added Room: Name=USB-UART
