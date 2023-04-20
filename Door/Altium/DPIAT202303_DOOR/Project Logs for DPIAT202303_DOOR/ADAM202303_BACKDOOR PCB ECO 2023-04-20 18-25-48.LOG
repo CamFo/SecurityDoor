@@ -1,0 +1,14 @@
+Added Pin To Net: NetName=GPIO6 Pin=U8-20
+Added Net: Name=GPIO6
+Added Pin To Net: NetName=GPIO7 Pin=J7-12
+Added Pin To Net: NetName=GPIO7 Pin=U8-21
+Added Net: Name=GPIO7
+Added Pin To Net: NetName=GPIO8 Pin=J7-11
+Added Pin To Net: NetName=GPIO8 Pin=U8-22
+Added Net: Name=GPIO8
+Added Pin To Net: NetName=GPIO9 Pin=U8-17
+Added Net: Name=GPIO9
+Added Pin To Net: NetName=GPIO10 Pin=U8-18
+Added Net: Name=GPIO10
+Added Pin To Net: NetName=GPIO11 Pin=U8-19
+Added Net: Name=GPIO11

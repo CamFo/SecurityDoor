@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=INFRA_T Pin=U8-6
+Removed Pin From Net: NetName=INFRA_R Pin=U8-8
+Added Pin To Net: NetName=INFRA_R Pin=U8-6
+Added Pin To Net: NetName=INFRA_T Pin=U8-8

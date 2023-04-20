@@ -1,0 +1,22 @@
+Change Component Designator: OldDesignator=T1 NewDesignator=M+
+Change Component Designator: OldDesignator=T2 NewDesignator=M-
+Change Component Designator: OldDesignator=T3 NewDesignator=SDA
+Change Component Designator: OldDesignator=T4 NewDesignator=SCL
+Change Component Designator: OldDesignator=T5 NewDesignator=MOSI
+Change Component Designator: OldDesignator=T6 NewDesignator=MISO
+Change Component Designator: OldDesignator=T7 NewDesignator=GND
+Change Component Designator: OldDesignator=T8 NewDesignator=VBat
+Change Component Designator: OldDesignator=T9 NewDesignator=VEsp
+Change Component Designator: OldDesignator=T10 NewDesignator=3V3
+Change Component Designator: OldDesignator=T11 NewDesignator=5V
+Add Pin To Net: Pin=J7-1 Old Net=NetJ7_1 New Net=MTR_EA
+Add Pin To Net: Pin=J7-2 Old Net=NetJ7_2 New Net=3D_SENSOR_EN
+Add Pin To Net: Pin=J7-3 Old Net=NetJ7_3 New Net=TX_ESP
+Add Pin To Net: Pin=J7-4 Old Net=NetJ7_4 New Net=RX_ESP
+Add Pin To Net: Pin=J7-5 Old Net=NetJ7_5 New Net=DATA_RDY_3D
+Add Pin To Net: Pin=J7-6 Old Net=NetJ7_6 New Net=GPIO32
+Add Pin To Net: Pin=J7-7 Old Net=NetJ7_7 New Net=GPIO0
+Add Pin To Net: Pin=J7-8 Old Net=NetJ7_8 New Net=MPAP_C2
+Add Pin To Net: Pin=J7-9 Old Net=NetJ7_9 New Net=INT_3D
+Add Pin To Net: Pin=J7-10 Old Net=NetJ7_10 New Net=MPAP_C1
+Add Pin To Net: Pin=J8-3 Old Net=NetJ8_3 New Net=SDA
