@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=SCL Pin=JP4-6
+Removed Pin From Net: NetName=MISO Pin=U5-5
+Added Pin To Net: NetName=SCK Pin=JP4-6
+Added Pin To Net: NetName=MOSI Pin=U5-5
+Added Pin To Net: NetName=SCK Pin=U5-6
+Added Member To Class: ClassName=Sheet1 Member=Component JP1 Boost Regulator
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3
