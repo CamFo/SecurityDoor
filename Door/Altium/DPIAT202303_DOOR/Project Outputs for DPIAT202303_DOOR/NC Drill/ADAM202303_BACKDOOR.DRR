@@ -1,0 +1,27 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: ADAM202303_BACKDOOR.PcbDoc   2023-04-21  14:49:43
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : ADAM202303_BACKDOOR-RoundHoles.TXT
+ASCII SlotHoles File : ADAM202303_BACKDOOR-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             157       PTH        28.39inch (721.01mm)
+T2      20mil (0.508mm)                                           Round             32        PTH        16.49inch (418.80mm)
+T3      24mil (0.6mm)                                             Slot              4         PTH        1.51inch (38.47mm)
+T4      28mil (0.7mm)                                             Round             29        PTH        11.87inch (301.43mm)
+T5      32mil (0.8mm)                                             Round             6         PTH        1.99inch (50.43mm)
+T6      37mil (0.95mm)                                            Round             5         PTH        2.82inch (71.75mm)
+T7      43mil (1.1mm)           +0mil (0mm)/-10mil (0.25mm)       Round             24        PTH        6.55inch (166.25mm)
+T8      43mil (1.1mm)                                             Round             2         PTH        0.10inch (2.54mm)
+T9      47mil (1.2mm)                                             Round             4         PTH        0.30inch (7.62mm)
+T10     118mil (3mm)                                              Round             3         PTH        5.36inch (136.19mm)
+T11     394mil (10mm)                                             Round             1         PTH        0.00inch (0.00mm)
+T12     551mil (14mm)                                             Round             1         PTH        0.00inch (0.00mm)
+T13     26mil (0.65mm)                                            Round             2         NPTH       0.23inch (5.78mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              270
+
+Total Processing Time (hh:mm:ss) : 00:00:00

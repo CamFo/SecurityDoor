@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: U:\Projet de fin de DEC\SecurityDoor\Door\Altium\DPIAT202303_DOOR\PCB\ADAM202303_BACKDOOR.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=adam202303_backdoor-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=adam202303_backdoor-slotholes.txt|DrillLayers=gtl,gbl

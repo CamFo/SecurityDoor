@@ -1,0 +1,22 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: ADAM202303_FRONTDOOR.PcbDoc   2023-04-21  15:25:54
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : ADAM202303_FRONTDOOR.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.305mm (12mil)                                           Round             34        PTH        246.64mm (9.71inch)
+T2      0.508mm (20mil)                                           Round             10        PTH        132.06mm (5.20inch)
+T3      0.7mm (28mil)                                             Round             12        PTH        25.69mm (1.01inch)
+T4      0.75mm (30mil)                                            Round             2         PTH        7.49mm (0.29inch)
+T5      0.8mm (31mil)                                             Round             6         PTH        67.49mm (2.66inch)
+T6      0.95mm (37mil)                                            Round             2         PTH        2.54mm (0.10inch)
+T7      1.1mm (43mil)           +0mm (0mil)/-0.25mm (10mil)       Round             24        PTH        141.71mm (5.58inch)
+T8      1.1mm (43mil)                                             Round             8         PTH        70.05mm (2.76inch)
+T9      3mm (118mil)                                              Round             6         PTH        164.92mm (6.49inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              104
+
+Total Processing Time (hh:mm:ss) : 00:00:01

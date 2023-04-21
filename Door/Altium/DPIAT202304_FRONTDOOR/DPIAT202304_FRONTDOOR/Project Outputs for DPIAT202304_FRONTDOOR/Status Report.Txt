@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [DPIAT202304_FRONTDOOR.PrjPcb]
+   Generated File[ADAM202303_FRONTDOOR.TXT]
+   Generated File[ADAM202303_FRONTDOOR.LDP]
+   Generated File[ADAM202303_FRONTDOOR.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 15:25:55 On 2023-04-21
