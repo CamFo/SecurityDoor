@@ -148,7 +148,7 @@ ClassGenCCAutoRoomEnabled=0
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=SHDAWTGG
 
 [Document7]
 DocumentPath=Sheet3.SchDoc
@@ -183,6 +183,10 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QMJDPDLB
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for AdamPannel\Design Rule Check - PCB1.html
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources

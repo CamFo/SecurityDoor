@@ -1,0 +1,9 @@
+Added Component: Designator=Q4(LF50CDT)
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "IRFR5305TRLPBF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Infineon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetQ3_3 Pin=Q4-1
+Added Pin To Net: NetName=NetC1_2 Pin=Q4-2
+Added Pin To Net: NetName=NetF1_2 Pin=Q4-3
+Added Member To Class: ClassName=Sheet1 Member=Component Q4 IRFR5305TRLPBF
