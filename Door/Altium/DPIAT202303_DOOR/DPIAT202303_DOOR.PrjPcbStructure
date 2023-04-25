@@ -1,7 +1,8 @@
-Record=TopLevelDocument|FileName=Alimentation.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Buzzer, LED, Infrarrouge.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Camera.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=DriveMoteur.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=MCU.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=NFC.SchDoc|SheetNumber=6
-Record=NoMainPathDocument|SourceDocument=Alimentation.SchDoc|FileName=Speaker et enregistreur.SchDoc|SheetNumber=7
+Record=TopLevelDocument|FileName=Top-Sheet.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_3DSensor, Magnet|SchDesignator=U_3DSensor, Magnet|FileName=3DSensor, Magnet.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=3DSensor, Magnet.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_Alimentation|SchDesignator=U_Alimentation|FileName=Alimentation.SchDoc|SheetNumber=5|SymbolType=Normal|RawFileName=Alimentation.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_DriveMoteur|SchDesignator=U_DriveMoteur|FileName=DriveMoteur.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=DriveMoteur.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_FrontDoorConnecteur|SchDesignator=U_FrontDoorConnecteur|FileName=FrontDoorConnecteur.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=FrontDoorConnecteur.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_Infrarouge R&T, LED SMD|SchDesignator=U_Infrarouge R&T, LED SMD|FileName=Infrarouge R&T, LED SMD.SchDoc|SheetNumber=6|SymbolType=Normal|RawFileName=Infrarouge R&T, LED SMD.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_MCU|SchDesignator=U_MCU|FileName=MCU.SchDoc|SheetNumber=7|SymbolType=Normal|RawFileName=MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top-Sheet.SchDoc|Designator=U_USB-UART|SchDesignator=U_USB-UART|FileName=USB-UART.SchDoc|SheetNumber=8|SymbolType=Normal|RawFileName=USB-UART.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
