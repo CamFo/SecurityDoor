@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : C:\Projet\SecurityDoor\Panneau\Altium\ProjetAltium\AdamPannel\PCB1.PcbDoc
+PCB File : C:\FinalProject\SecurityDoor\Panneau\Altium\ProjetAltium\AdamPannel\PCB1.PcbDoc
 Date     : 2023-04-25
-Time     : 10:54:15
+Time     : 13:00:47
 
 Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-1(8.4mm,23.703mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
@@ -22,10 +22,10 @@ Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR5-1(76mm,22.694mm) on Top Layer And Region (0 hole(s)) Top Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR5-2(76mm,21.5mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR5-2(76mm,21.5mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-1(69.263mm,22.594mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-1(69.263mm,22.594mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-2(69.263mm,21.4mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-2(69.263mm,21.4mm) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-1(69.292mm,22.597mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-1(69.292mm,22.597mm) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-2(69.292mm,21.403mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-2(69.292mm,21.403mm) on Top Layer And Region (0 hole(s)) Top Layer 
    Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.01mm,19.51mm)(77.75mm,20.25mm) on Top Layer And Track (78.11mm,17.951mm)(78.11mm,21.237mm) on Top Layer 
    Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.75mm,20.25mm)(77.75mm,24.5mm) on Top Layer And Track (78.11mm,17.951mm)(78.11mm,21.237mm) on Top Layer 
    Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.75mm,20.25mm)(77.75mm,24.5mm) on Top Layer And Track (78.11mm,21.237mm)(78.571mm,21.698mm) on Top Layer 
@@ -53,7 +53,8 @@ Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)
-Rule Violations :0
+   Violation between Minimum Solder Mask Sliver Constraint: (0.115mm < 0.127mm) Between Pad JP5-16(94mm,40.595mm) on Multi-Layer And Via (92.538mm,40.598mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.115mm] / [Bottom Solder] Mask Sliver [0.115mm]
+Rule Violations :1
 
 Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (Disabled)(IsPad),(All)
 Rule Violations :0
@@ -68,6 +69,6 @@ Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Al
 Rule Violations :0
 
 
-Violations Detected : 25
+Violations Detected : 26
 Waived Violations : 0
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:01
