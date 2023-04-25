@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=Lipo+ Pin=C8-2
+Removed Pin From Net: NetName=Lipo+ Pin=U4-5
+Change Net Name : Old Net Name=Lipo+ New Net Name=NetC1_2
+Added Pin To Net: NetName=Lipo+ Pin=C8-2
+Added Pin To Net: NetName=Lipo+ Pin=J1-1
+Added Pin To Net: NetName=Lipo+ Pin=S1-3
+Added Pin To Net: NetName=Lipo+ Pin=U4-5
+Added Net: Name=Lipo+
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3

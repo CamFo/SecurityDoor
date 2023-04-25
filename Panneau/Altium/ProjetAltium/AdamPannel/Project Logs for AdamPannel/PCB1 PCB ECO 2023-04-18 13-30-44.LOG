@@ -1,0 +1,17 @@
+Removed Member From Class: ClassName=Sheet1 Member=S5
+Removed Member From Class: ClassName=Sheet2 Member=S5
+Add Pin To Net: Unknown Pin: Pin MTH1-1
+Add Pin To Net: Unknown Pin: Pin MTH2-1
+Add Pin To Net: Unknown Pin: Pin MTH3-1
+Add Pin To Net: Unknown Pin: Pin MTH4-1
+Add Class Member: Failed to add class member : Component MTH1 NTENNA
+Add Class Member: Failed to add class member : Component MTH2 ANTENNA
+Add Class Member: Failed to add class member : Component MTH3 ANTENNA
+Add Class Member: Failed to add class member : Component MTH4 ANTENNA
+Added Member To Class: ClassName=Sheet1 Member=Component S1 450405020524
+Added Member To Class: ClassName=Sheet1 Member=Component S2 KMR741NG ULC LFS
+Added Member To Class: ClassName=Sheet2 Member=Component S3 KMR741NG ULC LFS
+Added Member To Class: ClassName=Sheet3 Member=Component S4 450405020524
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3

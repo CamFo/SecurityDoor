@@ -1,0 +1,31 @@
+Added Component: Designator=CR1(SMASeries_LTF-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Littelfuse Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR2(SMASeries_LTF-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Littelfuse Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR3(SMASeries_LTF-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Littelfuse Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR4(SMASeries_LTF-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Littelfuse Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=CR1-1
+Added Pin To Net: NetName=NetCR1_2 Pin=CR1-2
+Added Pin To Net: NetName=GND Pin=CR2-1
+Added Pin To Net: NetName=NetCR2_2 Pin=CR2-2
+Added Pin To Net: NetName=MOSI Pin=CR3-1
+Added Pin To Net: NetName=GND Pin=CR3-2
+Added Pin To Net: NetName=MISO Pin=CR4-1
+Added Pin To Net: NetName=GND Pin=CR4-2
+Added Member To Class: ClassName=Sheet1 Member=Component CR1 SMAJ60CA
+Added Member To Class: ClassName=Sheet1 Member=Component CR2 SMAJ60CA
+Added Member To Class: ClassName=Sheet2 Member=Component CR3 SMAJ60CA
+Added Member To Class: ClassName=Sheet2 Member=Component CR4 SMAJ60CA
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3

@@ -1,0 +1,46 @@
+Removed Member From Class: ClassName=Sheet2 Member=JP2
+Added Component: Designator=T1(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T2(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T3(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T4(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T5(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Component: Designator=T6(TEST POINTS)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "RCWCTE"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetT1_1 Pin=T1-1
+Added Pin To Net: NetName=NetT1_1 Pin=U3-22
+Added Net: Name=NetT1_1
+Added Pin To Net: NetName=NetT2_1 Pin=T2-1
+Added Pin To Net: NetName=NetT2_1 Pin=U3-21
+Added Net: Name=NetT2_1
+Added Pin To Net: NetName=NetT3_1 Pin=T3-1
+Added Pin To Net: NetName=NetT3_1 Pin=U3-20
+Added Net: Name=NetT3_1
+Added Pin To Net: NetName=NetT4_1 Pin=T4-1
+Added Pin To Net: NetName=NetT4_1 Pin=U3-19
+Added Net: Name=NetT4_1
+Added Pin To Net: NetName=NetT5_1 Pin=T5-1
+Added Pin To Net: NetName=NetT5_1 Pin=U3-18
+Added Net: Name=NetT5_1
+Added Pin To Net: NetName=NetT6_1 Pin=T6-1
+Added Pin To Net: NetName=NetT6_1 Pin=U3-17
+Added Net: Name=NetT6_1
+Added Member To Class: ClassName=Sheet2 Member=Component T1 TEST POINTS
+Added Member To Class: ClassName=Sheet2 Member=Component T2 TEST POINTS
+Added Member To Class: ClassName=Sheet2 Member=Component T3 TEST POINTS
+Added Member To Class: ClassName=Sheet2 Member=Component T4 TEST POINTS
+Added Member To Class: ClassName=Sheet2 Member=Component T5 TEST POINTS
+Added Member To Class: ClassName=Sheet2 Member=Component T6 TEST POINTS
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3
