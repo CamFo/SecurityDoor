@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=Q1 Old Footprint=SOT_4C-E3-08_VIS-M New Footprint=SOT-723
+Change Component Footprint: Designator=Q2 Old Footprint=SOT_4C-E3-08_VIS-M New Footprint=SOT-723
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3

@@ -1,0 +1,58 @@
+Added Component: Designator=CR1(CPDQ-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR2(CPDQ-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR3(CPDQ-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR4(CPDQ-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR5(CPDQ-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CR6(CPDQ-M)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=F1(Fuse 500mA 0.6mm)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Littelfuse Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Q4(LF50CDT)
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "IRFR5305TRLPBF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Infineon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=CR1-1
+Added Pin To Net: NetName=NetCR1_2 Pin=CR1-2
+Added Pin To Net: NetName=GND Pin=CR2-1
+Added Pin To Net: NetName=NetCR2_2 Pin=CR2-2
+Added Pin To Net: NetName=GND Pin=CR3-1
+Added Pin To Net: NetName=MOSI Pin=CR3-2
+Added Pin To Net: NetName=GND Pin=CR4-1
+Added Pin To Net: NetName=MISO Pin=CR4-2
+Added Pin To Net: NetName=GND Pin=CR5-1
+Added Pin To Net: NetName=SCK Pin=CR5-2
+Added Pin To Net: NetName=GND Pin=CR6-1
+Added Pin To Net: NetName=CD SW1 Pin=CR6-2
+Added Pin To Net: NetName=Lipo+ Pin=F1-1
+Added Pin To Net: NetName=NetF1_2 Pin=F1-2
+Added Pin To Net: NetName=NetQ3_3 Pin=Q4-1
+Add Pin To Net: Unknown Pin: Pin Q4-2
+Added Pin To Net: NetName=NetF1_2 Pin=Q4-3
+Added Member To Class: ClassName=Sheet1 Member=Component CR1 CPDQ5V0-HF
+Added Member To Class: ClassName=Sheet1 Member=Component CR2 CPDQ5V0-HF
+Added Member To Class: ClassName=Sheet2 Member=Component CR3 CPDQ5V0-HF
+Added Member To Class: ClassName=Sheet2 Member=Component CR4 CPDQ5V0-HF
+Added Member To Class: ClassName=Sheet2 Member=Component CR5 CPDQ5V0-HF
+Added Member To Class: ClassName=Sheet2 Member=Component CR6 CPDQ5V0-HF
+Added Member To Class: ClassName=Sheet1 Member=Component F1 NANOSMDCH030F/24-02
+Added Member To Class: ClassName=Sheet1 Member=Component Q4 IRFR5305TRLPBF

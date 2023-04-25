@@ -1,0 +1,11 @@
+Added Component: Designator=JP1(HDR1X6)
+Added Pin To Net: NetName=NetC1_2 Pin=JP1-1
+Added Pin To Net: NetName=NetC1_2 Pin=JP1-2
+Added Pin To Net: NetName=GND Pin=JP1-3
+Added Pin To Net: NetName=GND Pin=JP1-4
+Added Pin To Net: NetName=VBAT Pin=JP1-5
+Added Pin To Net: NetName=VBAT Pin=JP1-6
+Added Member To Class: ClassName=Sheet1 Member=Component JP1 Boost Regulator
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3

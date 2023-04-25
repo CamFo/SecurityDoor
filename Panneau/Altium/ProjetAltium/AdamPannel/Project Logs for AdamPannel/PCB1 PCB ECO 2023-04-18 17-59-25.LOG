@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=C17 Old Footprint=CAP ALSMD ELEC 8.3MM H10.5MM New Footprint=CAP ALSMD ELEC 4.3MM H5.4MM
+Change Component Footprint: Designator=C19 Old Footprint=CAP ALSMD ELEC 8.3MM H10.5MM New Footprint=CAP ALSMD ELEC 4.3MM H5.4MM
+Change Component Footprint: Designator=C12 Old Footprint=CAP ALSMD ELEC 8.3MM H10.5MM New Footprint=CAP ALUM 4.3MM2
+Change Component Footprint: Designator=C21 Old Footprint=CAP ALSMD ELEC 8.3MM H10.5MM New Footprint=CAP ALUM 4.3MM2
+Change Component Footprint: Designator=JP7 Old Footprint=HDR1X6 New Footprint=J\6P
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2
+Added Room: Name=Sheet3

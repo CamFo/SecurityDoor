@@ -1,8 +1,0 @@
-Add Pin To Net: Pin=J6-5 Old Net=NetJ6_5 New Net=SCL/CLK
-Add Pin To Net: Pin=J6-6 Old Net=NetJ6_6 New Net=BUZZER_EA
-Add Pin To Net: Pin=J6-7 Old Net=NetJ6_7 New Net=MOSI
-Add Pin To Net: Pin=J6-8 Old Net=NetJ6_8 New Net=MISO
-Add Pin To Net: Pin=J6-9 Old Net=NetJ6_9 New Net=E/S EN
-Add Pin To Net: Pin=J6-10 Old Net=NetJ6_10 New Net=LED_B_CTRL
-Add Pin To Net: Pin=J6-11 Old Net=NetJ6_11 New Net=LED_G_CTRL
-Add Pin To Net: Pin=J6-12 Old Net=NetJ6_12 New Net=LED_R_CTRL
