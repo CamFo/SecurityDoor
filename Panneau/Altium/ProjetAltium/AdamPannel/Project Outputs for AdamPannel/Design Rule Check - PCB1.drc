@@ -1,16 +1,14 @@
 Protel Design System Design Rule Check
 PCB File : C:\Projet\SecurityDoor\Panneau\Altium\ProjetAltium\AdamPannel\PCB1.PcbDoc
 Date     : 2023-04-25
-Time     : 10:32:14
+Time     : 10:54:15
 
 Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-1(8.4mm,23.703mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-1(8.4mm,23.703mm) on Top Layer And Region (0 hole(s)) Top Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-2(8.4mm,24.897mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-2(8.4mm,24.897mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR2-1(11.182mm,30.184mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR2-1(11.182mm,30.184mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR2-2(11.182mm,28.991mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR2-2(11.182mm,28.991mm) on Top Layer And Region (0 hole(s)) Top Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR3-1(73.75mm,22.694mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
    Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR3-1(73.75mm,22.694mm) on Top Layer And Region (0 hole(s)) Top Layer 
@@ -31,7 +29,7 @@ Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
    Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.01mm,19.51mm)(77.75mm,20.25mm) on Top Layer And Track (78.11mm,17.951mm)(78.11mm,21.237mm) on Top Layer 
    Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.75mm,20.25mm)(77.75mm,24.5mm) on Top Layer And Track (78.11mm,17.951mm)(78.11mm,21.237mm) on Top Layer 
    Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.75mm,20.25mm)(77.75mm,24.5mm) on Top Layer And Track (78.11mm,21.237mm)(78.571mm,21.698mm) on Top Layer 
-Rule Violations :27
+Rule Violations :25
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
@@ -55,11 +53,7 @@ Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (0.015mm < 0.127mm) Between Via (15.75mm,63.75mm) from Top Layer to Bottom Layer And Via (16.219mm,64.304mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.015mm] / [Bottom Solder] Mask Sliver [0.015mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.029mm < 0.127mm) Between Via (17.145mm,48.387mm) from Top Layer to Bottom Layer And Via (17.526mm,49.022mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.029mm] / [Bottom Solder] Mask Sliver [0.029mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.062mm < 0.127mm) Between Via (52.478mm,39.058mm) from Top Layer to Bottom Layer And Via (52.994mm,39.633mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.062mm] / [Bottom Solder] Mask Sliver [0.062mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.024mm < 0.127mm) Between Via (92.079mm,40.024mm) from Top Layer to Bottom Layer And Via (92.538mm,40.598mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.024mm] / [Bottom Solder] Mask Sliver [0.024mm]
-Rule Violations :4
+Rule Violations :0
 
 Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (Disabled)(IsPad),(All)
 Rule Violations :0
@@ -68,13 +62,12 @@ Processing Rule : Silk to Silk (Clearance=0.254mm) (Disabled)(All),(All)
 Rule Violations :0
 
 Processing Rule : Net Antennae (Tolerance=0mm) (All)
-   Violation between Net Antennae: Via (84.413mm,57.799mm) from Top Layer to Bottom Layer 
-Rule Violations :1
+Rule Violations :0
 
 Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
 Rule Violations :0
 
 
-Violations Detected : 32
+Violations Detected : 25
 Waived Violations : 0
 Time Elapsed        : 00:00:02
