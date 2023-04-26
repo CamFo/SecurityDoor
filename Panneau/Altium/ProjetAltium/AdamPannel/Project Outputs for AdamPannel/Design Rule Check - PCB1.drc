@@ -1,35 +1,30 @@
 Protel Design System Design Rule Check
-PCB File : C:\FinalProject\SecurityDoor\Panneau\Altium\ProjetAltium\AdamPannel\PCB1.PcbDoc
-Date     : 2023-04-25
-Time     : 13:00:47
+PCB File : C:\Projet\SecurityDoor\Panneau\Altium\ProjetAltium\AdamPannel\PCB1.PcbDoc
+Date     : 2023-04-26
+Time     : 12:33:03
 
-Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-1(8.4mm,23.703mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-1(8.4mm,23.703mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-2(8.4mm,24.897mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR1-2(8.4mm,24.897mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR2-1(11.182mm,30.184mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR2-2(11.182mm,28.991mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR3-1(73.75mm,22.694mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR3-1(73.75mm,22.694mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR3-2(73.75mm,21.5mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR3-2(73.75mm,21.5mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR4-1(71.5mm,22.597mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR4-1(71.5mm,22.597mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR4-2(71.5mm,21.403mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR4-2(71.5mm,21.403mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR5-1(76mm,22.694mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR5-1(76mm,22.694mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR5-2(76mm,21.5mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR5-2(76mm,21.5mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-1(69.292mm,22.597mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-1(69.292mm,22.597mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-2(69.292mm,21.403mm) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
-   Violation between Clearance Constraint: (0.051mm < 0.127mm) Between Pad CR6-2(69.292mm,21.403mm) on Top Layer And Region (0 hole(s)) Top Layer 
-   Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.01mm,19.51mm)(77.75mm,20.25mm) on Top Layer And Track (78.11mm,17.951mm)(78.11mm,21.237mm) on Top Layer 
-   Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.75mm,20.25mm)(77.75mm,24.5mm) on Top Layer And Track (78.11mm,17.951mm)(78.11mm,21.237mm) on Top Layer 
-   Violation between Clearance Constraint: (0.106mm < 0.127mm) Between Track (77.75mm,20.25mm)(77.75mm,24.5mm) on Top Layer And Track (78.11mm,21.237mm)(78.571mm,21.698mm) on Top Layer 
-Rule Violations :25
+Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR1-1(328.613mil,942.9mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR1-2(328.613mil,989.9mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR2-1(360mil,1163.5mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR2-2(360mil,1116.5mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR3-1(2903.543mil,893.457mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR3-1(2903.543mil,893.457mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR3-2(2903.543mil,846.457mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR3-2(2903.543mil,846.457mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR4-1(2814.961mil,889.642mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR4-1(2814.961mil,889.642mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR4-2(2814.961mil,842.642mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR4-2(2814.961mil,842.642mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR5-1(2992.126mil,893.457mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR5-1(2992.126mil,893.457mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR5-2(2992.126mil,846.457mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR5-2(2992.126mil,846.457mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR6-1(2728.039mil,889.632mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR6-1(2728.039mil,889.632mil) on Top Layer And Region (0 hole(s)) Top Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR6-2(2728.039mil,842.632mil) on Top Layer And Region (0 hole(s)) Keep-Out Layer 
+   Violation between Clearance Constraint: (2mil < 5mil) Between Pad CR6-2(2728.039mil,842.632mil) on Top Layer And Region (0 hole(s)) Top Layer 
+Rule Violations :20
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
@@ -40,35 +35,34 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=0.254mm) (Max=0.508mm) (Preferred=0.254mm) (All)
+Processing Rule : Width Constraint (Min=10mil) (Max=20mil) (Preferred=10mil) (All)
 Rule Violations :0
 
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
 Rule Violations :0
 
-Processing Rule : Hole Size Constraint (Min=0.254mm) (Max=3.048mm) (All)
+Processing Rule : Hole Size Constraint (Min=10mil) (Max=120mil) (All)
 Rule Violations :0
 
-Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
 Rule Violations :0
 
-Processing Rule : Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (0.115mm < 0.127mm) Between Pad JP5-16(94mm,40.595mm) on Multi-Layer And Via (92.538mm,40.598mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.115mm] / [Bottom Solder] Mask Sliver [0.115mm]
-Rule Violations :1
-
-Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (Disabled)(IsPad),(All)
+Processing Rule : Minimum Solder Mask Sliver (Gap=5mil) (All),(All)
 Rule Violations :0
 
-Processing Rule : Silk to Silk (Clearance=0.254mm) (Disabled)(All),(All)
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (Disabled)(IsPad),(All)
 Rule Violations :0
 
-Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Processing Rule : Silk to Silk (Clearance=10mil) (Disabled)(All),(All)
 Rule Violations :0
 
-Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
 Rule Violations :0
 
 
-Violations Detected : 26
+Violations Detected : 20
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
