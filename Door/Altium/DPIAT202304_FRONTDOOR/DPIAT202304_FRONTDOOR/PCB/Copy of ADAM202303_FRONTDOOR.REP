@@ -1,0 +1,14 @@
+*************************************************************
+FileName = Copy of ADAM202303_FRONTDOOR.GBR
+AutoAperture = True
+*************************************************************
+Generating : Keep-Out Layer
+      File : Copy of ADAM202303_FRONTDOOR.GKO
+
+    Adding Layer      : Keep-Out Layer
+
+
+Used DCodes :
+    D10
+*************************************************************
+
