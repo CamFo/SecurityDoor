@@ -97,7 +97,6 @@ boolean NfcAdapter::clean()
         Serial.print(F("No driver for card type "));Serial.println(type);
         return false;
     }
-
 }
 
 

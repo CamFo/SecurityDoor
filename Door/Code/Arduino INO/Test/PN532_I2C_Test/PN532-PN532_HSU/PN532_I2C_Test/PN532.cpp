@@ -13,6 +13,7 @@
 
 #define HAL(func)   (_interface->func)
 
+
 PN532::PN532(PN532Interface &interface)
 {
     _interface = &interface;
