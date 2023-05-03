@@ -43,6 +43,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
+CurrentVariant=CAPTEUR BRUIT
 
 [Preferences]
 PrefsVaultGUID=
@@ -132,6 +133,43 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RQCDCCPO
+
+[ProjectVariant1]
+UniqueID=E380F12E-F3CE-4B7D-ACBB-5B650FA28383
+Description=CAPTEUR BRUIT
+AllowFabrication=0
+ParameterCount=0
+VariationCount=5
+Variation1=Designator=A1|UniqueId=\TIGLQJWG|Kind=1|AlternatePart= 
+Variation2=Designator=C13|UniqueId=\SHPHVEHF|Kind=1|AlternatePart= 
+Variation3=Designator=J4|UniqueId=\AYETTLFS|Kind=1|AlternatePart= 
+Variation4=Designator=C12|UniqueId=\NKQMNUOD|Kind=1|AlternatePart= 
+Variation5=Designator=J5|UniqueId=\CSJAJPYV|Kind=1|AlternatePart= 
+ParamVariationCount=0
+
+[ProjectVariant2]
+UniqueID=68FF1424-440E-4E20-AFD1-85F300616826
+Description=CAPTEUR MOUVEMENT
+AllowFabrication=0
+ParameterCount=0
+VariationCount=4
+Variation1=Designator=J3|UniqueId=\AZJHKLPI|Kind=1|AlternatePart= 
+Variation2=Designator=J5|UniqueId=\CSJAJPYV|Kind=1|AlternatePart= 
+Variation3=Designator=J4|UniqueId=\AYETTLFS|Kind=1|AlternatePart= 
+Variation4=Designator=C12|UniqueId=\NKQMNUOD|Kind=1|AlternatePart= 
+ParamVariationCount=0
+
+[ProjectVariant3]
+UniqueID=5FD6C34A-A744-4A39-BA55-9DF50244557F
+Description=CAPTEUR 3 (?)
+AllowFabrication=0
+ParameterCount=0
+VariationCount=4
+Variation1=Designator=A1|UniqueId=\TIGLQJWG|Kind=1|AlternatePart= 
+Variation2=Designator=C13|UniqueId=\SHPHVEHF|Kind=1|AlternatePart= 
+Variation3=Designator=J5|UniqueId=\CSJAJPYV|Kind=1|AlternatePart= 
+Variation4=Designator=J3|UniqueId=\AZJHKLPI|Kind=1|AlternatePart= 
+ParamVariationCount=0
 
 [Configuration1]
 Name=Sources
@@ -342,6 +380,12 @@ OutputDocumentPath12=
 OutputVariantName12=
 OutputDefault12=0
 PageOptions12=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+OutputType13=PDF3D MBA
+OutputName13=PDF3D MBA
+OutputDocumentPath13=
+OutputVariantName13=
+OutputDefault13=0
+PageOptions13=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 
 [OutputGroup4]
 Name=Assembly Outputs
@@ -699,6 +743,16 @@ OutputName10=Web Review Data
 OutputDocumentPath10=
 OutputVariantName10=
 OutputDefault10=0
+OutputType11=MBAExportPARASOLID
+OutputName11=Export PARASOLID
+OutputDocumentPath11=
+OutputVariantName11=
+OutputDefault11=0
+OutputType12=MBAExportSTEP
+OutputName12=Export STEP
+OutputDocumentPath12=
+OutputVariantName12=
+OutputDefault12=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
