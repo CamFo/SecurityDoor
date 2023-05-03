@@ -16,21 +16,6 @@
 #include <Wire.h>
 
 
-class PiloteI2C {
-  public:
-  PiloteI2C(int SDA,int SCL);
-
-  void PiloteI2C_BeginI2C();
-  private:
-
-  int SDA;
-  int SCL;
-
-};
-
-
-
-
 
 
 

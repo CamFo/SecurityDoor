@@ -10,17 +10,7 @@
 //
 //*****
 #include "AD_D_PILOTEI2C.h"
-
-TwoWire TwoWireI2C1;
-
-
-
-
-
-void PiloteI2C::PiloteI2C_BeginI2C()
-{
-  TwoWireI2C1.begin(SDA,SCL,I2C1_SPEED);
-}
+//#include <Wire.h>
 
 
 
