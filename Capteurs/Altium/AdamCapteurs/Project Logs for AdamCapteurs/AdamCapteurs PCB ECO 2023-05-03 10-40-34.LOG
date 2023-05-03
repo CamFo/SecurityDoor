@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SCK Pin=J5-9
+Removed Pin From Net: NetName=MOSI Pin=J5-10
+Removed Pin From Net: NetName=MISO Pin=J5-11
+Added Member To Class: ClassName=AdamCapteurs-1 Member=Component JP1 Boost Regulator
