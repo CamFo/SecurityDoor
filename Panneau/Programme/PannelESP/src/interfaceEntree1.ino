@@ -10,11 +10,10 @@
  */
 
 //INCLUSIONS
-#include <Arduino.h>
-#include "xmain.h"
-#include "xpiloteEntree1.h"
-#include "xserviceBaseDeTemps.h"
-#include "xinterfaceEntree1.h"
+#include "main.h"
+#include "piloteEntree1.h"
+#include "serviceBaseDeTemps.h"
+#include "interfaceEntree1.h"
 
 
 //Definitions privees

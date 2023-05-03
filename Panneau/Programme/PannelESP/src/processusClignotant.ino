@@ -3,12 +3,11 @@
 // 2023-05-03, Camille Fortin
 
 //INCLUSIONS
-#include <Arduino.h>
-#include "xmain.h"
-#include "xinterfaceT1.h"
+#include "main.h"
+#include "interfaceT1.h"
 
-#include "xserviceBaseDeTemps.h"
-#include "xprocessusClignotant.h"
+#include "serviceBaseDeTemps.h"
+#include "processusClignotant.h"
 #include <stdio.h>
 
 //Definitions privees

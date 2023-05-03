@@ -10,10 +10,9 @@
  */
 
 //INCLUSIONS
-#include <Arduino.h>
-#include "xmain.h"
-#include "xpiloteIOT1.h"
-#include "xinterfaceT1.h"
+#include "main.h"
+#include "piloteIOT1.h"
+#include "interfaceT1.h"
 
 //Definitions privees
 //pas de definitions privees

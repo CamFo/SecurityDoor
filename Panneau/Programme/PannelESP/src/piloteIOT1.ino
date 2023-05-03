@@ -16,8 +16,8 @@
 
 //INCLUSIONS
 #include <Arduino.h>
-#include "xmain.h"
-#include "xpiloteIOT1.h"
+#include "main.h"
+#include "piloteIOT1.h"
 
 //Definitions privees
 //pas de definitions privees

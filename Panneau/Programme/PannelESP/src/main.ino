@@ -15,25 +15,24 @@
 
 
 //INCLUSIONS
-//#include <Arduino.h>
-#include "xmain.h"
+#include "main.h"
 
 // inlcude des pilotes
 
-#include "xpiloteEntree1.h"
-#include "xpiloteIOT1.h"
+#include "piloteEntree1.h"
+#include "piloteIOT1.h"
 
 // Include des Services
-#include "xserviceTaskServer.h"
-#include "xserviceBaseDeTemps.h"
+#include "serviceTaskServer.h"
+#include "serviceBaseDeTemps.h"
 
 // Inlude des interfaces
-#include "xinterfaceEntree1.h"
-#include "xinterfaceT1.h"
+#include "interfaceEntree1.h"
+#include "interfaceT1.h"
 
 
 // Include des processus
-#include "xprocessusClignotant.h"
+#include "processusClignotant.h"
 
 //Definitions privees
 //pas de definitions privees
