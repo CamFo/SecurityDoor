@@ -33,6 +33,7 @@
 
 
 // Include des processus
+#include "processusPourTest.h"
 #include "processusClignotant.h"
 
 //Definitions privees
@@ -63,6 +64,7 @@ void main_initialise(void)
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
   piloteEntree1_initialise();
+  processusDeTest_initialise();
   piloteIOT1_initialise(); 
   interfaceEntree1_initialise();
   interfaceT1_initialise();

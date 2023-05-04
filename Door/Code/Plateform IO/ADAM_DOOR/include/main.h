@@ -109,18 +109,18 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 7
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 3
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
-
+#define PROCESSUSTESTS_PHASE 2
 /**
  * @brief Numéro de phase la lecture de l'Entrée 1 
  */
-#define INTERFACEENTREE1_PHASE 4
+#define INTERFACEENTREE1_PHASE 1
 /**
  * @brief Numéro de phase du processus de gestion de la benne
  */
-#define PROCESSUSCLIGNOTANT_PHASE 2
+#define PROCESSUSCLIGNOTANT_PHASE 0
 /**
  * @brief Numéro de phase du processus Conduite 
  */
