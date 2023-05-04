@@ -9,9 +9,19 @@
 // Version 1: Implementation du pilote I2C pour le fonctionnement du PN523 sur les pins 23 et 27 
 //
 //*****
-#include "AD_D_PILOTEI2C.h"
-//#include <Wire.h>
+
+
+#ifndef PILOTEI2C_H
+#define PILOTEI2C_H
 
 
 
+void piloteI2C1_initialise();
+unsigned char piloteI2C1_lisUnOctet(unsigned char);
+uint8_t piloteI2C1_appelAuChip(unsigned char,bool);
+uint8_t piloteI2C1_ecritUnOctet(unsigned char,unsigned char,bool);
+unsigned int piloteI2C1_lisUnEntier(unsigned char);
 
+
+
+#endif

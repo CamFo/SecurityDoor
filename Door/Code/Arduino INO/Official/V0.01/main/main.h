@@ -14,21 +14,26 @@
 //***********************************************************************************************************
 
 
-#ifdef MAIN_H
+#ifndef MAIN_H
 #define MAIN_H
-//***************************************************  NFC  *************************************************    
+//**************************************************  PHASES  ***********************************************    
+
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES_DANS_LOOP 1
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 1
+
+
 //**************I2C*******************
 
-#define I2C_ADR_NFC (0x24);
+#define I2C_ADR_NFC (0x24)
 
 //***************************************************BUS I2C*************************************************    
 
 #define BUS_I2C1 
-#define I2C1_SPEED 100000;
-#define I2C1_SDA   (23);
-#define I2C1_SCL   (27);
+#define FREQ1 100000
+#define SDA1   (23)
+#define SCL1   (27)
 
 //#define BUS_I2C2
 //#define BUS_I2C3
-
+#define TRUE true
 #endif

@@ -11,11 +11,16 @@
 //*****
 
 
-#ifndef AD_D_PILOTEI2CH
-#define AD_D_PILOTEI2CH
-#include <Wire.h>
+#ifndef PILOTEI2C_H
+#define PILOTEI2C_H
 
 
+
+void piloteI2C1_initialise();
+unsigned char piloteI2C1_lisUnOctet(unsigned char);
+uint8_t piloteI2C1_appelAuChip(unsigned char,bool);
+uint8_t piloteI2C1_ecritUnOctet(unsigned char,unsigned char,bool);
+unsigned int piloteI2C1_lisUnEntier(unsigned char);
 
 
 
