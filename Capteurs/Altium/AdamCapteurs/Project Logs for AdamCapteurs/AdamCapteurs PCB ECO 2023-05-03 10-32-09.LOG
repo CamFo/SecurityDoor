@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=SERIN Pin=J5-3
+Removed Pin From Net: NetName=GPIO0 Pin=J5-9
+Removed Pin From Net: NetName=LEDB Pin=J5-10
+Removed Pin From Net: NetName=DIRECKLINK Pin=J5-11
+Removed Member From Class: ClassName=AdamCapteurs-1 Member=D8
+Change Component Footprint: Designator=JP1 Old Footprint=HDR1X6 New Footprint=HDR1X6-Power
+Added Pin To Net: NetName=GPIO0 Pin=J5-3
+Added Pin To Net: NetName=LEDB Pin=J5-5
+Added Pin To Net: NetName=SERIN Pin=J5-6
+Added Pin To Net: NetName=DIRECKLINK Pin=J5-7
+Added Pin To Net: NetName=SCK Pin=J5-9
+Added Pin To Net: NetName=MOSI Pin=J5-10
+Added Pin To Net: NetName=MISO Pin=J5-11
+Added Pin To Net: NetName=GND Pin=MTH1-1
+Added Pin To Net: NetName=GND Pin=MTH2-1
+Added Pin To Net: NetName=SCK Pin=U3-29
+Added Pin To Net: NetName=MOSI Pin=U3-30
+Added Pin To Net: NetName=MISO Pin=U3-31
+Added Member To Class: ClassName=AdamCapteurs-1 Member=Component D4 PMEG2010ER,115
+Added Member To Class: ClassName=AdamCapteurs-1 Member=Component D5 CPDQ5V0-HF
+Added Member To Class: ClassName=AdamCapteurs-1 Member=Component D7 Yellow
