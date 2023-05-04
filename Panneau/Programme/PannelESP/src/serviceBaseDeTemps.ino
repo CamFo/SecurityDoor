@@ -18,6 +18,7 @@
 // 2021-04-04, Yves Roy, creation
 
 //INCLUSIONS
+#include <Arduino.h>
 #include "main.h"
 #include "serviceTaskServer.h"
 #include "serviceBaseDeTemps.h"

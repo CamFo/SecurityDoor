@@ -15,6 +15,7 @@
 
 
 //INCLUSIONS
+#include <Arduino.h>
 #include "main.h"
 
 // inlcude des pilotes
