@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [AdamCapteurs.PrjPcb]
+   Generated File[AdamCapteurs-RoundHoles.TXT]
+   Generated File[AdamCapteurs-SlotHoles.TXT]
+   Generated File[AdamCapteurs.LDP]
+   Generated File[AdamCapteurs.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 09:14:10 On 2023-05-04
