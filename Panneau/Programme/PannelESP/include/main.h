@@ -1,5 +1,5 @@
 /**
- * @file xmain.h
+ * @file main.h
  * @author CamFo Camille Fortin (camfortin2022@gmail.com)
  * 
  * @brief Le fichier xmain.h est nécessaire pour les includions global qui
