@@ -109,7 +109,7 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 4
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 3//4
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
 #define PROCESSUSTESTS_PHASE 2
@@ -125,7 +125,7 @@
  * @brief  Numéro de phase de l'interface du PN523
  * 
  */
-#define INTERFACEPN523_PHASE 3
+//#define INTERFACEPN523_PHASE 3
 
 
 #define PROCESSUSCLIGNOTANT_TEMPS_ALLUME_EN_MS 500
