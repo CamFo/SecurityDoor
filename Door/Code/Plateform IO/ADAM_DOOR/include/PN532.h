@@ -116,6 +116,11 @@
 #define PN532_GPIO_P34                      (4)
 #define PN532_GPIO_P35                      (5)
 
+#define PN532_I2C_ADDRESS (0x48 >> 1) ///< Default I2C address
+#define PN532_I2C_READBIT (0x01)      ///< Read bit
+#define PN532_I2C_BUSY (0x00)         ///< Busy
+#define PN532_I2C_READY (0x01)        ///< Ready
+
 // FeliCa consts
 #define FELICA_READ_MAX_SERVICE_NUM         16
 #define FELICA_READ_MAX_BLOCK_NUM           12 // for typical FeliCa card

@@ -38,7 +38,10 @@ void processusDeTest_Delai1Sec()
     processusDeTest_compteur = 0;
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestI2C;
 }
-
+/**
+ * @brief 
+ * 
+ */
 void processusDeTest_TestI2C()
 { 
   uint8_t error = piloteI2C1_appelAuChip(I2C_ADR_NFC,TRUE);

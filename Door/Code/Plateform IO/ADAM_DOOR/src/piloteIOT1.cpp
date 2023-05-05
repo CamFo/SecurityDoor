@@ -15,6 +15,7 @@
 // 2021-04-07, Yves Roy, creation
 
 //INCLUSIONS
+#include <Arduino.h>
 #include "main.h"
 #include "piloteIOT1.h"
 

@@ -30,7 +30,7 @@
 // Inlude des interfaces
 #include "interfaceEntree1.h"
 #include "interfaceT1.h"
-
+#include "interfacePN523.h"
 
 // Include des processus
 #include "processusPourTest.h"
@@ -63,9 +63,11 @@ void main_initialise(void)
 {
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
+  piloteI2C1_initialise();
   piloteEntree1_initialise();
   processusDeTest_initialise();
   piloteIOT1_initialise(); 
+  interfacePN523_initalise();
   interfaceEntree1_initialise();
   interfaceT1_initialise();
   processusClignotant_initialise();
@@ -75,6 +77,7 @@ void main_initialise(void)
 void setup(void) 
 {
   Serial.begin(115200);
+  Serial.setDebugOutput(TRUE);
   main_initialise();
   main_faitUnTest();
   serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup();
