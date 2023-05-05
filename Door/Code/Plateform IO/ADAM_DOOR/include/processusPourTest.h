@@ -22,8 +22,9 @@
 //pas de definitions publiques
 
 //Fonctions publiques:
-void processusDeTest_initialise(void);
-
+void processusDeTest_initialise();
+void processusDeTest_Delai1Sec();
+void processusDeTest_TestI2C();
 //Variables publiques:
 //pas de variables publiques
 
