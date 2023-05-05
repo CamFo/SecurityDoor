@@ -61,6 +61,7 @@ void main_initialise(void);
 
 void main_initialise(void)
 {
+  
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
   piloteI2C1_initialise();
@@ -71,7 +72,6 @@ void main_initialise(void)
   interfaceEntree1_initialise();
   interfaceT1_initialise();
   processusClignotant_initialise();
-
 }
 
 void setup(void) 

@@ -49,28 +49,4 @@ void interfacePN523_initalise();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif
