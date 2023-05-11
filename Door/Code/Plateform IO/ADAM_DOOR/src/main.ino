@@ -78,6 +78,7 @@ void setup(void)
 {
   Serial.begin(115200);
   Serial.setDebugOutput(TRUE);
+  Serial.print("hello");
   main_initialise();
   main_faitUnTest();
   serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup();
