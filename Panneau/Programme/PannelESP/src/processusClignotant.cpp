@@ -8,6 +8,7 @@
 
 #include "serviceBaseDeTemps.h"
 #include "processusClignotant.h"
+#include "piloteESPNOW.h"
 #include <stdio.h>
 
 //Definitions privees
@@ -41,6 +42,8 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
     return;
   }
   // Test Code Go here
+
+  piloteESPNOW_send();
 
 
   // END test Code 

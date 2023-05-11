@@ -21,6 +21,7 @@
 // inlcude des pilotes
 #include "piloteEntree1.h"
 #include "piloteIOT1.h"
+#include "piloteESPNOW.h"
 
 // Include des Services
 #include "serviceTaskServer.h"
@@ -64,6 +65,7 @@ void main_initialise(void)
 
   piloteEntree1_initialise();
   piloteIOT1_initialise(); 
+  piloteESPNOW_initialise();
 
   interfaceEntree1_initialise();
   interfaceT1_initialise();
