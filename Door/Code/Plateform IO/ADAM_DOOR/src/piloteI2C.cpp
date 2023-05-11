@@ -43,7 +43,10 @@ uint8_t piloteI2C1_appelAuChip(unsigned int Adr,bool active)
  */
 unsigned char piloteI2C1_lisUnOctet(unsigned int Adr)
 {
-  I2C1.requestFrom((uint8_t)Adr,(uint8_t)1);
+  if (I2C1.requestFrom((uint8_t)Adr,(uint8_t)1) == -1)
+  {
+    Serial.print("err");
+  }
   return (unsigned char) I2C1.read();
 }
 /**

@@ -20,7 +20,7 @@
 // inlcude des pilotes
 
 #include "piloteEntree1.h"
-#include "piloteIOT1.h"
+#include "piloteIOT14.h"
 #include "piloteI2C.h"
 
 // Include des Services
@@ -67,7 +67,7 @@ void main_initialise(void)
   piloteI2C1_initialise();
   piloteEntree1_initialise();
   processusDeTest_initialise();
-  piloteIOT1_initialise(); 
+  piloteIOT14_initialise(); 
   interfacePN523_initalise();
   interfaceEntree1_initialise();
   interfaceT1_initialise();

@@ -11,7 +11,7 @@
 
 //INCLUSIONS
 #include "main.h"
-#include "piloteIOT1.h"
+#include "piloteIOT14.h"
 #include "interfaceT1.h"
 
 //Definitions privees
@@ -32,15 +32,15 @@
 //Definitions de fonctions publiques:
 void interfaceT1_allume(void)
 {
-  piloteIOT1_metA(INTERFACET1_VALEUR_POUR_ALLUMER);
+  piloteIOT14_metA(INTERFACET1_VALEUR_POUR_ALLUMER);
 }
 
 void interfaceT1_eteint(void)
 {
-  piloteIOT1_metA(INTERFACET1_VALEUR_POUR_ETEINDRE);
+  piloteIOT14_metA(INTERFACET1_VALEUR_POUR_ETEINDRE);
 }
 
 void interfaceT1_initialise(void)
 {
-  piloteIOT1_metA(INTERFACET1_VALEUR_POUR_ETEINDRE);
+  piloteIOT14_metA(INTERFACET1_VALEUR_POUR_ETEINDRE);
 }

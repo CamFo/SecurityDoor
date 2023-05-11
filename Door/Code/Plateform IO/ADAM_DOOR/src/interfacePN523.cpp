@@ -31,7 +31,8 @@ unsigned int interfacePN523_compteur;
 void interfacePN523_VerifierPresenceNFC()
 {
     piloteI2C1_ecritUnByte(I2C_ADR_NFC,PN532_I2C_BUSY,TRUE);
-    piloteI2C1_lisUnEntier(PN532_I2C_READBIT);
+    piloteI2C1_lisUnOctet(PN532_I2C_READBIT);
+
 }
 //Definitions de variables publiques:
 INTERFACEPN523 interfacePN523;

@@ -47,18 +47,30 @@
  * 
  */
 #define PILOTEENTREE1_BROCHE 34
-/**
- * @brief Définition qui assigne le bon numéro de broche du ESP32 au témoin 1
- * 
- */
-#define PILOTEIOT1_BROCHE 13
-/**
- * @brief Définition qui permet de modifier un état initiale au témoin 1
- * 
- */
-#define PILOTEIOT1_ETAT_INITIAL_A_ZERO
 
-//*** Define pour pilote Feu de Position ***//
+/**
+ * @brief Définition qui permet de modifier un état de la broche 13 du esp32 
+ * 
+ */
+#define PILOTEIOT14_BROCHE 13
+
+/**
+ * @brief Définition qui permet de modifier un état de la broche 16 du esp32 
+ * 
+*/
+#define PILOTEIOT13_BROCHE 16
+
+/**
+ * @brief Définitoon qui permet de modifer un état de la broche 14 du esp32
+ * 
+ */
+#define PILOTEIOT12_BROCHE 14
+
+
+
+#define PILOTEIOT14_ETAT_INITIAL_A_ZERO
+#define PILOTEIOT13_ETAT_INITIAL_A_ZERO
+#define PILOTEIOT12_ETAT_INITIAL_A_ZERO
 
 /**
  * @brief Défini la valeur lu quand l'entré 1 est active (quand la switch est pesé)
@@ -88,6 +100,18 @@
  * @brief Valeur pour éteindre le témoin 1
  */
 #define INTERFACET1_VALEUR_POUR_ETEINDRE 0
+
+#define INTERFACERGB_VALEUR_POUR_ALLUMER 1
+
+#define INTERFACERGB_VALEUR_POUR_ETEINDRE 0
+
+#define INTERFACERGB_VALEUR_ROUGE 0
+#define INTERFACERGB_VALEUR_BLEU  1
+#define INTERFACERGB_VALEUR_VERT  2
+#define INTERFACERGB_VALEUR_JAUNE 3
+#define INTERFACERGB_VALEUR_BLEUP 4
+#define INTERFACERGB_VALEUR_MAUVE 5
+#define INTERFACERGB_VALEUR_BLANC 6
 
 /***  DÉFINITION NÉCESSAIRE À LA BASE DE TEMPS  ***/
 /**
@@ -133,7 +157,7 @@
 #define PROCESSUSPOURTEST_COMPTE_EN_MS 500
 
 #define I2C_ADR_NFC (0x24)
-
+#define CONFIG_DISABLE_HAL_LOCKS
 //***************************************************BUS I2C*************************************************    
 
 #define BUS_I2C1 

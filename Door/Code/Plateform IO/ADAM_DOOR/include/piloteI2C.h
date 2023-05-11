@@ -17,7 +17,7 @@
 
   
 void piloteI2C1_initialise();
-unsigned char piloteI2C1_lisUnOctet(unsigned char);
+unsigned char piloteI2C1_lisUnOctet(unsigned int);
 uint8_t piloteI2C1_appelAuChip(unsigned int,bool);
 uint8_t piloteI2C1_ecritUnByte(unsigned int Adr,unsigned char Msg,bool active);
 unsigned int piloteI2C1_lisUnEntier(unsigned char);
