@@ -19,8 +19,9 @@
 
 // inlcude des pilotes
 
-#include "piloteEntree1.h"
 #include "piloteIOT14.h"
+#include "piloteIOT13.h"
+#include "piloteIOT16.h"
 #include "piloteI2C.h"
 
 // Include des Services
@@ -28,8 +29,8 @@
 #include "serviceBaseDeTemps.h"
 
 // Inlude des interfaces
-#include "interfaceEntree1.h"
 #include "interfaceT1.h"
+#include "interfaceRGB.h"
 #include "interfacePN523.h"
 
 // Include des processus
@@ -65,20 +66,20 @@ void main_initialise(void)
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
   piloteI2C1_initialise();
-  piloteEntree1_initialise();
-  processusDeTest_initialise();
   piloteIOT14_initialise(); 
+  piloteIOT13_initialise();
+  piloteIOT16_initialise();
+  interfaceRGB_initialise();
   interfacePN523_initalise();
-  interfaceEntree1_initialise();
-  interfaceT1_initialise();
-  processusClignotant_initialise();
+  //interfaceT1_initialise();
+  //processusClignotant_initialise(); 
+  processusDeTest_initialise();
 }
 
 void setup(void) 
 {
   Serial.begin(115200);
   Serial.setDebugOutput(TRUE);
-  Serial.print("hello");
   main_initialise();
   main_faitUnTest();
   serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup();

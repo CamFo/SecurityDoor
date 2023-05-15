@@ -5,7 +5,7 @@
 //INCLUSIONS
 #include <Arduino.h>
 #include "main.h"
-#include "piloteIOT12.h"
+#include "piloteIOC1.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -25,47 +25,47 @@
 //Definitions de fonctions publiques:
 
 /**
- * @brief Fonction qui met a 5V la broche \ref piloteIOT12_BROCHE du microcontrôleur 
+ * @brief Fonction qui met a 5V la broche \ref piloteIOC1_BROCHE du microcontrôleur 
  * 
  */
-void piloteIOT12_metAUn(void)
+void piloteIOC1_metAUn(void)
 {
-  digitalWrite(PILOTEIOT12_BROCHE, HIGH);
+  digitalWrite(PILOTEIOC1_BROCHE, HIGH);
 }
 /**
- * @brief Fonction qui met a 0V la broche \ref piloteIOT12_BROCHE du mirocontrôleur
+ * @brief Fonction qui met a 0V la broche \ref piloteIOC1_BROCHE du mirocontrôleur
  * 
  */
-void piloteIOT12_metAZero(void)
+void piloteIOC1_metAZero(void)
 {
-  digitalWrite(PILOTEIOT12_BROCHE, LOW);
+  digitalWrite(PILOTEIOC1_BROCHE, LOW);
 }
 /**
- * @brief Fonciton qui met la broche \ref piloteIOT12_BROCHE du mirocontrôleur
+ * @brief Fonciton qui met la broche \ref piloteIOC1_BROCHE du mirocontrôleur
  *   au niveau passé en paramètre: 1 ou 0
  * 
  * @param Niveau 
  */
-void piloteIOT12_metA(unsigned char Niveau)
+void piloteIOC1_metA(unsigned char Niveau)
 {
-  digitalWrite(PILOTEIOT12_BROCHE, Niveau);
+  digitalWrite(PILOTEIOC1_BROCHE, Niveau);
 }
 /**
- * @brief Fonction d'initialisation de la broche \ref piloteIOT12_BROCHE
+ * @brief Fonction d'initialisation de la broche \ref piloteIOC1_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
- *  sa valeur initial selon la définition \ref piloteIOT12_ETAT_INITIAL_A_ZERO
- *  ou \ref piloteIOT12_ETAT_INITIAL_A_UN.
+ *  sa valeur initial selon la définition \ref piloteIOC1_ETAT_INITIAL_A_ZERO
+ *  ou \ref piloteIOC1_ETAT_INITIAL_A_UN.
  * 
  */
-void piloteIOT12_initialise(void)
+void piloteIOC1_initialise(void)
 {
-  pinMode(PILOTEIOT12_BROCHE,OUTPUT);
+  pinMode(PILOTEIOC1_BROCHE,OUTPUT);
 
-#ifdef PILOTEIOT12_ETAT_INITIAL_A_UN
-	digitalWrite(PILOTEIOT12_BROCHE,HIGH);	
+#ifdef PILOTEIOC1_ETAT_INITIAL_A_UN
+	digitalWrite(PILOTEIOC1_BROCHE,HIGH);	
 #endif
 
-#ifdef PILOTEIOT12_ETAT_INITIAL_A_ZERO
-	digitalWrite(PILOTEIOT12_BROCHE,LOW);
+#ifdef PILOTEIOC1_ETAT_INITIAL_A_ZERO
+	digitalWrite(PILOTEIOC1_BROCHE,LOW);
 #endif
 }

@@ -21,7 +21,7 @@ TwoWire I2C1 = TwoWire(0);
  */
 void piloteI2C1_initialise()
 {
- I2C1.begin(SDA1,SCL1,FREQ1);
+ I2C1.begin(PILOTEI2C_SDA1,PILOTEI2C_SCL1,PILOTEI2C1_FREQ1);
 }
 /**
  * @brief ecrit en I2C l'adresse d'une chip et annule la communication, utilise pour verifier la présence d'un chip.
