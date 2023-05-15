@@ -35,12 +35,12 @@
 //Definitions de fonctions publiques:
 
 /**
- * @brief Fonction qui met a 3V la broche \ref piloteIOT14_BROCHE du microcontrôleur 
+ * @brief Fonction qui met a 5V la broche \ref piloteIOT14_BROCHE du microcontrôleur 
  * 
  */
 void piloteIOT14_metAUn(void)
 {
-  digitalWrite(PILOTEIOT14_BROCHE, LOW);
+  digitalWrite(PILOTEIOT14_BROCHE, HIGH);
 }
 /**
  * @brief Fonction qui met a 0V la broche \ref piloteIOT14_BROCHE du mirocontrôleur
@@ -48,7 +48,7 @@ void piloteIOT14_metAUn(void)
  */
 void piloteIOT14_metAZero(void)
 {
-  digitalWrite(PILOTEIOT14_BROCHE, HIGH);
+  digitalWrite(PILOTEIOT14_BROCHE, LOW);
 }
 /**
  * @brief Fonciton qui met la broche \ref piloteIOT14_BROCHE du mirocontrôleur
@@ -69,7 +69,7 @@ void piloteIOT14_metA(unsigned char Niveau)
  */
 void piloteIOT14_initialise(void)
 {
-  pinMode(PILOTEIOT14_BROCHE,INPUT);
+  pinMode(PILOTEIOT14_BROCHE,OUTPUT);
 
 #ifdef PILOTEIOT14_ETAT_INITIAL_A_UN
 	digitalWrite(PILOTEIOT14_BROCHE,HIGH);	

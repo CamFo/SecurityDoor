@@ -48,7 +48,7 @@ void main_faitUnTest(void);
 /// @param void
 void main_faitUnTest(void)
 {
-  
+
 }
 /// @brief Fonction qui fait l'initialisation de tout les modules permettant
 //   au fonctionnement global du véhicule.
@@ -71,7 +71,7 @@ void main_initialise(void)
   piloteIOT16_initialise();
   interfaceRGB_initialise();
   interfacePN523_initalise();
-  //interfaceT1_initialise();
+  interfaceT1_initialise();
   //processusClignotant_initialise(); 
   processusDeTest_initialise();
 }
