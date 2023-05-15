@@ -42,7 +42,18 @@ unsigned int processusDeTest_compteur;
 
 //Definitions de fonctions publiques:
 int icount;
-void processusDeTest_Delai1Sec()
+void processusDeTest_RGB_Delai1Sec()
+{
+  processusDeTest_compteur++;
+  if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_2S)
+  {
+    return;
+  }
+    processusDeTest_compteur = 0;
+    serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestRGB;
+}
+
+void processusDeTest_I2C_Delai1Sec()
 {
   processusDeTest_compteur++;
   if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_2S)
@@ -52,23 +63,25 @@ void processusDeTest_Delai1Sec()
     processusDeTest_compteur = 0;
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestI2C;
 }
-/**
- * @brief 
- * 
- */
+
 void processusDeTest_TestI2C()
+{
+    interfacePN523_VerifierPresenceNFC();
+    serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_I2C_Delai1Sec;
+}
+
+void processusDeTest_TestRGB()
 { 
-  //interfacePN523_VerifierPresenceNFC();
   icount++;
   if (icount >= INTERFACERGB_MAXSTATE)
   icount = INTERFACERGB_VALEUR_ROUGE;
   interfaceRGB_allumeCouleur(icount);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Delai1Sec;
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_RGB_Delai1Sec;
 }
 
 void processusDeTest_initialise(void)
 {
   Serial.begin(115200);
   Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestI2C;
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestRGB; //Quel test faire
 }
