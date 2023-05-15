@@ -42,10 +42,8 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
     return;
   }
   // Test Code Go here
-
-  piloteESPNOW_send();
-
-
+  unsigned char adr[] = {0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
+  piloteESPNOW_send(adr);
   // END test Code 
   interfaceT1_allume();
   processusClignotant_compteur = 0;

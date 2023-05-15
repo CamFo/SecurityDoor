@@ -9,14 +9,14 @@
  * 
  */
 
-#ifndef PILOTEESPNOW
-#define PILOTEESPNOW
+#ifndef PILOTEESPNOW_H
+#define PILOTEESPNOW_H
 
 // DEFINE a mettre dans le main
 //#define ADREESSMAC_DOOR
 
 // Variable publique
-unsigned char broadcastAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+
 
 // Structure d'envoie et de réception
 typedef struct
@@ -28,7 +28,7 @@ typedef struct
     unsigned char ValeurC;
     
 }stSend;
-stSend ValueEnvoie;
+extern stSend ValueEnvoie;
 
 typedef struct 
 {
@@ -39,13 +39,14 @@ typedef struct
     unsigned char ValeurC;
 
 }stReceived;
-stReceived ValueRecu;
+extern stReceived ValueRecu;
 
 //Fonctions publiques:
 
 
 void piloteESPNOW_initialise(void);
-void piloteESPNOW_send(void);
+void piloteESPNOW_Pair(unsigned char adresse[]);
+void piloteESPNOW_send(unsigned char adresse[]);
 
 
 // ##############  STRUCTURE DE RÉFÉRENCE ################
