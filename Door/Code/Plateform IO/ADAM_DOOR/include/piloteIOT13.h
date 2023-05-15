@@ -1,6 +1,6 @@
 /**
  * @file piloteIOT13.ino
- * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
+ * @author CamFo Camille Fortin (camfortin2022@gmail.com)
  * @brief Pilote qui contrôle la broche d'un microcontrôleur en utilisant
  *  la librairie Arduino. (digitalWrite et pinMode)
  * 
@@ -20,9 +20,9 @@
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define piloteIOT13_BROCHE 13
-//#define piloteIOT13_ETAT_INITIAL_A_UN
-//#define piloteIOT13_ETAT_INITIAL_A_ZERO
+//#define PILOTEIOT13_BROCHE 13
+//#define PILOTEIOT13_ETAT_INITIAL_A_UN
+//#define PILOTEIOT13_ETAT_INITIAL_A_ZERO
 
 //Dependances logicielles
 //pas de dependances logicielles
@@ -34,27 +34,27 @@
 //Fonctions publiques:
 
 /**
- * @brief Fonction qui met a 5V la broche \ref piloteIOT13_BROCHE du microcontrôleur 
+ * @brief Fonction qui met a 5V la broche \ref PILOTEIOT13_BROCHE du microcontrôleur 
  * 
  */
 void piloteIOT13_metAUn(void);
 /**
- * @brief Fonction qui met a 0V la broche \ref piloteIOT13_BROCHE du mirocontrôleur
+ * @brief Fonction qui met a 0V la broche \ref PILOTEIOT13_BROCHE du mirocontrôleur
  * 
  */
 void piloteIOT13_metAZero(void);
 /**
- * @brief Fonciton qui met la broche \ref piloteIOT13_BROCHE du mirocontrôleur
+ * @brief Fonciton qui met la broche \ref PILOTEIOT13_BROCHE du mirocontrôleur
  *   au niveau passé en paramètre: 1 ou 0
  * 
  * @param Niveau 
  */
 void piloteIOT13_metA(unsigned char Niveau);
 /**
- * @brief Fonction d'initialisation de la broche \ref piloteIOT13_BROCHE
+ * @brief Fonction d'initialisation de la broche \ref PILOTEIOT13_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
- *  sa valeur initial selon la définition \ref piloteIOT13_ETAT_INITIAL_A_ZERO
- *  ou \ref piloteIOT13_ETAT_INITIAL_A_UN.
+ *  sa valeur initial selon la définition \ref PILOTEIOT13_ETAT_INITIAL_A_ZERO
+ *  ou \ref PILOTEIOT13_ETAT_INITIAL_A_UN.
  * 
  */
 void piloteIOT13_initialise(void);

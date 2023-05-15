@@ -1,11 +1,13 @@
 /**
- * @file piloteIO13.cpp
- * @author ILyes (ilyesdu2002@hotmail.com)
- * @brief 
- * @version 0.1
- * @date 2023-05-11
+ * @file piloteIOT13.ino
+ * @author CamFo Camille Fortin (camfortin2022@gmail.com)
+ * @brief Pilote qui contrôle la broche d'un microcontrôleur en utilisant
+ *  la librairie Arduino. (digitalWrite et pinMode)
  * 
- * @copyright Copyright (c) 2023
+ * @version 0.1
+ * @date 2022-11-23
+ * 
+ * @copyright Copyright (c) 2022
  * 
  */
 //piloteIOT13:
@@ -35,7 +37,7 @@
 //Definitions de fonctions publiques:
 
 /**
- * @brief Fonction qui met a 5V la broche \ref piloteIOT13_BROCHE du microcontrôleur 
+ * @brief Fonction qui met a 5V la broche \ref PILOTEIOT13_BROCHE du microcontrôleur 
  * 
  */
 void piloteIOT13_metAUn(void)
@@ -43,7 +45,7 @@ void piloteIOT13_metAUn(void)
   digitalWrite(PILOTEIOT13_BROCHE, HIGH);
 }
 /**
- * @brief Fonction qui met a 0V la broche \ref piloteIOT13_BROCHE du mirocontrôleur
+ * @brief Fonction qui met a 0V la broche \ref PILOTEIOT13_BROCHE du mirocontrôleur
  * 
  */
 void piloteIOT13_metAZero(void)
@@ -51,7 +53,7 @@ void piloteIOT13_metAZero(void)
   digitalWrite(PILOTEIOT13_BROCHE, LOW);
 }
 /**
- * @brief Fonciton qui met la broche \ref piloteIOT13_BROCHE du mirocontrôleur
+ * @brief Fonciton qui met la broche \ref PILOTEIOT13_BROCHE du mirocontrôleur
  *   au niveau passé en paramètre: 1 ou 0
  * 
  * @param Niveau 
@@ -61,10 +63,10 @@ void piloteIOT13_metA(unsigned char Niveau)
   digitalWrite(PILOTEIOT13_BROCHE, Niveau);
 }
 /**
- * @brief Fonction d'initialisation de la broche \ref piloteIOT13_BROCHE
+ * @brief Fonction d'initialisation de la broche \ref PILOTEIOT13_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
- *  sa valeur initial selon la définition \ref piloteIOT13_ETAT_INITIAL_A_ZERO
- *  ou \ref piloteIOT13_ETAT_INITIAL_A_UN.
+ *  sa valeur initial selon la définition \ref PILOTEIOT13_ETAT_INITIAL_A_ZERO
+ *  ou \ref PILOTEIOT13_ETAT_INITIAL_A_UN.
  * 
  */
 void piloteIOT13_initialise(void)
