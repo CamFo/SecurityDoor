@@ -116,12 +116,12 @@
  *  qui fait apelle au service Base de temps pour gêrer plusieur tache a la fois
  * 
  */
-#define SERVICETASKSERVER_PERIODE_EN_US (1000L)
+#define SERVICETASKSERVER_PERIODE_EN_US (2000L)
 /**
  * @brief Fréquence en Hz de la base de temps
  * 
  */
-#define SERVICEBASEDETEMPS_FREQUENCE_EN_HZ 1000
+#define SERVICEBASEDETEMPS_FREQUENCE_EN_HZ 500
 /**
  * @brief Nombre de phase dans une période de la base de temps (1 si pas utilisé)
  */
@@ -130,7 +130,7 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 2
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 3
 
 
 /**
@@ -141,6 +141,10 @@
  * @brief Numéro de phase du processus clignotant
  */
 #define PROCESSUSCLIGNOTANT_PHASE 1
+/**
+ * @brief Numéro de phase du Service Communication
+ */
+#define SERVICECOMMUNICATION_PHASE 2
 
 
 #define PROCESSUSCLIGNOTANT_TEMPS_ALLUME_EN_MS 500

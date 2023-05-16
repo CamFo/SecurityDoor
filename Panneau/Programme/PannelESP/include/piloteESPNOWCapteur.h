@@ -15,7 +15,22 @@
 // DEFINE a mettre dans le main
 #define PILOTEESPNOW_CHANNEL 0
 
+#define PILOTEESPNOW_INFORMATION_DISPONIBLE 1
+#define PILOTEESPNOW_INFORMATION_TRAITEE 0
+#define PILOTEESPNOW_MODULE_EN_FONCTION 1
+#define PILOTEESPNOW_MODULE_PAS_EN_FONCTION 0
+
 // Variable publique
+
+/// @brief Structure public qui permet de savoir et de changer l'état du module  
+typedef struct
+{
+  unsigned char etatDuModule;
+  unsigned char information;
+
+} PILOTEESPNOW;
+extern PILOTEESPNOW piloteESPNOWCapteur;
+
 
 // Structure d'envoie et de réception
 typedef struct

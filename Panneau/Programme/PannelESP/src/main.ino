@@ -21,11 +21,12 @@
 // inlcude des pilotes
 #include "piloteEntree1.h"
 #include "piloteIOT1.h"
-#include "piloteESPNOW.h"
+#include "piloteESPNOWCapteur.h"
 
 // Include des Services
 #include "serviceTaskServer.h"
 #include "serviceBaseDeTemps.h"
+#include "serviceCommunication.h"
 
 // Inlude des interfaces
 #include "interfaceEntree1.h"
@@ -62,10 +63,10 @@ void main_initialise(void)
 {
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
+  serviceCommunication_initialise();
 
   piloteEntree1_initialise();
   piloteIOT1_initialise(); 
-  piloteESPNOW_initialise();
 
   interfaceEntree1_initialise();
   interfaceT1_initialise();

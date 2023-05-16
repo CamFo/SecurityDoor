@@ -18,10 +18,11 @@
 #include "piloteESPNOWCapteur.h"
 
 
-// Définiion privée
+// Définition privée
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status);
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len);
 
+PILOTEESPNOW piloteESPNOWCapteur;
 
 esp_now_peer_info_t peerInfo;
 stReceived ValueRecu;
@@ -49,6 +50,7 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status)
 {
   Serial.print("\r\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+  Serial.println(status);
 }
 /**
  * @brief Fonction executer quand un message ESP now est recu
@@ -73,6 +75,8 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len)
   Serial.print("Valeur C: ");
   Serial.println(ValueRecu.ValeurC);
   Serial.println();
+
+  piloteESPNOWCapteur.information = PILOTEESPNOW_INFORMATION_DISPONIBLE;
 }
 
 //########################### Fonction PUBLIC ################################
@@ -87,6 +91,7 @@ void piloteESPNOW_send(void)
     // Send message via ESP-NOW
     esp_err_t result = esp_now_send(MACadresse, (uint8_t *) &ValueEnvoie, sizeof(ValueEnvoie));
     // Check for error
+    Serial.println(result);
     if (result == ESP_NOW_SEND_SUCCESS)
     {
         Serial.println("Sent with success");
@@ -120,7 +125,6 @@ void piloteESPNOW_Pair(void)
   Serial.print('\n');
 }
 
-
 /**
  * @brief Fonction d'initialisation du ESPNOW
  * 
@@ -144,8 +148,5 @@ void piloteESPNOW_initialise(void)
   esp_now_register_send_cb(OnDataSent);  // Callback
   // Fonction that will be called when a ESPNOW message is received
   esp_now_register_recv_cb(OnDataRecv);  // Callback
-  
-
-  piloteESPNOW_Pair();  // TEMPORAIRE !!!!!!!!
-
+  piloteESPNOWCapteur.etatDuModule = PILOTEESPNOW_MODULE_EN_FONCTION;
 }

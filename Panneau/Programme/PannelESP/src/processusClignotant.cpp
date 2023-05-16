@@ -51,13 +51,7 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
   }
   // Test Code Go here  
   
-  ValueEnvoieCapteur.States = 0x08;
-  ValueEnvoieCapteur.Commande = 0x45;
-  ValueEnvoieCapteur.ValeurA = false;
-  ValueEnvoieCapteur.ValeurB = false;
-  ValueEnvoieCapteur.ValeurC = false;
-
-  piloteESPNOW_send();
+  
   
   // END test Code 
   interfaceT1_allume();
