@@ -26,9 +26,11 @@ typedef struct
 {
   unsigned char etatDuModule;  
   unsigned char information;
+  bool RequeteActive;
 } INTERFACEMOTEUR;
 
-
-void interfaceMoteur_initalise ();
+void interfaceMoteur_droite();
+void interfaceMoteur_gauche();
+void interfaceMoteur_initalise();
 
 #endif

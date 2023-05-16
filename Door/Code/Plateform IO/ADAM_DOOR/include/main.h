@@ -53,17 +53,6 @@
  */
 #define PILOTEI2C1_FREQ1 100000
 /**
- * @brief Définition pour choisir le mode de lecture de PIN
- * 
- */
-#define PILOTEENTREE1_MODE_FLOTTANT_AVEC_PULL_UP
-/**
- * @brief Définition qui undique le numéro de broche du ESP32 utilisé par l'entrée1
- * 
- */
-#define PILOTEENTREE1_BROCHE 34
-
-/**
  * @brief Définition qui permet de modifier un état de la broche 13 du esp32 
  * 
  */
@@ -85,8 +74,11 @@
  * @brief Définition qui permet de modifer l'état de la pin 24 du esp32 
  * 
  */
-#define PILOTEIOC1_BROCHE 24
+#define PILOTEIOC24_BROCHE 24
 
+#define PILOTEIOC26_BROCHE 26
+
+#define PILOTEIOEA37_BROCHE 37
 /**
  * @brief Défini la valeur lu quand l'entré 1 est active (quand la switch est pesé)
  */

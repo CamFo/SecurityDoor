@@ -11,7 +11,9 @@
 
 #include <Arduino.h>
 #include "main.h"
-#include "piloteIOC1.h"
+#include "piloteIOC24.h"
+#include "piloteIOC26.h"
+#include "piloteIOEA37.h"
 #include "interfaceMoteur.h"
 
 
@@ -32,9 +34,20 @@
 
 //Definitions de fonctions publiques:
 INTERFACEMOTEUR interfaceMoteur;
+void interfaceMoteur_droite()
+{
+  if (interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE)
+  return;
 
+}
+void interfaceMoteur_gauche()
+{
+  if (interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE)
+  return;
+}
 void interfaceMoteur_initalise()
 {
+    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
     interfaceMoteur.etatDuModule = INTERFACEMOTEUR_MODULE_PAS_EN_FONCTION;
     interfaceMoteur.information = INTERFACEMOTEUR_INFORMATION_TRAITEE;
 }
