@@ -79,9 +79,21 @@ void processusDeTest_TestRGB()
   serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_RGB_Delai1Sec;
 }
 
+void processusDeTest_GPIO14_en_input()
+{
+ if (digitalRead(PILOTEIOT14_BROCHE))
+ {
+  interfaceRGB_allumeCouleur(INTERFACERGB_VALEUR_VERT);
+ }
+  else
+ {
+  interfaceRGB_allumeCouleur(INTERFACERGB_VALEUR_ROUGE);
+ }
+}
+
 void processusDeTest_initialise(void)
 {
   Serial.begin(115200);
   Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestRGB; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_GPIO14_en_input; //Quel test faire
 }

@@ -70,6 +70,10 @@ void piloteIOT14_metA(unsigned char Niveau)
 void piloteIOT14_initialise(void)
 {
   pinMode(PILOTEIOT14_BROCHE,OUTPUT);
+  
+#ifdef PILOTEIO14_ETAT_INPUT
+  pinMode(PILOTEIOT14_BROCHE,INPUT);
+#endif
 
 #ifdef PILOTEIOT14_ETAT_INITIAL_A_UN
 	digitalWrite(PILOTEIOT14_BROCHE,HIGH);	

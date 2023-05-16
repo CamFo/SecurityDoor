@@ -27,6 +27,7 @@ void processusDeTest_I2C_Delai1Sec();
 void processusDeTest_RGB_Delai1Sec();
 void processusDeTest_TestI2C();
 void processusDeTest_TestRGB();
+void processusDeTest_GPIO14_en_input();
 //Variables publiques:
 //pas de variables publiques
 
