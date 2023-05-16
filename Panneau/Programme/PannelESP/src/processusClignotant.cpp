@@ -1,6 +1,14 @@
-//processusClignotant:
-//Historique: 
-// 2023-05-03, Camille Fortin
+/**
+ * @file processusClignotant.cpp
+ * @author Camille Fortin (camfortin2022@gmail.com)
+ * @brief Processus décrit dans processusclignotant.h
+ * @version 0.1
+ * @date 2023-05-15
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 
 //INCLUSIONS
 #include "main.h"
@@ -8,7 +16,7 @@
 
 #include "serviceBaseDeTemps.h"
 #include "processusClignotant.h"
-#include "piloteESPNOW.h"
+#include "piloteESPNOWCapteur.h"
 #include <stdio.h>
 
 //Definitions privees
@@ -41,8 +49,14 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
   {
     return;
   }
-  // Test Code Go here
+  // Test Code Go here  
   
+  ValueEnvoieCapteur.States = 0x08;
+  ValueEnvoieCapteur.Commande = 0x45;
+  ValueEnvoieCapteur.ValeurA = false;
+  ValueEnvoieCapteur.ValeurB = false;
+  ValueEnvoieCapteur.ValeurC = false;
+
   piloteESPNOW_send();
   
   // END test Code 

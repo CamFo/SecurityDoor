@@ -1,5 +1,5 @@
 /**
- * @file piloteESPNOW.h
+ * @file piloteESPNOWCapteur.h
  * @author Camille Fortin (camfortin2022@gmail.com)
  * @brief 
  * @version 0.1
@@ -27,7 +27,7 @@ typedef struct
     unsigned char ValeurC;
     
 }stSend;
-extern stSend ValueEnvoie;
+extern stSend ValueEnvoieCapteur;
 
 typedef struct 
 {
@@ -38,7 +38,7 @@ typedef struct
     unsigned char ValeurC;
 
 }stReceived;
-extern stReceived ValueRecu;
+extern stReceived ValueRecuCapteur;
 
 //Fonctions publiques:
 

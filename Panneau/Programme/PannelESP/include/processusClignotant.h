@@ -1,3 +1,15 @@
+/**
+ * @file processusClignotant.h
+ * @author Camille Fortin (camfortin2022@gmail.com)
+ * @brief Processus servant a faire clignoter le board pour s'assurer que 
+ *      le programme fonctionne et faire des test.
+ * @version 0.1
+ * @date 2023-05-15
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #ifndef PROCESSUSCLIGNOTANT_H
 #define PROCESSUSCLIGNOTANT_H
 
