@@ -24,6 +24,17 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len);
 esp_now_peer_info_t peerInfo;
 stReceived ValueRecu;
 stSend ValueEnvoie;
+
+
+/**
+ * @brief Tableau à changer pour chaques module du projet. Chaque module du projet qui parle
+ *      en ESPNOW avec le panneau doit avoir un fichier pilote différent et cette adresse doit 
+ *      corresponde à l'adresse mac du processeur ESP utilisé.
+ * 
+ */ 
+unsigned char MACadresse[] = {0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
+
+
 // Fonction Privée
 
 /**
@@ -38,7 +49,7 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status)
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
 }
 /**
- * @brief Fonciton executer quand un message ESP now est recu
+ * @brief Fonction executer quand un message ESP now est recu
  * 
  * @param mac 
  * @param incomingData 
@@ -68,7 +79,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len)
 
 
 
-void piloteESPNOW_send(unsigned char adresse[])
+void piloteESPNOW_send(void)
 {
     // Set values to send
 
@@ -79,7 +90,7 @@ void piloteESPNOW_send(unsigned char adresse[])
     ValueEnvoie.ValeurC = false;
   
     // Send message via ESP-NOW
-    esp_err_t result = esp_now_send(adresse, (uint8_t *) &ValueEnvoie, sizeof(ValueEnvoie));
+    esp_err_t result = esp_now_send(MACadresse, (uint8_t *) &ValueEnvoie, sizeof(ValueEnvoie));
    
     if (result == ESP_NOW_SEND_SUCCESS)
     {
@@ -93,15 +104,16 @@ void piloteESPNOW_send(unsigned char adresse[])
 
 
 
-void piloteESPNOW_Pair(unsigned char adresse[])
+void piloteESPNOW_Pair(void)
 {
   // Register peer
-  memcpy(peerInfo.peer_addr, adresse, 6);
-  peerInfo.channel = 0;  
+  memcpy(peerInfo.peer_addr, MACadresse, 6);
+  peerInfo.channel = PILOTEESPNOW_CHANNEL;    // Canal de la communication ESPNOW
   peerInfo.encrypt = false;
   
   // Add peer        
-  if (esp_now_add_peer(&peerInfo) != ESP_OK){
+  if (esp_now_add_peer(&peerInfo) != ESP_OK)
+  {
     Serial.println("Failed to add peer");
     return;
   }
@@ -129,14 +141,13 @@ void piloteESPNOW_initialise(void)
       Serial.println("Error initializing ESP-NOW");
       return;
   }
-
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet
-  esp_now_register_send_cb(OnDataSent);
+  esp_now_register_send_cb(OnDataSent);  // Callback
   // Fonction that will be called when a ESPNOW message is received
-  esp_now_register_recv_cb(OnDataRecv);
+  esp_now_register_recv_cb(OnDataRecv);  // Callback
+  
 
-  unsigned char adr[] = {0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
-  piloteESPNOW_Pair(adr);
+  piloteESPNOW_Pair();  // TEMPORAIRE !!!!!!!!
 
 }

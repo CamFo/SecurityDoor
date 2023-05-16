@@ -13,10 +13,9 @@
 #define PILOTEESPNOW_H
 
 // DEFINE a mettre dans le main
-//#define ADREESSMAC_DOOR
+#define PILOTEESPNOW_CHANNEL 0
 
 // Variable publique
-
 
 // Structure d'envoie et de réception
 typedef struct
@@ -45,8 +44,8 @@ extern stReceived ValueRecu;
 
 
 void piloteESPNOW_initialise(void);
-void piloteESPNOW_Pair(unsigned char adresse[]);
-void piloteESPNOW_send(unsigned char adresse[]);
+void piloteESPNOW_Pair(void);
+void piloteESPNOW_send(void);
 
 
 // ##############  STRUCTURE DE RÉFÉRENCE ################
