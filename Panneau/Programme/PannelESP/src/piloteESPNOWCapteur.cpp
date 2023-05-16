@@ -34,8 +34,11 @@ stSend ValueEnvoie;
  *      en ESPNOW avec le panneau doit avoir un fichier pilote différent et cette adresse doit 
  *      corresponde à l'adresse mac du processeur ESP utilisé.
  * 
+ *    Feather Cegep: 94:B9:7E:6B:84:C4
+ *    Feather Appart: C4:DD:57:9C:D3:6C
+ *    Pannel : 70:B8:F6:F0:C6:B0
  */ 
-unsigned char MACadresse[] = {0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
+unsigned char MACadresse[] = {0x94, 0xB9, 0x7E, 0x6B, 0x84, 0xC4};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
 
 
 // FONCTION PRIVÉE
@@ -48,7 +51,7 @@ unsigned char MACadresse[] = {0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C};   //  Feather
  */
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) 
 {
-  Serial.print("\r\nLast Packet Send Status:\t");
+  Serial.print("\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
   Serial.println(status);
 }
@@ -86,12 +89,11 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len)
  *  of the driver source file
  * 
  */
-void piloteESPNOW_send(void)
+void piloteESPNOWCapteur_send(void)
 {
     // Send message via ESP-NOW
-    esp_err_t result = esp_now_send(MACadresse, (uint8_t *) &ValueEnvoie, sizeof(ValueEnvoie));
+    esp_err_t result = esp_now_send(MACadresse, (uint8_t *) &ValueEnvoieCapteur, sizeof(ValueEnvoieCapteur));
     // Check for error
-    Serial.println(result);
     if (result == ESP_NOW_SEND_SUCCESS)
     {
         Serial.println("Sent with success");
@@ -107,7 +109,7 @@ void piloteESPNOW_send(void)
  * @brief Fonction qui paire un board a un autre via ESPNOW 
  * 
  */
-void piloteESPNOW_Pair(void)
+void piloteESPNOWCapteur_Pair(void)
 {
   // Register peer
   memcpy(peerInfo.peer_addr, MACadresse, 6);
@@ -129,7 +131,7 @@ void piloteESPNOW_Pair(void)
  * @brief Fonction d'initialisation du ESPNOW
  * 
  */
-void piloteESPNOW_initialise(void)
+void piloteESPNOWCapteur_initialise(void)
 {
   Serial.begin(115200);
   WiFi.mode(WIFI_MODE_STA);
@@ -145,7 +147,7 @@ void piloteESPNOW_initialise(void)
   }
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet
-  esp_now_register_send_cb(OnDataSent);  // Callback
+  //esp_now_register_send_cb(OnDataSent);  // Callback
   // Fonction that will be called when a ESPNOW message is received
   esp_now_register_recv_cb(OnDataRecv);  // Callback
   piloteESPNOWCapteur.etatDuModule = PILOTEESPNOW_MODULE_EN_FONCTION;

@@ -58,9 +58,9 @@ extern stReceived ValueRecuCapteur;
 //Fonctions publiques:
 
 
-void piloteESPNOW_initialise(void);
-void piloteESPNOW_Pair(void);
-void piloteESPNOW_send(void);
+void piloteESPNOWCapteur_initialise(void);
+void piloteESPNOWCapteur_Pair(void);
+void piloteESPNOWCapteur_send(void);
 
 
 // ##############  STRUCTURE DE RÉFÉRENCE ################

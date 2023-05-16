@@ -53,7 +53,7 @@ SERVICECOMMUNICATION ServiceCommunication;
 
 void serviceCommunication_initialise(void)
 {
-    piloteESPNOW_initialise();
+    piloteESPNOWCapteur_initialise();
     ServiceCommunication.etatDuModule = SERVICECOMMUNICATION_MODULE_EN_FONCTION;
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Pairing;
 }
@@ -63,7 +63,7 @@ void serviceCommunication_Pairing(void)
     {
         return;
     }
-    piloteESPNOW_Pair();
+    piloteESPNOWCapteur_Pair();
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Envoie;
 }
 
@@ -72,10 +72,10 @@ void serviceCommunication_Envoie(void)
     ValueEnvoieCapteur.States = 0x08;
     ValueEnvoieCapteur.Commande = 0x45;
     ValueEnvoieCapteur.ValeurA = false;
-    ValueEnvoieCapteur.ValeurB = false;
+    ValueEnvoieCapteur.ValeurB = true;
     ValueEnvoieCapteur.ValeurC = false;
 
-    piloteESPNOW_send();
+    piloteESPNOWCapteur_send();
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponse;
 }
 
@@ -87,11 +87,11 @@ void serviceCommunication_WaitResponse(void)
 void serviceCommunication_Attend(void)
 {
     compteur1 = compteur1 + 1;
-    if(compteur1 < 250) // 250 x la période de la base de temps (2 ms)
+    if(compteur1 < 500) // 500 x la période de la base de temps (2 ms)
     {
         return;
     }
-    Serial.print("Finish waiting 500ms\n");
+    Serial.print("Finish waiting 1 sec\n");
     compteur1 = 0;
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Envoie;
 }
