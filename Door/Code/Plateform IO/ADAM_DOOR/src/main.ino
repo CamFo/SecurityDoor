@@ -22,6 +22,10 @@
 #include "piloteIOT14.h"
 #include "piloteIOT13.h"
 #include "piloteIOT16.h"
+
+#include "piloteIOC24.h"
+#include "piloteIOC26.h"
+#include "piloteIOEA37.h"
 #include "piloteI2C.h"
 
 // Include des Services
@@ -29,13 +33,11 @@
 #include "serviceBaseDeTemps.h"
 
 // Inlude des interfaces
-#include "interfaceT1.h"
 #include "interfaceRGB.h"
 #include "interfacePN523.h"
-
+#include "interfaceMoteur.h"
 // Include des processus
 #include "processusPourTest.h"
-#include "processusClignotant.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -48,7 +50,7 @@ void main_faitUnTest(void);
 /// @param void
 void main_faitUnTest(void)
 {
-
+ //
 }
 /// @brief Fonction qui fait l'initialisation de tout les modules permettant
 //   au fonctionnement global du véhicule.
@@ -69,10 +71,11 @@ void main_initialise(void)
   piloteIOT14_initialise(); 
   piloteIOT13_initialise();
   piloteIOT16_initialise();
+  piloteIOC24_initialise();
+  piloteIOC26_initialise();
   interfaceRGB_initialise();
   interfacePN523_initalise();
-  interfaceT1_initialise();
-  //processusClignotant_initialise(); 
+  interfaceMoteur_initalise();
   processusDeTest_initialise();
 }
 
@@ -88,7 +91,7 @@ void setup(void)
 void loop(void) 
 {
   serviceTaskServer_gestion.execute();
-  serviceBaseDeTemps_gereDansLoop();   
+  serviceBaseDeTemps_gereDansLoop(); 
 }
 
 //Definitions de variables publiques:

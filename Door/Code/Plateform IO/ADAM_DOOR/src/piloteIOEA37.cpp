@@ -46,26 +46,26 @@ void piloteIOEA37_metAZero(void)
  * 
  * @param Niveau 
  */
-void piloteIOEAA37_metA(unsigned char Niveau)
+void piloteIOEA37_metA(unsigned char Niveau)
 {
   digitalWrite(PILOTEIOEA37_BROCHE, Niveau);
 }
 /**
- * @brief Fonction d'initialisation de la broche \ref piloteIOEAA37_BROCHE
+ * @brief Fonction d'initialisation de la broche \ref piloteIOEA37_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
- *  sa valeur initial selon la définition \ref piloteIOEAA37_ETAT_INITIAL_A_ZERO
- *  ou \ref piloteIOEAA37_ETAT_INITIAL_A_UN.
+ *  sa valeur initial selon la définition \ref piloteIOEA37_ETAT_INITIAL_A_ZERO
+ *  ou \ref piloteIOEA37_ETAT_INITIAL_A_UN.
  * 
  */
-void piloteIOEAA37_initialise(void)
+void piloteIOEA37_initialise(void)
 {
   pinMode(PILOTEIOEA37_BROCHE,OUTPUT);
 
-#ifdef PILOTEIOEAA37_ETAT_INITIAL_A_UN
+#ifdef PILOTEIOEA37_ETAT_INITIAL_A_UN
 	digitalWrite(PILOTEIOEA37_BROCHE,HIGH);	
 #endif
 
-#ifdef PILOTEIOEAA37_ETAT_INITIAL_A_ZERO
+#ifdef PILOTEIOEA37_ETAT_INITIAL_A_ZERO
 	digitalWrite(PILOTEIOEA37_BROCHE,LOW);
 #endif
 }

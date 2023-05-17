@@ -56,58 +56,29 @@
  * @brief Définition qui permet de modifier un état de la broche 13 du esp32 
  * 
  */
-#define PILOTEIOT13_BROCHE 13
+#define PILOTEIOT13_BROCHE 14
 
 /**
  * @brief Définition qui permet de modifier un état de la broche 16 du esp32 
  * 
 */
-#define PILOTEIOT16_BROCHE 16
+#define PILOTEIOT16_BROCHE 13
 
 /**
  * @brief Définitoon qui permet de modifer un état de la broche 14 du esp32
  * 
  */
-#define PILOTEIOT14_BROCHE 14
+#define PILOTEIOT14_BROCHE 12
 
 /**
  * @brief Définition qui permet de modifer l'état de la pin 24 du esp32 
  * 
  */
-#define PILOTEIOC24_BROCHE 24
+#define PILOTEIOC24_BROCHE 4 // 37 et 24 sont pas bon
 
-#define PILOTEIOC26_BROCHE 26
+#define PILOTEIOC26_BROCHE 2
 
 #define PILOTEIOEA37_BROCHE 37
-/**
- * @brief Défini la valeur lu quand l'entré 1 est active (quand la switch est pesé)
- */
-#define INTERFACEENTREE1_VALEUR_LUE_SI_ACTIVE  0   
-/**
- * @brief Défini la valeur lu quand l'entré 1 est inactive (quand la switch est relaché)
- */
-#define INTERFACEENTREE1_VALEUR_LUE_SI_INACTIVE 1
-/**
- * @brief Défini la fréquence en Hz des lectures de l'entré 1 
- * 
- */
-#define INTERFACEENTREE1_FREQUENCE_DES_LECTURES_EN_HZ  125
-/**
- * @brief Défini le nombre de lectures de l'entré avant d'avoir une valeur fiable
- * 
- */
-#define INTERFACEENTREE1_NOMBRE_MINIMUM_DE_LECTURES_PAR_DECISION 10
-
-/** Définition pour le témoin 1 **/
-/**
- * @brief Valeur pour allumer le témoin 1
- */
-#define INTERFACET1_VALEUR_POUR_ALLUMER  1
-/**
- @brief  Valeur pour éteindre le témoins 1
-*/
-#define INTERFACET1_VALEUR_POUR_ETEINDRE 0
-
 
 /**
  * @brief Valeur pour allumer les temoins RGB
@@ -127,12 +98,17 @@
 #define INTERFACERGB_VALEUR_BLEUP 4
 #define INTERFACERGB_VALEUR_MAUVE 5
 #define INTERFACERGB_VALEUR_BLANC 6
+#define INTERFACERGB_VALEUR_ETEINT 7
 
-#define INTERFACERGB_MAXSTATE 3
+#define INTERFACERGB_MAXSTATE 8
 
 //#define PILOTEIOT14_ETAT_INITIAL_A_UN
 #define PILOTEIOT13_ETAT_INITIAL_A_UN
 #define PILOTEIOT16_ETAT_INITIAL_A_UN
+#define PILOTEIOT14_ETAT_INITIAL_A_UN
+#define PILOTEIOC26_ETAT_INITIAL_A_UN
+#define PILOTEIOC24_ETAT_INITIAL_A_ZERO
+#define PILOTEIOEA37_ETAT_INITIAL_A_ZERO
 //#define PILOTEIOC1_ETAT_INITIAL_A_ZERO
 
 
@@ -163,11 +139,11 @@
 /**
  * @brief Numéro de phase la lecture de l'Entrée 1 
  */
-#define INTERFACEENTREE1_PHASE 1
+#define INTERFACEMOTEUR_PHASE 1
 /**
  * @brief Numéro de phase du processus de gestion de la benne
  */
-#define PROCESSUSCLIGNOTANT_PHASE 0
+#define INTERFACERGB_PHASE 0
 /**
  * @brief  Numéro de phase de l'interface du PN523
  * 
@@ -178,6 +154,7 @@
 #define PROCESSUSCLIGNOTANT_TEMPS_ALLUME_EN_MS 500
 #define PROCESSUSCLIGNOTANT_TEMPS_ETEINT_EN_MS 500
 #define PROCESSUSPOURTEST_COMPTE_EN_MS 500
+#define INTERFACEMOTEUR_COMPTE_EN_MS 500
 
 #define I2C_ADR_NFC (0x24)
 #define CONFIG_DISABLE_HAL_LOCKS
@@ -186,7 +163,4 @@
 #define FALSE false
 #endif
 
-//#define PILOTEIOT14_BROCHE 13
-//#define PILOTEIOT13_BROCHE 16
-//#define PILOTEIOT12_BROCHE 14
 

@@ -14,6 +14,7 @@
 #include "interfacePN523.h"
 #include "serviceBaseDeTemps.h"
 #include "processusPourTest.h"
+#include "interfaceMoteur.h"
 #include <stdio.h>
 
 //Definitions privees
@@ -72,10 +73,11 @@ void processusDeTest_TestI2C()
 
 void processusDeTest_TestRGB()
 { 
+  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+  interfaceRGB.couleur = icount;
   icount++;
   if (icount >= INTERFACERGB_MAXSTATE)
   icount = INTERFACERGB_VALEUR_ROUGE;
-  interfaceRGB_allumeCouleur(icount);
   serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_RGB_Delai1Sec;
 }
 
@@ -91,9 +93,14 @@ void processusDeTest_GPIO14_en_input()
  }
 }
 
+void processusDeTest_Moteur()
+{
+  interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
+
+}
 void processusDeTest_initialise(void)
 {
   Serial.begin(115200);
   Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_GPIO14_en_input; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestRGB; //Quel test faire
 }

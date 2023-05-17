@@ -30,6 +30,7 @@
 //#define INTERFACERGB_VALEUR_BLEUP 4
 //#define INTERFACERGB_VALEUR_MAUVE 5
 //#define INTERFACERGB_VALEUR_BLANC 6
+
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
 //pas de dependances logicielles
@@ -37,12 +38,30 @@
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
 //pas de definitions publiques
+#define INTERFACERGB_MODULE_EN_FONCTION 1
+#define INTERFACERGB_MODULE_PAS_EN_FONCTION 0
+#define INTERFACERGB_INFORMATION_DISPONIBLE 1
+#define INTERFACERGB_INFORMATION_TRAITEE 0
+#define INTERFACERGB_INACTIVE 0
+#define INTERFACERGB_ACTIVE  1
+#define INTERFACERGB_PAS_EN_FONCTION 2
 
 //Fonctions publiques:
 void interfaceRGB_allumeBlanc(void);
 void interfaceRGB_eteintTous(void);
 void interfaceRGB_initialise(void);
 void interfaceRGB_allumeCouleur(unsigned int);
+void interfaceRGB_changecouleur();
+
+typedef struct
+{
+  unsigned char etatDuModule;  
+  unsigned char couleur;
+  bool RequeteActive;
+} INTERFACERGB;
+
+extern INTERFACERGB interfaceRGB;
+
 //Variables publiques:
 //pas de variables publiques
 

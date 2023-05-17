@@ -32,5 +32,7 @@ typedef struct
 void interfaceMoteur_droite();
 void interfaceMoteur_gauche();
 void interfaceMoteur_initalise();
+void interfaceMoteur_Delai1Sec();
 
+extern INTERFACEMOTEUR interfaceMoteur;
 #endif
