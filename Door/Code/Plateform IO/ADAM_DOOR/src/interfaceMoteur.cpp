@@ -11,10 +11,11 @@
 
 #include <Arduino.h>
 #include "main.h"
-#include "piloteIOC24.h"
-#include "piloteIOC26.h"
-#include "piloteIOT13.h"
+#include "piloteIOM2.h"
+#include "piloteIOM1.h"
+#include "piloteIOEA1.h"
 #include "interfaceMoteur.h"
+#include "interfaceRGB.h"
 #include "serviceBaseDeTemps.h"
 
 //Definitions privees
@@ -48,68 +49,64 @@ INTERFACEMOTEUR interfaceMoteur;
 //Definitions de fonctions publiques:
 void interfaceMoteur_Delai1Sec()
 {
-  piloteIOC24_metAZero();
-  piloteIOC26_metAZero();
+  piloteIOM2_metAZero();
+  piloteIOM1_metAZero();
   interfaceMoteur_compteur++;
   if (interfaceMoteur_compteur < INTERFACEMOTEUR_COMPTE_1S)
   {
     return;
   }
     interfaceMoteur_compteur = 0;
-    if (oldmode != GAUCHE)
-    serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_gauche;
-    else 
-    serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_droite;
+    serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_attenteDirective;
 }
 
-void interfaceMoteur_droite()
+
+
+
+void interfaceMoteur_attenteDirective()
 {
-    #ifdef MODEDEBUG
-    piloteIOT13_metAZero();
-    #endif
   if (interfaceMoteur.RequeteActive == INTERFACEMOTEUR_INACTIVE)
   return;
-  //piloteIOEA37_metAUn();
-  piloteIOC24_metAUn();
-  piloteIOC26_metAZero();
+  if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
+  serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_droite;
+  else if(interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_GAUCHE)
+  serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_gauche;
+
+}
+void interfaceMoteur_droite()
+{
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+  piloteIOM2_metAUn();
+  piloteIOM1_metAZero();
   interfaceMoteur_compteur++;
   if (interfaceMoteur_compteur < INTERFACEMOTEUR_COMPTE_2S)
   {
     return;
   }
   interfaceMoteur_compteur = 0;
-  oldmode = DROITE;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_Delai1Sec;
 
 }
 void interfaceMoteur_gauche()
 {
-    #ifdef MODEDEBUG
-    piloteIOT13_metAUn();
-    #endif
-  if (interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE)
-  return;
- // piloteIOEA37_metAUn();
-  piloteIOC24_metAZero();
-  piloteIOC26_metAUn();
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
+  piloteIOM2_metAZero();
+  piloteIOM1_metAUn();
   interfaceMoteur_compteur++;
   if (interfaceMoteur_compteur < INTERFACEMOTEUR_COMPTE_2S)
   {
     return;
   }
   interfaceMoteur_compteur = 0;
-  oldmode = GAUCHE;
+  interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_Delai1Sec;
 
 }
 void interfaceMoteur_initalise()
 {
-        #ifdef MODEDEBUG
-    piloteIOT13_metAUn();
-    #endif
+    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
     interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
     interfaceMoteur.etatDuModule = INTERFACEMOTEUR_MODULE_PAS_EN_FONCTION;
-    interfaceMoteur.information = INTERFACEMOTEUR_INFORMATION_TRAITEE;
     serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_droite;
 }

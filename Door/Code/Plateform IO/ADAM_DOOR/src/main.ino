@@ -19,13 +19,14 @@
 
 // inlcude des pilotes
 
-#include "piloteIOT14.h"
-#include "piloteIOT13.h"
-#include "piloteIOT16.h"
+#include "piloteIOT3.h"
+#include "piloteIOT2.h"
+#include "piloteIOT1.h"
+//#include "Adafruit_PN532.h"
 
-#include "piloteIOC24.h"
-#include "piloteIOC26.h"
-#include "piloteIOEA37.h"
+#include "piloteIOM2.h"
+#include "piloteIOM1.h"
+#include "piloteIOEA1.h"
 #include "piloteI2C.h"
 
 // Include des Services
@@ -68,11 +69,11 @@ void main_initialise(void)
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
   piloteI2C1_initialise();
-  piloteIOT14_initialise(); 
-  piloteIOT13_initialise();
-  piloteIOT16_initialise();
-  piloteIOC24_initialise();
-  piloteIOC26_initialise();
+  piloteIOT3_initialise(); 
+  piloteIOT2_initialise();
+  piloteIOT1_initialise();
+  piloteIOM2_initialise();
+  piloteIOM1_initialise();
   interfaceRGB_initialise();
   interfacePN523_initalise();
   interfaceMoteur_initalise();

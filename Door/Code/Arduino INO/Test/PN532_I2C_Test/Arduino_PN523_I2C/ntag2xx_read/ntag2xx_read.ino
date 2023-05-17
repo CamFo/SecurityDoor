@@ -19,6 +19,7 @@
     products from Adafruit!
 */
 /**************************************************************************/
+#include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_PN532.h>
@@ -30,11 +31,9 @@
 #define PN532_MISO (5)
 
 // If using the breakout or shield with I2C, define just the pins connected
-#define PN532_SDA (23)
-#define PN532_SCL (27)
 // to the IRQ and reset lines.  Use the values below (2, 3) for the shield!
-#define PN532_IRQ   (4)
-#define PN532_RESET (5)  // Not connected by default on the NFC Shield
+#define PN532_IRQ   (21)
+#define PN532_RESET (17)  // Not connected by default on the NFC Shield
 
 // Uncomment just _one_ line below depending on how your breakout or shield
 // is connected to the Arduino:
@@ -58,7 +57,7 @@ void setup(void) {
 
   Serial.println("Hello!");
 
-  Wire.begin(21,14)//nfc.begin();
+  nfc.begin();
 
   uint32_t versiondata = nfc.getFirmwareVersion();
   if (! versiondata) {

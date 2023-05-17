@@ -1,6 +1,6 @@
 /**
- * @file piloteIOC24.ino
- * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
+ * @file piloteIOT2.ino
+ * @author CamFo Camille Fortin (camfortin2022@gmail.com)
  * @brief Pilote qui contrôle la broche d'un microcontrôleur en utilisant
  *  la librairie Arduino. (digitalWrite et pinMode)
  * 
@@ -10,19 +10,19 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef PILOTEIOC24_H
-#define PILOTEIOC24_H
+#ifndef PILOTEIOT2_H
+#define PILOTEIOT2_H
 
-//MODULE: piloteIOC24
+//MODULE: piloteIOT2
 //DESCRIPTION: pour permettre la commande d'une sortie en "push-pull" (teste avec ESP32)
 // 2022-04-11, Yves Roy, creation
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define PILOTEIOC24_BROCHE 24
-//#define PILOTEIOC24_ETAT_INITIAL_A_UN
-//#define PILOTEIOC24_ETAT_INITIAL_A_ZERO
+//#define PILOTEIOT2_BROCHE 2
+//#define PILOTEIOT2_ETAT_INITIAL_A_UN
+//#define PILOTEIOT2_ETAT_INITIAL_A_ZERO
 
 //Dependances logicielles
 //pas de dependances logicielles
@@ -34,30 +34,30 @@
 //Fonctions publiques:
 
 /**
- * @brief Fonction qui met a 5V la broche \ref PILOTEIOC24_BROCHE du microcontrôleur 
+ * @brief Fonction qui met a 5V la broche \ref PILOTEIOT2_BROCHE du microcontrôleur 
  * 
  */
-void piloteIOC24_metAUn(void);
+void piloteIOT2_metAUn(void);
 /**
- * @brief Fonction qui met a 0V la broche \ref PILOTEIOC24_BROCHE du mirocontrôleur
+ * @brief Fonction qui met a 0V la broche \ref PILOTEIOT2_BROCHE du mirocontrôleur
  * 
  */
-void piloteIOC24_metAZero(void);
+void piloteIOT2_metAZero(void);
 /**
- * @brief Fonciton qui met la broche \ref PILOTEIOC24_BROCHE du mirocontrôleur
+ * @brief Fonciton qui met la broche \ref PILOTEIOT2_BROCHE du mirocontrôleur
  *   au niveau passé en paramètre: 1 ou 0
  * 
  * @param Niveau 
  */
-void piloteIOC24_metA(unsigned char Niveau);
+void piloteIOT2_metA(unsigned char Niveau);
 /**
- * @brief Fonction d'initialisation de la broche \ref piloteIOC24_BROCHE
+ * @brief Fonction d'initialisation de la broche \ref PILOTEIOT2_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
- *  sa valeur initial selon la définition \ref PILOTEIOC24_ETAT_INITIAL_A_ZERO
- *  ou \ref PILOTEIOC24_ETAT_INITIAL_A_UN.
+ *  sa valeur initial selon la définition \ref PILOTEIOT2_ETAT_INITIAL_A_ZERO
+ *  ou \ref PILOTEIOT2_ETAT_INITIAL_A_UN.
  * 
  */
-void piloteIOC24_initialise(void);
+void piloteIOT2_initialise(void);
 
 //Variables publiques:
 //pas de variables publiques

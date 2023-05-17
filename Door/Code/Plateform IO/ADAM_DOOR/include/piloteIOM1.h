@@ -1,5 +1,5 @@
 /**
- * @file piloteIOEA37.ino
+ * @file piloteIOM1.ino
  * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
  * @brief Pilote qui contrôle la broche d'un microcontrôleur en utilisant
  *  la librairie Arduino. (digitalWrite et pinMode)
@@ -10,19 +10,19 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef PILOTEIOEA37_H
-#define PILOTEIOEA37_H
+#ifndef PILOTEIOM1_H
+#define PILOTEIOM1_H
 
-//MODULE: piloteIOEA37
+//MODULE: piloteIOM1
 //DESCRIPTION: pour permettre la commande d'une sortie en "push-pull" (teste avec ESP32)
 // 2022-04-11, Yves Roy, creation
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define PILOTEIOEA37_BROCHE 37
-//#define PILOTEIOEA37_ETAT_INITIAL_A_UN
-//#define PILOTEIOEA37_ETAT_INITIAL_A_ZERO
+//#define PILOTEIOM1_BROCHE 26
+//#define PILOTEIOM1_ETAT_INITIAL_A_UN
+//#define PILOTEIOM1_ETAT_INITIAL_A_ZERO
 
 //Dependances logicielles
 //pas de dependances logicielles
@@ -34,30 +34,30 @@
 //Fonctions publiques:
 
 /**
- * @brief Fonction qui met a 5V la broche \ref PILOTEIOEA37_BROCHE du microcontrôleur 
+ * @brief Fonction qui met a 5V la broche \ref PILOTEIOM1_BROCHE du microcontrôleur 
  * 
  */
-void piloteIOEA37_metAUn(void);
+void piloteIOM1_metAUn(void);
 /**
- * @brief Fonction qui met a 0V la broche \ref PILOTEIOEA37_BROCHE du mirocontrôleur
+ * @brief Fonction qui met a 0V la broche \ref PILOTEIOM1_BROCHE du mirocontrôleur
  * 
  */
-void piloteIOEA37_metAZero(void);
+void piloteIOM1_metAZero(void);
 /**
- * @brief Fonciton qui met la broche \ref PILOTEIOEA37_BROCHE du mirocontrôleur
+ * @brief Fonciton qui met la broche \ref PILOTEIOM1_BROCHE du mirocontrôleur
  *   au niveau passé en paramètre: 1 ou 0
  * 
  * @param Niveau 
  */
-void piloteIOEA37_metA(unsigned char Niveau);
+void piloteIOM1_metA(unsigned char Niveau);
 /**
- * @brief Fonction d'initialisation de la broche \ref piloteIOEA37_BROCHE
+ * @brief Fonction d'initialisation de la broche \ref piloteIOM1_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
- *  sa valeur initial selon la définition \ref PILOTEIOEA37_ETAT_INITIAL_A_ZERO
- *  ou \ref PILOTEIOEA37_ETAT_INITIAL_A_UN.
+ *  sa valeur initial selon la définition \ref PILOTEIOM1_ETAT_INITIAL_A_ZERO
+ *  ou \ref PILOTEIOM1_ETAT_INITIAL_A_UN.
  * 
  */
-void piloteIOEA37_initialise(void);
+void piloteIOM1_initialise(void);
 
 //Variables publiques:
 //pas de variables publiques

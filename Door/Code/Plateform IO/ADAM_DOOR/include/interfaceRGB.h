@@ -21,15 +21,16 @@
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define INTERFACERGB_VALEUR_POUR_ALLUMER  1   
-//#define INTERFACERGB_VALEUR_POUR_ETEINDRE 0
-//#define INTERFACERGB_VALEUR_ROUGE 0
-//#define INTERFACERGB_VALEUR_BLEU  1
-//#define INTERFACERGB_VALEUR_VERT  2
-//#define INTERFACERGB_VALEUR_JAUNE 3
-//#define INTERFACERGB_VALEUR_BLEUP 4
-//#define INTERFACERGB_VALEUR_MAUVE 5
-//#define INTERFACERGB_VALEUR_BLANC 6
+
+#define INTERFACERGB_VALEUR_ROUGE 0
+#define INTERFACERGB_VALEUR_BLEU  1
+#define INTERFACERGB_VALEUR_VERT  2
+#define INTERFACERGB_VALEUR_JAUNE 3
+#define INTERFACERGB_VALEUR_BLEUP 4
+#define INTERFACERGB_VALEUR_MAUVE 5
+#define INTERFACERGB_VALEUR_BLANC 6
+#define INTERFACERGB_VALEUR_ETEINT 7
+#define INTERFACERGB_MAXSTATE 8
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
@@ -45,6 +46,16 @@
 #define INTERFACERGB_INACTIVE 0
 #define INTERFACERGB_ACTIVE  1
 #define INTERFACERGB_PAS_EN_FONCTION 2
+/**
+ * @brief Valeur pour allumer les temoins RGB
+ * 
+ */
+#define INTERFACERGB_VALEUR_POUR_ALLUMER 1
+/**
+ * @brief Valeur pour eteindre les temoins RGB
+ * 
+ */
+#define INTERFACERGB_VALEUR_POUR_ETEINDRE 0
 
 //Fonctions publiques:
 void interfaceRGB_allumeBlanc(void);

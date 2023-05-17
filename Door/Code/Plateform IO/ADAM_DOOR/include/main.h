@@ -53,62 +53,56 @@
  */
 #define PILOTEI2C1_FREQ1 100000
 /**
- * @brief Définition qui permet de modifier un état de la broche 13 du esp32 
+ * @brief Définition qui permet de modifier un état de la broche 14 du esp32 
  * 
  */
-#define PILOTEIOT13_BROCHE 14
+#define PILOTEIOT2_BROCHE 14
 
 /**
- * @brief Définition qui permet de modifier un état de la broche 16 du esp32 
+ * @brief Définition qui permet de modifier un état de la broche 2 du esp32 
  * 
 */
-#define PILOTEIOT16_BROCHE 13
+#define PILOTEIOT1_BROCHE 13
 
 /**
- * @brief Définitoon qui permet de modifer un état de la broche 14 du esp32
+ * @brief Définitoon qui permet de modifer un état de la broche 12 du esp32
  * 
  */
-#define PILOTEIOT14_BROCHE 12
+#define PILOTEIOT3_BROCHE 12
 
 /**
- * @brief Définition qui permet de modifer l'état de la pin 24 du esp32 
+ * @brief Définition qui permet de modifer l'état de la pin 4 du esp32 
  * 
  */
-#define PILOTEIOC24_BROCHE 4 // 37 et 24 sont pas bon
-
-#define PILOTEIOC26_BROCHE 2
-
-#define PILOTEIOEA37_BROCHE 37
+#define PILOTEIOM2_BROCHE 4 // 37 et 24 sont pas bon
 
 /**
- * @brief Valeur pour allumer les temoins RGB
+ * @brief Définition qui permet de modifier l'état de la pin 2 du esp32
  * 
  */
-#define INTERFACERGB_VALEUR_POUR_ALLUMER 1
+#define PILOTEIOM1_BROCHE 2
+
 /**
- * @brief Valeur pour eteindre les temoins RGB
+ * @brief Définition qui permet de modifier l'état de la pin 37 du esp32 
  * 
  */
-#define INTERFACERGB_VALEUR_POUR_ETEINDRE 0
+#define PILOTEIOEA1_BROCHE 37
 
-#define INTERFACERGB_VALEUR_ROUGE 0
-#define INTERFACERGB_VALEUR_BLEU  1
-#define INTERFACERGB_VALEUR_VERT  2
-#define INTERFACERGB_VALEUR_JAUNE 3
-#define INTERFACERGB_VALEUR_BLEUP 4
-#define INTERFACERGB_VALEUR_MAUVE 5
-#define INTERFACERGB_VALEUR_BLANC 6
-#define INTERFACERGB_VALEUR_ETEINT 7
+/**
+ * @brief Définition qui permet de modifer l'état de la pin du buzzer
+ * 
+ */
+#define PILOTEBUZZER_BROCHE 26
 
-#define INTERFACERGB_MAXSTATE 8
 
-//#define PILOTEIOT14_ETAT_INITIAL_A_UN
-#define PILOTEIOT13_ETAT_INITIAL_A_UN
-#define PILOTEIOT16_ETAT_INITIAL_A_UN
-#define PILOTEIOT14_ETAT_INITIAL_A_UN
-#define PILOTEIOC26_ETAT_INITIAL_A_UN
-#define PILOTEIOC24_ETAT_INITIAL_A_ZERO
-#define PILOTEIOEA37_ETAT_INITIAL_A_ZERO
+
+#define PILOTEIOT1_ETAT_INITIAL_A_UN
+#define PILOTEIOT2_ETAT_INITIAL_A_UN
+#define PILOTEIOT3_ETAT_INITIAL_A_UN
+#define PILOTEIOM1_ETAT_INITIAL_A_UN
+#define PILOTEIOM2_ETAT_INITIAL_A_ZERO
+#define PILOTEIOEA1_ETAT_INITIAL_A_ZERO
+#define PILOTEBUZZER_ETAT_INITIAL_A_ZERO
 //#define PILOTEIOC1_ETAT_INITIAL_A_ZERO
 
 

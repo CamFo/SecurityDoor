@@ -20,12 +20,13 @@
 #define INTERFACEMOTEUR_INACTIVE 0
 #define INTERFACEMOTEUR_ACTIVE  1
 #define INTERFACEMOTEUR_PAS_EN_FONCTION 2
-
+#define INTERFACEMOTEUR_DIRECTION_DROITE 0
+#define INTERFACEMOTEUR_DIRECTION_GAUCHE 1
 /// @brief Structure public qui permet de savoir et de changer l'état du module  
 typedef struct
 {
   unsigned char etatDuModule;  
-  unsigned char information;
+  bool direction;
   bool RequeteActive;
 } INTERFACEMOTEUR;
 
@@ -33,6 +34,7 @@ void interfaceMoteur_droite();
 void interfaceMoteur_gauche();
 void interfaceMoteur_initalise();
 void interfaceMoteur_Delai1Sec();
+void interfaceMoteur_attenteDirective();
 
 extern INTERFACEMOTEUR interfaceMoteur;
 #endif

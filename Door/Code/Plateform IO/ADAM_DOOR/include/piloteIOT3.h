@@ -1,5 +1,5 @@
 /**
- * @file piloteIOC26.ino
+ * @file piloteIOT3.h
  * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
  * @brief Pilote qui contrôle la broche d'un microcontrôleur en utilisant
  *  la librairie Arduino. (digitalWrite et pinMode)
@@ -10,19 +10,19 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#ifndef PILOTEIOC26_H
-#define PILOTEIOC26_H
+#ifndef PILOTEIOT3_H
+#define PILOTEIOT3_H
 
-//MODULE: piloteIOC26
+//MODULE: piloteIOT3
 //DESCRIPTION: pour permettre la commande d'une sortie en "push-pull" (teste avec ESP32)
 // 2022-04-11, Yves Roy, creation
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define PILOTEIOC26_BROCHE 26
-//#define PILOTEIOC26_ETAT_INITIAL_A_UN
-//#define PILOTEIOC26_ETAT_INITIAL_A_ZERO
+//#define piloteIOT3_BROCHE 3
+//#define piloteIOT3_ETAT_INITIAL_A_UN
+//#define piloteIOT3_ETAT_INITIAL_A_ZERO
 
 //Dependances logicielles
 //pas de dependances logicielles
@@ -34,30 +34,30 @@
 //Fonctions publiques:
 
 /**
- * @brief Fonction qui met a 5V la broche \ref PILOTEIOC26_BROCHE du microcontrôleur 
+ * @brief Fonction qui met a 5V la broche \ref piloteIOT3_BROCHE du microcontrôleur 
  * 
  */
-void piloteIOC26_metAUn(void);
+void piloteIOT3_metAUn(void);
 /**
- * @brief Fonction qui met a 0V la broche \ref PILOTEIOC26_BROCHE du mirocontrôleur
+ * @brief Fonction qui met a 0V la broche \ref piloteIOT3_BROCHE du mirocontrôleur
  * 
  */
-void piloteIOC26_metAZero(void);
+void piloteIOT3_metAZero(void);
 /**
- * @brief Fonciton qui met la broche \ref PILOTEIOC26_BROCHE du mirocontrôleur
+ * @brief Fonciton qui met la broche \ref piloteIOT3_BROCHE du mirocontrôleur
  *   au niveau passé en paramètre: 1 ou 0
  * 
  * @param Niveau 
  */
-void piloteIOC26_metA(unsigned char Niveau);
+void piloteIOT3_metA(unsigned char Niveau);
 /**
- * @brief Fonction d'initialisation de la broche \ref piloteIOC26_BROCHE
+ * @brief Fonction d'initialisation de la broche \ref piloteIOT3_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
- *  sa valeur initial selon la définition \ref PILOTEIOC26_ETAT_INITIAL_A_ZERO
- *  ou \ref PILOTEIOC26_ETAT_INITIAL_A_UN.
+ *  sa valeur initial selon la définition \ref piloteIOT3_ETAT_INITIAL_A_ZERO
+ *  ou \ref piloteIOT3_ETAT_INITIAL_A_UN.
  * 
  */
-void piloteIOC26_initialise(void);
+void piloteIOT3_initialise(void);
 
 //Variables publiques:
 //pas de variables publiques
