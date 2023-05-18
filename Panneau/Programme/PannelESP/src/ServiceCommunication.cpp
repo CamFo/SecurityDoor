@@ -49,6 +49,10 @@ SERVICECOMMUNICATION ServiceCommunication;
 
 //############################  STATE MACHINE FUNCTION  #####################################
 
+void serviceCommunication_Pairing(void);
+void serviceCommunication_Envoie(void);
+void serviceCommunication_WaitResponse(void);
+void serviceCommunication_Attend(void);
 
 void serviceCommunication_initialise(void)
 {
@@ -61,6 +65,7 @@ void serviceCommunication_Pairing(void)
     if(piloteESPNOWCapteur.etatDuModule != PILOTEESPNOW_MODULE_EN_FONCTION)  //On s'assure que le pilote est initialiser
     {
         return;
+
     }
     piloteESPNOWCapteur_Pair();
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Envoie;

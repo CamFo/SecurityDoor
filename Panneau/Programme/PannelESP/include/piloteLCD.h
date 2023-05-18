@@ -10,14 +10,12 @@
  */
 
 
-#define TFT_CS         21
-#define TFT_DC         33
-#define TFT_MOSI       18
-#define TFT_MISO       19
-#define TFT_CLK        5
-#define TFT_RST        2
-//#define TFT_LED        PB0
-//#define TFT_RST        PB4
+#define TFT_CS         21   //GPIO 21 pin 
+#define TFT_DC         33   //GPIO 33
+#define TFT_MOSI       18   //GPIO18
+#define TFT_MISO       19   //GPIO19
+#define TFT_CLK        5    //GPIO5
+#define TFT_RST        
 
 
 

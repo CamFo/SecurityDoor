@@ -37,8 +37,10 @@ stSend ValueEnvoie;
  *    Feather Cegep: 94:B9:7E:6B:84:C4
  *    Feather Appart: C4:DD:57:9C:D3:6C
  *    Pannel : 70:B8:F6:F0:C6:B0
+ *    Feather Door: FC:F5:C4:0A:05:C8
+ *    Porte : 70:B8:F6:A7:35:34
  */ 
-unsigned char MACadresse[] = {0x94, 0xB9, 0x7E, 0x6B, 0x84, 0xC4};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
+unsigned char MACadresse[] = {0x70, 0xB8, 0xF6, 0xA7, 0x35, 0x34};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
 
 
 // FONCTION PRIVÉE
@@ -147,7 +149,7 @@ void piloteESPNOWCapteur_initialise(void)
   }
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet
-  //esp_now_register_send_cb(OnDataSent);  // Callback
+  esp_now_register_send_cb(OnDataSent);  // Callback
   // Fonction that will be called when a ESPNOW message is received
   esp_now_register_recv_cb(OnDataRecv);  // Callback
   piloteESPNOWCapteur.etatDuModule = PILOTEESPNOW_MODULE_EN_FONCTION;

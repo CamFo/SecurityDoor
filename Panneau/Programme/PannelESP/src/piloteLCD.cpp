@@ -16,52 +16,31 @@
 
 #include "piloteLCD.h"
 
-Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+//Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 
-unsigned long printHeader(void);
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_MISO);
 
 
 void piloteLCD_initialise(void)
 {
     tft.begin();
-    tft.setRotation(1);
-    tft.fillScreen(0xA0);
+
+    uint8_t x = tft.readcommand8(ILI9341_RDMODE);
+    Serial.print("Display Power Mode: 0x"); Serial.println(x, HEX);
+    x = tft.readcommand8(ILI9341_RDMADCTL);
+    Serial.print("MADCTL Mode: 0x"); Serial.println(x, HEX);
+    x = tft.readcommand8(ILI9341_RDPIXFMT);
+    Serial.print("Pixel Format: 0x"); Serial.println(x, HEX);
+    x = tft.readcommand8(ILI9341_RDIMGFMT);
+    Serial.print("Image Format: 0x"); Serial.println(x, HEX);
+    x = tft.readcommand8(ILI9341_RDSELFDIAG);
+    Serial.print("Self Diagnostic: 0x"); Serial.println(x, HEX);
+
+    //tft.setRotation(1);
+    tft.fillScreen(0x00);
     //printHeader();
 }
 
 
-unsigned long printHeader(void)
-{
-  tft.fillRect(0,0,240, 64,ILI9341_GREEN);
-  tft.fillRect(0,64,240, 64,ILI9341_RED);
-  tft.fillRect(0,128,240, 64,ILI9341_CYAN);
-  tft.fillRect(0,192,240, 64,ILI9341_YELLOW);
-  tft.fillRect(0,256,240, 64,ILI9341_ORANGE);
-
-  unsigned long start = micros();
-  tft.setTextColor(ILI9341_BLACK);   
-  tft.setTextSize(3);
-  //
-  tft.setCursor(50,0+20);
-  tft.print("CELCIUS");
-
-  //
-  tft.setCursor(50,64+20);
-  tft.print("FAHRENHEIT");
-  //
-  tft.setCursor(50,128+20);
-  tft.print("KELVIN");
-
-    //
-  tft.setCursor(50,192+20);
-  tft.print("RANKIN");
-
-   //
-  tft.setCursor(50,256+20);
-  tft.print("HUMIDITY");
-  
-  return micros() - start;
-    
-}
 
 
