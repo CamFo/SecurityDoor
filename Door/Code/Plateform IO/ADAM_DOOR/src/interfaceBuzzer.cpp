@@ -45,21 +45,34 @@ void interfaceBuzzer_gestionFrequence()
     switch(interfaceBuzzer.valeurBruit)
     {
         case INTERFACEBUZZER_100POURCENT:
-        Serial.print("allume");
+        piloteBuzzer_metAUn();
+        Serial.print("allume xd");
         interfaceBuzzer_compteur++;
         if (interfaceBuzzer_compteur < INTERFACEBUZZER_COMPTE_1S)
         {
             return;
         }
         interfaceBuzzer_compteur = 0;
-        serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzerGestion;
+        interfaceBuzzer.valeurBruit = INTERFACEBUZZER_AUCUNBRUIT;
+ //       serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzerGestion;
+        return;
         break;
-
+        case INTERFACEBUZZER_50POURCENT:
+        serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzerGestion;
+        return;
+        break;
+        case INTERFACEBUZZER_75POURCENT:
+        serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzerGestion;
+        return;
+        break;
     }
+    interfaceBuzzer.valeurBruit = INTERFACEBUZZER_AUCUNBRUIT;
+    interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
     serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzerGestion;
 }
 void interfaceBuzzerGestion()
 {
+    piloteBuzzer_metAZero();
     if (interfaceBuzzer.RequeteActive == INTERFACEBUZZER_INACTIVE)
     return;
     switch (interfaceBuzzer.valeurBruit)
@@ -68,15 +81,19 @@ void interfaceBuzzerGestion()
         interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
         return;
         break;
+
         case INTERFACEBUZZER_50POURCENT:
         serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_50pourcent;
         break;
+
         case INTERFACEBUZZER_75POURCENT:
-        break;
         serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_75pourcent;
-        case INTERFACEBUZZER_100POURCENT:
         break;
+
+        case INTERFACEBUZZER_100POURCENT:
         serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_100pourcent;
+        break;
+
         default:
         interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
         return;
@@ -86,19 +103,19 @@ void interfaceBuzzerGestion()
 void interfaceBuzzer_50pourcent()
 {
  interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
- Serial.print("50pourcent\n");
+// Serial.print("50pourcent\n");
  serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_gestionFrequence;
 }
 void interfaceBuzzer_75pourcent()
 {
  interfaceRGB.couleur = INTERFACERGB_VALEUR_MAUVE;
- Serial.print("75pourcent\n");
+ //Serial.print("75pourcent\n");
  serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_gestionFrequence;
 }
 void interfaceBuzzer_100pourcent()
 {
- Serial.print("100pourcent\n");
  interfaceRGB.couleur = INTERFACERGB_VALEUR_BLEUP;
+ //Serial.print("100pourcent\n");
  serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_gestionFrequence;
 }
 

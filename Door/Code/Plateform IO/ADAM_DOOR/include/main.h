@@ -92,7 +92,7 @@
  * @brief Définition qui permet de modifer l'état de la pin du buzzer
  * 
  */
-#define PILOTEBUZZER_BROCHE 26
+#define PILOTEBUZZER_BROCHE 21
 
 
 

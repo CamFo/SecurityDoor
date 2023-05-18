@@ -77,6 +77,7 @@ void main_initialise(void)
   piloteIOT1_initialise();
   piloteIOM2_initialise();
   piloteIOM1_initialise();
+  piloteBuzzer_initialise();
   interfaceRGB_initialise();
   interfacePN523_initalise();
   interfaceMoteur_initalise();

@@ -122,7 +122,7 @@ void processusDeTest_Buzzer()
  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
  interfaceBuzzer.valeurBruit = icount;
  icount++;
- if (icount >= INTERFACEBUZZER_100POURCENT +1)
+ if (icount >= INTERFACEBUZZER_MAXSTATE)
  icount = INTERFACEBUZZER_AUCUNBRUIT;
  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer_Delai1Sec;
 }

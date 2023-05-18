@@ -27,6 +27,7 @@
 #define INTERFACEBUZZER_50POURCENT 1
 #define INTERFACEBUZZER_75POURCENT 2
 #define INTERFACEBUZZER_100POURCENT 3
+#define INTERFACEBUZZER_MAXSTATE 4
 /// @brief Structure public qui permet de savoir et de changer l'état du module  
 typedef struct
 {
