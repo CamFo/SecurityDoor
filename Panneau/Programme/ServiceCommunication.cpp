@@ -48,6 +48,23 @@ stReceived ValueRecuCapteur;
 SERVICECOMMUNICATION ServiceCommunication;
 
 //############################  STATE MACHINE FUNCTION  #####################################
+/**
+ * @brief Function wich pair two device in ESPNOW
+ */
+void serviceCommunication_Pairing(void);
+/**
+ * @brief Function wich wait response from the paired device
+ */
+void serviceCommunication_WaitResponse(void);
+/**
+ * @brief Function wich Send a message to the pair device via ESPNOW
+ */
+void serviceCommunication_Envoie(void);
+/**
+ * @brief Function wich wait 1 second before restarting communication cycle
+ */
+void serviceCommunication_Attend(void);
+
 
 
 void serviceCommunication_initialise(void)
@@ -63,6 +80,15 @@ void serviceCommunication_Pairing(void)
         return;
     }
     piloteESPNOWCapteur_Pair();
+    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponse;
+}
+void serviceCommunication_WaitResponse(void)
+{
+    if(piloteESPNOWCapteur.information == PILOTEESPNOW_INFORMATION_TRAITEE)
+    {
+        return;
+    }
+    piloteESPNOWCapteur.information = PILOTEESPNOW_INFORMATION_TRAITEE;
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Envoie;
 }
 
@@ -75,11 +101,6 @@ void serviceCommunication_Envoie(void)
     ValueEnvoieCapteur.ValeurC = false;
 
     piloteESPNOWCapteur_send();
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponse;
-}
-
-void serviceCommunication_WaitResponse(void)
-{
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
 }
 
