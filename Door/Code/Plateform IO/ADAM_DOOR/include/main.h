@@ -111,7 +111,8 @@
 #define PILOTEIOM2_ETAT_INITIAL_A_ZERO
 #define PILOTEIOEA1_ETAT_INITIAL_A_ZERO
 #define PILOTEBUZZER_ETAT_INITIAL_A_ZERO
-#define PILOTEIOIR1_MODE_FLOTTANT_AVEC_PULL_DOWN
+#define PILOTEIOIR1_MODE_FLOTTANT_SANS_PULL_UP
+#define PILOTEIOIR2_ETAT_INITIAL_A_ZERO
 //#define PILOTEIOC1_ETAT_INITIAL_A_ZERO
 
 
@@ -135,30 +136,40 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 5
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 6
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
-#define PROCESSUSTESTS_PHASE 2
+
+#define INTERFACERGB_PHASE 0
 /**
- * @brief Numéro de phase la lecture de l'Entrée 1 
+ * @brief Numéro de phase de l'interface du buzzer
+ * 
  */
 #define INTERFACEMOTEUR_PHASE 1
 /**
  * @brief Numéro de phase du processus de gestion de la benne
  */
-#define INTERFACERGB_PHASE 0
+#define PROCESSUSTESTS_PHASE 2
+/**
+ * @brief Numéro de phase la lecture de l'Entrée 1 
+ */
+#define INTERFACEBUZZER_PHASE 3
+/**
+ * @brief Numéro de phase du service de communication ESP-NOW 
+ * 
+ */
+#define SERVICECOMMUNICATION_PHASE 4
+/**
+ * @brief Numéro de phase de l'interface infrarouge  
+ * 
+ */
+#define INTERFACEINFRAROUGE_PHASE 5
+
 /**
  * @brief  Numéro de phase de l'interface du PN523
  * 
  */
-//#define INTERFACEPN523_PHASE 3
-/**
- * @brief Numéro de phase de l'interface du buzzer
- * 
- */
-#define INTERFACEBUZZER_PHASE 3
-
-#define SERVICECOMMUNICATION_PHASE 4
+//#define INTERFACEPN523_PHASE 
 
 
 #define PROCESSUSPOURTEST_COMPTE_EN_MS 500

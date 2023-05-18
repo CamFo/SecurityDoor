@@ -101,7 +101,6 @@ void interfaceMoteur_gauche()
   interfaceMoteur_compteur = 0;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_Delai1Sec;
-
 }
 void interfaceMoteur_initalise()
 {

@@ -33,7 +33,7 @@
 /// @brief Fonction qui permet de savoir l'état logique d'une BROCHE d'un micocontrôleur
 /// @param Aucun \ref PILOTEIOIR1_BROCHE est une définition dans \ref xmain.h  
 /// @return Valeur de la PIN de 1 ou 0 sur un unsigned char  
-unsigned char piloteIOIR1_lit(void)
+unsigned char piloteIOIR1_lis(void)
 {
   return digitalRead(PILOTEIOIR1_BROCHE);
 }
@@ -46,6 +46,6 @@ void piloteIOIR1_initialise(void)
 #endif
 
 #ifdef PILOTEIOIR1_MODE_FLOTTANT_SANS_PULL_UP
-	pinMode(PILOTEIOIR1_BROCHE);
+	pinMode(PILOTEIOIR1_BROCHE,INPUT);
 #endif
 }

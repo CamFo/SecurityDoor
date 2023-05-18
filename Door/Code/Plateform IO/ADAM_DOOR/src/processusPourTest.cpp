@@ -19,10 +19,12 @@
 #include "piloteIOT3.h"
 #include "piloteBuzzer.h"
 #include "piloteIOIR1.h"
+#include "piloteIOIR2.h"
 #include "interfaceRGB.h"
 #include "interfacePN523.h"
 #include "interfaceBuzzer.h"
 #include "interfaceMoteur.h"
+#include "interfaceInfrarouge.h"
 #include "serviceBaseDeTemps.h"
 #include "processusPourTest.h"
 
@@ -147,11 +149,17 @@ void processusDeTest_Buzzer_Delai1Sec()
 
 void processusDeTest_Infrarrouge_VerifieEntree()
 {
-
+ interfaceBuzzer.dureeActive = PROCESSUSPOURTEST_COMPTE_2S;
+ interfaceBuzzer.valeurBruit = INTERFACEBUZZER_25POURCENT;
+ piloteIOIR2_metAUn();
+ if (piloteIOIR1_lis())
+ interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
+ else
+ interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
 }
 void processusDeTest_initialise(void)
 {
   Serial.begin(115200);
   Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Infrarrouge_VerifieEntree; //Quel test faire
 }

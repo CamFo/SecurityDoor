@@ -38,6 +38,7 @@
 #include "interfacePN523.h"
 #include "interfaceMoteur.h"
 #include "interfaceBuzzer.h"
+#include "interfaceInfrarouge.h"
 // Include des processus
 #include "processusPourTest.h"
 
@@ -83,7 +84,9 @@ void main_initialise(void)
   interfacePN523_initalise();
   interfaceMoteur_initalise();
   interfaceBuzzer_initalise();
+  interfaceInfrarouge_initalise();
   processusDeTest_initialise();
+  Serial.print("init successfull.\n");
 }
 
 void setup(void) 
