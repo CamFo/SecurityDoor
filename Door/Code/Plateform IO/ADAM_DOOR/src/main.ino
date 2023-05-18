@@ -27,6 +27,8 @@
 #include "piloteIOM2.h"
 #include "piloteIOM1.h"
 #include "piloteIOEA1.h"
+
+#include "piloteBuzzer.h"
 #include "piloteI2C.h"
 
 // Include des Services
@@ -37,6 +39,7 @@
 #include "interfaceRGB.h"
 #include "interfacePN523.h"
 #include "interfaceMoteur.h"
+#include "interfaceBuzzer.h"
 // Include des processus
 #include "processusPourTest.h"
 
@@ -77,6 +80,7 @@ void main_initialise(void)
   interfaceRGB_initialise();
   interfacePN523_initalise();
   interfaceMoteur_initalise();
+  interfaceBuzzer_initalise();
   processusDeTest_initialise();
 }
 

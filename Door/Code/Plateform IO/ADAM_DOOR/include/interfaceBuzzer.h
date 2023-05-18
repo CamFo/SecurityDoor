@@ -21,19 +21,27 @@
 #define INTERFACEBUZZER_PAS_EN_FONCTION 2
 #define INTERFACEBUZZER_DIRECTION_DROITE 0
 #define INTERFACEBUZZER_DIRECTION_GAUCHE 1
+
+
+#define INTERFACEBUZZER_AUCUNBRUIT 0
+#define INTERFACEBUZZER_50POURCENT 1
+#define INTERFACEBUZZER_75POURCENT 2
+#define INTERFACEBUZZER_100POURCENT 3
 /// @brief Structure public qui permet de savoir et de changer l'état du module  
 typedef struct
 {
   unsigned char etatDuModule;  
-  unsigned int  valeurFrequence;
+  unsigned char  valeurBruit;
   bool RequeteActive;
 } INTERFACEBUZZER;
 
-void interfaceMoteur_droite();
-void interfaceMoteur_gauche();
-void interfaceMoteur_initalise();
-void interfaceMoteur_Delai1Sec();
-void interfaceMoteur_attenteDirective();
+
+void interfaceBuzzer_initalise();
+void interfaceBuzzerGestion();
+void interfaceBuzzer_50pourcent();
+void interfaceBuzzer_75pourcent();
+void interfaceBuzzer_100pourcent();
+void interfaceBuzzer_gestionFrequence();
 
 extern INTERFACEBUZZER interfaceBuzzer;
 

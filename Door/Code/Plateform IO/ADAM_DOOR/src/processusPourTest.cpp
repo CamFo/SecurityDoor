@@ -10,11 +10,14 @@
 #include "piloteIOT1.h"
 #include "piloteIOT2.h"
 #include "piloteIOT3.h"
+#include "piloteBuzzer.h"
 #include "interfaceRGB.h"
 #include "interfacePN523.h"
+#include "interfaceBuzzer.h"
+#include "interfaceMoteur.h"
 #include "serviceBaseDeTemps.h"
 #include "processusPourTest.h"
-#include "interfaceMoteur.h"
+
 #include <stdio.h>
 
 //Definitions privees
@@ -113,9 +116,34 @@ void processusDeTest_RGB_Delai1Sec()
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_TestRGB;
 }
 
+
+void processusDeTest_Buzzer()
+{
+ interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
+ interfaceBuzzer.valeurBruit = icount;
+ icount++;
+ if (icount >= INTERFACEBUZZER_100POURCENT +1)
+ icount = INTERFACEBUZZER_AUCUNBRUIT;
+ serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer_Delai1Sec;
+}
+
+
+
+void processusDeTest_Buzzer_Delai1Sec()
+{
+  processusDeTest_compteur++;
+  if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_2S)
+  {
+    return;
+  }
+    processusDeTest_compteur = 0;
+    serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer;
+}
+
+
 void processusDeTest_initialise(void)
 {
   Serial.begin(115200);
   Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Moteur; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer; //Quel test faire
 }

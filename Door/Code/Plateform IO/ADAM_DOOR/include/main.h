@@ -126,7 +126,7 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 3//4
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 4
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
 #define PROCESSUSTESTS_PHASE 2
@@ -143,12 +143,19 @@
  * 
  */
 //#define INTERFACEPN523_PHASE 3
+/**
+ * @brief Numéro de phase de l'interface du buzzer
+ * 
+ */
+#define INTERFACEBUZZER_PHASE 3
+
 
 
 #define PROCESSUSCLIGNOTANT_TEMPS_ALLUME_EN_MS 500
 #define PROCESSUSCLIGNOTANT_TEMPS_ETEINT_EN_MS 500
 #define PROCESSUSPOURTEST_COMPTE_EN_MS 500
 #define INTERFACEMOTEUR_COMPTE_EN_MS 500
+#define INTERFACEBUZZER_COMPTE_EN_MS 500
 
 #define I2C_ADR_NFC (0x24)
 #define CONFIG_DISABLE_HAL_LOCKS

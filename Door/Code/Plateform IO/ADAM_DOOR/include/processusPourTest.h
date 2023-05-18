@@ -28,6 +28,8 @@ void processusDeTest_RGB_Delai1Sec();
 void processusDeTest_TestI2C();
 void processusDeTest_TestRGB();
 void processusDeTest_GPIO14_en_input();
+void processusDeTest_Buzzer();
+void processusDeTest_Buzzer_Delai1Sec();
 //Variables publiques:
 //pas de variables publiques
 
