@@ -120,8 +120,11 @@ void processusDeTest_RGB_Delai1Sec()
 void processusDeTest_Buzzer()
 {
  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
+ interfaceBuzzer.dureeActive = PROCESSUSPOURTEST_COMPTE_2S;
  interfaceBuzzer.valeurBruit = icount;
+ if (interfaceBuzzer.etatDuModule == INTERFACEBUZZER_MODULE_PAS_EN_FONCTION);
  icount++;
+ //Serial.printf("%d",icount);
  if (icount >= INTERFACEBUZZER_MAXSTATE)
  icount = INTERFACEBUZZER_AUCUNBRUIT;
  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer_Delai1Sec;
