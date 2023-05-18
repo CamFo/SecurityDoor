@@ -1,18 +1,13 @@
 /**
- * @file piloteIOT2.ino
- * @author CamFo Camille Fortin (camfortin2022@gmail.com)
- * @brief Pilote qui contrôle la broche d'un microcontrôleur en utilisant
- *  la librairie Arduino. (digitalWrite et pinMode)
- * 
+ * @file piloteIOT2.cpp
+ * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
+ * @brief 
  * @version 0.1
- * @date 2022-11-23
+ * @date 2023-05-18
  * 
- * @copyright Copyright (c) 2022
+ * @copyright Copyright (c) 2023
  * 
  */
-//piloteIOT2:
-//Historique: 
-// 2021-04-07, Yves Roy, creation
 
 //INCLUSIONS
 #include <Arduino.h>

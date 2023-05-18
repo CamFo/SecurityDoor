@@ -126,7 +126,7 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 4
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 5
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
 #define PROCESSUSTESTS_PHASE 2
@@ -149,6 +149,7 @@
  */
 #define INTERFACEBUZZER_PHASE 3
 
+#define SERVICECOMMUNICATION_PHASE 4
 
 
 #define PROCESSUSPOURTEST_COMPTE_EN_MS 500

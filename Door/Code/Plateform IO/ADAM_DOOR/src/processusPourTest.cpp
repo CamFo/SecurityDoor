@@ -1,6 +1,13 @@
-//processusClignotant:
-//Historique: 
-// 2023-05-03, Camille Fortin
+/**
+ * @file processusPourTest.cpp
+ * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
+ * @brief 
+ * @version 0.6
+ * @date 2023-04-27
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 
 //INCLUSIONS
 #include <Arduino.h>

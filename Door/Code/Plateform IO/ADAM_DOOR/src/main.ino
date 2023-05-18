@@ -22,6 +22,7 @@
 #include "piloteIOT3.h"
 #include "piloteIOT2.h"
 #include "piloteIOT1.h"
+#include "piloteESPNOW.h"
 //#include "Adafruit_PN532.h"
 
 #include "piloteIOM2.h"
@@ -34,7 +35,7 @@
 // Include des Services
 #include "serviceTaskServer.h"
 #include "serviceBaseDeTemps.h"
-
+#include "ServiceCommunication.h"
 // Inlude des interfaces
 #include "interfaceRGB.h"
 #include "interfacePN523.h"
@@ -68,9 +69,6 @@ void main_initialise(void);
 
 void main_initialise(void)
 {
-  
-  serviceTaskServer_initialise();
-  serviceBaseDeTemps_initialise();
   piloteI2C1_initialise();
   piloteIOT3_initialise(); 
   piloteIOT2_initialise();
@@ -78,6 +76,10 @@ void main_initialise(void)
   piloteIOM2_initialise();
   piloteIOM1_initialise();
   piloteBuzzer_initialise();
+  piloteESPNOW_initialise();
+  serviceTaskServer_initialise();
+  serviceBaseDeTemps_initialise();
+  serviceCommunication_initialise();
   interfaceRGB_initialise();
   interfacePN523_initalise();
   interfaceMoteur_initalise();
