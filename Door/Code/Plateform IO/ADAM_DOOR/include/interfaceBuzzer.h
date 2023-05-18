@@ -34,6 +34,7 @@ typedef struct
   unsigned char etatDuModule;  
   unsigned char  valeurBruit;
   bool RequeteActive;
+  unsigned int dureeActive;
 } INTERFACEBUZZER;
 
 
