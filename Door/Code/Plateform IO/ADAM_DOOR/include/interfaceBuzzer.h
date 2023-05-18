@@ -37,14 +37,9 @@ typedef struct
   bool RequeteActive;
   unsigned int dureeActive;
 } INTERFACEBUZZER;
-
-
 void interfaceBuzzer_initalise();
-void interfaceBuzzerGestion();
-void interfaceBuzzer_50pourcent();
-void interfaceBuzzer_75pourcent();
-void interfaceBuzzer_100pourcent();
-void interfaceBuzzer_gestionFrequence();
+
+
 
 extern INTERFACEBUZZER interfaceBuzzer;
 

@@ -37,6 +37,8 @@
 //Definitions de fonctions publiques:
 
 INTERFACERGB interfaceRGB;
+void interfaceRGB_changecouleur();
+
 void interfaceRGB_allumeBlanc()
 {
   piloteIOT2_metAUn(); //R
@@ -99,6 +101,7 @@ void interfaceRGB_allumeCouleur(unsigned int Couleur)
     break;
   }
 }
+
 void interfaceRGB_changecouleur()
 {
  if (interfaceRGB.RequeteActive == INTERFACERGB_INACTIVE)

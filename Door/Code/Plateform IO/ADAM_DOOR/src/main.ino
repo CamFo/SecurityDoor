@@ -1,27 +1,24 @@
-//#############################################################################
 /**
- * @file main.c
- * @author CamFo Camille Fortin (camfortin2022@gmail.com)
- * @brief
- * Program file containing the code defined in xmain.h
- * Please refer to this other file for information necessary in order to make this work.
+ * @file main.ino
+ * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
+ * @brief 
  * @version 0.1
- * @date 2022-11-14
+ * @date 2023-05-18
  * 
- * @copyright Copyright (c) 2022
+ * @copyright Copyright (c) 2023
  * 
  */
-//#############################################################################
 
 
 //INCLUSIONS
 #include "main.h"
-
 // inlcude des pilotes
 
 #include "piloteIOT3.h"
 #include "piloteIOT2.h"
 #include "piloteIOT1.h"
+#include "piloteIOIR1.h"
+#include "piloteIOIR2.h"
 #include "piloteESPNOW.h"
 //#include "Adafruit_PN532.h"
 
@@ -76,6 +73,8 @@ void main_initialise(void)
   piloteIOM2_initialise();
   piloteIOM1_initialise();
   piloteBuzzer_initialise();
+  piloteIOIR1_initialise();
+  piloteIOIR2_initialise();
   piloteESPNOW_initialise();
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();

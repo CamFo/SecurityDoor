@@ -79,6 +79,10 @@ INTERFACEBUZZER interfaceBuzzer;
 unsigned int interfaceBuzzer_compteur;
 unsigned int interfaceBuzzer_compteur2;
 bool estate;
+
+
+void interfaceBuzzerGestion();
+void interfaceBuzzer_gestionFrequence();
 void interfaceBuzzer_switchState();
 
 void interfaceBuzzer_switchState()

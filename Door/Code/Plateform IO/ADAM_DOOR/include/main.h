@@ -93,8 +93,16 @@
  * 
  */
 #define PILOTEBUZZER_BROCHE 26
-
-
+/**
+ * @brief Définition qui permet de lire l'état de la pin du infrarouge recepteur
+ * 
+ */
+#define PILOTEIOIR1_BROCHE 34
+/**
+ * @brief Définition qui permet de mmodifier l'état de la pin du transmettteur infrarrouge
+ * 
+ */
+#define PILOTEIOIR2_BROCHE 32
 
 #define PILOTEIOT1_ETAT_INITIAL_A_UN
 #define PILOTEIOT2_ETAT_INITIAL_A_UN
@@ -103,6 +111,7 @@
 #define PILOTEIOM2_ETAT_INITIAL_A_ZERO
 #define PILOTEIOEA1_ETAT_INITIAL_A_ZERO
 #define PILOTEBUZZER_ETAT_INITIAL_A_ZERO
+#define PILOTEIOIR1_MODE_FLOTTANT_AVEC_PULL_DOWN
 //#define PILOTEIOC1_ETAT_INITIAL_A_ZERO
 
 

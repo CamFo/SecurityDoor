@@ -18,6 +18,7 @@
 #include "piloteIOT2.h"
 #include "piloteIOT3.h"
 #include "piloteBuzzer.h"
+#include "piloteIOIR1.h"
 #include "interfaceRGB.h"
 #include "interfacePN523.h"
 #include "interfaceBuzzer.h"
@@ -43,7 +44,14 @@ PROCESSUSPOURTEST_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 
 //Declarations de fonctions privees:
 //pas de fonction privees
-
+void processusDeTest_I2C_Delai1Sec();
+void processusDeTest_RGB_Delai1Sec();
+void processusDeTest_TestI2C();
+void processusDeTest_TestRGB();
+void processusDeTest_GPIO14_en_input();
+void processusDeTest_Buzzer();
+void processusDeTest_Buzzer_Delai1Sec();
+void processusDeTest_Infrarrouge_VerifieEntree();
 //Definitions de variables privees:
 unsigned int processusDeTest_compteur;
 //Definitions de fonctions privees:
@@ -70,20 +78,6 @@ void processusDeTest_TestI2C()
 {
     interfacePN523_VerifierPresenceNFC();
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_I2C_Delai1Sec;
-}
-
-
-
-void processusDeTest_GPIO3_en_input()
-{
- if (digitalRead(PILOTEIOT3_BROCHE))
- {
-  interfaceRGB_allumeCouleur(INTERFACERGB_VALEUR_VERT);
- }
-  else
- {
-  interfaceRGB_allumeCouleur(INTERFACERGB_VALEUR_ROUGE);
- }
 }
 
 void processusDeTest_Moteur()
@@ -151,6 +145,10 @@ void processusDeTest_Buzzer_Delai1Sec()
 }
 
 
+void processusDeTest_Infrarrouge_VerifieEntree()
+{
+
+}
 void processusDeTest_initialise(void)
 {
   Serial.begin(115200);

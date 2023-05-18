@@ -60,10 +60,8 @@
 //Fonctions publiques:
 void interfaceRGB_allumeBlanc(void);
 void interfaceRGB_eteintTous(void);
-void interfaceRGB_initialise(void);
 void interfaceRGB_allumeCouleur(unsigned int);
-void interfaceRGB_changecouleur();
-
+void interfaceRGB_initialise();
 typedef struct
 {
   unsigned char etatDuModule;  

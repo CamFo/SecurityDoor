@@ -2,7 +2,7 @@
  * @file serviceTaskServer.ino
  * @author CamFo Camille Fortin (camfortin2022@gmail.com)
  * @brief
- * Program file containing the code defined in xmain.h
+ * Program file containing the code defined in main.h
  * Please refer to this other file for information necessary in order to make this work.
  * @version 0.1
  * @date 2022-05-03
