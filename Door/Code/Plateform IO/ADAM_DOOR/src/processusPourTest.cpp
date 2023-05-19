@@ -20,13 +20,15 @@
 #include "piloteBuzzer.h"
 #include "piloteIOIR1.h"
 #include "piloteIOIR2.h"
+#include "piloteESPNOW.h"
 #include "interfaceRGB.h"
 #include "interfacePN523.h"
 #include "interfaceBuzzer.h"
 #include "interfaceMoteur.h"
 #include "interfaceInfrarouge.h"
-#include "serviceBaseDeTemps.h"
 #include "processusPourTest.h"
+#include "serviceBaseDeTemps.h"
+#include "ServiceCommunication.h"
 
 #include <stdio.h>
 
@@ -54,6 +56,7 @@ void processusDeTest_GPIO14_en_input();
 void processusDeTest_Buzzer();
 void processusDeTest_Buzzer_Delai1Sec();
 void processusDeTest_Infrarrouge_VerifieEntree();
+void processusDeTest_salutCamille8D();
 //Definitions de variables privees:
 unsigned int processusDeTest_compteur;
 int icount;
@@ -133,7 +136,14 @@ void processusDeTest_Buzzer()
  icount = INTERFACEBUZZER_AUCUNBRUIT;
  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer_Delai1Sec;
 }
-
+void processusDeTest_salutCamille8D()
+{
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande = 3;
+  Serial.printf("\n porte_Adam_send.commande value: ");
+  Serial.print(GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande);
+  Serial.printf("\n piloteValueEnvoi.commande value: ");
+  Serial.print(GestionCommuncation_T.piloteValueEnvoie.Commande);
+}
 
 
 void processusDeTest_Buzzer_Delai1Sec()
@@ -161,5 +171,5 @@ void processusDeTest_initialise(void)
 {
  // Serial.begin(115200);
  // Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Infrarrouge_VerifieEntree; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_salutCamille8D; //Quel test faire
 }

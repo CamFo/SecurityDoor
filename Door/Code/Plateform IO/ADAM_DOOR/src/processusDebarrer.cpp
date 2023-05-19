@@ -53,11 +53,7 @@ unsigned int processusDebarrer_compteur;
 
 void processusDebarrer_GestionMethode()
 {
-  GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande = 3;
-  Serial.printf("\n porte_Adam_send.commande value: ");
-  Serial.print(GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande);
-  Serial.printf("\n piloteValueEnvoi.commande value: ");
-  Serial.print(GestionCommuncation_T.piloteValueEnvoie.Commande);
+
 }
 //Definitions de variables publiques:
 //pas de variables publiques
