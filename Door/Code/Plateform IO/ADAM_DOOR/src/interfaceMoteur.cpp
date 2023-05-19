@@ -107,5 +107,5 @@ void interfaceMoteur_initalise()
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   interfaceMoteur.etatDuModule = INTERFACEMOTEUR_MODULE_PAS_EN_FONCTION;
-  serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_droite;
+  serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_attenteDirective;
 }
