@@ -146,13 +146,12 @@ void processusDeTest_Buzzer_Delai1Sec()
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer;
 }
 
-
 void processusDeTest_Infrarrouge_VerifieEntree()
 {
  interfaceBuzzer.dureeActive = PROCESSUSPOURTEST_COMPTE_2S;
  interfaceBuzzer.valeurBruit = INTERFACEBUZZER_25POURCENT;
- piloteIOIR2_metAUn();
- if (piloteIOIR1_lis())
+ interfaceInfrarouge.RequeteActive = INTERFACEINFRAROUGE_ACTIVE;
+ if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_PRESENT)
  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
  else
  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;

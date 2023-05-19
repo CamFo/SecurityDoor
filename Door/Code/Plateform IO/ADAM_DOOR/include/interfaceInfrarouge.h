@@ -19,6 +19,10 @@
 #define INTERFACEINFRAROUGE_ACTIVE  1
 #define INTERFACEINFRAROUGE_PAS_EN_FONCTION 2
 
+#define INTERFACEINFRAROUGE_COMPTE_200 200
+#define INTERFACEINFRAROUGE_VERIFIEPRESENCE 97
+#define INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT 0
+#define INTERFACEINFRAROUGE_PRESENCE_PRESENT 1
 
 #define INTERFACEINFRAROUGE_AUCUNBRUIT 0
 #define INTERFACEINFRAROUGE_25POURCENT 1
@@ -32,6 +36,9 @@ typedef struct
     bool RequeteActive;
     bool etatDuModuleRecepteur;
     bool etatDuModuleTransmetteur;
+    bool etatDesModules;
+    bool presence;
+    long valeurDistance;
 } INTERFACEINFRAROUGE;
 void interfaceInfrarouge_initalise();
 

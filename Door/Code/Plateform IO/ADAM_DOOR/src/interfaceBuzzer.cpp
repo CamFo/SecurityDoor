@@ -13,7 +13,6 @@
 #include "piloteBuzzer.h"
 #include "interfaceBuzzer.h"
 #include "serviceBaseDeTemps.h"
-#include "interfaceRGB.h"
 
 #define INTERFACEBUZZER_COMPTE_2S (\
 INTERFACEBUZZER_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
@@ -163,14 +162,12 @@ void interfaceBuzzerGestion()
       break;
       case INTERFACEBUZZER_25POURCENT:
       interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_EN_FONCTION;
-      interfaceRGB.couleur = INTERFACERGB_VALEUR_BLANC;
       // Serial.print("50pourcent\n");
       serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_gestionFrequence;
       break;
 
       case INTERFACEBUZZER_50POURCENT:
       interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_EN_FONCTION;
-      interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
       // Serial.print("50pourcent\n");
       serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_gestionFrequence;
       return;
@@ -178,7 +175,6 @@ void interfaceBuzzerGestion()
 
       case INTERFACEBUZZER_75POURCENT:
       interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_EN_FONCTION;
-      interfaceRGB.couleur = INTERFACERGB_VALEUR_MAUVE;
       //Serial.print("75pourcent\n");
       serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_gestionFrequence;
       return;
@@ -186,7 +182,6 @@ void interfaceBuzzerGestion()
 
       case INTERFACEBUZZER_100POURCENT:
       interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_EN_FONCTION;
-      interfaceRGB.couleur = INTERFACERGB_VALEUR_BLEUP;
       //Serial.print("100pourcent\n");
       serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_gestionFrequence;
       return;
