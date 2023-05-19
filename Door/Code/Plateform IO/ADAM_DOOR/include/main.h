@@ -46,7 +46,7 @@
  * @brief definition des broches I2C sur esp32 
  * 
  */
-#define PILOTEI2C_SCL1   (27)
+#define PILOTEI2C_SCL1   (22)
 /**
  * @brief Frequence de oscillation pour I2C1
  * 
@@ -136,7 +136,7 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 6
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 7
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
 
@@ -147,9 +147,10 @@
  */
 #define INTERFACEMOTEUR_PHASE 1
 /**
- * @brief Numéro de phase du processus de gestion de la benne
+ * @brief Numéro de phase de l'interface infrarouge  
+ * 
  */
-#define PROCESSUSTESTS_PHASE 2
+#define INTERFACEINFRAROUGE_PHASE 2
 /**
  * @brief Numéro de phase la lecture de l'Entrée 1 
  */
@@ -160,11 +161,14 @@
  */
 #define SERVICECOMMUNICATION_PHASE 4
 /**
- * @brief Numéro de phase de l'interface infrarouge  
- * 
+ * @brief Numéro de phase du processus de gestion de la communcation
  */
-#define INTERFACEINFRAROUGE_PHASE 5
-
+#define PROCESSUSTESTS_PHASE 5
+/**
+ * @brief Numéro de phase du processus de gestion de la porte
+ * 
+*/
+#define PROCESSUSDEBARRER_PHASE 6
 /**
  * @brief  Numéro de phase de l'interface du PN523
  * 
@@ -176,6 +180,8 @@
 #define INTERFACEMOTEUR_COMPTE_EN_MS 500
 #define INTERFACEBUZZER_COMPTE_EN_MS 500
 #define INTERFACEINFRAROUGE_COMPTE_EN_MS 500
+#define PROCESSUSDEBARRER_COMPTE_EN_MS 500
+
 
 #define I2C_ADR_NFC (0x24)
 #define CONFIG_DISABLE_HAL_LOCKS

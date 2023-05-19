@@ -15,6 +15,7 @@
 #include <wifi.h>
 
 #include "main.h"
+#include "AnnexeADAM.h"
 #include "piloteESPNOW.h"
 
 
@@ -23,6 +24,8 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status);
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len);
 
 PILOTEESPNOW piloteESPNOW;
+STRUCTURECOMMUNCATION_R GestionCommuncation_R;
+STRUCTURECOMMUNCATION_T GestionCommuncation_T;
 
 esp_now_peer_info_t peerInfo;
 //stReceived ValueRecu;
@@ -66,19 +69,19 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status)
  */
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) 
 {
-  memcpy(&ValueRecu, incomingData, sizeof(ValueRecu));
+  memcpy(&GestionCommuncation_R.piloteValueReceive, incomingData, sizeof(GestionCommuncation_R.piloteValueReceive));
   Serial.print("Bytes received: ");
   Serial.println(len);
   Serial.print("State: ");
-  Serial.println(ValueRecu.States);
+  Serial.println(GestionCommuncation_R.piloteValueReceive.States);
   Serial.print("Command: ");
-  Serial.println(ValueRecu.Commande);
+  Serial.println(GestionCommuncation_R.piloteValueReceive.Commande);
   Serial.print("Valeur A: ");
-  Serial.println(ValueRecu.ValeurA);
+  Serial.println(GestionCommuncation_R.piloteValueReceive.ValueRA);
   Serial.print("Valeur B: ");
-  Serial.println(ValueRecu.ValeurB);
+  Serial.println(GestionCommuncation_R.piloteValueReceive.ValueRB);
   Serial.print("Valeur C: ");
-  Serial.println(ValueRecu.ValeurC);
+  Serial.println(GestionCommuncation_R.piloteValueReceive.ValueRC);
   Serial.println();
 
   piloteESPNOW.information = PILOTEESPNOW_INFORMATION_DISPONIBLE;
@@ -94,7 +97,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len)
 void piloteESPNOW_send(void)
 {
     // Send message via ESP-NOW
-    esp_err_t result = esp_now_send(MACadresse, (uint8_t *) &ValueEnvoie, sizeof(ValueEnvoie));
+    esp_err_t result = esp_now_send(MACadresse, (uint8_t *) &GestionCommuncation_T.piloteValueEnvoie, sizeof(GestionCommuncation_T.piloteValueEnvoie));
     // Check for error
     if (result == ESP_NOW_SEND_SUCCESS)
     {

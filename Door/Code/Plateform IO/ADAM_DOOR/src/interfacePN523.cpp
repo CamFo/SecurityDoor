@@ -13,10 +13,13 @@
 #include <Arduino.h>
 #include "main.h"
 #include "piloteI2C.h"
-#include "interfacePN523.h"
 #include "PN532.h"
+#include "Adafruit_PN532.h"
+#include "interfacePN523.h"
 #include "serviceBaseDeTemps.h"
 #include <stdio.h>
+
+Adafruit_PN532 nfc(PILOTEI2C_SDA1,PILOTEI2C_SCL1);
 
 
 //Definitions privees
@@ -32,18 +35,19 @@ void interfacePN523_VerifierPresenceNFC()
 {
     piloteI2C1_ecritUnByte(I2C_ADR_NFC,PN532_I2C_BUSY,TRUE);
     piloteI2C1_lisUnOctet(PN532_I2C_READBIT);
-
 }
+
+
 //Definitions de variables publiques:
 INTERFACEPN523 interfacePN523;
 
 //Definitions de fonctions publiques:
 void interfacePN523_initalise()
  {
-  interfacePN523.etatDeLecture = INTERFACEPN523_MODULE_PAS_EN_FONCTION;
-  interfacePN523.information = INTERFACEPN523_INFORMATION_TRAITEE;
-  interfacePN523.etatDuModule = INTERFACEPN523_MODULE_PAS_EN_FONCTION;
-  //serviceBaseDeTemps_execute[INTERFACEPN523_PHASE] = interfacePN523_VerifierPresenceNFC;
+    interfacePN523.etatDeLecture = INTERFACEPN523_MODULE_PAS_EN_FONCTION;
+    interfacePN523.information = INTERFACEPN523_INFORMATION_TRAITEE;
+    interfacePN523.etatDuModule = INTERFACEPN523_MODULE_PAS_EN_FONCTION;
+    //serviceBaseDeTemps_execute[INTERFACEPN523_PHASE] = interfacePN523_VerifierPresenceNFC;
  }
 
 

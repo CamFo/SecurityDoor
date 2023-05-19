@@ -40,7 +40,9 @@
 #include "interfaceBuzzer.h"
 #include "interfaceInfrarouge.h"
 // Include des processus
+#include "Adafruit_PN532.h"
 #include "processusPourTest.h"
+#include "processusDebarrer.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -86,6 +88,7 @@ void main_initialise(void)
   interfaceBuzzer_initalise();
   interfaceInfrarouge_initalise();
   processusDeTest_initialise();
+  processusDebarrer_initialise();
   Serial.print("init successfull.\n");
 }
 

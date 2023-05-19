@@ -1,14 +1,16 @@
 /**
  * @file piloteESPNOW.h
  * @author Camille Fortin (camfortin2022@gmail.com)
+ * @author Ilyes Gharmoul (ilyesgharmoul@hotmail.com)
  * @brief 
- * @version 0.1
+ * @version 0.2
  * @date 2023-05-09
  * 
  * @copyright Copyright (c) 2023
  * 
  */
 
+#include "AnnexeADAM.h"
 #ifndef PILOTEESPNOW_H
 #define PILOTEESPNOW_H
 
@@ -37,23 +39,36 @@ typedef struct
 {
     unsigned char States;
     unsigned char Commande;
-    unsigned char EtatPorte;
-    unsigned char UserNFC;    
-    unsigned char EtatSerrure;
+    unsigned char ValueSA;
+    unsigned char ValueSB;    
+    unsigned char ValueSC;
     
-}stSend;
-extern stSend ValueEnvoie;
+}STSEND;
 
 typedef struct 
 {
     unsigned char States;
     unsigned char Commande;
-    unsigned char ValeurA;
-    unsigned char ValeurB;
-    unsigned char ValeurC;
+    unsigned char ValueRA;
+    unsigned char ValueRB;
+    unsigned char ValueRC;
 
-}stReceived;
-extern stReceived ValueRecu;
+}STRECEIVE;
+
+typedef union
+{
+  STSEND piloteValueEnvoie;
+  UNIONADAM_S ADAM_send;
+}STRUCTURECOMMUNCATION_T;
+
+typedef union
+{
+  STRECEIVE piloteValueReceive;
+  UNIONADAM_R ADAM_recu;
+}STRUCTURECOMMUNCATION_R;
+
+extern STRUCTURECOMMUNCATION_R GestionCommuncation_R;
+extern STRUCTURECOMMUNCATION_T GestionCommuncation_T;
 
 //Fonctions publiques:
 

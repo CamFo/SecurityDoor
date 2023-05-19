@@ -56,13 +56,14 @@ void processusDeTest_Buzzer_Delai1Sec();
 void processusDeTest_Infrarrouge_VerifieEntree();
 //Definitions de variables privees:
 unsigned int processusDeTest_compteur;
+int icount;
 //Definitions de fonctions privees:
 
 //Definitions de variables publiques:
 //pas de variables publiques
 
 //Definitions de fonctions publiques:
-int icount;
+
 
 
 void processusDeTest_I2C_Delai1Sec()
@@ -158,7 +159,7 @@ void processusDeTest_Infrarrouge_VerifieEntree()
 }
 void processusDeTest_initialise(void)
 {
-  Serial.begin(115200);
-  Serial.setDebugOutput(TRUE);
+ // Serial.begin(115200);
+ // Serial.setDebugOutput(TRUE);
   serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Infrarrouge_VerifieEntree; //Quel test faire
 }

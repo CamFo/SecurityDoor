@@ -19,9 +19,11 @@
 #include <Arduino.h>
 
 #include "main.h"
+#include "piloteESPNOW.h"
+#include "AnnexeADAM.h"
 #include "serviceBaseDeTemps.h"
 #include "serviceCommunication.h"
-#include "piloteESPNOW.h"
+
 
 #pragma endregion INCLUDES
 //############################### PRIVATE VARIABLE ###########################
@@ -29,22 +31,7 @@
 unsigned int compteur1 = 0;
 
 //############################### EXTERN DECLERATION ###########################
-/**
- * @brief The Public structure used by the module. Used to get/set different
- * values and commands to send to the Sensor of the Adam Project. The 
- * pannel will set this value to be sent in the next communication slot.
- */
-stSend ValueEnvoie;
-/**
- * @brief The Public Structure Used by the module. Is used by the callback function
- *  \ref OnDataRecv wich put the received data by the Sensor in this structure.
- * 
- */
-stReceived ValueRecu;
-/**
- * @brief Structure used to check if the module is working and if information is available
- * 
- */
+
 SERVICECOMMUNICATION ServiceCommunication;
 
 //############################  STATE MACHINE FUNCTION  #####################################
@@ -93,11 +80,11 @@ void serviceCommunication_WaitResponse(void)
 
 void serviceCommunication_Envoie(void)
 {
-    ValueEnvoie.States = 0x08;
-    ValueEnvoie.Commande = 0x45;
-    ValueEnvoie.EtatPorte = false;
-    ValueEnvoie.EtatSerrure = false;
-    ValueEnvoie.UserNFC = false;
+   //GestionCommuncation_T.piloteValueEnvoie.States = 0x08;   /// avec le systeme d'annexe, pas besoin de rien faire ici!!!!!
+   // GestionCommuncation_T.piloteValueEnvoie.Commande = 0x45;
+   // GestionCommuncation_T.piloteValueEnvoie.ValueSA = false;
+   // GestionCommuncation_T.piloteValueEnvoie.ValueSB = false;
+   // GestionCommuncation_T.piloteValueEnvoie.ValueSC = false;
 
     piloteESPNOW_send();
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponse;
