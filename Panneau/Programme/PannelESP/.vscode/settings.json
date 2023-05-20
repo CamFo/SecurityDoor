@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "random": "cpp"
+        "random": "cpp",
+        "stdio.h": "c",
+        "25q32.h": "c",
+        "fontchip.h": "c"
     }
 }

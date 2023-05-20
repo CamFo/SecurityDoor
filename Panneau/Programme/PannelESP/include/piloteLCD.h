@@ -15,8 +15,14 @@
 #define TFT_MOSI       18   //GPIO18
 #define TFT_MISO       19   //GPIO19
 #define TFT_CLK        5    //GPIO5
-#define TFT_RST        
+#define TFT_RST        26
 
 
+void Write_Cmd(unsigned char CMD);
+void  Write_Cmd_Data (unsigned char CMDP);
+void Write_Data(unsigned char DH,unsigned char DL);
 
+void ClearScreen(unsigned int bColor);
+void LCD_FULL(unsigned int i);
+void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye);
 void piloteLCD_initialise(void);
