@@ -59,7 +59,6 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
   
   ////// END Test Code //////
   interfaceT1_allume();
-  interfaceTVert_eteint();
   processusClignotant_compteur = 0;
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] = processusClignotant_attendAvantDEteindreLeTemoinLumineux;
 }
@@ -73,7 +72,6 @@ void processusClignotant_attendAvantDEteindreLeTemoinLumineux(void)
   }
 
   interfaceT1_eteint();
-  interfaceTVert_allume();
   processusClignotant_compteur = 0;
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] = processusClignotant_attendAvantDAllumerLeTemoinLumineux;
 }
@@ -82,7 +80,6 @@ void processusClignotant_initialise(void)
 {
   processusClignotant_compteur = 0;
   interfaceT1_eteint();
-  interfaceTVert_eteint();
   // TEST CODE INIT
 
   // END TEST CODE 

@@ -81,7 +81,7 @@ void piloteLCD_initialise(void)
     Write_Cmd_Data(0x80);
 
     Write_Cmd(0x36);      //Memory Access 
-    Write_Cmd_Data(0x48); 
+    Write_Cmd_Data(0xE8);   // SCREEN orientation 
 
     Write_Cmd(0x3A);      // Interface Pixel Format 
     Write_Cmd_Data(0x66); 	  //18 bit    
@@ -130,29 +130,6 @@ void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye)
 	Write_Cmd_Data(ye&0xff);
 
     Write_Cmd(0x2C);
-}
-
-void LCD_FULL(unsigned int i)
-{
-    unsigned int w,u;
-    LCD_SetPos(0,319,0,479);
-    for(w=0;w<320;w++)
-    {    
-        Write_Data_U16(~i);
-    }
-  	for(w=0;w<478;w++)		    
-    {  	
-        Write_Data_U16(~i);
-        
-        for(u=0;u<318;u++)
-        Write_Data_U16(i);
-
-        Write_Data_U16(~i);		
-    }   
-    for(w=0;w<320;w++)
-    {    
-        Write_Data_U16(~i);
-    }		
 }
 
 // LOW LEVEL SERIAL WRITE FUNCTION

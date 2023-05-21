@@ -21,11 +21,10 @@
 void interfaceLCD_initialise(void)
 {
   interfaceLCD_ClearScreen(DarkGrey);
-  interfaceLCD_ligneVertical(20, 20, 40, BLACK);
-  interfaceLCD_afficheChar(200, 200, 0x31, PUREBLUE, DarkGrey);
+  interfaceLCD_rectangle(20, 15, 440, 3, BLACK);
 
-  unsigned char Sstring[] = "YEAHH";
-  interfaceLCD_afficheString(100, 100, Sstring, PUREBLUE, DarkGrey);
+  unsigned char Sstring[] = "ADAM project TSO 2023";
+  interfaceLCD_afficheString(320, 300, Sstring, YELLOW, DarkGrey);
 
   Serial.print("#####  LCD INTERFACE INITIALISED  #####");
 
@@ -39,27 +38,30 @@ void interfaceLCD_initialise(void)
 void interfaceLCD_ClearScreen(unsigned int bColor)
 {
     unsigned int i,j;
-    LCD_SetPos(0,319,0,479);
-    for (i=0;i<320;i++)
+    LCD_SetPos(0,479,0,319);
+    for (i=0;i<480;i++)
     {
 
-        for (j=0;j<480;j++)
+        for (j=0;j<320;j++)
             Write_Data_U16(bColor);
     }
 }
-void interfaceLCD_ligneVertical(int positionX, int positionY, int longueur, unsigned int bColor)
+void interfaceLCD_rectangle(unsigned int positionX,unsigned  int positionY, unsigned int longueur, unsigned int epaisseur, unsigned int bColor)
 {
     unsigned int i,j;
-    //LCD_SetPos(0,319,0,479);
     unsigned int Xe = positionX + longueur; // loongeur de a ligne horizontal
+    unsigned int Ye = positionY + epaisseur; 
+
+    if(Xe >= 479) Xe = 479; // Pour s'assurer de pas etre off coordinate
     
-    if(Xe >= 479) Xe = 470; // Pour s'assurer de pas etre off coordinate
-    
-    LCD_SetPos(positionX, Xe, positionY, positionY);
-    for (i=0;i<longueur;i++)
-    {
-        Write_Data_U16(bColor);
-    }
+    LCD_SetPos(positionX, Xe, positionY, Ye);
+	for (j = 0; j < epaisseur; j++)
+	{
+	  for (i=0;i<=longueur;i++)
+	  {
+	    Write_Data_U16(bColor);
+	  }
+	}
 }
 void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,unsigned int dcolor,unsigned int bgcolor)	
 {  
