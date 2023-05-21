@@ -8,7 +8,8 @@
  * @copyright Copyright (c) 2023
  * 
  */
-
+#ifndef PILOTELCD_H
+#define PILOTELCD_H 
 
 #define TFT_CS         21   //GPIO 21 pin 
 #define TFT_DC         33   //GPIO 33
@@ -18,11 +19,39 @@
 #define TFT_RST        26
 
 
-void Write_Cmd(unsigned char CMD);
-void  Write_Cmd_Data (unsigned char CMDP);
-void Write_Data(unsigned char DH,unsigned char DL);
+//######################## DEFINE DES COULEURS DE BASE ########################
+
+#define PURERED       0xF800
+#define PUREGREEN     0x07E0
+#define PUREBLUE      0x001F
+#define BLACK         0x0000
+#define WHITE         0xFFFFs
+#define YELLOW        0xFFE0
+#define MAGENTA       0xF81F
+#define CYAN 	      0x07FF
+
+//########################    DEFINE AUTRES COULEURS   ########################
+
+#define Navy            0x000F      /*   0,   0, 128 */
+#define DarkGreen       0x03E0      /*   0, 128,   0 */
+#define DarkCyan        0x03EF      /*   0, 128, 128 */
+#define Maroon          0x7800      /* 128,   0,   0 */
+#define Purple          0x780F      /* 128,   0, 128 */
+#define Olive           0x7BE0      /* 128, 128,   0 */
+#define LightGrey       0xC618      /* 192, 192, 192 */
+#define DarkGrey        0x7BEF      /* 128, 128, 128 */
+#define Orange          0xFD20      /* 255, 165,   0 */
+#define GreenYellow     0xAFE5      /* 173, 255,  47 */
+#define Pink            0xF81F
+
+
+//#####################  DÉFINITION DE FONCTION PUBLIC ##################
+
 
 void ClearScreen(unsigned int bColor);
 void LCD_FULL(unsigned int i);
-void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye);
+
 void piloteLCD_initialise(void);
+void piloteLCD_ligneVertical(int positionX, int positionY, int longueur, unsigned int bColor);
+
+#endif
