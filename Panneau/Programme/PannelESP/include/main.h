@@ -58,6 +58,16 @@
  * 
  */
 #define PILOTEIOT1_ETAT_INITIAL_A_ZERO
+/**
+ * @brief Définition qui assigne le bon numéro de broche du ESP32 au témoin Vert
+ * 
+ */
+#define PILOTEIOTVERT_BROCHE 12
+/**
+ * @brief Définition qui permet de modifier un état initiale au témoin Vert
+ * 
+ */
+#define PILOTEIOTVERT_ETAT_INITIAL_A_ZERO
 
 /*** DEFINITION DU PILOTE I2C ***/
 /**
@@ -108,6 +118,16 @@
  */
 #define INTERFACET1_VALEUR_POUR_ETEINDRE 0
 
+
+/** Définition pour le témoin Vert **/
+/**
+ * @brief Valeur pour allumer le témoin Vert
+ */
+#define INTERFACETVERT_VALEUR_POUR_ALLUMER  1
+/**
+ * @brief Valeur pour éteindre le témoin Vert
+ */
+#define INTERFACETVERT_VALEUR_POUR_ETEINDRE 0
 
 
 /***  DÉFINITION NÉCESSAIRE À LA BASE DE TEMPS  ***/

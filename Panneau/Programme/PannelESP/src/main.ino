@@ -21,6 +21,7 @@
 // inlcude des pilotes
 #include "piloteEntree1.h"
 #include "piloteIOT1.h"
+#include "piloteIOTVert.h"
 #include "piloteESPNOWCapteur.h"
 #include "piloteLCD.h"
 
@@ -32,7 +33,7 @@
 // Inlude des interfaces
 #include "interfaceEntree1.h"
 #include "interfaceT1.h"
-
+#include "interfaceTVert.h"
 
 // Include des processus
 #include "processusClignotant.h"
@@ -68,11 +69,13 @@ void main_initialise(void)
 
   piloteEntree1_initialise();
   piloteIOT1_initialise(); 
+  piloteIOTVert_initialise();
   piloteLCD_initialise();
 
   interfaceEntree1_initialise();
   interfaceT1_initialise();
-
+  interfaceTVert_initialise();
+  
   processusClignotant_initialise();
 }
 

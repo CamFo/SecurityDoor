@@ -13,6 +13,7 @@
 //INCLUSIONS
 #include "main.h"
 #include "interfaceT1.h"
+#include "interfaceTVert.h"
 
 #include "serviceBaseDeTemps.h"
 #include "processusClignotant.h"
@@ -71,6 +72,7 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
 
   ////// END Test Code //////
   interfaceT1_allume();
+  interfaceTVert_eteint();
   processusClignotant_compteur = 0;
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] = processusClignotant_attendAvantDEteindreLeTemoinLumineux;
 }
@@ -84,6 +86,7 @@ void processusClignotant_attendAvantDEteindreLeTemoinLumineux(void)
   }
 
   interfaceT1_eteint();
+  interfaceTVert_allume();
   processusClignotant_compteur = 0;
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] = processusClignotant_attendAvantDAllumerLeTemoinLumineux;
 }
@@ -92,6 +95,7 @@ void processusClignotant_initialise(void)
 {
   processusClignotant_compteur = 0;
   interfaceT1_eteint();
+  interfaceTVert_eteint();
   // TEST CODE INIT
   
   ts.begin(40, PILOTEI2C1_SDA, PILOTEI2C1_SCL);
