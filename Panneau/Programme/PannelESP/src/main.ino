@@ -34,6 +34,7 @@
 #include "interfaceEntree1.h"
 #include "interfaceT1.h"
 #include "interfaceTVert.h"
+#include "interfaceTactile.h"
 
 // Include des processus
 #include "processusClignotant.h"
@@ -75,6 +76,7 @@ void main_initialise(void)
   interfaceEntree1_initialise();
   interfaceT1_initialise();
   interfaceTVert_initialise();
+  interfaceTactile_initialise();
   
   processusClignotant_initialise();
 }

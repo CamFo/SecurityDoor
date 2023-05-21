@@ -35,7 +35,6 @@
 //pas de fonction privees
 
 //Definitions de variables privees:
-FT6236 ts = FT6236();
 
 unsigned long processusClignotant_compteur;
 
@@ -56,20 +55,8 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
   }
   ////// BEGIN Test Code  //////
   
-  
-  if (ts.touched())
-    {
-        // Retrieve a point
-        TS_Point p = ts.getPoint();
 
-        // Print coordinates to the serial output
-        Serial.print("X Coordinate: ");
-        Serial.println(p.x);
-        Serial.print("Y Coordinate: ");
-        Serial.println(p.y);
-    }
   
-
   ////// END Test Code //////
   interfaceT1_allume();
   interfaceTVert_eteint();
@@ -97,8 +84,6 @@ void processusClignotant_initialise(void)
   interfaceT1_eteint();
   interfaceTVert_eteint();
   // TEST CODE INIT
-  
-  ts.begin(40, PILOTEI2C1_SDA, PILOTEI2C1_SCL);
 
   // END TEST CODE 
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] = processusClignotant_attendAvantDAllumerLeTemoinLumineux;
