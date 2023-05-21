@@ -47,11 +47,14 @@
 
 //#####################  DÉFINITION DE FONCTION PUBLIC ##################
 
+void Write_Cmd(unsigned char CMD);
+void Write_Cmd_Data (unsigned char CMDP);
+void Write_Data(unsigned char DH,unsigned char DL);
+void Write_Data_U16(unsigned int y);
+void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye);
 
-void ClearScreen(unsigned int bColor);
 void LCD_FULL(unsigned int i);
 
 void piloteLCD_initialise(void);
-void piloteLCD_ligneVertical(int positionX, int positionY, int longueur, unsigned int bColor);
 
 #endif

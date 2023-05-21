@@ -8,18 +8,10 @@
  * @copyright Copyright (c) 2023
  * 
  */
-
 #include <Arduino.h>
 
-#include "piloteLCD.h"
 #include "main.h"
-
-// ------ DÉFINITION DE FONCTION PRIVÉ -------
-
-void Write_Cmd(unsigned char CMD);
-void  Write_Cmd_Data (unsigned char CMDP);
-void Write_Data(unsigned char DH,unsigned char DL);
-void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye);
+#include "piloteLCD.h"
 
 
 //########### DÉCLARATION DES FONCTIONS ######################
@@ -121,13 +113,47 @@ void piloteLCD_initialise(void)
     sleep(0.12);//delayms(120);
     Write_Cmd(0x29);
 
-    ClearScreen(PURERED);
-
-    piloteLCD_ligneVertical(20, 20, 40, BLACK);
-    
-    Serial.print("FINISH !");
+    Serial.print("#####  LCD DRIVER INITIALISED  #####");
 }
 
+void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye)
+{
+    Write_Cmd(0x2A);
+	Write_Cmd_Data(xs>>8);
+	Write_Cmd_Data(xs&0xff);
+	Write_Cmd_Data(xe>>8);
+	Write_Cmd_Data(xe&0xff);
+	Write_Cmd(0x2B);
+	Write_Cmd_Data(ys>>8);
+	Write_Cmd_Data(ys&0xff);
+	Write_Cmd_Data(ye>>8);
+	Write_Cmd_Data(ye&0xff);
+
+    Write_Cmd(0x2C);
+}
+
+void LCD_FULL(unsigned int i)
+{
+    unsigned int w,u;
+    LCD_SetPos(0,319,0,479);
+    for(w=0;w<320;w++)
+    {    
+        Write_Data_U16(~i);
+    }
+  	for(w=0;w<478;w++)		    
+    {  	
+        Write_Data_U16(~i);
+        
+        for(u=0;u<318;u++)
+        Write_Data_U16(i);
+
+        Write_Data_U16(~i);		
+    }   
+    for(w=0;w<320;w++)
+    {    
+        Write_Data_U16(~i);
+    }		
+}
 
 // LOW LEVEL SERIAL WRITE FUNCTION
 void Write_Cmd(unsigned char CMD)
@@ -148,7 +174,7 @@ void Write_Cmd(unsigned char CMD)
    	digitalWrite(TFT_CS, HIGH);
 }
 
-void  Write_Cmd_Data (unsigned char CMDP)
+void Write_Cmd_Data (unsigned char CMDP)
 { 
     unsigned char i;
     digitalWrite(TFT_CS, LOW);
@@ -225,76 +251,4 @@ void  Write_Data_U16(unsigned int y)
 	n=y;
 	Write_Data(m,n);
 
-}
-
-// ###############################################################################
-
-void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye)
-{
-
-    Write_Cmd(0x2A);
-	Write_Cmd_Data(xs>>8);
-	Write_Cmd_Data(xs&0xff);
-	Write_Cmd_Data(xe>>8);
-	Write_Cmd_Data(xe&0xff);
-	Write_Cmd(0x2B);
-	Write_Cmd_Data(ys>>8);
-	Write_Cmd_Data(ys&0xff);
-	Write_Cmd_Data(ye>>8);
-	Write_Cmd_Data(ye&0xff);
-
-    Write_Cmd(0x2C);
-}
-
-//===============================================================
-// all display one colour
-void ClearScreen(unsigned int bColor)
-{
-    unsigned int i,j;
-    LCD_SetPos(0,319,0,479);
-    for (i=0;i<320;i++)
-    {
-
-        for (j=0;j<480;j++)
-            Write_Data_U16(bColor);
-    }
-}
-
-void piloteLCD_ligneVertical(int positionX, int positionY, int longueur, unsigned int bColor)
-{
-    unsigned int i,j;
-    //LCD_SetPos(0,319,0,479);
-    unsigned int Xe = positionX + longueur; // loongeur de a ligne horizontal
-    
-    if(Xe >= 479) Xe = 470; // Pour s'assurer de pas etre off coordinate
-    
-    LCD_SetPos(positionX, Xe, positionY, positionY);
-    for (i=0;i<longueur;i++)
-    {
-        Write_Data_U16(bColor);
-    }
-}
-
-
-void LCD_FULL(unsigned int i)
-{
-    unsigned int w,u;
-    LCD_SetPos(0,319,0,479);
-    for(w=0;w<320;w++)
-    {    
-        Write_Data_U16(~i);
-    }
-  	for(w=0;w<478;w++)		    
-    {  	
-        Write_Data_U16(~i);
-        
-        for(u=0;u<318;u++)
-        Write_Data_U16(i);
-
-        Write_Data_U16(~i);		
-    }   
-    for(w=0;w<320;w++)
-    {    
-        Write_Data_U16(~i);
-    }		
 }
