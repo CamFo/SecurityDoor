@@ -17,6 +17,8 @@
 #include "serviceBaseDeTemps.h"
 #include "processusClignotant.h"
 #include "piloteESPNOWCapteur.h"
+#include "FT6236.h"
+
 #include <stdio.h>
 
 //Definitions privees
@@ -32,6 +34,8 @@
 //pas de fonction privees
 
 //Definitions de variables privees:
+FT6236 ts = FT6236();
+
 unsigned long processusClignotant_compteur;
 
 //Definitions de fonctions privees:
@@ -49,11 +53,23 @@ void processusClignotant_attendAvantDAllumerLeTemoinLumineux(void)
   {
     return;
   }
-  // Test Code Go here  
+  ////// BEGIN Test Code  //////
   
   
+  if (ts.touched())
+    {
+        // Retrieve a point
+        TS_Point p = ts.getPoint();
+
+        // Print coordinates to the serial output
+        Serial.print("X Coordinate: ");
+        Serial.println(p.x);
+        Serial.print("Y Coordinate: ");
+        Serial.println(p.y);
+    }
   
-  // END test Code 
+
+  ////// END Test Code //////
   interfaceT1_allume();
   processusClignotant_compteur = 0;
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] = processusClignotant_attendAvantDEteindreLeTemoinLumineux;
@@ -76,5 +92,10 @@ void processusClignotant_initialise(void)
 {
   processusClignotant_compteur = 0;
   interfaceT1_eteint();
+  // TEST CODE INIT
+  
+  ts.begin(40, PILOTEI2C1_SDA, PILOTEI2C1_SCL);
+
+  // END TEST CODE 
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] = processusClignotant_attendAvantDAllumerLeTemoinLumineux;
 }
