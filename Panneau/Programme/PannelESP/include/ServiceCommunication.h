@@ -12,16 +12,14 @@
  * 
  */
 //#############################################################################
-// DÉFINITION DU MODULE
 
 #define SERVICECOMMUNICATION_INFORMATION_DISPONIBLE 1
 #define SERVICECOMMUNICATION_INFORMATION_TRAITEE 0
 #define SERVICECOMMUNICATION_MODULE_EN_FONCTION 1
 #define SERVICECOMMUNICATION_MODULE_PAS_EN_FONCTION 0
 
-//#############################################################################
-#pragma region SERVICECOMMUNICATIONMUNICATION_ERROR_DEFINES
 //-----------------------------------------------------------------------------
+
 /**
  * @brief Indicates that the library is not currently in any errors.
  */
@@ -56,23 +54,7 @@
 #define ERROR_SPECIFIC_TO_MODULE 5
 
 
-/**
- * @brief Global extern variable which purpose is to indicate to other portions
- * of the code which state this library is currently in. See:\n
- * \ref NO_ERROR .\n
- * \ref ERROR_RX_MODE_DOESNT_EXIST .\n
- * \ref ERROR_RX_STATE_DOESNT_EXIST .\n
- * \ref ERROR_RX_COMMAND_DOESNT_EXIST .\n
- * \ref ERROR_RX_VALUE_DOESNT_EXIST .\n
- * \ref ERROR_TIMEDOUT .\n
- * \ref ERROR_SPECIFIC_TO_MODULE .\n
- */
-extern unsigned char serviceCommunicationmunication_ErrorState;
-
-#pragma endregion SERVICECOMMUNICATIONMUNICATION_ERROR_DEFINES
-//#############################################################################
-
-// STRUCTURE PUBLICs
+// STRUCTURE PUBLICS
 
 /// @brief Structure public qui permet de savoir et de changer l'état du module  
 typedef struct
@@ -82,6 +64,8 @@ typedef struct
 
 } SERVICECOMMUNICATION;
 extern SERVICECOMMUNICATION ServiceCommunication;
+
+
 
 //#############################################################################
 #pragma region PUBLIC_FUNCTIONS
@@ -95,26 +79,6 @@ extern SERVICECOMMUNICATION ServiceCommunication;
 * @param void Initialisation functions take no parameters
 */
 void serviceCommunication_initialise(void);
-/**
- * @brief Function wich pair two device in ESPNOW
- * 
- */
-void serviceCommunication_Pairing(void);
-/**
- * @brief Function wich Send a message to the pair device via ESPNOW
- * 
- */
-void serviceCommunication_Envoie(void);
-/**
- * @brief Function wich wait response from the paired device
- * 
- */
-void serviceCommunication_WaitResponse(void);
-/**
- * @brief Attend un délais avant de recommancer un cycle de communication
- * 
- */
-void serviceCommunication_Attend(void);
 
 
 #pragma endregion PUBLIC_FUNCTIONS

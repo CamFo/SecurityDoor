@@ -9,16 +9,16 @@
  * 
  */
 
-#ifndef PILOTEESPNOW_H
-#define PILOTEESPNOW_H
+#ifndef PILOTEESPNOWCAPTEUR_H
+#define PILOTEESPNOWCAPTEUR_H
 
 // DEFINE a mettre dans le main
-#define PILOTEESPNOW_CHANNEL 0
+#define PILOTEESPNOWCAPTEUR_CHANNEL 1
 
-#define PILOTEESPNOW_INFORMATION_DISPONIBLE 1
-#define PILOTEESPNOW_INFORMATION_TRAITEE 0
-#define PILOTEESPNOW_MODULE_EN_FONCTION 1
-#define PILOTEESPNOW_MODULE_PAS_EN_FONCTION 0
+#define PILOTEESPNOWCAPTEUR_INFORMATION_DISPONIBLE 1
+#define PILOTEESPNOWCAPTEUR_INFORMATION_TRAITEE 0
+#define PILOTEESPNOWCAPTEUR_MODULE_EN_FONCTION 1
+#define PILOTEESPNOWCAPTEUR_MODULE_PAS_EN_FONCTION 0
 
 // Variable publique
 
@@ -28,22 +28,22 @@ typedef struct
   unsigned char etatDuModule;
   unsigned char information;
 
-} PILOTEESPNOW;
-extern PILOTEESPNOW piloteESPNOWCapteur;
+} PILOTEESPNOWCAPTEUR;
+extern PILOTEESPNOWCAPTEUR piloteESPNOWCapteur;
 
 
-// Structure d'envoie et de réception
+// Structure de réception pour enregistrer les informations recu du Capteur
 typedef struct
 {
     unsigned char States;
     unsigned char Commande;
-    unsigned char ValeurA;
-    unsigned char ValeurB;    
-    unsigned char ValeurC;
+    unsigned char Temperature;
+    unsigned char Humiditee;    
+    unsigned char Motion;
     
-}stSend;
-extern stSend ValueEnvoieCapteur;
+}CAPTEUR_ADAM_R;
 
+//Structure d'envoie au capteur
 typedef struct 
 {
     unsigned char States;
@@ -52,8 +52,11 @@ typedef struct
     unsigned char ValeurB;
     unsigned char ValeurC;
 
-}stReceived;
-extern stReceived ValueRecuCapteur;
+}CAPTEUR_ADAM_S;
+
+
+extern CAPTEUR_ADAM_R ValeurRecuCapteur;
+extern CAPTEUR_ADAM_S ValeurEnvoieCapteur;
 
 //Fonctions publiques:
 

@@ -1,6 +1,6 @@
 // ###########################################################
 /**
- * @file piloteESPNOWCapteur.cpp
+ * @file piloteESPNOWDoor.cpp
  * @author Camille Fortin (camfortin2022@gmail.com)
  * @brief  Pilote qui permet la communication ESP-NOW entre chaque modules
  * 
@@ -15,19 +15,18 @@
 #include <wifi.h>
 
 #include "main.h"
-#include "piloteESPNOWCapteur.h"
+#include "piloteESPNOWDoor.h"
 
 
 // Définition privée
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status);
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len);
 
-PILOTEESPNOWCAPTEUR piloteESPNOWCapteur;
+PILOTEESPNOWDOOR piloteESPNOWDoor;
 
-esp_now_peer_info_t peerInfoC;
-CAPTEUR_ADAM_R ValeurRecuCapteur;
-CAPTEUR_ADAM_S ValeurEnvoieCapteur;
-
+esp_now_peer_info_t peerInfoD;
+DOOR_ADAM_R ValeurRecuDoor;
+DOOR_ADAM_S ValeurEnvoieDoor;
 
 /**
  * @brief Tableau à changer pour chaques module du projet. Chaque module du projet qui parle
@@ -40,12 +39,12 @@ CAPTEUR_ADAM_S ValeurEnvoieCapteur;
  *    Feather Door: FC:F5:C4:0A:05:C8
  *    Porte : 70:B8:F6:A7:35:34
  */ 
-unsigned char MACadresseCapteur[] = {0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
+unsigned char MACadresseDoor[] = {0x70, 0xB8, 0xF6, 0xA7, 0x35, 0x34};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
 
 
 // FONCTION PRIVÉE
-void OnDataSentC(const uint8_t *mac_addr, esp_now_send_status_t status);
-void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len);
+void OnDataSentD(const uint8_t *mac_addr, esp_now_send_status_t status);
+void OnDataRecvD(const uint8_t * mac, const uint8_t *incomingData, int len);
 
 /**
  * @brief Fonction qui est executer quand on envoie un message ESPNOW
@@ -53,9 +52,9 @@ void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len);
  * @param mac_addr 
  * @param status 
  */
-void OnDataSentC(const uint8_t *mac_addr, esp_now_send_status_t status) 
+void OnDataSentD(const uint8_t *mac_addr, esp_now_send_status_t status) 
 {
-  Serial.print("\nLast Packet Capteur:\t");
+  Serial.print("\nLast Packet Door:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
   Serial.println(status);
 }
@@ -66,12 +65,12 @@ void OnDataSentC(const uint8_t *mac_addr, esp_now_send_status_t status)
  * @param incomingData 
  * @param len 
  */
-void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len) 
+void OnDataRecvD(const uint8_t * mac, const uint8_t *incomingData, int len) 
 {
-  memcpy(&ValeurRecuCapteur, incomingData, sizeof(ValeurRecuCapteur));
-  Serial.println(" ==== PiloteESPNOW Capteur recu ! ==== ");
+  memcpy(&ValeurRecuDoor, incomingData, sizeof(ValeurRecuDoor));
+  Serial.println(" ====  PiloteESPNOW Door Recu ! ==== ");
 
-  piloteESPNOWCapteur.information = PILOTEESPNOWCAPTEUR_INFORMATION_DISPONIBLE;
+  piloteESPNOWDoor.information = PILOTEESPNOWDOOR_INFORMATION_DISPONIBLE;
 }
 
 //########################### Fonction PUBLIC ################################
@@ -81,10 +80,10 @@ void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len)
  *  of the driver source file
  * 
  */
-void piloteESPNOWCapteur_send(void)
+void piloteESPNOWDoor_send(void)
 {
     // Send message via ESP-NOW
-    esp_err_t result = esp_now_send(MACadresseCapteur, (uint8_t *) &ValeurEnvoieCapteur, sizeof(ValeurEnvoieCapteur));
+    esp_err_t result = esp_now_send(MACadresseDoor, (uint8_t *) &ValeurEnvoieDoor, sizeof(ValeurEnvoieDoor));
     // Check for error
     if (result == ESP_NOW_SEND_SUCCESS)
     {
@@ -101,21 +100,21 @@ void piloteESPNOWCapteur_send(void)
  * @brief Fonction qui paire un board a un autre via ESPNOW 
  * 
  */
-void piloteESPNOWCapteur_Pair(void)
+void piloteESPNOWDoor_Pair(void)
 {
   // Register peer
-  memcpy(peerInfoC.peer_addr, MACadresseCapteur, 6);
-  peerInfoC.channel = PILOTEESPNOWCAPTEUR_CHANNEL;    // Canal de la communication ESPNOW
-  peerInfoC.encrypt = false;
+  memcpy(peerInfoD.peer_addr, MACadresseDoor, 6);
+  peerInfoD.channel = PILOTEESPNOWDOOR_CHANNEL;    // Canal de la communication ESPNOW
+  peerInfoD.encrypt = false;
   
   // Add peer        
-  if (esp_now_add_peer(&peerInfoC) != ESP_OK)
+  if (esp_now_add_peer(&peerInfoD) != ESP_OK)
   {
-    Serial.println("######### Failed to add peer Capteur #########");
+    Serial.println("######### Failed to add peer Door #########");
     return;
   }
   Serial.print('\n');
-  Serial.println("####################    Paired to Capteur    ####################");
+  Serial.println("####################    Paired to Door    ####################");
   Serial.print('\n');
 }
 
@@ -123,7 +122,7 @@ void piloteESPNOWCapteur_Pair(void)
  * @brief Fonction d'initialisation du ESPNOW
  * 
  */
-void piloteESPNOWCapteur_initialise(void)
+void piloteESPNOWDoor_initialise(void)
 {
   WiFi.mode(WIFI_MODE_STA);
 
@@ -134,8 +133,8 @@ void piloteESPNOWCapteur_initialise(void)
   }
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet
-  esp_now_register_send_cb(OnDataSentC);  // Callback
+  esp_now_register_send_cb(OnDataSentD);  // Callback
   // Fonction that will be called when a ESPNOW message is received
-  esp_now_register_recv_cb(OnDataRecvC);  // Callback
-  piloteESPNOWCapteur.etatDuModule = PILOTEESPNOWCAPTEUR_MODULE_EN_FONCTION;
+  esp_now_register_recv_cb(OnDataRecvD);  // Callback
+  piloteESPNOWDoor.etatDuModule = PILOTEESPNOWDOOR_MODULE_EN_FONCTION;
 }
