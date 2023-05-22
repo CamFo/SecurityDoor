@@ -15,7 +15,6 @@
 #include "piloteIOM1.h"
 #include "piloteIOEA1.h"
 #include "interfaceMoteur.h"
-#include "interfaceRGB.h"
 #include "serviceBaseDeTemps.h"
 
 //Definitions privees
@@ -49,8 +48,6 @@ INTERFACEMOTEUR interfaceMoteur;
 //Definitions de fonctions publiques:
 void interfaceMoteur_Delai1Sec()
 {
-  piloteIOM2_metAZero();
-  piloteIOM1_metAZero();
   interfaceMoteur_compteur++;
   if (interfaceMoteur_compteur < INTERFACEMOTEUR_COMPTE_1S)
   {
@@ -65,6 +62,9 @@ void interfaceMoteur_Delai1Sec()
 
 void interfaceMoteur_attenteDirective()
 {
+  piloteIOM2_metAZero();
+  piloteIOM1_metAZero();
+  piloteIOEA1_metAZero();
   if (interfaceMoteur.RequeteActive == INTERFACEMOTEUR_INACTIVE)
   return;
   if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
@@ -75,7 +75,7 @@ void interfaceMoteur_attenteDirective()
 }
 void interfaceMoteur_droite()
 {
-  interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+  piloteIOEA1_metAUn();
   piloteIOM2_metAUn();
   piloteIOM1_metAZero();
   interfaceMoteur_compteur++;
@@ -90,7 +90,7 @@ void interfaceMoteur_droite()
 }
 void interfaceMoteur_gauche()
 {
-  interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
+  piloteIOEA1_metAUn();
   piloteIOM2_metAZero();
   piloteIOM1_metAUn();
   interfaceMoteur_compteur++;

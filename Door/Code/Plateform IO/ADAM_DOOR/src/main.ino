@@ -42,7 +42,10 @@
 // Include des processus
 #include "Adafruit_PN532.h"
 #include "processusPourTest.h"
-#include "processusDebarrer.h"
+#include "processusVerifieOuverture.h"
+#include "processusGestionIndicateurs.h"
+#include "processusGestionPairing.h"
+#include "processusControlMoteur.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -88,7 +91,10 @@ void main_initialise(void)
   interfaceBuzzer_initalise();
   interfaceInfrarouge_initalise();
   processusDeTest_initialise();
-  processusDebarrer_initialise();
+  processusVerifieOuverture_initialise();
+  processusGestionIndicateurs_initialise();
+  processusGestionPairing_initialise();
+  processusControlMoteur_initialise();
   Serial.print("init successfull.\n");
 }
 

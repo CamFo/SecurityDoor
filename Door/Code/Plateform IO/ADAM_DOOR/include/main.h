@@ -137,7 +137,7 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 7
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 10
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
 
@@ -169,7 +169,24 @@
  * @brief Numéro de phase du processus de gestion de la porte
  * 
 */
-#define PROCESSUSDEBARRER_PHASE 6
+#define PROCESSUSVERIFIEOUVERTURE_PHASE 6
+/**
+ * @brief Numéro de phase du processus de gestion des indicateurs lumineux et buzzers
+ * 
+ */
+#define PROCESSUSGESTIONINDICATEURS_PHASE 7
+
+/**
+ * @brief Numéro de phase du processus gestion de pairing avec le server 
+ * 
+*/
+#define PROCESSUSGESTIONPAIRING_PHASE 8
+/**
+ * @brief Numéro de phase du processus control de moteur DC
+ * 
+ */
+#define PROCESSUSCONTROLMOTEUR_PHASE 9
+
 /**
  * @brief  Numéro de phase de l'interface du PN523
  * 
@@ -181,8 +198,9 @@
 #define INTERFACEMOTEUR_COMPTE_EN_MS 500
 #define INTERFACEBUZZER_COMPTE_EN_MS 500
 #define INTERFACEINFRAROUGE_COMPTE_EN_MS 500
-#define PROCESSUSDEBARRER_COMPTE_EN_MS 500
-
+#define PROCESSUSVERIFIEOUVERTURE_COMPTE_EN_MS 500
+#define PROCESSUSPOURGESTIONPAIRING_COMPTE_EN_MS 500
+#define PROCESSUSCONTROLMOTEUR_COMPTE_EN_MS 500
 
 #define I2C_ADR_NFC (0x24)
 #define CONFIG_DISABLE_HAL_LOCKS

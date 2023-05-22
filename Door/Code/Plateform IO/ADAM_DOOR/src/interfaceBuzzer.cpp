@@ -80,7 +80,7 @@ unsigned int interfaceBuzzer_compteur2;
 bool estate;
 
 
-void interfaceBuzzerGestion();
+void interfaceBuzzer_Gestion();
 void interfaceBuzzer_gestionFrequence();
 void interfaceBuzzer_switchState();
 
@@ -146,9 +146,9 @@ void interfaceBuzzer_gestionFrequence()
     interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_PAS_EN_FONCTION;
     interfaceBuzzer.valeurBruit = INTERFACEBUZZER_AUCUNBRUIT;
     interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
-    serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzerGestion;
+    serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_Gestion;
 }
-void interfaceBuzzerGestion()
+void interfaceBuzzer_Gestion()
 {
     piloteBuzzer_metAZero();
     if (interfaceBuzzer.RequeteActive == INTERFACEBUZZER_INACTIVE)
@@ -198,5 +198,5 @@ void interfaceBuzzer_initalise()
     interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_PAS_EN_FONCTION;
     interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
     interfaceBuzzer.valeurBruit= INTERFACEBUZZER_AUCUNBRUIT;
-    serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzerGestion;
+    serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_Gestion;
 }

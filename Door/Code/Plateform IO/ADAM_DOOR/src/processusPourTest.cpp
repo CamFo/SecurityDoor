@@ -14,6 +14,8 @@
 #include "main.h"
 #include "piloteI2C.h"
 #include "piloteIOM2.h"
+#include "piloteIOM1.h"
+#include "piloteIOEA1.h"
 #include "piloteIOT1.h"
 #include "piloteIOT2.h"
 #include "piloteIOT3.h"
@@ -89,17 +91,19 @@ void processusDeTest_TestI2C()
 void processusDeTest_Moteur()
 {
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+  piloteIOEA1_metAZero();
   processusDeTest_compteur++;
   if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_2S)
   {
     return;
   }
-  if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
-  interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
-  else
-  interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
-
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == 1) //porte debarre value (idk ask cam)
+  {
+   if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
+   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+   else
+   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
+  }
 }
 
 void processusDeTest_TestRGB()

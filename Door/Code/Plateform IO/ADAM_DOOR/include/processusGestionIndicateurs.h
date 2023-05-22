@@ -1,15 +1,15 @@
 /**
- * @file processusDebarrer.h
+ * @file processusGestionIndicateurs.h
  * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
- * @brief  Debarrer et barrer une porte de securitee avec une moteur DC
+ * @brief 
  * @version 0.1
- * @date 2023-05-19
+ * @date 2023-05-22
  * 
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef PROCESSUSDEBARRER_H
-#define PROCESSUSDEBARRER_H
+#ifndef PROCESSUSGESTIONINDICATEURS_H
+#define PROCESSUSGESTIONINDICATEURS_H
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
@@ -26,7 +26,7 @@
 
 
 //Fonctions publiques:
-void processusDebarrer_initialise(void);
+void processusGestionIndicateurs_initialise(void);
 
 //Variables publiques:
 //pas de variables publiques

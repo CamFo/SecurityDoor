@@ -106,6 +106,7 @@ void interfaceRGB_changecouleur()
 {
  if (interfaceRGB.RequeteActive == INTERFACERGB_INACTIVE)
  return;
+ interfaceRGB.etatDuModule = INTERFACERGB_MODULE_EN_FONCTION;
  interfaceRGB_allumeCouleur(interfaceRGB.couleur);
  interfaceRGB.RequeteActive = INTERFACERGB_INACTIVE;
  serviceBaseDeTemps_execute[INTERFACERGB_PHASE] = interfaceRGB_changecouleur;
