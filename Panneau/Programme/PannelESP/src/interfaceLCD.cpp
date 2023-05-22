@@ -22,6 +22,7 @@ void interfaceLCD_initialise(void)
 {
   interfaceLCD_ClearScreen(DarkGrey);
   interfaceLCD_rectangle(20, 15, 440, 3, BLACK);
+  interfaceLCD_rectangle(16, 100, 240, 202, WHITE);
 
   unsigned char Sstring[] = "ADAM project TSO 2023";
   interfaceLCD_afficheString(320, 300, Sstring, YELLOW, DarkGrey);

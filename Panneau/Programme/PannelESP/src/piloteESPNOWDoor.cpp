@@ -56,7 +56,6 @@ void OnDataSentD(const uint8_t *mac_addr, esp_now_send_status_t status)
 {
   Serial.print("\nLast Packet Door:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
-  Serial.println(status);
 }
 /**
  * @brief Fonction executer quand un message ESP now est recu
@@ -87,7 +86,7 @@ void piloteESPNOWDoor_send(void)
     // Check for error
     if (result == ESP_NOW_SEND_SUCCESS)
     {
-        Serial.println("Sent with success");
+        //Serial.println("Sent with success");
     }
     else 
     {

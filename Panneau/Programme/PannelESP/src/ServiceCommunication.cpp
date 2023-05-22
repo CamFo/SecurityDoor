@@ -21,6 +21,8 @@
 #include "piloteESPNOWCapteur.h"
 #include "piloteESPNOWDoor.h"
 
+#include "interfaceLCD.h"
+
 //Private Variable
 
 unsigned int compteur1 = 0;
@@ -112,6 +114,9 @@ void serviceCommunication_WaitResponseDoor(void)
         }
         compteurDoor = 0;
 
+        unsigned char OFFstring[] = "ETAT de la Porte: OFF";
+        interfaceLCD_afficheString(320, 100, OFFstring, PURERED, DarkGrey);
+
         Serial.println("########### ERREUR --  DOOR OFFLINE  -- ERREUR ###########");
         // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
         serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
@@ -132,6 +137,9 @@ void serviceCommunication_WaitResponseDoor(void)
     Serial.print("État Serrure: ");
     Serial.println(ValeurRecuDoor.EtatSerrure);
     Serial.println();
+
+    unsigned char ONstring[] = "ETAT de la Porte: ON ";
+    interfaceLCD_afficheString(320, 100, ONstring, PUREGREEN, DarkGrey);
 
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
 }
@@ -172,6 +180,9 @@ void serviceCommunication_WaitResponseCapteur(void)
         }
         compteurCapteur = 0;
 
+        unsigned char OFFstring[] = "ETAT du Capteur: OFF";
+        interfaceLCD_afficheString(320, 120, OFFstring, PURERED, DarkGrey);
+
         Serial.println("########### ERREUR --  CAPTEUR OFFLINE  -- ERREUR ###########");
         // ON EST EN ERREUR LE CAPTEUR NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
         serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
@@ -191,6 +202,9 @@ void serviceCommunication_WaitResponseCapteur(void)
     Serial.print("Mouvement: ");
     Serial.println(ValeurRecuCapteur.Motion);
     Serial.println();
+
+    unsigned char ONstring[] = "ETAT du Capteur: ON ";
+    interfaceLCD_afficheString(320, 120, ONstring, PUREGREEN, DarkGrey);
 
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
 }

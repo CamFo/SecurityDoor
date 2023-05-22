@@ -35,7 +35,7 @@
 #define PUREGREEN     0x07E0
 #define PUREBLUE      0x001F
 #define BLACK         0x0000
-#define WHITE         0xFFFFs
+#define WHITE         0xFFFF
 #define YELLOW        0xFFE0
 #define MAGENTA       0xF81F
 #define CYAN 	      0x07FF
