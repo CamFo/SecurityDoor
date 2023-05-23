@@ -35,8 +35,8 @@ CAPTEUR_ADAM_S ValeurEnvoieCapteur;
  *      corresponde à l'adresse mac du processeur ESP utilisé.
  * 
  *    Feather Cegep: 94:B9:7E:6B:84:C4
- *    Feather Appart: C4:DD:57:9C:D3:6C
- *    Pannel : 70:B8:F6:F0:C6:B0
+ *    Feather Appart: C4:DD:57:9C:D3:6C  0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C
+ *    Pannel : 70:B8:F6:F0:C6:B0      0x70, 0xB8, 0xF6, 0xA7, 0x35, 0x34
  *    Feather Door: FC:F5:C4:0A:05:C8
  *    Porte : 70:B8:F6:A7:35:34
  */ 
@@ -55,8 +55,9 @@ void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len);
  */
 void OnDataSentC(const uint8_t *mac_addr, esp_now_send_status_t status) 
 {
-  Serial.print("\nLast Packet Capteur:\t");
+  Serial.print("Last Packet Capteur:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+  Serial.flush();
 }
 /**
  * @brief Fonction executer quand un message ESP now est recu
@@ -67,10 +68,11 @@ void OnDataSentC(const uint8_t *mac_addr, esp_now_send_status_t status)
  */
 void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len) 
 {
-  memcpy(&ValeurRecuCapteur, incomingData, sizeof(ValeurRecuCapteur));
-  Serial.println(" ==== PiloteESPNOW Capteur recu ! ==== ");
-
-  piloteESPNOWCapteur.information = PILOTEESPNOWCAPTEUR_INFORMATION_DISPONIBLE;
+  if(mac[1] == MACadresseCapteur[1])  // TEMRORY FIX
+  {
+    memcpy(&ValeurRecuCapteur, incomingData, sizeof(ValeurRecuCapteur));
+    piloteESPNOWCapteur.information = PILOTEESPNOWCAPTEUR_INFORMATION_DISPONIBLE;
+  }
 }
 
 //########################### Fonction PUBLIC ################################
@@ -94,8 +96,6 @@ void piloteESPNOWCapteur_send(void)
         Serial.println("Error sending the data");
     }
 }
-
-
 /**
  * @brief Fonction qui paire un board a un autre via ESPNOW 
  * 
@@ -104,18 +104,19 @@ void piloteESPNOWCapteur_Pair(void)
 {
   // Register peer
   memcpy(peerInfoC.peer_addr, MACadresseCapteur, 6);
-  peerInfoC.channel = PILOTEESPNOWCAPTEUR_CHANNEL;    // Canal de la communication ESPNOW
+  peerInfoC.channel = 0;    // Canal de la communication ESPNOW
   peerInfoC.encrypt = false;
   
   // Add peer        
   if (esp_now_add_peer(&peerInfoC) != ESP_OK)
   {
-    Serial.println("######### Failed to add peer Capteur #########");
+    Serial.println("X=X=X Failed to add peer Capteur X=X=X");
     return;
   }
   Serial.print('\n');
-  Serial.println("####################    Paired to Capteur    ####################");
+  Serial.println("====    Paired to Capteur   ====");
   Serial.print('\n');
+  Serial.flush();
 }
 
 /**
@@ -124,13 +125,6 @@ void piloteESPNOWCapteur_Pair(void)
  */
 void piloteESPNOWCapteur_initialise(void)
 {
-  WiFi.mode(WIFI_MODE_STA);
-
-  if (esp_now_init() != ESP_OK) 
-  {
-      Serial.println("Error initializing ESP-NOW");
-      return;
-  }
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet
   esp_now_register_send_cb(OnDataSentC);  // Callback
