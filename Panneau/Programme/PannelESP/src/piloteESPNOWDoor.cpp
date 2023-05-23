@@ -37,7 +37,7 @@ DOOR_ADAM_S ValeurEnvoieDoor;
  *    Feather Appart: C4:DD:57:9C:D3:6C
  *    Pannel : 70:B8:F6:F0:C6:B0
  *    Feather Door: FC:F5:C4:0A:05:C8
- *    Porte : 70:B8:F6:A7:35:34
+ *    Porte : 70:B8:F6:A7:35:34    0x70, 0xB8, 0xF6, 0xA7, 0x35, 0x34
  */ 
 unsigned char MACadresseDoor[] = {0x70, 0xB8, 0xF6, 0xA7, 0x35, 0x34};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
 
@@ -54,8 +54,9 @@ void OnDataRecvD(const uint8_t * mac, const uint8_t *incomingData, int len);
  */
 void OnDataSentD(const uint8_t *mac_addr, esp_now_send_status_t status) 
 {
-  Serial.print("\nLast Packet Door:\t");
+  Serial.print("Last Packet Door:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+  Serial.flush();
 }
 /**
  * @brief Fonction executer quand un message ESP now est recu
@@ -66,10 +67,11 @@ void OnDataSentD(const uint8_t *mac_addr, esp_now_send_status_t status)
  */
 void OnDataRecvD(const uint8_t * mac, const uint8_t *incomingData, int len) 
 {
-  memcpy(&ValeurRecuDoor, incomingData, sizeof(ValeurRecuDoor));
-  Serial.println(" ====  PiloteESPNOW Door Recu ! ==== ");
-
-  piloteESPNOWDoor.information = PILOTEESPNOWDOOR_INFORMATION_DISPONIBLE;
+  if(mac[1] == MACadresseDoor[1])
+  {
+    memcpy(&ValeurRecuDoor, incomingData, sizeof(ValeurRecuDoor));
+    piloteESPNOWDoor.information = PILOTEESPNOWDOOR_INFORMATION_DISPONIBLE;
+  }
 }
 
 //########################### Fonction PUBLIC ################################
@@ -109,12 +111,13 @@ void piloteESPNOWDoor_Pair(void)
   // Add peer        
   if (esp_now_add_peer(&peerInfoD) != ESP_OK)
   {
-    Serial.println("######### Failed to add peer Door #########");
+    Serial.println("X=X=X  Failed to add peer Door  X=X=X");
     return;
   }
   Serial.print('\n');
-  Serial.println("####################    Paired to Door    ####################");
+  Serial.println("====    Paired to Door    ====");
   Serial.print('\n');
+  Serial.flush();
 }
 
 /**
@@ -123,13 +126,6 @@ void piloteESPNOWDoor_Pair(void)
  */
 void piloteESPNOWDoor_initialise(void)
 {
-  WiFi.mode(WIFI_MODE_STA);
-
-  if (esp_now_init() != ESP_OK) 
-  {
-      Serial.println("Error initializing ESP-NOW");
-      return;
-  }
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet
   esp_now_register_send_cb(OnDataSentD);  // Callback

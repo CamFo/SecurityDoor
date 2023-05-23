@@ -41,6 +41,9 @@
 #include "processusClignotant.h"
 
 //Definitions privees
+
+INTERFACELCD interfaceLCD;  // Pour passer les information à afficher à chaue Module
+
 //pas de definitions privees
 void main_faitUnTest(void);
 
@@ -94,11 +97,5 @@ void setup(void)
 void loop(void) 
 {
   serviceTaskServer_gestion.execute();
-  serviceBaseDeTemps_gereDansLoop();   
+  serviceBaseDeTemps_gereDansLoop();
 }
-
-//Definitions de variables publiques:
-//pas de variables publiques
-
-//Definitions de fonctions publiques:
-//pas de fonctions publiques

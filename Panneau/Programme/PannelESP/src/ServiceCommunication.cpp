@@ -13,6 +13,8 @@
  */
 //#############################################################################
 #include <Arduino.h>
+#include <esp_now.h>
+#include <WiFi.h>
 
 #include "main.h"
 #include "serviceBaseDeTemps.h"
@@ -26,9 +28,9 @@
 //Private Variable
 
 unsigned int compteur1 = 0;
-
 unsigned int compteurDoor = 0;
 unsigned int compteurCapteur = 0;
+unsigned int compteurEntreP = 0;
 
 //############################### EXTERN DECLERATION ###########################
 /**
@@ -66,6 +68,7 @@ SERVICECOMMUNICATION ServiceCommunication;
 void serviceCommunication_PairingDoor(void);
 void serviceCommunication_EnvoieDoor(void);
 void serviceCommunication_WaitResponseDoor(void);
+void serviceCommunication_AttendEntrePair(void);
 void serviceCommunication_PairingCapteur(void);
 void serviceCommunication_EnvoieCapteur(void);
 void serviceCommunication_WaitResponseCapteur(void);
@@ -73,6 +76,13 @@ void serviceCommunication_Attend(void);
 
 void serviceCommunication_initialise(void)
 {
+    WiFi.mode(WIFI_MODE_STA);
+
+    if (esp_now_init() != ESP_OK) 
+    {
+        Serial.println("Error initializing ESP-NOW");
+        return;
+    }
     
     ServiceCommunication.etatDuModule = SERVICECOMMUNICATION_MODULE_EN_FONCTION;
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
@@ -81,6 +91,9 @@ void serviceCommunication_initialise(void)
 //###############  BEGIN DOOR COMMUNICATION ###################
 void serviceCommunication_PairingDoor(void)
 {
+    Serial.println("[#][#]########  COMMUNICATION CYCLE BEGIN ########[#][#]");
+    Serial.flush();
+
     piloteESPNOWDoor_initialise();
     piloteESPNOWDoor_Pair();
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_EnvoieDoor;
@@ -114,10 +127,11 @@ void serviceCommunication_WaitResponseDoor(void)
         }
         compteurDoor = 0;
 
-        unsigned char OFFstring[] = "ETAT de la Porte: OFF";
-        interfaceLCD_afficheString(320, 100, OFFstring, PURERED, DarkGrey);
+        interfaceLCD.DoorState = DOORSTATE_OFF;
+        //unsigned char DOFFstring[] = "ETAT de la Porte: OFF";
+        //interfaceLCD_afficheString(320, 100, DOFFstring, PURERED, DarkGrey);
 
-        Serial.println("########### ERREUR --  DOOR OFFLINE  -- ERREUR ###########");
+        Serial.println("X=X=X ERREUR --  DOOR OFFLINE  -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
         serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
         return;
@@ -125,7 +139,7 @@ void serviceCommunication_WaitResponseDoor(void)
     piloteESPNOWDoor.information =PILOTEESPNOWDOOR_INFORMATION_TRAITEE;
 
 
-    Serial.println("Bytes received Door: ");
+    Serial.println("Bytes received DOOR");
     Serial.print("State: ");
     Serial.println(ValeurRecuDoor.States);
     Serial.print("Command: ");
@@ -137,13 +151,26 @@ void serviceCommunication_WaitResponseDoor(void)
     Serial.print("État Serrure: ");
     Serial.println(ValeurRecuDoor.EtatSerrure);
     Serial.println();
+    Serial.flush();
 
-    unsigned char ONstring[] = "ETAT de la Porte: ON ";
-    interfaceLCD_afficheString(320, 100, ONstring, PUREGREEN, DarkGrey);
+    interfaceLCD.DoorState = DOORSTATE_ON;
+    //unsigned char DONstring[] = "ETAT de la Porte: ON";
+    //interfaceLCD_afficheString(320, 100, DONstring, PUREGREEN, DarkGrey);
 
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
+    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
 }
 //#############  END DOOR COMMUNICATION ################
+
+void serviceCommunication_AttendEntrePair(void)
+{
+    if(compteurEntreP <= 200)
+    {
+        compteurEntreP ++;
+        return;
+    }
+    compteurEntreP = 0;
+    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
+}
 
 
 //#############  BEGIN CAPTEUR COMMUNICATION ##############
@@ -155,6 +182,7 @@ void serviceCommunication_PairingCapteur(void)
 }
 void serviceCommunication_EnvoieCapteur(void)
 {
+
     if(piloteESPNOWCapteur.etatDuModule != PILOTEESPNOWCAPTEUR_MODULE_EN_FONCTION) // Sécurité
     {
         return;
@@ -180,17 +208,19 @@ void serviceCommunication_WaitResponseCapteur(void)
         }
         compteurCapteur = 0;
 
-        unsigned char OFFstring[] = "ETAT du Capteur: OFF";
-        interfaceLCD_afficheString(320, 120, OFFstring, PURERED, DarkGrey);
+        interfaceLCD.CapteurState = CAPTEURSTATE_OFF;
 
-        Serial.println("########### ERREUR --  CAPTEUR OFFLINE  -- ERREUR ###########");
+        Serial.println("X=X=X ERREUR -- CAPTEUR OFFLINE -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LE CAPTEUR NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
+
+        Serial.println("[#][#]########  COMMUNICATION CYCLE END ########[#][#]");
+        Serial.flush();
         serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
         return;
     }
     piloteESPNOWCapteur.information = PILOTEESPNOWCAPTEUR_INFORMATION_TRAITEE;
 
-    Serial.println("Bytes received: ");
+    Serial.println("Bytes received: CAPTEUR");
     Serial.print("State: ");
     Serial.println(ValeurRecuCapteur.States);
     Serial.print("Command: ");
@@ -202,21 +232,21 @@ void serviceCommunication_WaitResponseCapteur(void)
     Serial.print("Mouvement: ");
     Serial.println(ValeurRecuCapteur.Motion);
     Serial.println();
+    Serial.flush();
 
-    unsigned char ONstring[] = "ETAT du Capteur: ON ";
-    interfaceLCD_afficheString(320, 120, ONstring, PUREGREEN, DarkGrey);
-
+    interfaceLCD.CapteurState = CAPTEURSTATE_ON;
+    Serial.println("[#][#]########  COMMUNICATION CYCLE END ########[#][#]");
+    Serial.flush();
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
 }
 
 void serviceCommunication_Attend(void)
 {
     compteur1 = compteur1 + 1;
-    if(compteur1 < 500) // 500 x la période de la base de temps (2 ms)
+    if(compteur1 < 1000) // 1000 x la période de la base de temps (2 ms)
     {
         return;
     }
-    Serial.print("Finish waiting 1 sec\n");
     compteur1 = 0;
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
 }

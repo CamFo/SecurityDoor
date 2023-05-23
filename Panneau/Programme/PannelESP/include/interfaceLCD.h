@@ -19,8 +19,13 @@
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
+#define INTERFACELCD_INFORMATION_DISPONIBLE 1
+#define INTERFACELCD_INFORMTAION_TRAITEE 0
 
-
+#define CAPTEURSTATE_ON  1
+#define CAPTEURSTATE_OFF 0
+#define DOORSTATE_ON  1
+#define DOORSTATE_OFF 0
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
 //pas de dependances logicielles
@@ -53,6 +58,22 @@
 #define Orange          0xFD20      /* 255, 165,   0 */
 #define GreenYellow     0xAFE5      /* 173, 255,  47 */
 #define Pink            0xF81F
+
+
+typedef struct
+{
+    unsigned char DoorState = 2;
+    unsigned char CapteurState = 2;
+    int x;
+    int y;
+    unsigned int couleur;
+    unsigned int bgcolor;
+    unsigned char information;
+    
+}INTERFACELCD;
+
+extern INTERFACELCD interfaceLCD;
+
 
 
 //Fonctions publiques:
