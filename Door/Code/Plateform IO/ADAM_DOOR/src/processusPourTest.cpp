@@ -91,19 +91,23 @@ void processusDeTest_TestI2C()
 void processusDeTest_Moteur()
 {
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-  piloteIOEA1_metAZero();
+  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
+  interfaceBuzzer.dureeActive = PROCESSUSPOURTEST_COMPTE_2S;
+  interfaceBuzzer.valeurBruit = INTERFACEBUZZER_100POURCENT;
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_BLANC;
+
   processusDeTest_compteur++;
   if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_2S)
   {
     return;
   }
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == 1) //porte debarre value (idk ask cam)
-  {
-   if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
-   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
-   else
-   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
-  }
+  if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
+  interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+  else
+  interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
+
+
 }
 
 void processusDeTest_TestRGB()
@@ -175,5 +179,11 @@ void processusDeTest_initialise(void)
 {
  // Serial.begin(115200);
  // Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_salutCamille8D; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = nefaitrien; //Quel test faire
+}
+
+void nefaitrien();
+void nefaitrien()
+{
+  
 }

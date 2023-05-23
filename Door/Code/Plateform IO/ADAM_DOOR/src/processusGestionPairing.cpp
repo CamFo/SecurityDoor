@@ -39,7 +39,9 @@ PROCESSUSPOURGESTIONPAIRING_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 #define PROCESSUSPOURGESTIONPAIRING_COMPTE_1S (\
 PROCESSUSPOURGESTIONPAIRING_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
   /500.0)
-
+#define PROCESSUSPOURGESTIONPAIRING_COMPTE_2S (\
+PROCESSUSPOURGESTIONPAIRING_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
+  /250.0)
 #define PROCESSUSPOURGESTIONPAIRING_COMPTE_10S (\
 PROCESSUSPOURGESTIONPAIRING_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
   /50.0)
@@ -75,28 +77,35 @@ void processusGestionPairing_ReAttemptPairing()
     serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_ReAttemptPairing;
 }
 
-
+int processusGestionPairing_compteur2;
 void processusGestionPairing_Detection_init()
 {
     if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
     {
-       // interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
-        //interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-        if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States != PILOTEESPNOW_INFORMATION_DISPONIBLE)
+        interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
+        interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+        if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States == SERVICECOMMUNCATIION_STATE_ERREUR)
         { 
             processusGestionPairing_compteur++;
         }
-        else if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States == PILOTEESPNOW_INFORMATION_DISPONIBLE)
+        else if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States != SERVICECOMMUNCATIION_STATE_ERREUR)
         {
             processusGestionPairing_compteur = 0;
             interfaceBuzzer.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_1S;
             interfaceBuzzer.valeurBruit = INTERFACEBUZZER_25POURCENT;
+            interfaceRGB.couleur = INTERFACERGB_VALEUR_BLEU;
+            interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
             serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_VerifieIfStillPaired;
         }
         return;
     }
-   // interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
-   // interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
+    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_2S)
+    {
+        return;
+    }
+    processusGestionPairing_compteur = 0;
     serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_ReAttemptPairing;
 }
 //Definitions de variables publiques:

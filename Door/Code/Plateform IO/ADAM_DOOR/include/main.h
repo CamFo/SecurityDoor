@@ -86,7 +86,7 @@
  * @brief Définition qui permet de modifier l'état de la pin 37 du esp32 
  * 
  */
-#define PILOTEIOEA1_BROCHE 37
+#define PILOTEIOEA1_BROCHE 23
 
 /**
  * @brief Définition qui permet de modifer l'état de la pin du buzzer

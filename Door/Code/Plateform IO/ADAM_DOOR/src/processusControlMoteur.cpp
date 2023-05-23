@@ -60,14 +60,14 @@ void processusGestionPairing_AttenteCommande()
   {
     return;
   }
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == 1) //porte debarre value (idk ask cam)
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
   {
     interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
     interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
   }
-  else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == 2)
+  else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == SERVICECOMMUNICATION_COMMANDE_BARRER)
   {
     interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;

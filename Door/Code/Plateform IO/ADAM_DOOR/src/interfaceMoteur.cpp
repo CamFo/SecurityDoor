@@ -48,6 +48,9 @@ INTERFACEMOTEUR interfaceMoteur;
 //Definitions de fonctions publiques:
 void interfaceMoteur_Delai1Sec()
 {
+  piloteIOEA1_metAZero();
+  piloteIOM2_metAZero();
+  piloteIOM1_metAZero();
   interfaceMoteur_compteur++;
   if (interfaceMoteur_compteur < INTERFACEMOTEUR_COMPTE_1S)
   {
@@ -62,16 +65,12 @@ void interfaceMoteur_Delai1Sec()
 
 void interfaceMoteur_attenteDirective()
 {
-  piloteIOM2_metAZero();
-  piloteIOM1_metAZero();
-  piloteIOEA1_metAZero();
   if (interfaceMoteur.RequeteActive == INTERFACEMOTEUR_INACTIVE)
   return;
   if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_droite;
   else if(interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_GAUCHE)
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_gauche;
-
 }
 void interfaceMoteur_droite()
 {
