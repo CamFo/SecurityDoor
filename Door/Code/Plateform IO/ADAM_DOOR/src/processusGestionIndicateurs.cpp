@@ -36,7 +36,8 @@ void processusGestionIndicateurs_gestionBuzzer();
 
 void processusGestionIndicateurs_gestionBuzzer()
 {
- 
+ //GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA = 1;
+ Serial.print("processusGestionIndicateurs_gestionBuzzer a bien init");
 }
 
 void processusGestionIndicateurs_VerifieState()

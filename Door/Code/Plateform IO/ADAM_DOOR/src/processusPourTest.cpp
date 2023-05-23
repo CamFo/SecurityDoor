@@ -164,7 +164,24 @@ void processusDeTest_Buzzer_Delai1Sec()
     processusDeTest_compteur = 0;
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer;
 }
-
+void nefaitrien();
+void nefaitrien()
+{
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == 17)//SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
+  {
+    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
+    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
+  }
+  else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
+  {
+    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
+    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+  }
+}
 void processusDeTest_Infrarrouge_VerifieEntree()
 {
  interfaceBuzzer.dureeActive = PROCESSUSPOURTEST_COMPTE_2S;
@@ -182,8 +199,3 @@ void processusDeTest_initialise(void)
   serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = nefaitrien; //Quel test faire
 }
 
-void nefaitrien();
-void nefaitrien()
-{
-  
-}

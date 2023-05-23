@@ -60,6 +60,8 @@ void processusGestionPairing_AttenteCommande()
   {
     return;
   }
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == SERVICECOMMUNICATION_FAILVALUE)
+  return;
   if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
   {
     interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
@@ -75,9 +77,15 @@ void processusGestionPairing_AttenteCommande()
     interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   }
 }
+void test();
 void processusControlMoteur_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusGestionPairing_AttenteCommande;
+  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = test;
+}
+
+void test()
+{
+    Serial.print("processusControlMoteur_initialise a bien init");
 }
 
 

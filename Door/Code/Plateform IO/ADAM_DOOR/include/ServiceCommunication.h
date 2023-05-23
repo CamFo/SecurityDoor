@@ -73,7 +73,15 @@ extern unsigned char serviceCommunicationmunication_ErrorState;
 //#############################################################################
 
 // STRUCTURE PUBLICs
+/** DEFINE PUBLIQUE*/
+#define SERVICECOMMUNICATION_STATE_OPERATION  0x07
+#define SERVICECOMMUNICATION_STATE_ENARRET    0x08
+#define SERVICECOMMUNCATIION_STATE_ERREUR     0x09
+//State
 
+#define SERVICECOMMUNICATION_COMMANDE_BARRER   0x10
+#define SERVICECOMMUNICATION_COMMANDE_DEBARRER 0x11
+//Commande
 /// @brief Structure public qui permet de savoir et de changer l'état du module  
 typedef struct
 {

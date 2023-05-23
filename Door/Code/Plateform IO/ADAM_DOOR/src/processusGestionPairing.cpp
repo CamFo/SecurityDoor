@@ -61,11 +61,8 @@ void processusGestionPairing_ReAttemptPairing()
 {
     if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
     {
-        if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States != PILOTEESPNOW_INFORMATION_DISPONIBLE)
-        { 
-            processusGestionPairing_compteur++;
-        }
-        else if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States == PILOTEESPNOW_INFORMATION_DISPONIBLE)
+        processusGestionPairing_compteur++;
+        if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNICATION_FAILVALUE)
         {
             processusGestionPairing_compteur = 0;
             //interfaceBuzzer.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_1S;
@@ -80,16 +77,16 @@ void processusGestionPairing_ReAttemptPairing()
 int processusGestionPairing_compteur2;
 void processusGestionPairing_Detection_init()
 {
+    Serial.print("Compte30s");
     if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
     {
         interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
         interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-        if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States == SERVICECOMMUNCATIION_STATE_ERREUR)
-        { 
-            processusGestionPairing_compteur++;
-        }
-        else if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States != SERVICECOMMUNCATIION_STATE_ERREUR)
+        processusGestionPairing_compteur++;
+
+        if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNICATION_FAILVALUE)
         {
+            Serial.print("Pair success");
             processusGestionPairing_compteur = 0;
             interfaceBuzzer.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_1S;
             interfaceBuzzer.valeurBruit = INTERFACEBUZZER_25POURCENT;
@@ -99,6 +96,7 @@ void processusGestionPairing_Detection_init()
         }
         return;
     }
+    Serial.print("Failed com");
     interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_2S)
@@ -113,10 +111,14 @@ void processusGestionPairing_Detection_init()
 
 //Definitions de fonctions publiques:
 
-
+void nefaitrren();
+void nefaitrren()
+{
+ Serial.print("nefaitrren a bien init");
+}
 void processusGestionPairing_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_Detection_init;
+  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = nefaitrren;//processusGestionPairing_Detection_init;
 }
 
 

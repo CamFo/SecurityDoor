@@ -15,6 +15,7 @@
 #define ANNEXEADAM_PORTE_ETATSERRURE_OUVERTE 0
 #define ANNEXEADAM_PORTE_ETATSERRURE_FERME   1
 
+#define SERVICECOMMUNICATION_FAILVALUE        0x00
 #define SERVICECOMMUNICATION_STATE_OPERATION  0x07
 #define SERVICECOMMUNICATION_STATE_ENARRET    0x08
 #define SERVICECOMMUNCATIION_STATE_ERREUR     0x09
@@ -69,7 +70,7 @@ typedef struct
 {
     unsigned char States;
     unsigned char Commande;
-    unsigned char ValueRA;
+    unsigned char FlagPairing;
     unsigned char ValueRB;
     unsigned char ValueRC;
 
