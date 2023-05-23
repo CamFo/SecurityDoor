@@ -133,7 +133,7 @@ void serviceCommunication_WaitResponseDoor(void)
 
         Serial.println("X=X=X ERREUR --  DOOR OFFLINE  -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
-        serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
+        serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
         return;
     }
     piloteESPNOWDoor.information =PILOTEESPNOWDOOR_INFORMATION_TRAITEE;
@@ -163,7 +163,7 @@ void serviceCommunication_WaitResponseDoor(void)
 
 void serviceCommunication_AttendEntrePair(void)
 {
-    if(compteurEntreP <= 200)
+    if(compteurEntreP <= 500) // Délais de 500 x la base de temps
     {
         compteurEntreP ++;
         return;

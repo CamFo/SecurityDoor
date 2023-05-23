@@ -34,7 +34,7 @@ DOOR_ADAM_S ValeurEnvoieDoor;
  *      corresponde à l'adresse mac du processeur ESP utilisé.
  * 
  *    Feather Cegep: 94:B9:7E:6B:84:C4
- *    Feather Appart: C4:DD:57:9C:D3:6C
+ *    Feather Appart: C4:DD:57:9C:D3:6C   0xC4, 0xDD, 0x57, 0x9C, 0xD3, 0x6C
  *    Pannel : 70:B8:F6:F0:C6:B0
  *    Feather Door: FC:F5:C4:0A:05:C8
  *    Porte : 70:B8:F6:A7:35:34    0x70, 0xB8, 0xF6, 0xA7, 0x35, 0x34
