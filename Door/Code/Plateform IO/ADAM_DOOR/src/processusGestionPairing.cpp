@@ -77,16 +77,27 @@ void processusGestionPairing_ReAttemptPairing()
 int processusGestionPairing_compteur2;
 void processusGestionPairing_Detection_init()
 {
-    Serial.print("Compte30s");
+    bool initPrint;
+    if (initPrint == 0)
+    {
+      Serial.print("\r Attempting pairing.");
+      initPrint = 1;
+    }
+
     if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
     {
         interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
         interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
         processusGestionPairing_compteur++;
-
+        processusGestionPairing_compteur2++;
+        if (processusGestionPairing_compteur2 > PROCESSUSPOURGESTIONPAIRING_COMPTE_2S)
+        {
+          Serial.print(".");
+          processusGestionPairing_compteur2 = 0;
+        }
         if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNICATION_FAILVALUE)
         {
-            Serial.print("Pair success");
+            Serial.print("\n Pair success.");
             processusGestionPairing_compteur = 0;
             interfaceBuzzer.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_1S;
             interfaceBuzzer.valeurBruit = INTERFACEBUZZER_25POURCENT;
@@ -96,7 +107,7 @@ void processusGestionPairing_Detection_init()
         }
         return;
     }
-    Serial.print("Failed com");
+    Serial.print("\n Failed com.");
     interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_2S)
@@ -104,6 +115,7 @@ void processusGestionPairing_Detection_init()
         return;
     }
     processusGestionPairing_compteur = 0;
+    processusGestionPairing_compteur2 = 0;
     serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_ReAttemptPairing;
 }
 //Definitions de variables publiques:
@@ -111,14 +123,12 @@ void processusGestionPairing_Detection_init()
 
 //Definitions de fonctions publiques:
 
-void nefaitrren();
-void nefaitrren()
-{
- Serial.print("nefaitrren a bien init");
-}
+void loop3();
+void loop3(){}
+
 void processusGestionPairing_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = nefaitrren;//processusGestionPairing_Detection_init;
+  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_Detection_init;//processusGestionPairing_Detection_init;
 }
 
 

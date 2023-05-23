@@ -61,43 +61,57 @@ void interfaceRGB_allumeCouleur(unsigned int Couleur)
     piloteIOT1_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT2_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
     piloteIOT3_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
+    #ifdef MODE_DEBUG
     Serial.print("ROUGE \n");
+    #endif
     break;
     case INTERFACERGB_VALEUR_BLEU:
     piloteIOT1_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
     piloteIOT2_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
     piloteIOT3_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
+    #ifdef MODE_DEBUG
     Serial.print("BLEU \n");
+    #endif
     break;
     case INTERFACERGB_VALEUR_VERT:
     piloteIOT1_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
     piloteIOT2_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT3_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
+    #ifdef MODE_DEBUG
     Serial.print("VERT \n");
+    #endif
     break;
     case INTERFACERGB_VALEUR_JAUNE:
     piloteIOT1_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT2_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT3_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
+    #ifdef MODE_DEBUG
     Serial.print("JAUNE \n");
+    #endif
     break;
     case INTERFACERGB_VALEUR_BLEUP:
     piloteIOT1_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT2_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
     piloteIOT3_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
+    #ifdef MODE_DEBUG
     Serial.print("BLEU PALE \n");
+    #endif
     break; 
     case INTERFACERGB_VALEUR_MAUVE:
     piloteIOT1_metA(INTERFACERGB_VALEUR_POUR_ETEINDRE);
     piloteIOT2_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT3_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
+    #ifdef MODE_DEBUG
     Serial.print("MAUVE \n");
+    #endif
     break;
     case INTERFACERGB_VALEUR_BLANC:
     piloteIOT1_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT2_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
     piloteIOT3_metA(INTERFACERGB_VALEUR_POUR_ALLUMER);
+    #ifdef MODE_DEBUG
     Serial.print("BLANC \n");
+    #endif
     break;
   }
 }

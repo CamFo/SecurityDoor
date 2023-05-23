@@ -91,12 +91,6 @@ void processusDeTest_TestI2C()
 void processusDeTest_Moteur()
 {
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
-  interfaceBuzzer.dureeActive = PROCESSUSPOURTEST_COMPTE_2S;
-  interfaceBuzzer.valeurBruit = INTERFACEBUZZER_100POURCENT;
-  interfaceRGB.couleur = INTERFACERGB_VALEUR_BLANC;
-
   processusDeTest_compteur++;
   if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_2S)
   {
@@ -164,23 +158,10 @@ void processusDeTest_Buzzer_Delai1Sec()
     processusDeTest_compteur = 0;
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer;
 }
-void nefaitrien();
-void nefaitrien()
+void loop4();
+void loop4()
 {
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == 17)//SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
-  {
-    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
-  }
-  else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
-  {
-    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
-  }
+
 }
 void processusDeTest_Infrarrouge_VerifieEntree()
 {
@@ -196,6 +177,6 @@ void processusDeTest_initialise(void)
 {
  // Serial.begin(115200);
  // Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = nefaitrien; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = loop4; //Quel test faire
 }
 

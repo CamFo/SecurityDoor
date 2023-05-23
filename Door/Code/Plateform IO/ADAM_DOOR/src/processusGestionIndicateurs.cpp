@@ -56,8 +56,9 @@ void processusGestionIndicateurs_VerifieState()
         interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
     }
 }
-
+void loop2();
+void loop2(){}
 void processusGestionIndicateurs_initialise()
 {
-    serviceBaseDeTemps_execute[PROCESSUSGESTIONINDICATEURS_PHASE] = processusGestionIndicateurs_gestionBuzzer;
+    serviceBaseDeTemps_execute[PROCESSUSGESTIONINDICATEURS_PHASE] = loop2;
 }

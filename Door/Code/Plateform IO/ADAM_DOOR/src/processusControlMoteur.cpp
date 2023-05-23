@@ -77,15 +77,28 @@ void processusGestionPairing_AttenteCommande()
     interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   }
 }
-void test();
+void loop1();
+void loop1()
+{
+   if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == 17)//SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
+  {
+    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
+    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
+  }
+  else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
+  {
+    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
+    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+  }
+}
 void processusControlMoteur_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = test;
+  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusGestionPairing_AttenteCommande;
 }
 
-void test()
-{
-    Serial.print("processusControlMoteur_initialise a bien init");
-}
 
 

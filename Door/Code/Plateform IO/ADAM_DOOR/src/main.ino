@@ -91,11 +91,10 @@ void main_initialise(void)
   interfaceBuzzer_initalise();
   interfaceInfrarouge_initalise();
   processusDeTest_initialise();
-  //processusVerifieOuverture_initialise();
-  //processusGestionIndicateurs_initialise();
-  //processusGestionPairing_initialise();
-  //processusControlMoteur_initialise();
-  Serial.print("init successfull.\n");
+  processusVerifieOuverture_initialise();
+  processusGestionIndicateurs_initialise();
+  processusControlMoteur_initialise();
+  processusGestionPairing_initialise();
 }
 
 void setup(void) 
