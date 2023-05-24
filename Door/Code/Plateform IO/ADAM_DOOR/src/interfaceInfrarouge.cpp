@@ -67,7 +67,7 @@ void interfaceInfrarouge_VerifiePresence()
 void interfaceInfrarouge_activeTransmetteur()
 {
     interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_MODULE_EN_FONCTION;
-    piloteIOIR2_metAUn();
+    piloteIOIR2_metAZero();
     serviceBaseDeTemps_execute[INTERFACEINFRAROUGE_PHASE] = interfaceInfrarouge_LectureInfrarouge;
 }
 
@@ -75,7 +75,7 @@ void interfaceInfrarouge_attenteDirective()
 {
     interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
     interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
-    piloteIOIR2_metAZero();
+    piloteIOIR2_metAUn();
     if (interfaceInfrarouge.RequeteActive == INTERFACEINFRAROUGE_INACTIVE)
     return;
     interfaceInfrarouge.etatDesModules = INTERFACEINFRAROUGE_MODULE_EN_FONCTION;

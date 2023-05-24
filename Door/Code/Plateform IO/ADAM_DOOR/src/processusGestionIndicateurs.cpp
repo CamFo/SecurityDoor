@@ -30,8 +30,11 @@
 #include "processusGestionIndicateurs.h"
 
 #include <stdio.h>
+#define PROCESSUSGESTIONINIDCATEUR_COMPTE_2S (\
+PROCESSUSGESTIONINIDCATEUR_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
+  /250.0)
 
-
+int processusGestionIndicateur_compteur;
 void processusGestionIndicateurs_gestionBuzzer();
 
 void processusGestionIndicateurs_gestionBuzzer()
@@ -57,7 +60,10 @@ void processusGestionIndicateurs_VerifieState()
     }
 }
 void loop2();
-void loop2(){}
+void loop2()
+{
+
+}
 void processusGestionIndicateurs_initialise()
 {
     serviceBaseDeTemps_execute[PROCESSUSGESTIONINDICATEURS_PHASE] = loop2;

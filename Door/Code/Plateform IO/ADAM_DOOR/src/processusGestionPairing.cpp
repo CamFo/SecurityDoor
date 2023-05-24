@@ -67,6 +67,7 @@ void processusGestionPairing_ReAttemptPairing()
             processusGestionPairing_compteur = 0;
             //interfaceBuzzer.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_1S;
             //interfaceBuzzer.valeurBruit = INTERFACEINFRAROUGE_25POURCENT;
+            Serial.print("\n Pair success.");
             serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_VerifieIfStillPaired;
         }
         return;
@@ -81,20 +82,23 @@ void processusGestionPairing_Detection_init()
     if (initPrint == 0)
     {
       Serial.print("\r Attempting pairing.");
+      interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
+      interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
       initPrint = 1;
     }
 
     if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
     {
-        interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
-        interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
         processusGestionPairing_compteur++;
-        processusGestionPairing_compteur2++;
+
         if (processusGestionPairing_compteur2 > PROCESSUSPOURGESTIONPAIRING_COMPTE_2S)
         {
           Serial.print(".");
           processusGestionPairing_compteur2 = 0;
         }
+        else
+        processusGestionPairing_compteur2++;
+
         if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNICATION_FAILVALUE)
         {
             Serial.print("\n Pair success.");
