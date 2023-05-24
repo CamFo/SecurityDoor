@@ -15,10 +15,10 @@
 #define ANNEXEADAM_PORTE_ETATSERRURE_OUVERTE 0
 #define ANNEXEADAM_PORTE_ETATSERRURE_FERME   1
 
-#define SERVICECOMMUNICATION_FAILVALUE        0x00
-#define SERVICECOMMUNICATION_STATE_OPERATION  0x07
-#define SERVICECOMMUNICATION_STATE_ENARRET    0x08
-#define SERVICECOMMUNCATIION_STATE_ERREUR     0x09
+#define SERVICECOMMUNICATION_FAILVALUE        0xFF
+#define SERVICECOMMUNICATION_STATE_OPERATION  0x08
+#define SERVICECOMMUNICATION_STATE_ENARRET    0x09
+#define SERVICECOMMUNCATIION_STATE_ERREUR     0x07
 //State
 
 #define SERVICECOMMUNICATION_COMMANDE_BARRER   0x10
@@ -28,11 +28,11 @@
 // Structure d'envoie et de réception
 typedef struct
 {
-    unsigned char States;
-    unsigned char Commande;
-    unsigned char EtatPorte;
-    unsigned char UserNFC;    
-    unsigned char EtatSerrure;
+    unsigned char States; // en arret operation erreur 
+    unsigned char Commande; // RIEN
+    unsigned char EtatPorte; // ouvert fermer
+    unsigned char UserNFC;    // dernier user nfc ou 0
+    unsigned char EtatSerrure; // barrer debarrer
     
 }PORTE_ADAM_S;
 
@@ -58,18 +58,18 @@ typedef struct
 
 typedef struct 
 {
-    unsigned char States;
-    unsigned char Commande;
-    unsigned char ValueRA;
-    unsigned char ValueRB;
-    unsigned char ValueRC;
+    unsigned char States;   // operation pas en operation ou erreur
+    unsigned char Commande; // barrer debarrer
+    unsigned char ValueRA;  // RIEN
+    unsigned char ValueRB;  // RIEN
+    unsigned char ValueRC;  // RIEN
 
 }PORTE_ADAM_R;
 
 typedef struct 
 {
-    unsigned char States;
-    unsigned char Commande;
+    unsigned char States;   
+    unsigned char Commande; 
     unsigned char FlagPairing;
     unsigned char ValueRB;
     unsigned char ValueRC;

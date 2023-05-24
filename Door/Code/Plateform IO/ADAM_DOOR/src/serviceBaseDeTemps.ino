@@ -21,6 +21,7 @@
 #include "main.h"
 #include "serviceTaskServer.h"
 #include "serviceBaseDeTemps.h"
+#include "piloteIOT2.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -39,12 +40,15 @@ void serviceBaseDeTemps_neFaitRien(void)
 }
 
 void serviceBaseDeTemps_gere(void)
-{
+{ 
+  pinMode(22,OUTPUT);
+  digitalWrite(22,LOW);
 unsigned char i;
   for (i = 0; i < SERVICEBASEDETEMPS_NOMBRE_DE_PHASES; i++)
   {
     serviceBaseDeTemps_execute[i]();
   }
+  digitalWrite(22,HIGH);
 }
     
 //Definitions de variables publiques:

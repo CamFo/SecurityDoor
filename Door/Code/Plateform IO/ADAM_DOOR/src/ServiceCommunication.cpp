@@ -29,10 +29,25 @@
 //############################### PRIVATE VARIABLE ###########################
 
 unsigned int compteur1 = 0;
-
-//############################### EXTERN DECLERATION ###########################
+unsigned int serviceCommunication_compteur1;
 
 SERVICECOMMUNICATION ServiceCommunication;
+//############################### EXTERN DECLERATION ###########################
+
+
+#define SERVICECOMMUNICATION_COMPTE_2S (\
+SERVICECOMMUNICATION_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
+  /250.0)
+#define SERVICECOMMUNICATION_COMPTE_5S (\
+SERVICECOMMUNICATION_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
+  /50.0)
+#define SERVICECOMMUNICATION_COMPTE_1S (\
+SERVICECOMMUNICATION_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
+  /500.0)
+
+#define SERVICECOMMUNICATION_COMPTE_500MS (\
+SERVICECOMMUNICATION_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
+  /1000.0)
 
 //############################  STATE MACHINE FUNCTION  #####################################
 /**
@@ -72,6 +87,11 @@ void serviceCommunication_WaitResponse(void)
 {
     if(piloteESPNOW.information == PILOTEESPNOW_INFORMATION_TRAITEE)
     {
+        serviceCommunication_compteur1++;
+        if (serviceCommunication_compteur1 < SERVICECOMMUNICATION_COMPTE_5S)
+        return;
+        GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States = SERVICECOMMUNCATIION_STATE_ERREUR;
+        serviceCommunication_compteur1 = 0;
         return;
     }
     piloteESPNOW.information = PILOTEESPNOW_INFORMATION_TRAITEE;
@@ -80,12 +100,6 @@ void serviceCommunication_WaitResponse(void)
 
 void serviceCommunication_Envoie(void)
 {
-   //GestionCommuncation_T.piloteValueEnvoie.States = 0x08;   /// avec le systeme d'annexe, pas besoin de rien faire ici!!!!!
-   // GestionCommuncation_T.piloteValueEnvoie.Commande = 0x45;
-   // GestionCommuncation_T.piloteValueEnvoie.ValueSA = false;
-   // GestionCommuncation_T.piloteValueEnvoie.ValueSB = false;
-   // GestionCommuncation_T.piloteValueEnvoie.ValueSC = false;
-
     piloteESPNOW_send();
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponse;
 }

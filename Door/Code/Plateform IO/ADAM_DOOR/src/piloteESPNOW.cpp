@@ -56,9 +56,11 @@ unsigned char MACadresse[] = {0x94, 0xB9, 0x7E, 0x6B, 0x84, 0xC4};   //  Feather
  */
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) 
 {
+  #ifdef MODE_DEBUG_ESPNOW
   Serial.print("\nLast Packet Send Status:\t");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
   Serial.println(status);
+  #endif
 }
 /**
  * @brief Fonction executer quand un message ESP now est recu
@@ -70,6 +72,7 @@ void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status)
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) 
 {
   memcpy(&GestionCommuncation_R.piloteValueReceive, incomingData, sizeof(GestionCommuncation_R.piloteValueReceive));
+  #ifdef MODE_DEBUG_ESPNOW
   Serial.print("Bytes received: ");
   Serial.println(len);
   Serial.print("State: ");
@@ -83,7 +86,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len)
   Serial.print("Valeur C: ");
   Serial.println(GestionCommuncation_R.piloteValueReceive.ValueRC);
   Serial.println();
-
+  #endif
   piloteESPNOW.information = PILOTEESPNOW_INFORMATION_DISPONIBLE;
 }
 
@@ -99,6 +102,7 @@ void piloteESPNOW_send(void)
     // Send message via ESP-NOW
     esp_err_t result = esp_now_send(MACadresse, (uint8_t *) &GestionCommuncation_T.piloteValueEnvoie, sizeof(GestionCommuncation_T.piloteValueEnvoie));
     // Check for error
+    #ifdef MODE_DEBUG_ESPNOW
     if (result == ESP_NOW_SEND_SUCCESS)
     {
         Serial.println("Sent with success");
@@ -107,6 +111,7 @@ void piloteESPNOW_send(void)
     {
         Serial.println("Error sending the data");
     }
+    #endif
 }
 
 

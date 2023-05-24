@@ -113,13 +113,24 @@ void interfaceRGB_allumeCouleur(unsigned int Couleur)
     Serial.print("BLANC \n");
     #endif
     break;
+    case INTERFACERGB_VALEUR_ETEINT:
+    interfaceRGB_eteintTous();
+    break; 
   }
 }
 
 void interfaceRGB_changecouleur()
 {
  if (interfaceRGB.RequeteActive == INTERFACERGB_INACTIVE)
- return;
+  {
+    //interfaceRGB_eteintTous();
+    //interfaceRGB_allumeCouleur(INTERFACERGB_VALEUR_ETEINT);
+    #ifdef MODE_DEBUG
+    Serial.print("eteint");
+    #endif
+    return;
+  }
+
  interfaceRGB.etatDuModule = INTERFACERGB_MODULE_EN_FONCTION;
  interfaceRGB_allumeCouleur(interfaceRGB.couleur);
  interfaceRGB.RequeteActive = INTERFACERGB_INACTIVE;

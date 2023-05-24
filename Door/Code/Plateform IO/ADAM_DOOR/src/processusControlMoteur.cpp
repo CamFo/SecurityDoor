@@ -60,10 +60,11 @@ void processusGestionPairing_AttenteCommande()
   {
     return;
   }
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == SERVICECOMMUNICATION_FAILVALUE)
-  return;
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA <= SERVICECOMMUNCATIION_STATE_ERREUR)
+  return; // (control dedier a Gestion_R_porteAdam.), sinon fait manuellement avec Transmit.
   if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
   {
+    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER;
     interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
@@ -71,6 +72,7 @@ void processusGestionPairing_AttenteCommande()
   }
   else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == SERVICECOMMUNICATION_COMMANDE_BARRER)
   {
+    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_BARRER;
     interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
