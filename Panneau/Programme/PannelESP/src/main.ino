@@ -89,7 +89,7 @@ void main_initialise(void)
   interfaceEntree1_initialise();
   interfaceT1_initialise();
   interfaceTVert_initialise();
-  interfaceTactile_initialise();
+  //interfaceTactile_initialise();
   interfaceLCD_initialise();
   
   processusClignotant_initialise();

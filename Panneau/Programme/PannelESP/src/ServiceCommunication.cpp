@@ -86,7 +86,7 @@ void serviceCommunication_initialise(void)
     
     // TEST
     ValeurEnvoieDoor.States = 0x08;
-    ValeurEnvoieDoor.Commande = 0x62;
+    ValeurEnvoieDoor.Commande = 0x10;
     ValeurEnvoieDoor.ValeurA = false;
     ValeurEnvoieDoor.ValeurB = false;
     ValeurEnvoieDoor.ValeurC = false;
@@ -122,18 +122,18 @@ void serviceCommunication_WaitResponseDoor(void)
     if(piloteESPNOWDoor.information != PILOTEESPNOWDOOR_INFORMATION_DISPONIBLE)
     {
         compteurDoor++;
-        if(compteurDoor <= 20)
+        if(compteurDoor <= 10)
         {
             return;
         }
         compteurDoor = 0;
 
         interfaceLCD.DoorState = DOORSTATE_OFF;
-        //unsigned char DOFFstring[] = "ETAT de la Porte: OFF";
-        //interfaceLCD_afficheString(320, 100, DOFFstring, PURERED, DarkGrey);
+        unsigned char DOFFstring[] = "ETAT de la Porte: OFF";
+        interfaceLCD_afficheString(320, 100, DOFFstring, PURERED, DarkGrey);
 
         Serial.println("X=X=X ERREUR --  DOOR OFFLINE  -- ERREUR X=X=X\n");
-        // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
+        // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS 200 Ms
         serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
         return;
     }
@@ -155,8 +155,8 @@ void serviceCommunication_WaitResponseDoor(void)
     Serial.flush();
 
     interfaceLCD.DoorState = DOORSTATE_ON;
-    //unsigned char DONstring[] = "ETAT de la Porte: ON";
-    //interfaceLCD_afficheString(320, 100, DONstring, PUREGREEN, DarkGrey);
+    unsigned char DONstring[] = "ETAT de la Porte: ON ";
+    interfaceLCD_afficheString(320, 100, DONstring, PUREGREEN, DarkGrey);
 
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
 }
@@ -164,7 +164,7 @@ void serviceCommunication_WaitResponseDoor(void)
 
 void serviceCommunication_AttendEntrePair(void)
 {
-    if(compteurEntreP <= 100) // Délais de 500 x la base de temps
+    if(compteurEntreP <= 50) // Délais de 50 x 10ms = 500ms
     {
         compteurEntreP ++;
         return;
@@ -203,13 +203,15 @@ void serviceCommunication_WaitResponseCapteur(void)
     if(piloteESPNOWCapteur.information != PILOTEESPNOWCAPTEUR_INFORMATION_DISPONIBLE)
     {
         compteurCapteur++;
-        if(compteurCapteur <= 20)
+        if(compteurCapteur <= 10)
         {
             return;
         }
         compteurCapteur = 0;
 
         interfaceLCD.CapteurState = CAPTEURSTATE_OFF;
+        unsigned char COFFstring[] = "ETAT du Capteur: OFF";
+        interfaceLCD_afficheString(320, 120, COFFstring, PURERED, DarkGrey);
 
         Serial.println("X=X=X ERREUR -- CAPTEUR OFFLINE -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LE CAPTEUR NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
@@ -236,7 +238,10 @@ void serviceCommunication_WaitResponseCapteur(void)
     Serial.flush();
 
     interfaceLCD.CapteurState = CAPTEURSTATE_ON;
-    Serial.println("[#][#]########  COMMUNICATION CYCLE END ########[#][#]");
+    unsigned char CONstring[] = "ETAT du Capteur: ON ";
+    interfaceLCD_afficheString(320, 120, CONstring, PUREGREEN, DarkGrey);
+
+    Serial.println("[#][#]########  -COMMUNICATION CYCLE END- ########[#][#]");
     Serial.flush();
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
 }
@@ -244,7 +249,7 @@ void serviceCommunication_WaitResponseCapteur(void)
 void serviceCommunication_Attend(void)
 {
     compteur1 = compteur1 + 1;
-    if(compteur1 < 200) // 200 x la période de 10ms du Core 0
+    if(compteur1 < 100) // 200 x la période de 10ms du Core 0
     {
         return;
     }
