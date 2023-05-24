@@ -18,7 +18,7 @@
 
 #include "main.h"
 #include "serviceBaseDeTemps.h"
-#include "serviceCommunication.h"
+#include "ServiceCommunication.h"
 
 #include "piloteESPNOWCapteur.h"
 #include "piloteESPNOWDoor.h"
@@ -84,8 +84,15 @@ void serviceCommunication_initialise(void)
         return;
     }
     
+    // TEST
+    ValeurEnvoieDoor.States = 0x08;
+    ValeurEnvoieDoor.Commande = 0x62;
+    ValeurEnvoieDoor.ValeurA = false;
+    ValeurEnvoieDoor.ValeurB = false;
+    ValeurEnvoieDoor.ValeurC = false;
+
     ServiceCommunication.etatDuModule = SERVICECOMMUNICATION_MODULE_EN_FONCTION;
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
 }
 
 //###############  BEGIN DOOR COMMUNICATION ###################
@@ -96,7 +103,7 @@ void serviceCommunication_PairingDoor(void)
 
     piloteESPNOWDoor_initialise();
     piloteESPNOWDoor_Pair();
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_EnvoieDoor;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_EnvoieDoor;
 }
 
 void serviceCommunication_EnvoieDoor(void)
@@ -106,14 +113,8 @@ void serviceCommunication_EnvoieDoor(void)
         return;
     }
 
-    ValeurEnvoieDoor.States = 0x08;
-    ValeurEnvoieDoor.Commande = 0x62;
-    ValeurEnvoieDoor.ValeurA = false;
-    ValeurEnvoieDoor.ValeurB = true;
-    ValeurEnvoieDoor.ValeurC = false;
-
     piloteESPNOWDoor_send();
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponseDoor;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponseDoor;
 }
 
 void serviceCommunication_WaitResponseDoor(void)
@@ -121,7 +122,7 @@ void serviceCommunication_WaitResponseDoor(void)
     if(piloteESPNOWDoor.information != PILOTEESPNOWDOOR_INFORMATION_DISPONIBLE)
     {
         compteurDoor++;
-        if(compteurDoor <= 50)
+        if(compteurDoor <= 20)
         {
             return;
         }
@@ -133,7 +134,7 @@ void serviceCommunication_WaitResponseDoor(void)
 
         Serial.println("X=X=X ERREUR --  DOOR OFFLINE  -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
-        serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
+        serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
         return;
     }
     piloteESPNOWDoor.information =PILOTEESPNOWDOOR_INFORMATION_TRAITEE;
@@ -157,19 +158,19 @@ void serviceCommunication_WaitResponseDoor(void)
     //unsigned char DONstring[] = "ETAT de la Porte: ON";
     //interfaceLCD_afficheString(320, 100, DONstring, PUREGREEN, DarkGrey);
 
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
 }
 //#############  END DOOR COMMUNICATION ################
 
 void serviceCommunication_AttendEntrePair(void)
 {
-    if(compteurEntreP <= 500) // Délais de 500 x la base de temps
+    if(compteurEntreP <= 100) // Délais de 500 x la base de temps
     {
         compteurEntreP ++;
         return;
     }
     compteurEntreP = 0;
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingCapteur;
 }
 
 
@@ -178,7 +179,7 @@ void serviceCommunication_PairingCapteur(void)
 {   
     piloteESPNOWCapteur_initialise();
     piloteESPNOWCapteur_Pair();
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_EnvoieCapteur;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_EnvoieCapteur;
 }
 void serviceCommunication_EnvoieCapteur(void)
 {
@@ -195,14 +196,14 @@ void serviceCommunication_EnvoieCapteur(void)
     ValeurEnvoieCapteur.ValeurC = 56;
 
     piloteESPNOWCapteur_send();
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponseCapteur;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponseCapteur;
 }
 void serviceCommunication_WaitResponseCapteur(void)
 {
     if(piloteESPNOWCapteur.information != PILOTEESPNOWCAPTEUR_INFORMATION_DISPONIBLE)
     {
         compteurCapteur++;
-        if(compteurCapteur <= 50)
+        if(compteurCapteur <= 20)
         {
             return;
         }
@@ -215,7 +216,7 @@ void serviceCommunication_WaitResponseCapteur(void)
 
         Serial.println("[#][#]########  COMMUNICATION CYCLE END ########[#][#]");
         Serial.flush();
-        serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
+        serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
         return;
     }
     piloteESPNOWCapteur.information = PILOTEESPNOWCAPTEUR_INFORMATION_TRAITEE;
@@ -237,16 +238,16 @@ void serviceCommunication_WaitResponseCapteur(void)
     interfaceLCD.CapteurState = CAPTEURSTATE_ON;
     Serial.println("[#][#]########  COMMUNICATION CYCLE END ########[#][#]");
     Serial.flush();
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;
 }
 
 void serviceCommunication_Attend(void)
 {
     compteur1 = compteur1 + 1;
-    if(compteur1 < 1000) // 1000 x la période de la base de temps (2 ms)
+    if(compteur1 < 200) // 200 x la période de 10ms du Core 0
     {
         return;
     }
     compteur1 = 0;
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
+    serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
 }

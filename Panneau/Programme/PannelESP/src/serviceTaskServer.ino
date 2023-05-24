@@ -48,8 +48,8 @@ void (*serviceTaskServer_execute)(void);
 //Definitions de fonctions publiques:
 void serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup(void)
 {
-	serviceTaskServer_gestion.startNow();
-//	serviceTaskServer_gestion.enableAll();    
+	serviceTaskServer_gestion.startNow();  
+	serviceTaskServer_gestion.enableAll();  // For high priority   
 }
 
 void serviceTaskServer_initialise(void)

@@ -11,16 +11,12 @@
 
 
 //INCLUSIONS
+#include <Arduino.h>
+
 #include "main.h"
 #include "interfaceT1.h"
-#include "interfaceTVert.h"
-
 #include "serviceBaseDeTemps.h"
 #include "processusClignotant.h"
-#include "piloteESPNOWCapteur.h"
-#include "FT6236.h"
-
-#include <stdio.h>
 
 //Definitions privees
 #define PROCESSUSCLIGNOTANT_COMPTE_POUR_ALLUME (\

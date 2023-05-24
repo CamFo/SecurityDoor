@@ -112,8 +112,6 @@ void piloteLCD_initialise(void)
     Write_Cmd(0x11); //Sleep out
     sleep(0.12);//delayms(120);
     Write_Cmd(0x29);
-
-    Serial.print("#####  LCD DRIVER INITIALISED  #####");
 }
 
 void LCD_SetPos(unsigned int xs,unsigned int xe,unsigned int ys,unsigned int ye)

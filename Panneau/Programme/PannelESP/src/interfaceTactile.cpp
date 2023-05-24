@@ -14,6 +14,8 @@
 #include "FT6236.h"
 #include "serviceBaseDeTemps.h"
 #include "interfaceTactile.h"
+#include "piloteESPNOWCapteur.h"
+#include "piloteESPNOWDoor.h"
 
 
 //Definitions privees
@@ -37,7 +39,7 @@ void interfaceTactile_detectePave(void)
 void interfaceTactile_gere(void)
 {
   interfaceTactile_compteurAvantLecture++;
-  if (interfaceTactile_compteurAvantLecture < 4) // Compte avant lecture a 4 x la base de temps
+  if (interfaceTactile_compteurAvantLecture < 1) // Compte avant lecture a 4 x la base de temps
   {
     return;
   }
@@ -45,14 +47,18 @@ void interfaceTactile_gere(void)
 
   if (ts.touched())
   {
+    ValeurEnvoieDoor.States = 0x07;
+    ValeurEnvoieDoor.Commande = 0x11;
     // Retrieve a point
     TS_Point p = ts.getPoint();
 
+    /*
     // Print coordinates to the serial output
     Serial.print("X Coordinate: ");
     Serial.println(p.x);
     Serial.print("Y Coordinate: ");
     Serial.println(p.y);
+    */
 
     interfaceTactile.x = p.x;
     interfaceTactile.y = p.y;
