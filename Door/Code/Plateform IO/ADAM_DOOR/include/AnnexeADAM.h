@@ -60,9 +60,9 @@ typedef struct
 {
     unsigned char States;   // operation pas en operation ou erreur
     unsigned char Commande; // barrer debarrer
-    unsigned char ValueRA;  // RIEN
-    unsigned char ValueRB;  // RIEN
-    unsigned char ValueRC;  // RIEN
+    unsigned char UnusedA;
+    unsigned char UnusedB;
+    unsigned char UnusedC;
 
 }PORTE_ADAM_R;
 
@@ -70,7 +70,7 @@ typedef struct
 {
     unsigned char States;   
     unsigned char Commande; 
-    unsigned char FlagPairing;
+    unsigned char ValueRA;
     unsigned char ValueRB;
     unsigned char ValueRC;
 

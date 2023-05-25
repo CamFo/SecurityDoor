@@ -35,6 +35,9 @@
 #include <stdio.h>
 
 //Definitions privees
+#define PROCESSUSPOURTEST_COMPTE_5S (\
+PROCESSUSPOURTEST_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
+  /100.0)
 
 #define PROCESSUSPOURTEST_COMPTE_2S (\
 PROCESSUSPOURTEST_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
@@ -90,9 +93,9 @@ void processusDeTest_TestI2C()
 
 void processusDeTest_Moteur()
 {
-  interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
+  interfaceMoteur.requeteActive = INTERFACEMOTEUR_ACTIVE;
   processusDeTest_compteur++;
-  if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_2S)
+  if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_5S)
   {
     return;
   }
@@ -100,7 +103,7 @@ void processusDeTest_Moteur()
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   else
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
-
+  processusDeTest_compteur =0;
 
 }
 
@@ -175,8 +178,6 @@ void processusDeTest_Infrarrouge_VerifieEntree()
 }
 void processusDeTest_initialise(void)
 {
- // Serial.begin(115200);
- // Serial.setDebugOutput(TRUE);
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = loop4; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = loop4;//processusDeTest_Moteur; //Quel test faire
 }
 

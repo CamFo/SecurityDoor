@@ -48,58 +48,70 @@ PROCESSUSCONTROLMOTEUR_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 PROCESSUSCONTROLMOTEUR_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
   /16.66)
 //Declarations de fonctions privees:
-void processusGestionPairing_AttenteCommande();
+void processusControlMoteur_attenteCommande();
+void processusControlMoteur_barreCommande();
+void processusControlMoteur_debarreCommande();
+void loop1();
 //Definitions de variables privees:
 unsigned int processusGestionControlMoteur_compteur;
 //Definitions de fonctions privees:
 
-void processusGestionPairing_AttenteCommande()
+void processusControlMoteur_attenteCommande()
 {
   processusGestionControlMoteur_compteur++;
   if (processusGestionControlMoteur_compteur < PROCESSUSCONTROLMOTEUR_COMPTE_2S)
   {
     return;
   }
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA <= SERVICECOMMUNCATIION_STATE_ERREUR)
-  return; // (control dedier a Gestion_R_porteAdam.), sinon fait manuellement avec Transmit.
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
+  processusGestionControlMoteur_compteur = 0;
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIION_STATE_ERREUR)
   {
-    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER;
-    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
+    return; // (control dedier en presence seulement ou NFC si il y a lieu) 
   }
-  else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA == SERVICECOMMUNICATION_COMMANDE_BARRER)
+  else
   {
-    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_BARRER;
-    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+    if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
+    {
+      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
+    }
+      
+    else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
+    {
+      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_barreCommande;
+    }
+      
   }
 }
-void loop1();
+void processusControlMoteur_barreCommande()
+{
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_BARRER;
+  
+  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+
+  interfaceMoteur.requeteActive = INTERFACEMOTEUR_ACTIVE;
+  interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
+}
+void processusControlMoteur_debarreCommande()
+{
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER;
+
+  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+
+  interfaceMoteur.requeteActive = INTERFACEMOTEUR_ACTIVE;
+  interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
+  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
+}
+
 void loop1()
 {
-   if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == 17)//SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
-  {
-    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
-  }
-  else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
-  {
-    interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
-    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-    interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
-  }
+
 }
 void processusControlMoteur_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusGestionPairing_AttenteCommande;
+  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
 }
 
 

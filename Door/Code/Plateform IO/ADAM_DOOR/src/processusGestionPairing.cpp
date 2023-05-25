@@ -109,6 +109,8 @@ void processusGestionPairing_comState()
       interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE; 
       interfaceBuzzer.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_1S;
       interfaceBuzzer.valeurBruit = INTERFACEBUZZER_25POURCENT;
+      interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
+       
       Serial.print("\n Pair success.");
       processusGestionPairing_compteur = 0;
       processusGestionPairing_compteur2 = 0;

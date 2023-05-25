@@ -45,19 +45,7 @@ void processusGestionIndicateurs_gestionBuzzer()
 
 void processusGestionIndicateurs_VerifieState()
 {
-    if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States)
-    {
-        interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
-        interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-    }
-    if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.ValueRA)  // a parler avec cam.
-    {
 
-    }
-    if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure)
-    {
-        interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-    }
 }
 void loop2();
 void loop2()

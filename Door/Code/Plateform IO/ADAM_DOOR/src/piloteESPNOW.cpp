@@ -43,7 +43,7 @@ esp_now_peer_info_t peerInfo;
  *    Porte(debug feather) : 94:B9:7E:6B:84:C4 // 5E:
  *    Porte(Porte V1)      : 70:b8:F6:A7:35:34
  */ 
-unsigned char MACadresse[] = {0x94, 0xB9, 0x7E, 0x6B, 0x84, 0xC4};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
+unsigned char MACadresse[] = {0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0};   //  FeatherMAC  C4:DD:57:9C:D3:6C         PanneauMAC  70:B8:F6:F0:C6:B0  0x70, 0xB8, 0xF6, 0xF0, 0xC6, 0xB0
 
 
 // FONCTION PRIVÉE

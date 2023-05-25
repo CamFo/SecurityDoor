@@ -208,7 +208,7 @@
 #define TRUE true
 #define FALSE false
 
-#define MODE_DEBUG_ESPNOW
+//#define MODE_DEBUG_ESPNOW
 //#define MODE_DEBUG
 #endif
 

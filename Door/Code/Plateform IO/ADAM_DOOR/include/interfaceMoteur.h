@@ -26,8 +26,10 @@
 typedef struct
 {
   unsigned char etatDuModule;  
+  bool requeteDirection;
   bool direction;
-  bool RequeteActive;
+  bool requeteActive;
+
 } INTERFACEMOTEUR;
 
 void interfaceMoteur_droite();

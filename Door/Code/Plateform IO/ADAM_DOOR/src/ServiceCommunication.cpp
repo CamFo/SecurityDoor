@@ -69,11 +69,7 @@ void serviceCommunication_Attend(void);
 
 
 
-void serviceCommunication_initialise(void)
-{
-    ServiceCommunication.etatDuModule = SERVICECOMMUNICATION_MODULE_EN_FONCTION;
-    serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Pairing;
-}
+
 void serviceCommunication_Pairing(void)
 {
     if(piloteESPNOW.etatDuModule != PILOTEESPNOW_MODULE_EN_FONCTION)  //On s'assure que le pilote est initialiser
@@ -95,12 +91,14 @@ void serviceCommunication_WaitResponse(void)
         return;
     }
     piloteESPNOW.information = PILOTEESPNOW_INFORMATION_TRAITEE;
+    serviceCommunication_compteur1 = 0;
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Envoie;
 }
 
 void serviceCommunication_Envoie(void)
 {
     piloteESPNOW_send();
+    //Serial.print(GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure);
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponse;
 }
 
@@ -114,4 +112,11 @@ void serviceCommunication_Attend(void)
     Serial.print("Finish waiting 1 sec\n");
     compteur1 = 0;
     serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Envoie;
+}
+void serviceCommunication_initialise(void)
+{
+  //GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States == SERVICECOMMUNICATION_STATE_OPERATION;
+  //GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER;
+  ServiceCommunication.etatDuModule = SERVICECOMMUNICATION_MODULE_EN_FONCTION;
+  serviceBaseDeTemps_execute[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Pairing;
 }
