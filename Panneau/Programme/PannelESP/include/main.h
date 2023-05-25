@@ -135,11 +135,11 @@
  * @brief Période en microsecondes à laquelle le TaskServer exécute sa fonction 
  *  qui fait apelle au service Base de temps pour gêrer plusieur tache a la fois
  */
-#define SERVICETASKSERVER_PERIODE_EN_US (4000L)
+#define SERVICETASKSERVER_PERIODE_EN_US (5000L)
 /**
  * @brief Fréquence en Hz de la base de temps
  */
-#define SERVICEBASEDETEMPS_FREQUENCE_EN_HZ 250 
+#define SERVICEBASEDETEMPS_FREQUENCE_EN_HZ 200 
 /**
  * @brief Nombre de phase dans une période de la base de temps (1 si pas utilisé)
  */

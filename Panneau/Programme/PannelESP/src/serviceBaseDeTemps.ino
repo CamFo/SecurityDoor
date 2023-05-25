@@ -43,14 +43,14 @@ void serviceBaseDeTemps_neFaitRien(void)
 
 void serviceBaseDeTemps_gere(void)
 {
-  interfaceTVert_allume();
+  interfaceTVert_allume(); // Permet de vérifier le temps de calcul
   unsigned char i;
   for (i = 0; i < SERVICEBASEDETEMPS_NOMBRE_DE_PHASES; i++)
   {
-    //delayMicroseconds(100);
+    delayMicroseconds(2); // Délais de 2 micro pour ajouter un petit temps de calcul
     serviceBaseDeTemps_execute[i]();
   }
-  interfaceTVert_eteint();
+  interfaceTVert_eteint(); // Fin du temps de calcul attend du nouvel interupt
 }
     
 //Definitions de variables publiques:

@@ -89,7 +89,7 @@ void main_initialise(void)
   interfaceEntree1_initialise();
   interfaceT1_initialise();
   interfaceTVert_initialise();
-  //interfaceTactile_initialise();
+  interfaceTactile_initialise();
   interfaceLCD_initialise();
   
   processusClignotant_initialise();
@@ -100,9 +100,9 @@ void setup(void)
   Serial.begin(115200); 
   main_initialise();
   main_faitUnTest();
+  xTaskCreatePinnedToCore(TaskWiFicode, "TaskWiFi", 10000, NULL, 1, NULL, 0);
+  delay(100);
   serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup();
-  xTaskCreatePinnedToCore(TaskWiFicode, "TaskWiFi", 10000, NULL, 1, NULL,  0);
-  delay(500);
 }
 
 void loop(void) 
