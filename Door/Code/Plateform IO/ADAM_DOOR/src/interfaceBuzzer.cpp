@@ -195,8 +195,9 @@ void interfaceBuzzer_Gestion()
 }
 void interfaceBuzzer_initalise()
 {
-    interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_PAS_EN_FONCTION;
-    interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
-    interfaceBuzzer.valeurBruit= INTERFACEBUZZER_AUCUNBRUIT;
-    serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_Gestion;
+  interfaceBuzzer.dureeActive = INTERFACEBUZZER_MODULE_PAS_EN_FONCTION;
+  interfaceBuzzer.etatDuModule = INTERFACEBUZZER_MODULE_PAS_EN_FONCTION;
+  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
+  interfaceBuzzer.valeurBruit= INTERFACEBUZZER_AUCUNBRUIT;
+  serviceBaseDeTemps_execute[INTERFACEBUZZER_PHASE] = interfaceBuzzer_Gestion;
 }

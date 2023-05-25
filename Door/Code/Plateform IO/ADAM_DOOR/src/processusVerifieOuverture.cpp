@@ -56,7 +56,7 @@ void processusVerifieOuverture_Detection()
   interfaceInfrarouge.RequeteActive = INTERFACEINFRAROUGE_ACTIVE;
   if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_PRESENT)
   {
-    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = PROCESSUSVERIFIEOUVERTURE_DETECTE_OUVERT;  
+    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIEOUVERTURE_DETECTE_OUVERT;  
   //  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
   //  interfaceBuzzer.dureeActive = PROCESSUSVERIFIEOUVERTURE_COMPTE_2S;
   //  interfaceBuzzer.valeurBruit = INTERFACEBUZZER_100POURCENT;
@@ -64,7 +64,7 @@ void processusVerifieOuverture_Detection()
   else
   {
   //  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
-    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = PROCESSUSVERIFIEOUVERTURE_DETECTE_FERMER;
+    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIEOUVERTURE_DETECTE_FERMER;
   } 
 }
 //Definitions de variables publiques:

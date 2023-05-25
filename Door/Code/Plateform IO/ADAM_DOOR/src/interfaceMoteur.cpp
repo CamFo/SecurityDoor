@@ -65,9 +65,9 @@ void interfaceMoteur_Delai1Sec()
 
 void interfaceMoteur_attenteDirective()
 {
-  if (interfaceMoteur.requeteActive == INTERFACEMOTEUR_INACTIVE)
+  if (interfaceMoteur.RequeteActive == INTERFACEMOTEUR_INACTIVE)
   return;
-  if (interfaceMoteur.direction == interfaceMoteur.requeteDirection)
+  if (interfaceMoteur.direction == interfaceMoteur.RequeteDirection)
   return;
 
   if (interfaceMoteur.direction == INTERFACEMOTEUR_DIRECTION_DROITE)
@@ -77,7 +77,7 @@ void interfaceMoteur_attenteDirective()
 }
 void interfaceMoteur_droite()
 {
-  interfaceMoteur.requeteDirection = INTERFACEMOTEUR_DIRECTION_DROITE;
+  interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_DROITE;
   piloteIOEA1_metAUn();
   piloteIOM2_metAUn();
   piloteIOM1_metAZero();
@@ -87,13 +87,13 @@ void interfaceMoteur_droite()
     return;
   }
   interfaceMoteur_compteur = 0;
-  interfaceMoteur.requeteActive = INTERFACEMOTEUR_INACTIVE;
+  interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_Delai1Sec;
 
 }
 void interfaceMoteur_gauche()
 {
-  interfaceMoteur.requeteDirection = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+  interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   piloteIOEA1_metAUn();
   piloteIOM2_metAZero();
   piloteIOM1_metAUn();
@@ -103,14 +103,14 @@ void interfaceMoteur_gauche()
     return;
   }
   interfaceMoteur_compteur = 0;
-  interfaceMoteur.requeteActive = INTERFACEMOTEUR_INACTIVE;
+  interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_Delai1Sec;
 }
 void interfaceMoteur_initalise()
 {
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
-  interfaceMoteur.requeteDirection = INTERFACEMOTEUR_DIRECTION_GAUCHE;
-  interfaceMoteur.requeteActive = INTERFACEMOTEUR_INACTIVE;
+  interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_GAUCHE;
+  interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   interfaceMoteur.etatDuModule = INTERFACEMOTEUR_MODULE_PAS_EN_FONCTION;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_attenteDirective;
 }

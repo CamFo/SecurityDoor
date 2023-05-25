@@ -93,7 +93,7 @@ void processusDeTest_TestI2C()
 
 void processusDeTest_Moteur()
 {
-  interfaceMoteur.requeteActive = INTERFACEMOTEUR_ACTIVE;
+  interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   processusDeTest_compteur++;
   if (processusDeTest_compteur < PROCESSUSPOURTEST_COMPTE_5S)
   {

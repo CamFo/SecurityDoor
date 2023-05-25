@@ -37,6 +37,7 @@
 //Definitions de fonctions publiques:
 
 INTERFACERGB interfaceRGB;
+unsigned int interfaceRGB_compteur;
 void interfaceRGB_changecouleur();
 
 void interfaceRGB_allumeBlanc()
@@ -121,24 +122,30 @@ void interfaceRGB_allumeCouleur(unsigned int Couleur)
 
 void interfaceRGB_changecouleur()
 {
- if (interfaceRGB.RequeteActive == INTERFACERGB_INACTIVE)
-  {
-    //interfaceRGB_eteintTous();
-    //interfaceRGB_allumeCouleur(INTERFACERGB_VALEUR_ETEINT);
-    #ifdef MODE_DEBUG
-    Serial.print("eteint");
-    #endif
-    return;
-  }
+  if (interfaceRGB.RequeteActive == INTERFACERGB_INACTIVE)
+  return;
 
- interfaceRGB.etatDuModule = INTERFACERGB_MODULE_EN_FONCTION;
- interfaceRGB_allumeCouleur(interfaceRGB.couleur);
- interfaceRGB.RequeteActive = INTERFACERGB_INACTIVE;
- serviceBaseDeTemps_execute[INTERFACERGB_PHASE] = interfaceRGB_changecouleur;
+  interfaceRGB.etatDuModule = INTERFACERGB_MODULE_EN_FONCTION;
+  interfaceRGB_allumeCouleur(interfaceRGB.couleur);
+  if (interfaceRGB.oldCouleur != interfaceRGB.couleur)
+  interfaceRGB_compteur = 0;
+
+  interfaceRGB.oldCouleur = interfaceRGB.couleur;
+  interfaceRGB_compteur++;
+  if (interfaceRGB_compteur < interfaceRGB.dureeActive)
+  return;
+
+  interfaceRGB_compteur = 0; 
+  interfaceRGB_eteintTous();
+  interfaceRGB.etatDuModule = INTERFACERGB_MODULE_PAS_EN_FONCTION;
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_ETEINT;
+  interfaceRGB.RequeteActive = INTERFACERGB_INACTIVE;
+  serviceBaseDeTemps_execute[INTERFACERGB_PHASE] = interfaceRGB_changecouleur;
 }
 void interfaceRGB_initialise()
 {
     interfaceRGB_eteintTous();
+    interfaceRGB.dureeActive = INTERFACERGB_PAS_EN_FONCTION;
     interfaceRGB.RequeteActive = INTERFACERGB_INACTIVE;
     interfaceRGB.etatDuModule = INTERFACERGB_MODULE_PAS_EN_FONCTION;
     interfaceRGB.couleur =  INTERFACERGB_VALEUR_ETEINT;

@@ -67,6 +67,8 @@ typedef struct
   unsigned char etatDuModule;  
   unsigned char couleur;
   bool RequeteActive;
+  unsigned int dureeActive;
+  unsigned char oldCouleur;
 } INTERFACERGB;
 
 extern INTERFACERGB interfaceRGB;
