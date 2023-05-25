@@ -12,7 +12,7 @@
 #include <Arduino.h>
 #include "main.h"
 #include "piloteIOIR2.h"
-
+#include "pwmWrite.h"
 //Definitions privees
 //pas de definitions privees
 
@@ -56,6 +56,15 @@ void piloteIOIR2_metA(unsigned char Niveau)
 {
   digitalWrite(PILOTEIOIR2_BROCHE, Niveau);
 }
+
+void piloteIOIR2_PWM_AUn()
+{
+ analogWrite(PILOTEIOIR2_BROCHE,127);
+}
+void piloteIOIR2_PWM_AZero()
+{
+ analogWrite(PILOTEIOIR2_BROCHE, 0);
+}
 /**
  * @brief Fonction d'initialisation de la broche \ref piloteIOIR2_BROCHE
  *  du mirocontrôleur. Met la broche du microcontrôleur en sortie et assigne
@@ -66,7 +75,7 @@ void piloteIOIR2_metA(unsigned char Niveau)
 void piloteIOIR2_initialise(void)
 {
   pinMode(PILOTEIOIR2_BROCHE,OUTPUT);
-
+  analogWriteFrequency(38000);
 #ifdef PILOTEIOIR2_ETAT_INITIAL_A_UN
 	digitalWrite(PILOTEIOIR2_BROCHE,HIGH);	
 #endif

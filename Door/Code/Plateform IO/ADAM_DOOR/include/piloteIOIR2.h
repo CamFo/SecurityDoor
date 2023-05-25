@@ -55,6 +55,9 @@ void piloteIOIR2_metA(unsigned char Niveau);
  *  ou \ref PILOTEIOIR2_ETAT_INITIAL_A_UN.
  * 
  */
+void piloteIOIR2_PWM_AUn();
+void piloteIOIR2_PWM_AZero();
+
 void piloteIOIR2_initialise(void);
 
 //Variables publiques:

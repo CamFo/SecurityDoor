@@ -58,12 +58,6 @@ unsigned int processusGestionControlMoteur_compteur;
 
 void processusControlMoteur_attenteCommande()
 {
-  processusGestionControlMoteur_compteur++;
-  if (processusGestionControlMoteur_compteur < PROCESSUSCONTROLMOTEUR_COMPTE_2S)
-  {
-    return;
-  }
-  processusGestionControlMoteur_compteur = 0;
   if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIION_STATE_ERREUR)
   {
     return; // (control dedier en presence seulement ou NFC si il y a lieu) 
@@ -79,41 +73,41 @@ void processusControlMoteur_attenteCommande()
     {
       serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_barreCommande;
     }
-      
   }
 }
 void processusControlMoteur_barreCommande()
 {
   GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_BARRER;
-  
-  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-  interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
-  interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
-
+  if (interfaceRGB.oldCouleur != INTERFACERGB_VALEUR_ROUGE)
+  {
+    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
+    interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
+  }
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
 }
 void processusControlMoteur_debarreCommande()
 {
-  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER;
-
-  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
-  interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
-  interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
-
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER; //devrais etre dans un autre processus
+  if (interfaceRGB.oldCouleur != INTERFACERGB_VALEUR_VERT)
+  {
+    interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+    interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+    interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
+  }
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
   serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
 }
-
 void loop1()
 {
 
 }
 void processusControlMoteur_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
+  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = loop1;
 }
 
 

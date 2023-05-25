@@ -178,6 +178,6 @@ void processusDeTest_Infrarrouge_VerifieEntree()
 }
 void processusDeTest_initialise(void)
 {
-  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = loop4;//processusDeTest_Moteur; //Quel test faire
+  serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Infrarrouge_VerifieEntree;//processusDeTest_Moteur; //Quel test faire
 }
 

@@ -50,7 +50,7 @@ unsigned char i;
   }
   digitalWrite(22,HIGH);
 }
-    
+  
 //Definitions de variables publiques:
 
 /**

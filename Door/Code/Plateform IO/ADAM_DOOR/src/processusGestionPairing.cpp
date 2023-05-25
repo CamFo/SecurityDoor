@@ -136,7 +136,7 @@ void processusGestionPairing_attemptPairing_indicators()
 }
 void processusGestionPairing_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_attemptPairing_indicators;
+  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = loop3;
 ;//processusGestionPairing_Detection_init;
 }
 

@@ -25,7 +25,7 @@ INTERFACEINFRAROUGE_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 
 INTERFACEINFRAROUGE interfaceInfrarouge;
 unsigned int interfaceInfrarouge_compteur;
-unsigned char interfaceInfrarouge_StoreCompteur;
+ double interfaceInfrarouge_StoreCompteur;
 void interfaceInfrarouge_attenteDirective();
 void interfaceInfrarouge_activeTransmetteur();
 void interfaceInfrarouge_LectureInfrarouge();
@@ -39,7 +39,7 @@ void interfaceInfrarouge_LectureInfrarouge()
     interfaceInfrarouge_StoreCompteur++;
     }
     interfaceInfrarouge_compteur++;
-    if (interfaceInfrarouge_compteur < INTERFACEINFRAROUGE_COMPTE_200)
+    if (interfaceInfrarouge_compteur < INTERFACEINFRAROUGE_COMPTE_2S)
     return;
     interfaceInfrarouge_compteur = 0;
     interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
@@ -48,7 +48,7 @@ void interfaceInfrarouge_LectureInfrarouge()
 }
 void interfaceInfrarouge_VerifiePresence()
 {
-    interfaceInfrarouge.valeurDistance = map((long)interfaceInfrarouge_StoreCompteur,0,200,0,100);
+    interfaceInfrarouge.valeurDistance = map((long)interfaceInfrarouge_StoreCompteur,0,INTERFACEINFRAROUGE_COMPTE_2S,0,100);
     #ifdef MODEDEBUG
     Serial.print(interfaceInfrarouge.valeurDistance);
     Serial.printf("    '%' de detection\n");
@@ -67,7 +67,8 @@ void interfaceInfrarouge_VerifiePresence()
 void interfaceInfrarouge_activeTransmetteur()
 {
     interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_MODULE_EN_FONCTION;
-    piloteIOIR2_metAZero();
+    //piloteIOIR2_metAUn();
+    piloteIOIR2_PWM_AUn();
     serviceBaseDeTemps_execute[INTERFACEINFRAROUGE_PHASE] = interfaceInfrarouge_LectureInfrarouge;
 }
 
@@ -75,9 +76,12 @@ void interfaceInfrarouge_attenteDirective()
 {
     interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
     interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
-    piloteIOIR2_metAUn();
     if (interfaceInfrarouge.RequeteActive == INTERFACEINFRAROUGE_INACTIVE)
-    return;
+    {
+        //piloteIOIR2_metAZero();
+        piloteIOIR2_PWM_AZero();
+        return;
+    }
     interfaceInfrarouge.etatDesModules = INTERFACEINFRAROUGE_MODULE_EN_FONCTION;
     serviceBaseDeTemps_execute[INTERFACEINFRAROUGE_PHASE] = interfaceInfrarouge_activeTransmetteur;
 }
