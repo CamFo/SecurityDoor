@@ -123,7 +123,7 @@ void processusGestionPairing_comState()
   processusGestionPairing_compteur++;
   if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
   return;
-  interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_MAUVE;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
   interfaceRGB.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_2S;
   #ifdef MODE_DEBUG_PGP
@@ -148,7 +148,7 @@ void processusGestionPairing_attemptPairing_indicators()
 void processusGestionPairing_initialise()
 {
   serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_attemptPairing_indicators;
-;//processusGestionPairing_Detection_init;
+ //processusGestionPairing_Detection_init;
 }
 
 

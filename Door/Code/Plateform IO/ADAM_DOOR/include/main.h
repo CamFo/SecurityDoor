@@ -135,7 +135,7 @@
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  * 
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 10
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 11
 
 // Phase 0 et 1 sont utilisé et défini par ServiceCommunication.h
 
@@ -167,12 +167,12 @@
  * @brief Numéro de phase du processus de gestion de la porte
  * 
 */
-#define PROCESSUSVERIFIEOUVERTURE_PHASE 6
+#define PROCESSUSVERIFIESERRURE_PHASE 6
 /**
  * @brief Numéro de phase du processus de gestion des indicateurs lumineux et buzzers
  * 
  */
-#define PROCESSUSGESTIONINDICATEURS_PHASE 7
+#define PROCESSUSVERIFIEOUVERTURE_PHASE 7
 
 /**
  * @brief Numéro de phase du processus gestion de pairing avec le server 
@@ -184,7 +184,16 @@
  * 
  */
 #define PROCESSUSCONTROLMOTEUR_PHASE 9
-
+/**
+ * @brief Numéro de phase du processus de gestion des utilisateurs NFC
+ * 
+ */
+#define PROCESSUSNFCUSER_PHASE 10
+/**
+ * @brief Numéro de phase du processus de verification du accelero pour voir la porte ouverte ou fermee 
+ * 
+ */
+//#define PROCESSUSVERIFIEOUVERTURE_PHASE 11
 /**
  * @brief  Numéro de phase de l'interface du PN523
  * 
@@ -196,10 +205,11 @@
 #define INTERFACEMOTEUR_COMPTE_EN_MS 500
 #define INTERFACEBUZZER_COMPTE_EN_MS 500
 #define INTERFACEINFRAROUGE_COMPTE_EN_MS 500
-#define PROCESSUSVERIFIEOUVERTURE_COMPTE_EN_MS 500
+#define PROCESSUSVERIFIESERRURE_COMPTE_EN_MS 500
 #define PROCESSUSPOURGESTIONPAIRING_COMPTE_EN_MS 500
 #define PROCESSUSCONTROLMOTEUR_COMPTE_EN_MS 500
-#define PROCESSUSGESTIONINIDCATEUR_COMPTE_EN_MS 500
+#define PROCESSUSVERIFIEOUVERTURE_COMPTE_EN_MS 500
+#define PROCESSUSNFCUSER_COMPTE_EN_MS 500
 #define SERVICECOMMUNICATION_COMPTE_EN_MS 500
 
 #define I2C_ADR_NFC (0x24)
@@ -210,7 +220,9 @@
 
 //#define MODE_DEBUG_ESPNOW
 //#define MODE_DEBUG_INTERFACEIR
+//#define MODE_DEBUG_VERIFIESERRURE
 //#define MODE_DEBUG_PGP
+//#define MODE_DEBUG_HARDWAREMACADR
 #endif
 
 

@@ -161,11 +161,6 @@ void processusDeTest_Buzzer_Delai1Sec()
     processusDeTest_compteur = 0;
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_Buzzer;
 }
-void loop4();
-void loop4()
-{
-
-}
 void processusDeTest_Infrarrouge_VerifieEntree()
 {
  interfaceBuzzer.dureeActive = PROCESSUSPOURTEST_COMPTE_2S;
@@ -175,6 +170,11 @@ void processusDeTest_Infrarrouge_VerifieEntree()
  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
  else
  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
+}
+void loop4();
+void loop4()
+{
+
 }
 void processusDeTest_initialise(void)
 {

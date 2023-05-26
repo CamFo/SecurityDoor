@@ -132,9 +132,11 @@ void piloteESPNOW_Pair(void)
     Serial.println("Failed to add peer");
     return;
   }
+  #ifdef MODE_DEBUG_HARDWAREMACADR
   Serial.print('\n');
   Serial.println("####################    Paired to feather    ####################");
   Serial.print('\n');
+  #endif
 }
 
 /**
@@ -144,15 +146,19 @@ void piloteESPNOW_Pair(void)
 void piloteESPNOW_initialise(void)
 {
   WiFi.mode(WIFI_MODE_STA);
+  #ifdef MODE_DEBUG_HARDWAREMACADR
   Serial.println("\n##################    HARDWARE MAC ADDRESS    ##################");
   Serial.print(  "                        ");
   Serial.print(WiFi.macAddress());
   Serial.println("                      \n");
+  #endif 
 
   if (esp_now_init() != ESP_OK) 
   {
-      Serial.println("Error initializing ESP-NOW");
-      return;
+    #ifdef MODE_DEBUG_HARDWAREMACADR
+    Serial.println("Error initializing ESP-NOW");
+    return;
+    #endif
   }
   // Once ESPNow is successfully Init, we will register for Send CB to
   // get the status of Trasnmitted packet

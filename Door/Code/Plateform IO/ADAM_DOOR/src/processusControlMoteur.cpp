@@ -60,11 +60,19 @@ void processusControlMoteur_attenteCommande()
 {
   if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIION_STATE_ERREUR)
   {
-    return; // (control dedier en presence seulement ou NFC si il y a lieu) 
+    if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) 
+    {
+      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
+    }
+      
+    else if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
+    {
+      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_barreCommande;
+    }
   }
   else
   {
-    if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) //porte debarre value (idk ask cam)
+    if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) 
     {
       serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
     }

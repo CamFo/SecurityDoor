@@ -1,15 +1,15 @@
 /**
- * @file processusVerifieOuverture.h
+ * @file processusVerifieSerrure.h
  * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
- * @brief 
+ * @brief  VerifieSerrure et barrer une porte de securitee avec une moteur DC
  * @version 0.1
- * @date 2023-05-22
+ * @date 2023-05-19
  * 
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef PROCESSUSVERIFIEOUVERTURE_H
-#define PROCESSUSVERIFIEOUVERTURE_H
+#ifndef PROCESSUSVERIFIESERRURE_H
+#define PROCESSUSVERIFIESERRURE_H
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
@@ -19,14 +19,15 @@
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
 
-
+#define PROCESSUSVERIFIESERRURE_DETECTE_OUVERT 1
+#define PROCESSUSVERIFIESERRURE_DETECTE_FERMER 0
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
 // Structure d'envoie et de réception
 
 
 //Fonctions publiques:
-void processusVerifieOuverture_initialise(void);
+void processusVerifieSerrure_initialise(void);
 
 //Variables publiques:
 //pas de variables publiques

@@ -1,15 +1,15 @@
 /**
- * @file processusGestionIndicateurs.h
+ * @file processusNFCUser.h
  * @author Ilyes Gharmoul (ilyesdu2002@hotmail.com)
  * @brief 
  * @version 0.1
- * @date 2023-05-22
+ * @date 2023-05-26
  * 
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef PROCESSUSGESTIONINDICATEURS_H
-#define PROCESSUSGESTIONINDICATEURS_H
+#ifndef PROCESSUSNFCUSER_H
+#define PROCESSUSNFCUSER_H
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
@@ -26,7 +26,7 @@
 
 
 //Fonctions publiques:
-void processusGestionIndicateurs_initialise(void);
+void processusNFCUser_initialise(void);
 
 //Variables publiques:
 //pas de variables publiques
