@@ -84,6 +84,11 @@ void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,
 void interfaceLCD_afficheString(unsigned int x,unsigned int y,unsigned char *str,unsigned int dcolor,unsigned int bgcolor);
 void interfaceLCD_ClearScreen(unsigned int bColor);
 
+void BRS_LCD_Draw_Pixel(unsigned int x, unsigned int y, unsigned int color);
+void BRS_LCD_Draw_Line(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned int color);
+void BRS_LCD_Draw_CirclePixel(unsigned int x, unsigned int y, double radius, double radian, unsigned int color);
+void BRS_LCD_Draw_Shape_Circle(unsigned int x, unsigned int y, double radius, unsigned int color);
+void BRS_LCD_Draw_Shape_CircleF(unsigned int x, unsigned int y, unsigned int radius, unsigned int color);
 void inttostr(int dd,unsigned char *str);
 
 //Variables publiques:

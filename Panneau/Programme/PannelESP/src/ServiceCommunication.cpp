@@ -85,11 +85,11 @@ void serviceCommunication_initialise(void)
     }
     
     // TEST
-    ValeurEnvoieDoor.States = 0x08;
-    ValeurEnvoieDoor.Commande = 0x10;
-    ValeurEnvoieDoor.ValeurA = false;
-    ValeurEnvoieDoor.ValeurB = false;
-    ValeurEnvoieDoor.ValeurC = false;
+    ValeurEnvoieDoor.States = SERVICECOMMUNICATION_STATE_ENARRET;
+    ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_NULL; 
+    ValeurEnvoieDoor.ValeurA = 0x00;
+    ValeurEnvoieDoor.ValeurB = 0x00;
+    ValeurEnvoieDoor.ValeurC = 0x00;
 
     ServiceCommunication.etatDuModule = SERVICECOMMUNICATION_MODULE_EN_FONCTION;
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
@@ -129,8 +129,7 @@ void serviceCommunication_WaitResponseDoor(void)
         compteurDoor = 0;
 
         interfaceLCD.DoorState = DOORSTATE_OFF;
-        unsigned char DOFFstring[] = "ETAT de la Porte: OFF";
-        interfaceLCD_afficheString(320, 100, DOFFstring, PURERED, DarkGrey);
+        BRS_LCD_Draw_Shape_CircleF(450, 66, 8, PURERED);  // Led RGB qui indique l'état de la COM
 
         Serial.println("X=X=X ERREUR --  DOOR OFFLINE  -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS 200 Ms
@@ -155,8 +154,7 @@ void serviceCommunication_WaitResponseDoor(void)
     Serial.flush();
 
     interfaceLCD.DoorState = DOORSTATE_ON;
-    unsigned char DONstring[] = "ETAT de la Porte: ON ";
-    interfaceLCD_afficheString(320, 100, DONstring, PUREGREEN, DarkGrey);
+    BRS_LCD_Draw_Shape_CircleF(450, 66, 8, PUREGREEN);  // Led RGB qui indique l'état de la COM
 
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
 }
@@ -210,8 +208,8 @@ void serviceCommunication_WaitResponseCapteur(void)
         compteurCapteur = 0;
 
         interfaceLCD.CapteurState = CAPTEURSTATE_OFF;
-        unsigned char COFFstring[] = "ETAT du Capteur: OFF";
-        interfaceLCD_afficheString(320, 120, COFFstring, PURERED, DarkGrey);
+        BRS_LCD_Draw_Shape_CircleF(450, 87, 8, PURERED);  // Led RGB qui indique l'état de la COM
+
 
         Serial.println("X=X=X ERREUR -- CAPTEUR OFFLINE -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LE CAPTEUR NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
@@ -238,9 +236,8 @@ void serviceCommunication_WaitResponseCapteur(void)
     Serial.flush();
 
     interfaceLCD.CapteurState = CAPTEURSTATE_ON;
-    unsigned char CONstring[] = "ETAT du Capteur: ON ";
-    interfaceLCD_afficheString(320, 120, CONstring, PUREGREEN, DarkGrey);
-
+    BRS_LCD_Draw_Shape_CircleF(450, 87, 8, PUREGREEN);  // Led RGB qui indique l'état de la COM
+    
     Serial.println("[#][#]########  -COMMUNICATION CYCLE END- ########[#][#]");
     Serial.flush();
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Attend;

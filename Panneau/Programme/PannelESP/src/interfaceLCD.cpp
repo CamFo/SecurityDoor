@@ -20,15 +20,33 @@
 
 void interfaceLCD_initialise(void)
 {
-  interfaceLCD_ClearScreen(DarkGrey);
-  interfaceLCD_rectangle(20, 15, 440, 3, BLACK);
-  interfaceLCD_rectangle(16, 100, 240, 202, WHITE);
+  interfaceLCD_ClearScreen(DarkGrey);  // Dark Font
+  
+  interfaceLCD_rectangle(10, 16, 460, 2, BLACK);  // Ligne Header
+
+  interfaceLCD_rectangle(20, 85, 100, 70, 0x9000); // Bouttton Rouge Barre
+  interfaceLCD_rectangle(140, 85, 100, 70, DarkGreen);  //Boutton Vert Debarre
+
+  // CADENAS BOUTTON BARRE
+  interfaceLCD_rectangle(50, 110, 38, 34, BLACK);
+  for(int i=10; i<=14; i++)
+  {
+    BRS_LCD_Draw_Shape_Circle(70, 110, i, BLACK);
+  }
+  // FIN DU CADENAS
+  
+  unsigned char Dstring[] = "ETAT de la Porte:";
+  interfaceLCD_afficheString(320, 60, Dstring, WHITE, DarkGrey);
+  unsigned char Cstring[] = "ETAT du Capteur: ";
+  interfaceLCD_afficheString(320, 82, Cstring, WHITE, DarkGrey);
+
+
+  BRS_LCD_Draw_Shape_CircleF(450, 66, 8, LightGrey);  // Led RGB qui indique l'état de la COM
+  BRS_LCD_Draw_Shape_CircleF(450, 87, 8, LightGrey);  // Led RGB qui indique l'état de la COM
 
   unsigned char Sstring[] = "ADAM project TSO 2023";
   interfaceLCD_afficheString(320, 300, Sstring, YELLOW, DarkGrey);
-
   Serial.print("#####  LCD INTERFACE INITIALISED  #####");
-
 }
 
 /**
@@ -99,7 +117,124 @@ void interfaceLCD_afficheString(unsigned int x,unsigned int y,unsigned char *str
 		str++;
 	}	
 }
+// DRAW PIXEL
 
+void BRS_LCD_Draw_Pixel(unsigned int x, unsigned int y, unsigned int color)
+{
+	LCD_SetPos(x, x, y, y);
+	Write_Data_U16(color);
+}
+//��������������������������������������������������������������������������������������������������
+void BRS_LCD_Draw_CirclePixel(unsigned int x, unsigned int y, double radius, double radian, unsigned int color)
+//__________________________________________________________________________________________________
+//  	Creator:	|Shawn Couture
+//	Date made:	| 31/03/2022
+//__________________________________________________________________________________________________
+//	Function:	| Draws a pixel at a wanted radian value
+//__________________________________________________________________________________________________
+//	Entry:		| x,y (0-127|0-63) radius, angle(radian), state
+//��������������������������������������������������������������������������������������������������
+{  
+   BRS_LCD_Draw_Pixel(ceil((sin(radian)*radius)+x),ceil((cos(radian)*radius)+y), color);
+}
+//��������������������������������������������������������������������������������������������������
+void BRS_LCD_Draw_Shape_Circle(unsigned int x, unsigned int y, double radius, unsigned int color)
+//__________________________________________________________________________________________________
+//  	Creator:	|Shawn Couture
+//	Date made:	| 31/03/2022
+//__________________________________________________________________________________________________
+//	Function:	| Draws a circle border from a starting radian, to an ending radian
+//                      | To draw a complete circle, simply put (x,y,radius,0,6.28,1)
+//__________________________________________________________________________________________________
+//	Entry:		| x,y (0-127|0-63) radius, state
+//��������������������������������������������������������������������������������������������������
+{
+  
+  //Find the increment necessary in order to avoid  holes or overlapping pixels for no reasons
+  double increment = (12.56/(2*3.1*(radius*radius)));
+  
+  //For loop from starting radian to ending radian incrementing in 0.01
+  for(double i = 0; i <= 6.28; i += increment)
+     {
+        BRS_LCD_Draw_Pixel(floor(sin(i)*radius)+x, floor(cos(i)*radius)+y, color);
+     }
+}
+//��������������������������������������������������������������������������������������������������
+void BRS_LCD_Draw_Shape_CircleF(unsigned int x, unsigned int y, unsigned int radius, unsigned int color)
+//__________________________________________________________________________________________________
+//  	Creator:	| Shawn Couture
+//	Date made:	| 19/04/2022
+//__________________________________________________________________________________________________
+//	Function:	| Draws a full circle without using sin or cos
+//                      | 
+//__________________________________________________________________________________________________
+//	Entry:		| x,y (0-127|0-63) radius, state
+//��������������������������������������������������������������������������������������������������
+{
+  unsigned int leftTopX = ((unsigned int) x) - (unsigned int) radius;
+  unsigned int leftTopY = ((unsigned int) y) - (unsigned int) radius;
+  
+  unsigned int widthCoord = (leftTopX+((unsigned int)radius*2));
+  unsigned int heigthCoord = (leftTopY+((unsigned int)radius*2));
+  
+  //Save memory by reusing input parameters
+  unsigned int RadiusSquared = (radius*radius);        //Avoids doing exponents of radius
+    
+  //Fill in a circle inside a rectangle area of diameter width starting at the coords defined above
+  for(unsigned int checkX = leftTopX; checkX <= widthCoord; checkX++)
+     {
+      for(unsigned int checkY = leftTopY; checkY <= heigthCoord; checkY++)
+         {
+           if(RadiusSquared < (((checkX - x)*(checkX - x)) + ((checkY - y)*(checkY - y))))
+             {
+               //BRS_LCD_Draw_Pixel(checkX, checkY, !state);
+             }
+           else
+             {
+               BRS_LCD_Draw_Pixel(checkX, checkY, color);             
+             }
+         }
+     }
+}
+//��������������������������������������������������������������������������������������������������
+void BRS_LCD_Draw_Line(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, unsigned int color)
+//__________________________________________________________________________________________________
+//  	Creator:	|Shawn Couture
+//	Date made:	| 24/03/2022
+//__________________________________________________________________________________________________
+//	Function:	| Draws a line inbetween 2 coordinates.
+//			| coordinates range from x(0-127) and y(0-127). Then input on/off (1/0) 
+//__________________________________________________________________________________________________
+//	Entry:		| start coordinates (x,y) end coordinates (x,y) wanted state (state)
+//��������������������������������������������������������������������������������������������������
+{
+ //##########################################//####################################_Local Variables_ 
+   double lenght      = 0;                   // distance inbetween the 2 coordinates
+   double ratioX      = 0.0;                 // difference between x1 and x2 divided by lenght.
+   double ratioY      = 0.0;                 // difference between y1 and y2 divided by lenght.
+ //##########################################//####################################_Local Variables_    
+  
+//////////////////////////////////////////////////////////////////////////////////////////////[MATH]
+// Distance in between the 2 pixels.   
+   lenght = (sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2))));
+
+// Difference in between the 2 X coordinates.   
+   ratioX = (x2-x1)/lenght;// -0.71
+   ratioY = (y2-y1)/lenght;// -0.71
+ 
+//////////////////////////////////////////////////////////////////////////////////////////////[LOOP]
+// loop form 0 to the distance inbetween the 2 points
+   for(unsigned int i = 0; i<=ceil(lenght); i++)
+      {
+        BRS_LCD_Draw_Pixel((x1 + (i*ratioX)), (y1 + (i*ratioY)), color);
+      }
+}
+
+
+
+
+
+//
 
 void inttostr(int dd,unsigned char *str)
 {
