@@ -147,7 +147,7 @@
 /**
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 3
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 4
 
 /**
  * @brief Numéro de phase la lecture de l'Entrée 1 
@@ -161,6 +161,11 @@
  * @brief Numéro de phase la lecture du pavé tactile
  */
 #define INTERFACETACTILE_PHASE 2
+/**
+ * @brief Numéro de phase du processus principale 
+ * 
+ */
+#define PROCESSUSPANNEAU_PHASE 3
 /**
  * @brief Numéro de phase du Service Communication
  */
