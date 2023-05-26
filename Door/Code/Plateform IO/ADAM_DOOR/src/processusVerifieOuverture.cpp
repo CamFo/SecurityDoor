@@ -47,8 +47,11 @@ PROCESSUSVERIFIEOUVERTURE_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 
 //Declarations de fonctions privees:
 void processusVerifieOuverture_Detection();
+void processusVerifieOuverture_DetecteOuvert();
+void processusVerifieOuverture_DetecteFermer();
 //Definitions de variables privees:
 unsigned int processusVerifieOuverture_compteur;
+unsigned int processusVerifieOuverture_oldstatedoor;
 //Definitions de fonctions privees:
 
 void processusVerifieOuverture_Detection()
@@ -56,16 +59,41 @@ void processusVerifieOuverture_Detection()
   interfaceInfrarouge.RequeteActive = INTERFACEINFRAROUGE_ACTIVE;
   if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_PRESENT)
   {
-    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIEOUVERTURE_DETECTE_OUVERT;  
-  //  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
-  //  interfaceBuzzer.dureeActive = PROCESSUSVERIFIEOUVERTURE_COMPTE_2S;
-  //  interfaceBuzzer.valeurBruit = INTERFACEBUZZER_100POURCENT;
+    if (interfaceInfrarouge.presence == GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte)
+    return;   
+    serviceBaseDeTemps_execute[PROCESSUSVERIFIEOUVERTURE_PHASE] = processusVerifieOuverture_DetecteOuvert;
   }
-  else
+  else if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT)
   {
-  //  interfaceBuzzer.RequeteActive = INTERFACEBUZZER_INACTIVE;
-    GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIEOUVERTURE_DETECTE_FERMER;
+    if (interfaceInfrarouge.presence == GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte)
+    return;
+    serviceBaseDeTemps_execute[PROCESSUSVERIFIEOUVERTURE_PHASE] = processusVerifieOuverture_DetecteFermer;
   } 
+}
+
+void processusVerifieOuverture_DetecteOuvert()
+{
+  Serial.print("Ouvert");
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIEOUVERTURE_DETECTE_OUVERT;  
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
+  interfaceRGB.dureeActive = PROCESSUSVERIFIEOUVERTURE_COMPTE_2S;
+  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+  interfaceBuzzer.dureeActive = PROCESSUSVERIFIEOUVERTURE_COMPTE_2S;
+  interfaceBuzzer.valeurBruit = INTERFACEBUZZER_100POURCENT;
+  interfaceBuzzer.RequeteActive =INTERFACEBUZZER_ACTIVE;
+  serviceBaseDeTemps_execute[PROCESSUSVERIFIEOUVERTURE_PHASE] = processusVerifieOuverture_Detection;
+}
+void processusVerifieOuverture_DetecteFermer()
+{
+  Serial.print("Fermer");
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIEOUVERTURE_DETECTE_FERMER;
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
+  interfaceRGB.dureeActive = PROCESSUSVERIFIEOUVERTURE_COMPTE_2S;
+  interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
+  interfaceBuzzer.dureeActive = PROCESSUSVERIFIEOUVERTURE_COMPTE_2S;
+  interfaceBuzzer.valeurBruit = INTERFACEBUZZER_75POURCENT;
+  interfaceBuzzer.RequeteActive =INTERFACEBUZZER_ACTIVE;
+  serviceBaseDeTemps_execute[PROCESSUSVERIFIEOUVERTURE_PHASE] = processusVerifieOuverture_Detection;
 }
 //Definitions de variables publiques:
 //pas de variables publiques

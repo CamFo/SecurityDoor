@@ -74,8 +74,10 @@ void processusGestionPairing_VerifieIfStillPaired()
 {
   if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIION_STATE_ERREUR)
   {
+    #ifdef MODE_DEBUG_PGP
     Serial.printf("\n ERREUR STATE :");
     Serial.print(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States);
+    #endif
     serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_ReAttemptPairing;
   }
   
@@ -84,14 +86,18 @@ void processusGestionPairing_ReAttemptPairing()
 {
   if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNCATIION_STATE_ERREUR)
   {
+      #ifdef MODE_DEBUG_PGP
       Serial.print("\n Pair success.");
+      #endif
       serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_VerifieIfStillPaired;
       return;
   }
   processusGestionPairing_compteur++;
   if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_2S)
     return;
+  #ifdef MODE_DEBUG_PGP
   Serial.print("\n Fail to repair, trying again in Parallel.");
+  #endif
   processusGestionPairing_compteur = 0;
 }
 
@@ -106,8 +112,9 @@ void processusGestionPairing_comState()
       interfaceBuzzer.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_1S;
       interfaceBuzzer.valeurBruit = INTERFACEBUZZER_25POURCENT;
       interfaceBuzzer.RequeteActive = INTERFACEBUZZER_ACTIVE;
-       
+      #ifdef MODE_DEBUG_PGP
       Serial.print("\n Pair success.");
+      #endif
       processusGestionPairing_compteur = 0;
       serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_VerifieIfStillPaired;
       return;
@@ -119,8 +126,10 @@ void processusGestionPairing_comState()
   interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
   interfaceRGB.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_2S;
+  #ifdef MODE_DEBUG_PGP
   Serial.printf("\n Failed com.");
   Serial.printf("\n Normal mode. Communicating in parallel.");
+  #endif
   processusGestionPairing_compteur = 0;
   serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_ReAttemptPairing;
 }
@@ -131,12 +140,14 @@ void processusGestionPairing_attemptPairing_indicators()
   interfaceRGB.couleur = INTERFACERGB_VALEUR_JAUNE;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
   interfaceRGB.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_2S;
+  #ifdef MODE_DEBUG_PGP
   Serial.print("\r Attempting pairing.");
+  #endif
   serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_comState;
 }
 void processusGestionPairing_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = loop3;
+  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_attemptPairing_indicators;
 ;//processusGestionPairing_Detection_init;
 }
 

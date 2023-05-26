@@ -25,7 +25,7 @@ INTERFACEINFRAROUGE_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 
 INTERFACEINFRAROUGE interfaceInfrarouge;
 unsigned int interfaceInfrarouge_compteur;
- double interfaceInfrarouge_StoreCompteur;
+double interfaceInfrarouge_StoreCompteur;
 void interfaceInfrarouge_attenteDirective();
 void interfaceInfrarouge_activeTransmetteur();
 void interfaceInfrarouge_LectureInfrarouge();
@@ -42,14 +42,14 @@ void interfaceInfrarouge_LectureInfrarouge()
     if (interfaceInfrarouge_compteur < INTERFACEINFRAROUGE_COMPTE_2S)
     return;
     interfaceInfrarouge_compteur = 0;
-    interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
-    interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
     serviceBaseDeTemps_execute[INTERFACEINFRAROUGE_PHASE] = interfaceInfrarouge_VerifiePresence;
 }
 void interfaceInfrarouge_VerifiePresence()
 {
     interfaceInfrarouge.valeurDistance = map((long)interfaceInfrarouge_StoreCompteur,0,INTERFACEINFRAROUGE_COMPTE_2S,0,100);
-    #ifdef MODEDEBUG
+    #ifdef MODE_DEBUG_INTERFACEIR
     Serial.print(interfaceInfrarouge.valeurDistance);
     Serial.printf("    '%' de detection\n");
     #endif
@@ -74,8 +74,9 @@ void interfaceInfrarouge_activeTransmetteur()
 
 void interfaceInfrarouge_attenteDirective()
 {
-    interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
-    interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDesModules = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
     if (interfaceInfrarouge.RequeteActive == INTERFACEINFRAROUGE_INACTIVE)
     {
         //piloteIOIR2_metAZero();
@@ -88,9 +89,9 @@ void interfaceInfrarouge_attenteDirective()
 
 void interfaceInfrarouge_initalise()
 {
-    interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
-    interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
-    interfaceInfrarouge.etatDesModules = INTERFACEINFRAROUGE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDuModuleTransmetteur = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDuModuleRecepteur = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
+    interfaceInfrarouge.etatDesModules = INTERFACEINFRAROUGE_MODULE_PAS_EN_FONCTION;
     interfaceInfrarouge.RequeteActive = INTERFACEINFRAROUGE_INACTIVE;
     serviceBaseDeTemps_execute[INTERFACEINFRAROUGE_PHASE] = interfaceInfrarouge_attenteDirective;
 }

@@ -209,7 +209,8 @@
 #define FALSE false
 
 //#define MODE_DEBUG_ESPNOW
-#define MODEDEBUG
+//#define MODE_DEBUG_INTERFACEIR
+//#define MODE_DEBUG_PGP
 #endif
 
 

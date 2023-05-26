@@ -107,7 +107,7 @@ void loop1()
 }
 void processusControlMoteur_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = loop1;
+  serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
 }
 
 
