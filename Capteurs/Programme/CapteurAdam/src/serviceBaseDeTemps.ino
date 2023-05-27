@@ -22,6 +22,7 @@
 #include "main.h"
 #include "serviceTaskServer.h"
 #include "serviceBaseDeTemps.h"
+#include "interfaceT1.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -41,11 +42,13 @@ void serviceBaseDeTemps_neFaitRien(void)
 
 void serviceBaseDeTemps_gere(void)
 {
-unsigned char i;
+  interfaceTVert_allume();
+  unsigned char i;
   for (i = 0; i < SERVICEBASEDETEMPS_NOMBRE_DE_PHASES; i++)
   {
     serviceBaseDeTemps_execute[i]();
   }
+  interfaceTVert_eteint();
 }
     
 //Definitions de variables publiques:

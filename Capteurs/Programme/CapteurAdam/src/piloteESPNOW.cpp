@@ -19,14 +19,12 @@
 
 
 // Définition privée
-void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status);
-void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len);
 
 PILOTEESPNOW piloteESPNOW;
 
 esp_now_peer_info_t peerInfoC;
-CAPTEUR_ADAM_R ValeurRecuCapteur;
-CAPTEUR_ADAM_S ValeurEnvoieCapteur;
+CAPTEUR_ADAM_R ValeurRecu;
+CAPTEUR_ADAM_S ValeurEnvoie;
 
 
 /**
@@ -68,7 +66,7 @@ void OnDataSentC(const uint8_t *mac_addr, esp_now_send_status_t status)
  */
 void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len) 
 {
-  memcpy(&ValeurRecuCapteur, incomingData, sizeof(ValeurRecuCapteur));
+  memcpy(&ValeurRecu, incomingData, sizeof(ValeurRecu));
   piloteESPNOW.information = PILOTEESPNOW_INFORMATION_DISPONIBLE;
 
 }
@@ -83,7 +81,7 @@ void OnDataRecvC(const uint8_t * mac, const uint8_t *incomingData, int len)
 void piloteESPNOW_send(void)
 {
     // Send message via ESP-NOW
-    esp_err_t result = esp_now_send(MACaddressPannel, (uint8_t *) &ValeurEnvoieCapteur, sizeof(ValeurEnvoieCapteur));
+    esp_err_t result = esp_now_send(MACaddressPannel, (uint8_t *) &ValeurEnvoie, sizeof(ValeurEnvoie));
     // Check for error
     if (result == ESP_NOW_SEND_SUCCESS)
     {
@@ -112,7 +110,7 @@ void piloteESPNOW_Pair(void)
     return;
   }
   Serial.print('\n');
-  Serial.println("====    Paired to Capteur   ====");
+  Serial.println("====    Paired to Pannel   ====");
   Serial.print('\n');
   Serial.flush();
 }

@@ -112,22 +112,22 @@
 /**
  * @brief Valeur pour allumer le témoin 1
  */
-#define INTERFACET1_VALEUR_POUR_ALLUMER  1
+#define INTERFACET1_VALEUR_POUR_ALLUMER  0
 /**
  * @brief Valeur pour éteindre le témoin 1
  */
-#define INTERFACET1_VALEUR_POUR_ETEINDRE 0
+#define INTERFACET1_VALEUR_POUR_ETEINDRE 1
 
 
 /** Définition pour le témoin Vert **/
 /**
  * @brief Valeur pour allumer le témoin Vert
  */
-#define INTERFACETVERT_VALEUR_POUR_ALLUMER  1
+#define INTERFACETVERT_VALEUR_POUR_ALLUMER  0
 /**
  * @brief Valeur pour éteindre le témoin Vert
  */
-#define INTERFACETVERT_VALEUR_POUR_ETEINDRE 0
+#define INTERFACETVERT_VALEUR_POUR_ETEINDRE 1
 
 
 /***###########  DÉFINITION NÉCESSAIRE À LA BASE DE TEMPS  ###########***/
@@ -143,11 +143,11 @@
 /**
  * @brief Nombre de phase dans une période de la base de temps (1 si pas utilisé)
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES_DANS_LOOP 1
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES_DANS_LOOP 2
 /**
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 3
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 2
 /**
  * @brief Numéro de phase la lecture de l'Entrée 1 
  */
@@ -159,7 +159,12 @@
 /**
  * @brief Numéro de phase du Service Communication
  */
-#define SERVICECOMMUNICATION_PHASE 2
+#define SERVICECOMMUNICATION_PHASE 0
+/**
+ * @brief Numéro de phase de l'interface du senseur de température
+ */
+#define INTERFACESHT4X_PHASE 1
+
 
 
 /**###########  DEFINE DES PROCESSUS  ###########**/

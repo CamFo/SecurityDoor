@@ -32,14 +32,16 @@
 #include "interfaceEntree1.h"
 #include "interfaceT1.h"
 #include "interfaceTVert.h"
+#include "interfaceSHT4X.h"
 
 // Include des processus
 #include "processusClignotant.h"
 
 //Definitions privees
-
-//pas de definitions privees
 void main_faitUnTest(void);
+void coreTask( void * parameter );
+//pas de definitions privees
+
 
 //Declarations de fonctions privees:
 
@@ -59,6 +61,16 @@ void main_initialise(void);
 //pas de variables privees
 
 //Definitions de fonctions privees:
+void coreTask( void * parameter )
+{
+  Serial.print("\nLong Tasks running on core ");
+  Serial.println(xPortGetCoreID());
+  while(true)
+  {
+    delay(10);
+    serviceBaseDeTemps_gereDansLoop();
+  }
+}
 
 void main_initialise(void)
 {
@@ -73,6 +85,7 @@ void main_initialise(void)
   interfaceEntree1_initialise();
   interfaceT1_initialise();
   interfaceTVert_initialise();
+  interfaceSHT4X_initialise();
   
   processusClignotant_initialise();
 }
@@ -82,11 +95,11 @@ void setup(void)
   Serial.begin(115200);
   main_initialise();
   main_faitUnTest();
+  xTaskCreatePinnedToCore(coreTask, "TaskLong", 10000, NULL, 1, NULL, 0);
   serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup();
 }
 
 void loop(void) 
 {
   serviceTaskServer_gestion.execute();
-  serviceBaseDeTemps_gereDansLoop();
 }
