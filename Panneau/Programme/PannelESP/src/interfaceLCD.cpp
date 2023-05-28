@@ -23,14 +23,14 @@ void interfaceLCD_initialise(void)
   interfaceLCD_ClearScreen(DarkGrey);  // Dark Font
   
   unsigned char Headstring[] = "Temperature:    C -- Humidite:   %          MAC  70:B8:F6:F0:C6:B0";
-  interfaceLCD_afficheString(10, 3, Headstring, WHITE, DarkGrey);
+  interfaceLCD_afficheString(10, 3, Headstring, 0, WHITE, DarkGrey);
   BRS_LCD_Draw_Shape_Circle(118, 6, 2, WHITE);
   interfaceLCD_rectangle(10, 17, 460, 2, BLACK);  // Ligne Header
 
 
   //INTERFACE SERRURE 
   unsigned char ESstring[] = "ETAT SERRURE";
-  interfaceLCD_afficheString(70, 32, ESstring, GreenYellow, DarkGrey);
+  interfaceLCD_afficheString(70, 32, ESstring, 1,GreenYellow, DarkGrey);
   interfaceLCD_rectangle(20, 85, 100, 70, 0x9000); // Bouttton Rouge Barre
   interfaceLCD_rectangle(140, 85, 100, 70, DarkGreen);  //Boutton Vert Debarre
 
@@ -45,11 +45,11 @@ void interfaceLCD_initialise(void)
 
   // ÉTAT DE LA COMMUNICATION
   unsigned char hstring[] = "COMMUNICATIONS";
-  interfaceLCD_afficheString(365, 32, hstring, GreenYellow, DarkGrey);
+  interfaceLCD_afficheString(365, 32, hstring, 1, GreenYellow, DarkGrey);
   unsigned char Dstring[] = "Porte:";
-  interfaceLCD_afficheString(360, 60, Dstring, WHITE, DarkGrey);
+  interfaceLCD_afficheString(360, 60, Dstring, 0, WHITE, DarkGrey);
   unsigned char Cstring[] = "Capteur:";
-  interfaceLCD_afficheString(360, 82, Cstring, WHITE, DarkGrey);
+  interfaceLCD_afficheString(360, 82, Cstring, 0, WHITE, DarkGrey);
   BRS_LCD_Draw_Shape_CircleF(450, 66, 8, LightGrey);  // Led RGB qui indique l'état de la COM
   BRS_LCD_Draw_Shape_CircleF(450, 88, 8, LightGrey);  // Led RGB qui indique l'état de la COM
   // FIN ÉTAT DE LA COMMUNICATION
@@ -61,7 +61,7 @@ void interfaceLCD_initialise(void)
   //FIN ÉTAT DE LA PORTE
 
   unsigned char Sstring[] = "ADAM project TSO 2023";
-  interfaceLCD_afficheString(324, 304, Sstring, YELLOW, DarkGrey);
+  interfaceLCD_afficheString(324, 304, Sstring, 0, YELLOW, DarkGrey);
   Serial.print("#####  LCD INTERFACE INITIALISED  #####");
 }
 
@@ -98,10 +98,19 @@ void interfaceLCD_rectangle(unsigned int positionX,unsigned  int positionY, unsi
 	  }
 	}
 }
-void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,unsigned int dcolor,unsigned int bgcolor)	
+void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,bool gras,unsigned int dcolor,unsigned int bgcolor)	
 {  
 	unsigned char i,j;
-	unsigned char *temp=Gzifu;    
+  unsigned char *temp;
+
+  if(gras)  // SI on est en gras on prend l'autre tableau
+  {
+    temp=Gzifu;
+  }
+  else
+  {
+    temp=zifu;
+  }
   LCD_SetPos(x,x+7,y,y+11);      
 	temp+=(value-32)*12;
 	for(j=0;j<12;j++)
@@ -121,14 +130,14 @@ void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,
 	 }
 }
 
-void interfaceLCD_afficheString(unsigned int x,unsigned int y,unsigned char *str,unsigned int dcolor,unsigned int bgcolor)	  
+void interfaceLCD_afficheString(unsigned int x,unsigned int y,unsigned char *str,bool gras,unsigned int dcolor,unsigned int bgcolor)	  
 {  
 	unsigned int x1,y1;
 	x1=x;
 	y1=y;
 	while(*str!='\0')
 	{	
-		interfaceLCD_afficheChar(x1,y1,*str,dcolor,bgcolor);
+		interfaceLCD_afficheChar(x1,y1,*str,gras,dcolor,bgcolor);
 		x1+=7;
 		str++;
 	}	
