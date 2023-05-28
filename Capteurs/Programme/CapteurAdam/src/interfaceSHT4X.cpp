@@ -28,7 +28,7 @@ void interfaceSHT4X_lecture(void);
 //Définition de Fontions
 void interfaceSHT4X_lecture(void)
 {
-  if(compteurA <= 1000)
+  if(compteurA <= 400)
   {
     compteurA++;
     return;

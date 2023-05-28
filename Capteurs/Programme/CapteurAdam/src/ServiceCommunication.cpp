@@ -103,17 +103,21 @@ void serviceCommunication_WaitResponse(void)
     Serial.println(ValeurRecu.States);
     Serial.print("Command: ");
     Serial.println(ValeurRecu.Commande);
-    Serial.print("État Porte: ");
+    Serial.print("Valeur A: ");
     Serial.println(ValeurRecu.ValeurA);
-    Serial.print("User NFC: ");
+    Serial.print("Valeur B: ");
     Serial.println(ValeurRecu.ValeurB);
-    Serial.print("État Serrure: ");
+    Serial.print("Valeur C: ");
     Serial.println(ValeurRecu.ValeurC);
     Serial.println();
     Serial.flush();
-    if(ValeurRecu.States == 0x07) // On est en opération
+    if(ValeurRecu.States == SERVICECOMMUNICATION_STATE_OPERATION) // On est en opération
     {
-      ValeurEnvoie.States = 0x07;
+      ValeurEnvoie.States = SERVICECOMMUNICATION_STATE_OPERATION;
+    }
+    if(ValeurRecu.States == SERVICECOMMUNICATION_STATE_ENARRET) // Si on recoit en Arret
+    {
+      ValeurEnvoie.States = SERVICECOMMUNICATION_STATE_ENARRET; // On se ment en Arret
     }
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_Envoie;
 }
