@@ -84,12 +84,18 @@ void serviceCommunication_initialise(void)
         return;
     }
     
-    // TEST
+    // INITIALISE VALUE TO SEND
     ValeurEnvoieDoor.States = SERVICECOMMUNICATION_STATE_ENARRET;
     ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_NULL; 
     ValeurEnvoieDoor.ValeurA = 0x00;
     ValeurEnvoieDoor.ValeurB = 0x00;
     ValeurEnvoieDoor.ValeurC = 0x00;
+
+    ValeurEnvoieCapteur.States = SERVICECOMMUNICATION_STATE_ENARRET;
+    ValeurEnvoieCapteur.Commande = SERVICECOMMUNICATION_COMMANDE_NULL;
+    ValeurEnvoieCapteur.ValeurA = 0x00;
+    ValeurEnvoieCapteur.ValeurB = 0x00;
+    ValeurEnvoieCapteur.ValeurC = 0x00;
 
     ServiceCommunication.etatDuModule = SERVICECOMMUNICATION_MODULE_EN_FONCTION;
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_PairingDoor;
@@ -186,12 +192,6 @@ void serviceCommunication_EnvoieCapteur(void)
     {
         return;
     }
-
-    ValeurEnvoieCapteur.States = 0x08;
-    ValeurEnvoieCapteur.Commande = 0xFF;
-    ValeurEnvoieCapteur.ValeurA = true;
-    ValeurEnvoieCapteur.ValeurB = true;
-    ValeurEnvoieCapteur.ValeurC = 56;
 
     piloteESPNOWCapteur_send();
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponseCapteur;

@@ -68,6 +68,7 @@ void interfaceTactile_gere(void)
   if (ts.touched())
   {
     ValeurEnvoieDoor.States = SERVICECOMMUNICATION_STATE_OPERATION;
+    ValeurEnvoieCapteur.States = SERVICECOMMUNICATION_STATE_OPERATION;
     interfaceTactile_detecteBoutton();
     interfaceTactile.information = INTERFACETACTILE_INFORMATION_DISPONIBLE;
     interfaceTactile.etatDeLEntree = INTERFACETACTILE_ACTIVE;
