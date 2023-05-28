@@ -208,7 +208,7 @@ void serviceCommunication_WaitResponseCapteur(void)
         compteurCapteur = 0;
 
         interfaceLCD.CapteurState = CAPTEURSTATE_OFF;
-        BRS_LCD_Draw_Shape_CircleF(450, 87, 8, PURERED);  // Led RGB qui indique l'état de la COM
+        BRS_LCD_Draw_Shape_CircleF(450, 88, 8, PURERED);  // Led RGB qui indique l'état de la COM
 
 
         Serial.println("X=X=X ERREUR -- CAPTEUR OFFLINE -- ERREUR X=X=X\n");
@@ -236,7 +236,7 @@ void serviceCommunication_WaitResponseCapteur(void)
     Serial.flush();
 
     interfaceLCD.CapteurState = CAPTEURSTATE_ON;
-    BRS_LCD_Draw_Shape_CircleF(450, 87, 8, PUREGREEN);  // Led RGB qui indique l'état de la COM
+    BRS_LCD_Draw_Shape_CircleF(450, 88, 8, PUREGREEN);  // Led RGB qui indique l'état de la COM
     
     Serial.println("[#][#]########  -COMMUNICATION CYCLE END- ########[#][#]");
     Serial.flush();

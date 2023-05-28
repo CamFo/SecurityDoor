@@ -22,8 +22,15 @@ void interfaceLCD_initialise(void)
 {
   interfaceLCD_ClearScreen(DarkGrey);  // Dark Font
   
-  interfaceLCD_rectangle(10, 16, 460, 2, BLACK);  // Ligne Header
+  unsigned char Headstring[] = "Temperature:    C -- Humidite:   %          MAC  70:B8:F6:F0:C6:B0";
+  interfaceLCD_afficheString(10, 3, Headstring, WHITE, DarkGrey);
+  BRS_LCD_Draw_Shape_Circle(118, 6, 2, WHITE);
+  interfaceLCD_rectangle(10, 17, 460, 2, BLACK);  // Ligne Header
 
+
+  //INTERFACE SERRURE 
+  unsigned char ESstring[] = "ETAT SERRURE";
+  interfaceLCD_afficheString(70, 32, ESstring, GreenYellow, DarkGrey);
   interfaceLCD_rectangle(20, 85, 100, 70, 0x9000); // Bouttton Rouge Barre
   interfaceLCD_rectangle(140, 85, 100, 70, DarkGreen);  //Boutton Vert Debarre
 
@@ -34,18 +41,27 @@ void interfaceLCD_initialise(void)
     BRS_LCD_Draw_Shape_Circle(70, 110, i, BLACK);
   }
   // FIN DU CADENAS
-  
-  unsigned char Dstring[] = "ETAT de la Porte:";
-  interfaceLCD_afficheString(320, 60, Dstring, WHITE, DarkGrey);
-  unsigned char Cstring[] = "ETAT du Capteur: ";
-  interfaceLCD_afficheString(320, 82, Cstring, WHITE, DarkGrey);
+  //FIN DE L'INTERFACE SERRURE
 
-
+  // ÉTAT DE LA COMMUNICATION
+  unsigned char hstring[] = "COMMUNICATIONS";
+  interfaceLCD_afficheString(365, 32, hstring, GreenYellow, DarkGrey);
+  unsigned char Dstring[] = "Porte:";
+  interfaceLCD_afficheString(360, 60, Dstring, WHITE, DarkGrey);
+  unsigned char Cstring[] = "Capteur:";
+  interfaceLCD_afficheString(360, 82, Cstring, WHITE, DarkGrey);
   BRS_LCD_Draw_Shape_CircleF(450, 66, 8, LightGrey);  // Led RGB qui indique l'état de la COM
-  BRS_LCD_Draw_Shape_CircleF(450, 87, 8, LightGrey);  // Led RGB qui indique l'état de la COM
+  BRS_LCD_Draw_Shape_CircleF(450, 88, 8, LightGrey);  // Led RGB qui indique l'état de la COM
+  // FIN ÉTAT DE LA COMMUNICATION
+
+  // ETAT DE LA PORTE
+//interfaceLCD_afficheString(365, 32, hstring, GreenYellow, DarkGrey);
+//  unsigned char Dstring[] = "PORTE";
+
+  //FIN ÉTAT DE LA PORTE
 
   unsigned char Sstring[] = "ADAM project TSO 2023";
-  interfaceLCD_afficheString(320, 300, Sstring, YELLOW, DarkGrey);
+  interfaceLCD_afficheString(324, 304, Sstring, YELLOW, DarkGrey);
   Serial.print("#####  LCD INTERFACE INITIALISED  #####");
 }
 
@@ -85,7 +101,7 @@ void interfaceLCD_rectangle(unsigned int positionX,unsigned  int positionY, unsi
 void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,unsigned int dcolor,unsigned int bgcolor)	
 {  
 	unsigned char i,j;
-	unsigned char *temp=zifu;    
+	unsigned char *temp=Gzifu;    
   LCD_SetPos(x,x+7,y,y+11);      
 	temp+=(value-32)*12;
 	for(j=0;j<12;j++)
