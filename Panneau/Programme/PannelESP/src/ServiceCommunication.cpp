@@ -134,8 +134,13 @@ void serviceCommunication_WaitResponseDoor(void)
         }
         compteurDoor = 0;
 
+        // ############ SECTION AFFICHAGE DOOR OFF #############
         interfaceLCD.DoorState = DOORSTATE_OFF;
         BRS_LCD_Draw_Shape_CircleF(450, 66, 8, PURERED);  // Led RGB qui indique l'état de la COM
+
+        
+        // ############# FIN AFFICHAGE ################
+
 
         Serial.println("X=X=X ERREUR --  DOOR OFFLINE  -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LA PORTE NAS PAS REPONDU DANS UN DELAIS 200 Ms
@@ -159,8 +164,37 @@ void serviceCommunication_WaitResponseDoor(void)
     Serial.println();
     Serial.flush();
 
+    // ############ SECTION AFFICHAGE DOOR ON #############
     interfaceLCD.DoorState = DOORSTATE_ON;
     BRS_LCD_Draw_Shape_CircleF(450, 66, 8, PUREGREEN);  // Led RGB qui indique l'état de la COM
+    
+    if(ValeurRecuDoor.EtatPorte == SERVICECOMMUNICATION_PORTE_OUVERTE)
+    {
+      unsigned char o[] = "Porte  OPEN";
+      interfaceLCD_afficheString(345, 170, o, 0, WHITE, DarkGrey);
+      BRS_LCD_Draw_Shape_CircleF(450, 176, 8, PUREGREEN);  // Led RGB qui indique l'état la Porte Fermé/Ouvert
+    }
+    if(ValeurRecuDoor.EtatPorte == SERVICECOMMUNICAIOTN_PORTE_FERMEE)
+    {
+      unsigned char o[] = "Porte  CLOSED";
+      interfaceLCD_afficheString(345, 170, o, 0, WHITE, DarkGrey);
+      BRS_LCD_Draw_Shape_CircleF(450, 176, 8, PURERED);  // Led RGB qui indique l'état la Porte Fermé/Ouvert
+    
+    }
+    if(ValeurRecuDoor.EtatSerrure == SERVICECOMMUNICATION_SERRURE_DEBARREE)
+    {
+      unsigned char os[] = "Serrure UNLOCKED";
+      interfaceLCD_afficheString(345, 192, os, 0, WHITE, DarkGrey);
+      BRS_LCD_Draw_Shape_CircleF(450, 198, 8, PUREGREEN);  // Led RGB qui indique l'état de la Serrure
+
+    }
+    if(ValeurRecuDoor.EtatSerrure == SERVICECOMMUNICATION_SERRURE_BARREE)
+    {
+      unsigned char os[] = "Serrure LOCKED";
+      interfaceLCD_afficheString(345, 192, os, 0, WHITE, DarkGrey);
+      BRS_LCD_Draw_Shape_CircleF(450, 198, 8, PURERED);  // Led RGB qui indique l'état de la Serrure
+    }
+    // ############# FIN AFFICHAGE ################
 
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_AttendEntrePair;
 }
@@ -207,9 +241,14 @@ void serviceCommunication_WaitResponseCapteur(void)
         }
         compteurCapteur = 0;
 
+        // ############ SECTION AFFICHAGE CAPTEUR OFF #############
         interfaceLCD.CapteurState = CAPTEURSTATE_OFF;
         BRS_LCD_Draw_Shape_CircleF(450, 88, 8, PURERED);  // Led RGB qui indique l'état de la COM
 
+        unsigned char s[] = "--";
+        interfaceLCD_afficheString(98, 3, s, 0, WHITE, DarkGrey);    
+        interfaceLCD_afficheString(224, 3, s, 0, WHITE, DarkGrey);
+        // ############# FIN AFFICHAGE ################
 
         Serial.println("X=X=X ERREUR -- CAPTEUR OFFLINE -- ERREUR X=X=X\n");
         // ON EST EN ERREUR LE CAPTEUR NAS PAS REPONDU DANS UN DELAIS DE 50x la base de temps
@@ -235,8 +274,18 @@ void serviceCommunication_WaitResponseCapteur(void)
     Serial.println();
     Serial.flush();
 
+    // ############ SECTION AFFICHAGE CAPTEUR ON #############
     interfaceLCD.CapteurState = CAPTEURSTATE_ON;
     BRS_LCD_Draw_Shape_CircleF(450, 88, 8, PUREGREEN);  // Led RGB qui indique l'état de la COM
+    
+    unsigned char humstr[3]; 
+    inttostr(ValeurRecuCapteur.Humiditee, humstr);
+    interfaceLCD_afficheString(224, 3, humstr, 0, WHITE, DarkGrey);
+
+    unsigned char temstr[3]; 
+    inttostr(ValeurRecuCapteur.Temperature, temstr);
+    interfaceLCD_afficheString(98, 3, temstr, 0, WHITE, DarkGrey);
+    // ############# FIN AFFICHAGE ################
     
     Serial.println("[#][#]########  -COMMUNICATION CYCLE END- ########[#][#]");
     Serial.flush();

@@ -29,8 +29,8 @@ void interfaceLCD_initialise(void)
 
 
   //INTERFACE SERRURE 
-  unsigned char ESstring[] = "ETAT SERRURE";
-  interfaceLCD_afficheString(70, 32, ESstring, 1,GreenYellow, DarkGrey);
+  unsigned char ESstring[] = "SERRURE";
+  interfaceLCD_afficheString(110, 40, ESstring, 1,GreenYellow, DarkGrey);
   interfaceLCD_rectangle(20, 85, 100, 70, 0x9000); // Bouttton Rouge Barre
   interfaceLCD_rectangle(140, 85, 100, 70, DarkGreen);  //Boutton Vert Debarre
 
@@ -38,14 +38,21 @@ void interfaceLCD_initialise(void)
   interfaceLCD_rectangle(50, 110, 38, 34, BLACK);
   for(int i=10; i<=14; i++)
   {
-    BRS_LCD_Draw_Shape_Circle(70, 110, i, BLACK);
+    BRS_LCD_Draw_Shape_Circle(70, 108, i, BLACK);
   }
+  // Cadenas Débarré
+  interfaceLCD_rectangle(170, 112, 38, 34, BLACK);
+  for(int i=10; i<=14; i++)
+  {
+    BRS_LCD_Draw_Shape_Circle(190, 107, i, BLACK);
+  }
+  interfaceLCD_rectangle(174, 106, 8, 6, DarkGreen);
   // FIN DU CADENAS
   //FIN DE L'INTERFACE SERRURE
 
   // ÉTAT DE LA COMMUNICATION
   unsigned char hstring[] = "COMMUNICATIONS";
-  interfaceLCD_afficheString(365, 32, hstring, 1, GreenYellow, DarkGrey);
+  interfaceLCD_afficheString(362, 34, hstring, 1, GreenYellow, DarkGrey);
   unsigned char Dstring[] = "Porte:";
   interfaceLCD_afficheString(360, 60, Dstring, 0, WHITE, DarkGrey);
   unsigned char Cstring[] = "Capteur:";
@@ -55,10 +62,31 @@ void interfaceLCD_initialise(void)
   // FIN ÉTAT DE LA COMMUNICATION
 
   // ETAT DE LA PORTE
-//interfaceLCD_afficheString(365, 32, hstring, GreenYellow, DarkGrey);
-//  unsigned char Dstring[] = "PORTE";
+  unsigned char p[] = "PORTE PRINCIPALE";
+  interfaceLCD_afficheString(345, 150, p, 1, GreenYellow, DarkGrey);
+
+
+  unsigned char o[] = "Porte  ------";
+  interfaceLCD_afficheString(345, 170, o, 0, WHITE, DarkGrey);
+  BRS_LCD_Draw_Shape_CircleF(450, 176, 8, LightGrey);  // Led RGB qui indique l'état la Porte Fermé/Ouvert
+  unsigned char os[] = "Serrure ------";
+  interfaceLCD_afficheString(345, 192, os, 0, WHITE, DarkGrey);
+  BRS_LCD_Draw_Shape_CircleF(450, 198, 8, LightGrey);  // Led RGB qui indique l'état de la Serrure
+
 
   //FIN ÉTAT DE LA PORTE
+  // AUTRE BOUTTONS
+
+  interfaceLCD_rectangle(20, 270, 60, 30, BLACK); // Boutton réglages
+  unsigned char Setstr[] = "Setting";
+  interfaceLCD_afficheString(26, 280, Setstr, 1, LightGrey, BLACK);
+  interfaceLCD_rectangle(100, 270, 60, 30, BLACK); // Boutton LOG
+  unsigned char Lostr[] = "LOG";
+  interfaceLCD_afficheString(120, 280, Lostr, 1, LightGrey, BLACK);
+  interfaceLCD_rectangle(180, 270, 60, 30, BLACK); // Boutton | | |
+  unsigned char Austr[] = "| | |";
+  interfaceLCD_afficheString(194, 280, Austr, 1, LightGrey, BLACK);
+  // FIN AUTRE BOUTTONS
 
   unsigned char Sstring[] = "ADAM project TSO 2023";
   interfaceLCD_afficheString(324, 304, Sstring, 0, YELLOW, DarkGrey);
@@ -263,10 +291,10 @@ void BRS_LCD_Draw_Line(unsigned int x1, unsigned int y1, unsigned int x2, unsign
 
 void inttostr(int dd,unsigned char *str)
 {
-	str[0]=dd/10000+48;
-	str[1]=(dd/1000)-((dd/10000)*10)+48;
-	str[2]=(dd/100)-((dd/1000)*10)+48;
-	str[3]=(dd/10)-((dd/100)*10)+48;
-	str[4]=dd-((dd/10)*10)+48;
-	str[5]=0;
+	//str[0]=dd/10000+48;
+	//str[1]=(dd/1000)-((dd/10000)*10)+48;
+	//str[2]=(dd/100)-((dd/1000)*10)+48;
+	str[0]=(dd/10)-((dd/100)*10)+48;
+	str[1]=dd-((dd/10)*10)+48;
+	str[2]=0;
 }
