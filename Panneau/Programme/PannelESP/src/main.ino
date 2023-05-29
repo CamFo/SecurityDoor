@@ -39,6 +39,7 @@
 
 // Include des processus
 #include "processusClignotant.h"
+#include "processusAffichage.h"
 
 //Definitions privees
 
@@ -93,6 +94,7 @@ void main_initialise(void)
   interfaceLCD_initialise();
   
   processusClignotant_initialise();
+  processusAffichage_initialise();
 }
 
 void setup(void) 

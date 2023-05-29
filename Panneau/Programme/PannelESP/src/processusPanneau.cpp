@@ -14,7 +14,10 @@
 #include <Arduino.h>
 
 #include "main.h"
+#include "piloteESPNOWCapteur.h"
+#include "piloteESPNOWDoor.h"
 #include "serviceBaseDeTemps.h"
+#include "ServiceCommunication.h"
 #include "processusPanneau.h"
 
 //Definitions privees
@@ -22,17 +25,30 @@
    
 //Declarations de fonctions privees:
 //pas de fonction privees
-void processusPanneau_gere(void);
+void processusPanneau_attendReponsesModules(void);
+void processusPanneau_attendArmement(void);
 
 //Definitions de variables privees:
 
 unsigned long processusPanneau_compteur;
 
 //Definitions de fonctions privees:
-void processusPanneau_gere(void)
+void processusPanneau_attendReponsesModules(void)
 {
-  
-  
+  if(ValeurRecuCapteur.States != SERVICECOMMUNICATION_STATE_OPERATION)
+  {
+    return;
+  }  
+  if(ValeurRecuDoor.States != SERVICECOMMUNICATION_STATE_OPERATION)
+  {
+    return;
+  }
+
+  serviceBaseDeTemps_execute[PROCESSUSPANNEAU_PHASE] = processusPanneau_attendArmement;
+}
+void processusPanneau_attendArmement(void)
+{
+  //if()
 
 }
 
@@ -45,5 +61,5 @@ void processusPanneau_initialise(void)
 {
   processusPanneau_compteur = 0;
 
-  serviceBaseDeTemps_execute[PROCESSUSPANNEAU_PHASE] = processusPanneau_gere;
+  serviceBaseDeTemps_execute[PROCESSUSPANNEAU_PHASE] = processusPanneau_attendReponsesModules;
 }

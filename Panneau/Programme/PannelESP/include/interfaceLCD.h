@@ -50,6 +50,7 @@
 #define Navy            0x000F      /*   0,   0, 128 */
 #define DarkGreen       0x03E0      /*   0, 128,   0 */
 #define DarkCyan        0x03EF      /*   0, 128, 128 */
+#define DarkRed         0x9000
 #define Maroon          0x7800      /* 128,   0,   0 */
 #define Purple          0x780F      /* 128,   0, 128 */
 #define Olive           0x7BE0      /* 128, 128,   0 */
@@ -80,7 +81,7 @@ extern INTERFACELCD interfaceLCD;
 void interfaceLCD_initialise(void);
 
 void interfaceLCD_rectangle(unsigned int positionX,unsigned  int positionY,unsigned  int longueur,unsigned  int epaisseur, unsigned int bColor);
-void interfaceLCD_boutton(unsigned int Bx, unsigned int By, int Blenght, int Bthickness, unsigned int color, unsigned int Dc, unsigned int Lc);
+void interfaceLCD_boutton(unsigned int Bx, unsigned int By, int Blenght, int Bthickness, bool filled, unsigned int color, unsigned int Dc, unsigned int Lc);
 void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,bool gras,unsigned int dcolor,unsigned int bgcolor);
 void interfaceLCD_afficheString(unsigned int x,unsigned int y,unsigned char *str,bool gras,unsigned int dcolor,unsigned int bgcolor);
 void interfaceLCD_ClearScreen(unsigned int bColor);

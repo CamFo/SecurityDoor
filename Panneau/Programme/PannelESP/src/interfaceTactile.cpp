@@ -20,6 +20,8 @@
 
 
 //Definitions privees
+INTERFACETACTILE interfaceTactile;
+
 
 //Declarations de fonctions privees:
 void interfaceTactile_gere(void);
@@ -41,13 +43,17 @@ void interfaceTactile_detecteBoutton(void)
   {
     if(p.y >= 360 && p.y <= 460)
     {
+       interfaceTactile.etatBouttonDebarre = false;
+      interfaceTactile.etatBouttonBarre = true;
       ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_BARRER;
-      Serial.println("BARRE");
+      //Serial.println("BARRE");
     }
     if(p.y >= 240 && p.y <= 360)
     {
+      interfaceTactile.etatBouttonBarre = false;
+      interfaceTactile.etatBouttonDebarre = true;
       ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_DEBARRER;
-      Serial.println("DEBARRE");
+      //Serial.println("DEBARRE");
     }
   }
 
@@ -76,9 +82,6 @@ void interfaceTactile_gere(void)
     
   interfaceTactile.etatDeLEntree = INTERFACETACTILE_INACTIVE;   // Entré inactive car il n'as pas de détection présentement
 }
-
-//Definitions de variables publiques:
-INTERFACETACTILE interfaceTactile;
 
 //Definitions de fonctions publiques:
 void interfaceTactile_initialise(void)

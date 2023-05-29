@@ -171,6 +171,11 @@
  */
 #define SERVICECOMMUNICATION_PHASE 1
 
+/**
+ * @brief Numéro de phase du Processus Affichage
+ */
+#define PROCESSUSAFFICHAGE_PHASE 0
+
 
 /**###########  DEFINE DES PROCESSUS  ###########**/
 
