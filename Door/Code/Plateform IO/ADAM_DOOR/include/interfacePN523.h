@@ -44,7 +44,6 @@ typedef struct
 extern INTERFACEPN523 interfacePN523;
 
 //Fonctions publiques:
-void interfacePN523_VerifierPresenceNFC();
 void interfacePN523_initalise();
 
 

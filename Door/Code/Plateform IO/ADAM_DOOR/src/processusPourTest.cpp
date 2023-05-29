@@ -87,7 +87,7 @@ void processusDeTest_I2C_Delai1Sec()
 
 void processusDeTest_TestI2C()
 {
-    interfacePN523_VerifierPresenceNFC();
+    //interfacePN523_VerifierPresenceNFC();
     serviceBaseDeTemps_execute[PROCESSUSTESTS_PHASE] = processusDeTest_I2C_Delai1Sec;
 }
 

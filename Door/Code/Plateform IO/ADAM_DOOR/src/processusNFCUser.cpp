@@ -10,6 +10,8 @@
  */
 
 #include <Arduino.h>
+#include <Wire.h>
+#include <Adafruit_PN532.h>
 #include "main.h"
 #include "piloteI2C.h"
 #include "piloteIOT1.h"
@@ -26,6 +28,7 @@
 #include "ServiceCommunication.h"
 #include "processusNFCUser.h"
 
+
 #include <stdio.h>
 void processusNFCUser_verifiePresenceNFC();
 
@@ -36,4 +39,5 @@ void processusNFCUser_verifiePresenceNFC()
 void processusNFCUser_initialise()
 {
   serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusNFCUser_verifiePresenceNFC;
+  
 }
