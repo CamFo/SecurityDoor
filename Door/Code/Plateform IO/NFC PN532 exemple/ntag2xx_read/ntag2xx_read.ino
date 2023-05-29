@@ -141,15 +141,6 @@ void loop(void) {
     {
       Serial.println("This doesn't seem to be an NTAG203 tag (UUID length != 7 bytes)!");
     }
-
-    // Wait a bit before trying again
-    Serial.println("\n\nSend a character to scan another tag!");
-    Serial.flush();
-    while (!Serial.available());
-    while (Serial.available()) {
-    Serial.read();
-    }
-    Serial.flush();
   }
 }
 
