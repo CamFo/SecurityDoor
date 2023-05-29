@@ -138,7 +138,12 @@ void serviceCommunication_WaitResponseDoor(void)
         interfaceLCD.DoorState = DOORSTATE_OFF;
         BRS_LCD_Draw_Shape_CircleF(450, 66, 8, PURERED);  // Led RGB qui indique l'état de la COM
 
-        
+        unsigned char o[] = "Porte  ------";
+        interfaceLCD_afficheString(345, 170, o, 0, WHITE, DarkGrey);
+        BRS_LCD_Draw_Shape_CircleF(450, 176, 8, LightGrey);  // Led RGB qui indique l'état la Porte Fermé/Ouvert
+        unsigned char os[] = "Serrure ------";
+        interfaceLCD_afficheString(345, 192, os, 0, WHITE, DarkGrey);
+        BRS_LCD_Draw_Shape_CircleF(450, 198, 8, LightGrey);  // Led RGB qui indique l'état de la Serrure
         // ############# FIN AFFICHAGE ################
 
 

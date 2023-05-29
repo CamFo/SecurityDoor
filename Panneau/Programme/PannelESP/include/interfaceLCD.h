@@ -80,6 +80,7 @@ extern INTERFACELCD interfaceLCD;
 void interfaceLCD_initialise(void);
 
 void interfaceLCD_rectangle(unsigned int positionX,unsigned  int positionY,unsigned  int longueur,unsigned  int epaisseur, unsigned int bColor);
+void interfaceLCD_boutton(unsigned int Bx, unsigned int By, int Blenght, int Bthickness, unsigned int color, unsigned int Dc, unsigned int Lc);
 void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,bool gras,unsigned int dcolor,unsigned int bgcolor);
 void interfaceLCD_afficheString(unsigned int x,unsigned int y,unsigned char *str,bool gras,unsigned int dcolor,unsigned int bgcolor);
 void interfaceLCD_ClearScreen(unsigned int bColor);

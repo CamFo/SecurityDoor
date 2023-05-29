@@ -31,8 +31,9 @@ void interfaceLCD_initialise(void)
   //INTERFACE SERRURE 
   unsigned char ESstring[] = "SERRURE";
   interfaceLCD_afficheString(110, 40, ESstring, 1,GreenYellow, DarkGrey);
-  interfaceLCD_rectangle(20, 85, 100, 70, 0x9000); // Bouttton Rouge Barre
-  interfaceLCD_rectangle(140, 85, 100, 70, DarkGreen);  //Boutton Vert Debarre
+  // AFFICHE LE BOUTTON BARRER 
+  interfaceLCD_boutton(20, 85, 100, 70, 0x9000, 0x7000, PURERED);
+  interfaceLCD_boutton(140, 85, 100, 70, DarkGreen, 0x02A0, PUREGREEN);
 
   // CADENAS BOUTTON BARRE
   interfaceLCD_rectangle(50, 110, 38, 34, BLACK);
@@ -49,6 +50,7 @@ void interfaceLCD_initialise(void)
   interfaceLCD_rectangle(174, 106, 8, 6, DarkGreen);
   // FIN DU CADENAS
   //FIN DE L'INTERFACE SERRURE
+
 
   // ÉTAT DE LA COMMUNICATION
   unsigned char hstring[] = "COMMUNICATIONS";
@@ -126,6 +128,19 @@ void interfaceLCD_rectangle(unsigned int positionX,unsigned  int positionY, unsi
 	  }
 	}
 }
+void interfaceLCD_boutton(unsigned int Bx, unsigned int By, int Blenght, int Bthickness, unsigned int color, unsigned int Dc, unsigned int Lc)
+{
+
+  // Bour faire un boutton avec relief
+  interfaceLCD_rectangle(Bx, By, Blenght, Bthickness, color); // Bouttton Rouge Barre
+  interfaceLCD_rectangle(Bx, By, Blenght, 2, Lc);
+  interfaceLCD_rectangle(Bx, By, 1, Bthickness, Lc);
+  interfaceLCD_rectangle(Bx, By+Bthickness-2, Blenght, 2, Dc);
+  interfaceLCD_rectangle(Bx+Blenght-1, By, 1, Bthickness, Dc);
+  BRS_LCD_Draw_Pixel(Bx, By+Bthickness-2, Lc);
+  BRS_LCD_Draw_Pixel(Bx+Blenght-1, By, Lc);
+}
+
 void interfaceLCD_afficheChar(unsigned int x,unsigned int y,unsigned char value,bool gras,unsigned int dcolor,unsigned int bgcolor)	
 {  
 	unsigned char i,j;
