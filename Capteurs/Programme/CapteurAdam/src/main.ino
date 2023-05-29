@@ -33,6 +33,7 @@
 #include "interfaceT1.h"
 #include "interfaceTVert.h"
 #include "interfaceSHT4X.h"
+#include "interfaceMotion.h"
 
 // Include des processus
 #include "processusClignotant.h"
@@ -86,6 +87,7 @@ void main_initialise(void)
   interfaceT1_initialise();
   interfaceTVert_initialise();
   interfaceSHT4X_initialise();
+  //interfaceMotion_initialise();
   
   processusClignotant_initialise();
 }

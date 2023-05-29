@@ -49,6 +49,17 @@
  */
 #define PILOTEENTREE1_BROCHE 34
 /**
+ * @brief Définition pour choisir le mode de lecture de PIN
+ * 
+ */
+
+#define PILOTEENTREEDL_MODE_FLOTTANT_SANS_PULL_UP
+/**
+ * @brief Définition qui undique le numéro de broche du ESP32 utilisé par l'entrée1
+ * 
+ */
+#define PILOTEENTREEDL_BROCHE 27
+/**
  * @brief Définition qui assigne le bon numéro de broche du ESP32 au témoin 1
  * 
  */
@@ -108,6 +119,11 @@
  */
 #define INTERFACEENTREE1_NOMBRE_MINIMUM_DE_LECTURES_PAR_DECISION 10
 
+#define INTERFACEMOTION_VALEUR_LUE_SI_ACTIVE  1   
+#define INTERFACEMOTION_VALEUR_LUE_SI_INACTIVE 0
+#define INTERFACEMOTION_FREQUENCE_DES_LECTURES_EN_HZ  250
+#define INTERFACEMOTION_NOMBRE_MINIMUM_DE_LECTURES_PAR_DECISION 10
+
 /** Définition pour le témoin 1 **/
 /**
  * @brief Valeur pour allumer le témoin 1
@@ -147,7 +163,7 @@
 /**
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 2
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES 3
 /**
  * @brief Numéro de phase la lecture de l'Entrée 1 
  */
@@ -156,6 +172,10 @@
  * @brief Numéro de phase du processus clignotant
  */
 #define PROCESSUSCLIGNOTANT_PHASE 1
+/**
+ * @brief Numéro de phase de l'interface Motion
+ */
+#define INTERFACEMOTION_PHASE 2
 /**
  * @brief Numéro de phase du Service Communication
  */
