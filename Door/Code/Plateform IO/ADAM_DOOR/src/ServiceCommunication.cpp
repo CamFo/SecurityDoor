@@ -86,7 +86,7 @@ void serviceCommunication_WaitResponse(void)
         serviceCommunication_compteur1++;
         if (serviceCommunication_compteur1 < SERVICECOMMUNICATION_COMPTE_5S)
         return;
-        GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States = SERVICECOMMUNCATIION_STATE_ERREUR;
+        GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States = SERVICECOMMUNCATIIONR_STATE_ERREUR;
         serviceCommunication_compteur1 = 0;
         return;
     }

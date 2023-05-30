@@ -72,7 +72,7 @@ void loop3()
 }
 void processusGestionPairing_VerifieIfStillPaired()
 {
-  if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIION_STATE_ERREUR)
+  if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIIONR_STATE_ERREUR)
   {
     #ifdef MODE_DEBUG_PGP
     Serial.printf("\n ERREUR STATE :");
@@ -84,7 +84,7 @@ void processusGestionPairing_VerifieIfStillPaired()
 }
 void processusGestionPairing_ReAttemptPairing()
 {
-  if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNCATIION_STATE_ERREUR)
+  if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNCATIIONR_STATE_ERREUR)
   {
       #ifdef MODE_DEBUG_PGP
       Serial.print("\n Pair success.");
@@ -104,7 +104,7 @@ void processusGestionPairing_ReAttemptPairing()
 
 void processusGestionPairing_comState()
 {
-  if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNCATIION_STATE_ERREUR)
+  if(GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNCATIIONR_STATE_ERREUR)
   {
       interfaceRGB.couleur = INTERFACERGB_VALEUR_BLEU;
       interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;

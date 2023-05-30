@@ -59,13 +59,13 @@ void processusVerifieSerrure_Detection()
   interfaceInfrarouge.RequeteActive = INTERFACEINFRAROUGE_ACTIVE;
   if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_PRESENT)
   {
-    if (interfaceInfrarouge.presence == GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte)
+    if (interfaceInfrarouge.presence == processusVerifieSerrure_oldstatedoor)
     return;   
     serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteOuvert;
   }
   else if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT)
   {
-    if (interfaceInfrarouge.presence == GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte)
+    if (interfaceInfrarouge.presence == processusVerifieSerrure_oldstatedoor)
     return;
     serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteFermer;
   } 
@@ -74,9 +74,11 @@ void processusVerifieSerrure_Detection()
 void processusVerifieSerrure_DetecteOuvert()
 {
   #ifdef MODE_DEBUG_VERIFIESERRURE
-  Serial.print("Ouvert");
+  Serial.print("BARRE");
   #endif
-  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIESERRURE_DETECTE_OUVERT;  
+  processusVerifieSerrure_oldstatedoor = PROCESSUSVERIFIESERRURE_DETECTE_BARRER;
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = ANNEXEADAM_PORTE_ETATSERRURE_BARRE;  
+  interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_DROITE;
   interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
   interfaceRGB.dureeActive = PROCESSUSVERIFIESERRURE_COMPTE_2S;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
@@ -88,9 +90,11 @@ void processusVerifieSerrure_DetecteOuvert()
 void processusVerifieSerrure_DetecteFermer()
 {
   #ifdef MODE_DEBUG_VERIFIESERRURE
-  Serial.print("Fermer");
+  Serial.print("DEBARRE");
   #endif
-  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatPorte = PROCESSUSVERIFIESERRURE_DETECTE_FERMER;
+  processusVerifieSerrure_oldstatedoor = PROCESSUSVERIFIESERRURE_DETECTE_DEBARRER;
+  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = ANNEXEADAM_PORTE_ETATSERRURE_DEBARRER;
+  interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
   interfaceRGB.dureeActive = PROCESSUSVERIFIESERRURE_COMPTE_2S;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;

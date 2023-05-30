@@ -19,8 +19,8 @@
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
 
-#define PROCESSUSVERIFIESERRURE_DETECTE_OUVERT 1
-#define PROCESSUSVERIFIESERRURE_DETECTE_FERMER 0
+#define PROCESSUSVERIFIESERRURE_DETECTE_BARRER 1
+#define PROCESSUSVERIFIESERRURE_DETECTE_DEBARRER 0
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
 // Structure d'envoie et de réception

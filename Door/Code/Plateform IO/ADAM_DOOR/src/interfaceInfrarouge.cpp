@@ -54,9 +54,9 @@ void interfaceInfrarouge_VerifiePresence()
     Serial.printf("    '%' de detection\n");
     #endif
     if (interfaceInfrarouge.valeurDistance < INTERFACEINFRAROUGE_VERIFIEPRESENCE)
-    interfaceInfrarouge.presence = INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT;
-    else
     interfaceInfrarouge.presence = INTERFACEINFRAROUGE_PRESENCE_PRESENT;
+    else
+    interfaceInfrarouge.presence = INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT;
 
 
     interfaceInfrarouge_StoreCompteur = 0;

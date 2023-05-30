@@ -58,34 +58,27 @@ unsigned int processusGestionControlMoteur_compteur;
 
 void processusControlMoteur_attenteCommande()
 {
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIION_STATE_ERREUR)
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIIONR_STATE_ERREUR 
+  || GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == ANNEXEADAM_PORTE_ETATSERRURE_NULL)
   {
-    if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) 
-    {
+    if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATIONR_COMMANDE_DEBARRER) 
       serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
-    }
       
-    else if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
-    {
+    else if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATIONR_COMMANDE_BARRER)
       serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_barreCommande;
-    }
   }
   else
   {
-    if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_DEBARRER) 
-    {
+    if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATIONR_COMMANDE_DEBARRER) 
       serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
-    }
       
-    else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATION_COMMANDE_BARRER)
-    {
+    else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATIONR_COMMANDE_BARRER)
       serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_barreCommande;
-    }
   }
 }
 void processusControlMoteur_barreCommande()
 {
-  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_BARRER;
+  //GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_BARRER;
   if (interfaceRGB.oldCouleur != INTERFACERGB_VALEUR_ROUGE)
   {
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
@@ -98,7 +91,7 @@ void processusControlMoteur_barreCommande()
 }
 void processusControlMoteur_debarreCommande()
 {
-  GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER; //devrais etre dans un autre processus
+  //GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER; //devrais etre dans un autre processus
   if (interfaceRGB.oldCouleur != INTERFACERGB_VALEUR_VERT)
   {
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
