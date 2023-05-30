@@ -41,12 +41,12 @@
  * @brief definition des broches I2C sur esp32 
  * 
  */
-#define PILOTEI2C_SDA1   (23)
+#define PILOTEI2C_SDA1   (15)
 /**
  * @brief definition des broches I2C sur esp32 
  * 
  */
-#define PILOTEI2C_SCL1   (22)
+#define PILOTEI2C_SCL1   (16)
 /**
  * @brief Frequence de oscillation pour I2C1
  * 
@@ -216,10 +216,10 @@
 #define TRUE true
 #define FALSE false
 
-//#define MODE_DEBUG_ESPNOW
-//#define MODE_DEBUG_INTERFACEIR
-//#define MODE_DEBUG_VERIFIESERRURE
-//#define MODE_DEBUG_PGP
+#define MODE_DEBUG_ESPNOW
+#define MODE_DEBUG_INTERFACEIR
+#define MODE_DEBUG_VERIFIESERRURE
+#define MODE_DEBUG_PGP
 //#define MODE_DEBUG_HARDWAREMACADR
 #endif
 

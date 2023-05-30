@@ -73,30 +73,30 @@ void main_initialise(void);
 
 void main_initialise(void)
 {
-  //piloteI2C1_initialise();
-  //piloteIOT3_initialise(); 
-  //piloteIOT2_initialise();
-  //piloteIOT1_initialise();
-  //piloteIOM2_initialise();
-  //piloteIOM1_initialise();
-  //piloteBuzzer_initialise();
-  //piloteIOIR1_initialise();
-  //piloteIOIR2_initialise();
-  //piloteESPNOW_initialise();
+  piloteIOT3_initialise(); 
+  piloteIOT2_initialise();
+  piloteIOT1_initialise();
+  piloteIOM2_initialise();
+  piloteIOM1_initialise();
+  piloteBuzzer_initialise();
+  piloteIOIR1_initialise();
+  piloteIOIR2_initialise();
+  piloteESPNOW_initialise();
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
-  //serviceCommunication_initialise();
-  //interfaceRGB_initialise();
+  serviceCommunication_initialise();
+  interfaceRGB_initialise();
   interfacePN523_initalise();
-  //interfaceMoteur_initalise();
-  //interfaceBuzzer_initalise();
-  //interfaceInfrarouge_initalise();
-  //processusDeTest_initialise();
-  //processusVerifieSerrure_initialise();
-  //processusControlMoteur_initialise();
-  //processusGestionPairing_initialise();
+  interfaceMoteur_initalise();
+  interfaceBuzzer_initalise();
+  interfaceInfrarouge_initalise();
+  processusDeTest_initialise();
+  processusVerifieSerrure_initialise();
+  processusControlMoteur_initialise();
+  processusGestionPairing_initialise();
   processusNFCUser_initialise();
-  //processusVerifieOuverture_initialise();
+  processusVerifieOuverture_initialise();
+  Serial.print("init successfull");
 }
 
 void setup(void) 
