@@ -78,7 +78,6 @@ void processusVerifieSerrure_DetecteBarrer()
   #endif
   processusVerifieSerrure_oldstatedoor = PROCESSUSVERIFIESERRURE_DETECTE_BARRER;
   GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = ANNEXEADAM_PORTE_ETATSERRURE_BARRE;  
-  interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_DROITE;
   interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
   interfaceRGB.dureeActive = PROCESSUSVERIFIESERRURE_COMPTE_2S;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
@@ -94,7 +93,6 @@ void processusVerifieSerrure_DetecteDebarrer()
   #endif
   processusVerifieSerrure_oldstatedoor = PROCESSUSVERIFIESERRURE_DETECTE_DEBARRER;
   GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = ANNEXEADAM_PORTE_ETATSERRURE_DEBARRER;
-  interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
   interfaceRGB.dureeActive = PROCESSUSVERIFIESERRURE_COMPTE_2S;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;

@@ -28,7 +28,6 @@
 typedef struct
 {
   unsigned char etatDuModule;  
-  unsigned char RequeteDirection;
   unsigned char direction;
   unsigned int  dureeActive;
   bool RequeteActive;
