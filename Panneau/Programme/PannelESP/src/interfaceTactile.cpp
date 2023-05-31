@@ -43,8 +43,9 @@ void interfaceTactile_detecteBoutton(void)
   {
     if(p.y >= 360 && p.y <= 460)
     {
-       interfaceTactile.etatBouttonDebarre = false;
+      interfaceTactile.etatBouttonDebarre = false;
       interfaceTactile.etatBouttonBarre = true;
+      ServiceCommunication.CompteurS = true;
       ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_BARRER;
       //Serial.println("BARRE");
     }
@@ -52,6 +53,7 @@ void interfaceTactile_detecteBoutton(void)
     {
       interfaceTactile.etatBouttonBarre = false;
       interfaceTactile.etatBouttonDebarre = true;
+      ServiceCommunication.CompteurS = true;
       ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_DEBARRER;
       //Serial.println("DEBARRE");
     }

@@ -24,6 +24,7 @@
 #include "piloteESPNOWDoor.h"
 
 #include "interfaceLCD.h"
+#include "interfaceTactile.h"
 
 //Private Variable
 
@@ -31,6 +32,7 @@ unsigned int compteur1 = 0;
 unsigned int compteurDoor = 0;
 unsigned int compteurCapteur = 0;
 unsigned int compteurEntreP = 0;
+unsigned int compteurSendC = 0;
 
 //############################### EXTERN DECLERATION ###########################
 /**
@@ -118,6 +120,16 @@ void serviceCommunication_EnvoieDoor(void)
     {
         return;
     }
+    if(ServiceCommunication.CompteurS == true)
+    {
+        compteurSendC++;
+        if(compteurSendC == 4)
+        {
+            ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_NULL;
+            compteurSendC = 0;
+            ServiceCommunication.CompteurS = false;
+        }
+    }
 
     piloteESPNOWDoor_send();
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponseDoor;
@@ -128,7 +140,7 @@ void serviceCommunication_WaitResponseDoor(void)
     if(piloteESPNOWDoor.information != PILOTEESPNOWDOOR_INFORMATION_DISPONIBLE)
     {
         compteurDoor++;
-        if(compteurDoor <= 10)
+        if(compteurDoor <= 20)
         {
             return;
         }
@@ -191,13 +203,16 @@ void serviceCommunication_WaitResponseDoor(void)
       unsigned char os[] = "Serrure UNLOCKED";
       interfaceLCD_afficheString(345, 192, os, 0, WHITE, DarkGrey);
       BRS_LCD_Draw_Shape_CircleF(450, 198, 8, PUREGREEN);  // Led RGB qui indique l'état de la Serrure
-
+      interfaceTactile.etatBouttonBarre = false;
+      interfaceTactile.etatBouttonDebarre = true;
     }
     if(ValeurRecuDoor.EtatSerrure == SERVICECOMMUNICATION_SERRURE_BARREE)
     {
       unsigned char os[] = "Serrure LOCKED";
       interfaceLCD_afficheString(345, 192, os, 0, WHITE, DarkGrey);
       BRS_LCD_Draw_Shape_CircleF(450, 198, 8, PURERED);  // Led RGB qui indique l'état de la Serrure
+      interfaceTactile.etatBouttonDebarre = false;
+      interfaceTactile.etatBouttonBarre = true;
     }
     // ############# FIN AFFICHAGE ################
 
@@ -240,7 +255,7 @@ void serviceCommunication_WaitResponseCapteur(void)
     if(piloteESPNOWCapteur.information != PILOTEESPNOWCAPTEUR_INFORMATION_DISPONIBLE)
     {
         compteurCapteur++;
-        if(compteurCapteur <= 10)
+        if(compteurCapteur <= 20)
         {
             return;
         }

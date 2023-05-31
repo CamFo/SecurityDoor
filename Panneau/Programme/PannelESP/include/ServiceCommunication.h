@@ -30,8 +30,8 @@
 #define SERVICECOMMUNICATION_PORTE_OUVERTE 0x00
 #define SERVICECOMMUNICAIOTN_PORTE_FERMEE  0x01
 // État Serrure
-#define SERVICECOMMUNICATION_SERRURE_BARREE  0x00
-#define SERVICECOMMUNICATION_SERRURE_DEBARREE 0x01
+#define SERVICECOMMUNICATION_SERRURE_BARREE  0x13
+#define SERVICECOMMUNICATION_SERRURE_DEBARREE 0x14
 
 /**
  * @brief Indicates that the library is not currently in any errors.
@@ -74,6 +74,7 @@ typedef struct
 {
   unsigned char etatDuModule;
   unsigned char information;
+  bool CompteurS;
 
 } SERVICECOMMUNICATION;
 extern SERVICECOMMUNICATION ServiceCommunication;
