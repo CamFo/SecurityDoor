@@ -96,7 +96,6 @@ void main_initialise(void)
   processusGestionPairing_initialise();
   processusNFCUser_initialise();
   processusVerifieOuverture_initialise();
-  Serial.print("init successfull");
 }
 
 void setup(void) 

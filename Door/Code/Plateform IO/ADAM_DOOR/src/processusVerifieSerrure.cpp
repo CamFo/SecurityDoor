@@ -47,8 +47,8 @@ PROCESSUSVERIFIESERRURE_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 
 //Declarations de fonctions privees:
 void processusVerifieSerrure_Detection();
-void processusVerifieSerrure_DetecteOuvert();
-void processusVerifieSerrure_DetecteFermer();
+void processusVerifieSerrure_DetecteBarrer();
+void processusVerifieSerrure_DetecteDebarrer();
 //Definitions de variables privees:
 unsigned int processusVerifieSerrure_compteur;
 unsigned int processusVerifieSerrure_oldstatedoor;
@@ -61,17 +61,17 @@ void processusVerifieSerrure_Detection()
   {
     if (interfaceInfrarouge.presence == processusVerifieSerrure_oldstatedoor)
     return;   
-    serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteOuvert;
+    serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteBarrer;
   }
   else if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT)
   {
     if (interfaceInfrarouge.presence == processusVerifieSerrure_oldstatedoor)
     return;
-    serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteFermer;
+    serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteDebarrer;
   } 
 }
 
-void processusVerifieSerrure_DetecteOuvert()
+void processusVerifieSerrure_DetecteBarrer()
 {
   #ifdef MODE_DEBUG_VERIFIESERRURE
   Serial.print("BARRE");
@@ -87,7 +87,7 @@ void processusVerifieSerrure_DetecteOuvert()
   interfaceBuzzer.RequeteActive =INTERFACEBUZZER_ACTIVE;
   serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_Detection;
 }
-void processusVerifieSerrure_DetecteFermer()
+void processusVerifieSerrure_DetecteDebarrer()
 {
   #ifdef MODE_DEBUG_VERIFIESERRURE
   Serial.print("DEBARRE");

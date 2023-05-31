@@ -38,6 +38,6 @@ void processusNFCUser_verifiePresenceNFC()
 }
 void processusNFCUser_initialise()
 {
-  serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusNFCUser_verifiePresenceNFC;
+  serviceBaseDeTemps_execute[PROCESSUSNFCUSER_PHASE] = processusNFCUser_verifiePresenceNFC;
   
 }

@@ -21,7 +21,15 @@
 
 #define INTERFACEINFRAROUGE_COMPTE_200 200
 #define INTERFACEINFRAROUGE_VERIFIEPRESENCE 90
+/**
+ * @brief 100 pourcent = la barre bloque la communication (débarrer)
+ * 
+ */
 #define INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT 0
+/**
+ * @brief 0 pourcent = la barre ne bloque pas la communication (barrer)
+ * 
+ */
 #define INTERFACEINFRAROUGE_PRESENCE_PRESENT 1
 
 

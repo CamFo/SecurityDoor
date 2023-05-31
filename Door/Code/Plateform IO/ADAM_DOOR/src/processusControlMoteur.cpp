@@ -58,16 +58,7 @@ unsigned int processusGestionControlMoteur_compteur;
 
 void processusControlMoteur_attenteCommande()
 {
-  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States <= SERVICECOMMUNCATIIONR_STATE_ERREUR 
-  || GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == ANNEXEADAM_PORTE_ETATSERRURE_NULL)
-  {
-    if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATIONR_COMMANDE_DEBARRER) 
-      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
-      
-    else if (GestionCommuncation_T.ADAM_send.porte_ADAM_send.Commande == SERVICECOMMUNICATIONR_COMMANDE_BARRER)
-      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_barreCommande;
-  }
-  else
+  if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.States > SERVICECOMMUNCATIIONR_STATE_ERREUR)
   {
     if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATIONR_COMMANDE_DEBARRER) 
       serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
