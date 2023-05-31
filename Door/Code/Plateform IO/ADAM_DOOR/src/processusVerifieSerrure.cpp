@@ -51,24 +51,15 @@ void processusVerifieSerrure_DetecteBarrer();
 void processusVerifieSerrure_DetecteDebarrer();
 //Definitions de variables privees:
 unsigned int processusVerifieSerrure_compteur;
-unsigned int processusVerifieSerrure_oldstatedoor;
 //Definitions de fonctions privees:
 
 void processusVerifieSerrure_Detection()
 {
   interfaceInfrarouge.RequeteActive = INTERFACEINFRAROUGE_ACTIVE;
   if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_PRESENT)
-  {
-    if (interfaceInfrarouge.presence == processusVerifieSerrure_oldstatedoor)
-    return;   
     serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteBarrer;
-  }
   else if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_NON_PRESENT)
-  {
-    if (interfaceInfrarouge.presence == processusVerifieSerrure_oldstatedoor)
-    return;
     serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteDebarrer;
-  } 
 }
 
 void processusVerifieSerrure_DetecteBarrer()
@@ -76,7 +67,11 @@ void processusVerifieSerrure_DetecteBarrer()
   #ifdef MODE_DEBUG_VERIFIESERRURE
   Serial.print("BARRE");
   #endif
-  processusVerifieSerrure_oldstatedoor = PROCESSUSVERIFIESERRURE_DETECTE_BARRER;
+  if(GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure == ANNEXEADAM_PORTE_ETATSERRURE_BARRE)
+  {
+    serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_Detection;
+    return;
+  }
   GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = ANNEXEADAM_PORTE_ETATSERRURE_BARRE;  
   interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
   interfaceRGB.dureeActive = PROCESSUSVERIFIESERRURE_COMPTE_2S;
@@ -91,7 +86,11 @@ void processusVerifieSerrure_DetecteDebarrer()
   #ifdef MODE_DEBUG_VERIFIESERRURE
   Serial.print("DEBARRE");
   #endif
-  processusVerifieSerrure_oldstatedoor = PROCESSUSVERIFIESERRURE_DETECTE_DEBARRER;
+  if(GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure == ANNEXEADAM_PORTE_ETATSERRURE_DEBARRER)
+  {
+    serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_Detection;
+    return;
+  }
   GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = ANNEXEADAM_PORTE_ETATSERRURE_DEBARRER;
   interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
   interfaceRGB.dureeActive = PROCESSUSVERIFIESERRURE_COMPTE_2S;
@@ -109,7 +108,6 @@ void processusVerifieSerrure_DetecteDebarrer()
 
 void processusVerifieSerrure_initialise()
 {
-  return;
   serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_Detection;
 }
 
