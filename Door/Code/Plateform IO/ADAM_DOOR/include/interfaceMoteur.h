@@ -23,12 +23,14 @@
 #define INTERFACEMOTEUR_DIRECTION_UNDEFINED 0
 #define INTERFACEMOTEUR_DIRECTION_DROITE 1
 #define INTERFACEMOTEUR_DIRECTION_GAUCHE 2
+#define INTERFACEMOTEUR_DUREE_NONDEFINIE 0
 /// @brief Structure public qui permet de savoir et de changer l'état du module  
 typedef struct
 {
   unsigned char etatDuModule;  
   unsigned char RequeteDirection;
   unsigned char direction;
+  unsigned int  dureeActive;
   bool RequeteActive;
 
 } INTERFACEMOTEUR;

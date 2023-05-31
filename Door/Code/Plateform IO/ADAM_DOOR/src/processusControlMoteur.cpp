@@ -47,6 +47,11 @@ PROCESSUSCONTROLMOTEUR_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
 #define PROCESSUSCONTROLMOTEUR_COMPTE_30S (\
 PROCESSUSCONTROLMOTEUR_COMPTE_EN_MS * SERVICEBASEDETEMPS_FREQUENCE_EN_HZ \
   /16.66)
+
+
+#define PROCESSUSCONTROLMOTEUR_DEGREE_90  PROCESSUSCONTROLMOTEUR_COMPTE_1S
+#define PROCESSUSCONTROLMOTEUR_DEGREE_180 PROCESSUSCONTROLMOTEUR_COMPTE_2S
+
 //Declarations de fonctions privees:
 void processusControlMoteur_attenteCommande();
 void processusControlMoteur_barreCommande();
@@ -69,26 +74,26 @@ void processusControlMoteur_attenteCommande()
 }
 void processusControlMoteur_barreCommande()
 {
-  //GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_BARRER;
   if (interfaceRGB.oldCouleur != INTERFACERGB_VALEUR_ROUGE)
   {
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
     interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
   }
+  interfaceMoteur.dureeActive =PROCESSUSCONTROLMOTEUR_COMPTE_2S;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;
 }
 void processusControlMoteur_debarreCommande()
 {
-  //GestionCommuncation_T.ADAM_send.porte_ADAM_send.EtatSerrure = SERVICECOMMUNICATION_COMMANDE_DEBARRER; //devrais etre dans un autre processus
   if (interfaceRGB.oldCouleur != INTERFACERGB_VALEUR_VERT)
   {
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
     interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
   }
+  interfaceMoteur.dureeActive =PROCESSUSCONTROLMOTEUR_COMPTE_2S;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
   serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteCommande;

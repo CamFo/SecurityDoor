@@ -111,6 +111,7 @@ void processusVerifieSerrure_DetecteDebarrer()
 
 void processusVerifieSerrure_initialise()
 {
+  return;
   serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_Detection;
 }
 

@@ -82,11 +82,12 @@ void interfaceMoteur_droite()
   piloteIOM2_metAUn();
   piloteIOM1_metAZero();
   interfaceMoteur_compteur++;
-  if (interfaceMoteur_compteur < INTERFACEMOTEUR_COMPTE_2S)
+  if (interfaceMoteur_compteur < interfaceMoteur.dureeActive)
   {
     return;
   }
   interfaceMoteur_compteur = 0;
+  interfaceMoteur.dureeActive = INTERFACEMOTEUR_DUREE_NONDEFINIE;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_Delai1Sec;
 
@@ -98,16 +99,18 @@ void interfaceMoteur_gauche()
   piloteIOM2_metAZero();
   piloteIOM1_metAUn();
   interfaceMoteur_compteur++;
-  if (interfaceMoteur_compteur < INTERFACEMOTEUR_COMPTE_2S)
+  if (interfaceMoteur_compteur < interfaceMoteur.dureeActive)
   {
     return;
   }
   interfaceMoteur_compteur = 0;
+  interfaceMoteur.dureeActive = INTERFACEMOTEUR_DUREE_NONDEFINIE;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
   serviceBaseDeTemps_execute[INTERFACEMOTEUR_PHASE] = interfaceMoteur_Delai1Sec;
 }
 void interfaceMoteur_initalise()
 {
+  interfaceMoteur.dureeActive = INTERFACEMOTEUR_DUREE_NONDEFINIE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_UNDEFINED;
   interfaceMoteur.RequeteDirection = INTERFACEMOTEUR_DIRECTION_UNDEFINED;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_INACTIVE;
