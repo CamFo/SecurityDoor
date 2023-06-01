@@ -75,6 +75,7 @@ typedef struct
   unsigned char etatDuModule;
   unsigned char information;
   bool CompteurS;
+  unsigned int compteurSendC;
 
 } SERVICECOMMUNICATION;
 extern SERVICECOMMUNICATION ServiceCommunication;

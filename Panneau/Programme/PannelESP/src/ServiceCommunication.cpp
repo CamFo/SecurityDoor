@@ -32,7 +32,6 @@ unsigned int compteur1 = 0;
 unsigned int compteurDoor = 0;
 unsigned int compteurCapteur = 0;
 unsigned int compteurEntreP = 0;
-unsigned int compteurSendC = 0;
 
 //############################### EXTERN DECLERATION ###########################
 /**
@@ -122,15 +121,15 @@ void serviceCommunication_EnvoieDoor(void)
     }
     if(ServiceCommunication.CompteurS == true)
     {
-        compteurSendC++;
-        if(compteurSendC == 4)
+        ServiceCommunication.compteurSendC++;
+        if(ServiceCommunication.compteurSendC == 5)
         {
             ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_NULL;
-            compteurSendC = 0;
+            ServiceCommunication.compteurSendC = 0;
             ServiceCommunication.CompteurS = false;
         }
     }
-
+    Serial.println(ValeurEnvoieDoor.Commande);
     piloteESPNOWDoor_send();
     serviceBaseDeTemps_executeDansLoop[SERVICECOMMUNICATION_PHASE] = serviceCommunication_WaitResponseDoor;
 }
