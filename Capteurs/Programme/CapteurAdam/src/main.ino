@@ -22,7 +22,7 @@
 #include "piloteEntree1.h"
 #include "piloteIOT1.h"
 #include "piloteIOTVert.h"
-#include "piloteEntreeDL.h"
+#include "piloteDirectLink.h"
 #include "piloteSerinPYQ.h"
 
 // Include des Services
@@ -84,7 +84,7 @@ void main_initialise(void)
   piloteEntree1_initialise();
   piloteIOT1_initialise(); 
   piloteIOTVert_initialise();
-  piloteEntreeDL_initialise();
+  piloteDirectLink_initialise();
   piloteSerinPYQ_initialise();
 
   interfaceEntree1_initialise();
@@ -93,7 +93,7 @@ void main_initialise(void)
   interfaceSHT4X_initialise();
   interfaceMotion_initialise();
   
-  processusClignotant_initialise();
+  //processusClignotant_initialise();
 }
 
 void setup(void) 

@@ -53,12 +53,12 @@
  * 
  */
 
-#define PILOTEENTREEDL_MODE_FLOTTANT_SANS_PULL_UP
+#define PILOTEDIRECTLINK_MODE_FLOTTANT_SANS_PULL_UP
 /**
  * @brief Définition qui undique le numéro de broche du ESP32 utilisé par l'entrée1
  * 
  */
-#define PILOTEENTREEDL_BROCHE 27
+#define PILOTEDIRECTLINK_BROCHE 27
 /**
  * @brief Définition de la broche de l'entreé Serin du PYQ 1548 / 7660
  * 

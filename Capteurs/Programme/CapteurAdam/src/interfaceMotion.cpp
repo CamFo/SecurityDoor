@@ -12,9 +12,10 @@
 //INCLUSIONS
 #include <Arduino.h>
 #include "main.h"
-#include "piloteEntreeDL.h"
+#include "piloteDirectLink.h"
 #include "serviceBaseDeTemps.h"
 #include "interfaceMotion.h"
+#include "interfaceT1.h"
 
 
 //Definitions privees
@@ -39,12 +40,14 @@ void interfaceMotion_gere(void)
     return;
   }
   interfaceMotion_compteurAvantLecture = 0;
-  if (piloteEntreeDL_lit() == INTERFACEMOTION_VALEUR_LUE_SI_ACTIVE)
+  if (piloteDirectLink_lit() == INTERFACEMOTION_VALEUR_LUE_SI_ACTIVE)
   {
+    interfaceT1_allume();
     Serial.println("MOTIONNNN");
     interfaceMotion.etatDuModule = INTERFACEMOTION_MODULE_EN_FONCTION;
     interfaceMotion.etatDeLEntree = INTERFACEMOTION_ACTIVE;
-    interfaceMotion.information = INTERFACEMOTION_INFORMATION_DISPONIBLE;       
+    interfaceMotion.information = INTERFACEMOTION_INFORMATION_DISPONIBLE;
+    piloteDirectLink_Reset();  
     return;
   }
   if (interfaceMotion.etatDeLEntree == INTERFACEMOTION_INACTIVE)
@@ -62,6 +65,7 @@ INTERFACEMOTION interfaceMotion;
 //Definitions de fonctions publiques:
 void interfaceMotion_initialise(void)
 {
+  interfaceT1_eteint();
   interfaceMotion.etatDuModule = INTERFACEMOTION_MODULE_PAS_EN_FONCTION;
   interfaceMotion.information = INTERFACEMOTION_INFORMATION_TRAITEE;
   interfaceMotion.etatDeLEntree = INTERFACEMOTION_PAS_EN_FONCTION;

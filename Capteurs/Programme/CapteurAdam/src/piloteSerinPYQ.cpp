@@ -40,17 +40,17 @@ void piloteSerinPYQ_writeBit(bool value)
     digitalWrite(PILOTESERINPYQ_BROCHE, LOW); 
     digitalWrite(PILOTESERINPYQ_BROCHE, HIGH);
     digitalWrite(PILOTESERINPYQ_BROCHE, value);
-    delayMicroseconds(80); // On attend 80 micro sec avant d'envoyé le prochain bit 
+    delayMicroseconds(100); // On attend 80 micro sec avant d'envoyé le prochain bit 
 }
 
 void piloteSerinPYQ_initialise(void)
 {
-    pinMode(27,OUTPUT);
-    digitalWrite(27, LOW);  
+    pinMode(PILOTESERINPYQ_BROCHE, OUTPUT);
+    digitalWrite(PILOTESERINPYQ_BROCHE, LOW);  
     delay(1);
 
-    piloteSerinPYQ_writeByte(0x80);
-    piloteSerinPYQ_writeByte(0x8A);
+    piloteSerinPYQ_writeByte(0x30);
+    piloteSerinPYQ_writeByte(0x3A);
     piloteSerinPYQ_writeByte(0x88);
     piloteSerinPYQ_writeBit(0);
     delay(1);
