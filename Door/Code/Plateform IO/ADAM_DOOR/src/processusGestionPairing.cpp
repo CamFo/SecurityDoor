@@ -89,12 +89,14 @@ void processusGestionPairing_ReAttemptPairing()
       #ifdef MODE_DEBUG_PGP
       Serial.print("\n Pair success.");
       #endif
+      processusGestionPairing_PairedState = PROCESSUSGGESTIONPAIRING_FINISHEDPAIRING;
       serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_VerifieIfStillPaired;
       return;
   }
   processusGestionPairing_compteur++;
   if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_2S)
     return;
+  processusGestionPairing_PairedState = PROCESSUSGGESTIONPAIRING_FINISHEDPAIRING;
   #ifdef MODE_DEBUG_PGP
   Serial.print("\n Fail to repair, trying again in Parallel.");
   #endif
@@ -123,8 +125,7 @@ void processusGestionPairing_comState()
   processusGestionPairing_compteur++;
   if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
   return;
-  processusGestionPairing_PairedState = PROCESSUSGGESTIONPAIRING_FINISHEDPAIRING;
-  interfaceRGB.couleur = INTERFACERGB_VALEUR_MAUVE;
+  interfaceRGB.couleur = INTERFACERGB_VALEUR_BLANC;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
   interfaceRGB.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_2S;
   #ifdef MODE_DEBUG_PGP
