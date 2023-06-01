@@ -60,6 +60,11 @@
  */
 #define PILOTEENTREEDL_BROCHE 27
 /**
+ * @brief Définition de la broche de l'entreé Serin du PYQ 1548 / 7660
+ * 
+ */
+#define PILOTESERINPYQ_BROCHE 26
+/**
  * @brief Définition qui assigne le bon numéro de broche du ESP32 au témoin 1
  * 
  */
@@ -94,8 +99,6 @@
  * 
  */
 #define PILOTEI2C1_FREQUENCE_D_HORLOGE_EN_HZ 400000
-
-//#define PILOTEESPNOW_BRODCASTADRESS[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
 
 
 //*** Define pour les interfaces ***//

@@ -14,7 +14,7 @@
 
 
 void piloteSerinPYQ_initialise(void);
-
+void piloteSerinPYQ_writeByte(unsigned char value);
 
 
 

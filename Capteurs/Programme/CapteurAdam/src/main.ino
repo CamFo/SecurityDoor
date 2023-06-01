@@ -22,6 +22,8 @@
 #include "piloteEntree1.h"
 #include "piloteIOT1.h"
 #include "piloteIOTVert.h"
+#include "piloteEntreeDL.h"
+#include "piloteSerinPYQ.h"
 
 // Include des Services
 #include "serviceTaskServer.h"
@@ -82,12 +84,14 @@ void main_initialise(void)
   piloteEntree1_initialise();
   piloteIOT1_initialise(); 
   piloteIOTVert_initialise();
+  piloteEntreeDL_initialise();
+  piloteSerinPYQ_initialise();
 
   interfaceEntree1_initialise();
   interfaceT1_initialise();
   interfaceTVert_initialise();
   interfaceSHT4X_initialise();
-  //interfaceMotion_initialise();
+  interfaceMotion_initialise();
   
   processusClignotant_initialise();
 }

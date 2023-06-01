@@ -6,5 +6,6 @@
         "fontchip.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "cmake.sourceDirectory": "C:/Projet/SecurityDoor/Capteurs/Programme/CapteurAdam/.pio/libdeps/featheresp32/Unity"
 }
