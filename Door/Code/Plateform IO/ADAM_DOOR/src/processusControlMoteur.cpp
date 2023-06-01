@@ -100,18 +100,10 @@ void processusControlMoteur_attenteCommande()
   {
     if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATIONR_COMMANDE_DEBARRER) 
     {
-    #ifdef PCM_OLDWAY
-      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_debarreCommande;
-      return;
-    #endif
     serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_Debarre_bloque;
     }
     else if (GestionCommuncation_R.ADAM_recu.porte_ADAM_receive.Commande == SERVICECOMMUNICATIONR_COMMANDE_BARRER)
     {
-    #ifdef PCM_OLDWAY
-      serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_barreCommande;
-      return;
-    #endif
     serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_Barre_bloque;
     }
   }
@@ -125,7 +117,7 @@ void processusControlMoteur_Barre_bloque()
     interfaceRGB.couleur = INTERFACERGB_VALEUR_VERT;
     interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
   }
-  interfaceMoteur.dureeActive = PROCESSUSCONTROLMOTEUR_DEGREE_180;
+  interfaceMoteur.dureeActive = (PROCESSUSCONTROLMOTEUR_DEGREE_180);
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
   serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_Barre_bloquePAS;
@@ -135,7 +127,6 @@ void processusControlMoteur_Barre_bloquePAS()
 {
   if (interfaceMoteur.etatDuModule == INTERFACEMOTEUR_MODULE_EN_FONCTION)
     return;
-  Serial.print("INTERFACEMOTEUR_MODULE_EN_FONCTION");
   interfaceMoteur.dureeActive = PROCESSUSCONTROLMOTEUR_DEGREE_180;
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
@@ -143,14 +134,13 @@ void processusControlMoteur_Barre_bloquePAS()
 }
 void processusControlMoteur_Debarre_bloque()
 {
-  
   if (interfaceRGB.oldCouleur != INTERFACERGB_VALEUR_ROUGE)
   {
     interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
     interfaceRGB.couleur = INTERFACERGB_VALEUR_ROUGE;
     interfaceRGB.dureeActive = PROCESSUSCONTROLMOTEUR_COMPTE_2S;
   }
-  interfaceMoteur.dureeActive = PROCESSUSCONTROLMOTEUR_DEGREE_90;
+  interfaceMoteur.dureeActive = (PROCESSUSCONTROLMOTEUR_DEGREE_90 / 1.138);
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_GAUCHE;
   serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_Debarre_bloquePAS;
@@ -161,15 +151,11 @@ void processusControlMoteur_Debarre_bloquePAS()
 
   if (interfaceMoteur.etatDuModule == INTERFACEMOTEUR_MODULE_EN_FONCTION)
     return;
-  Serial.print("INTERFACEMOTEUR_MODULE_EN_FONCTION");
-  interfaceMoteur.dureeActive = PROCESSUSCONTROLMOTEUR_DEGREE_90;
+  interfaceMoteur.dureeActive = (PROCESSUSCONTROLMOTEUR_DEGREE_90 / 1.138);
   interfaceMoteur.RequeteActive = INTERFACEMOTEUR_ACTIVE;
   interfaceMoteur.direction = INTERFACEMOTEUR_DIRECTION_DROITE;
   serviceBaseDeTemps_execute[PROCESSUSCONTROLMOTEUR_PHASE] = processusControlMoteur_attenteFinCommande;
 }
-
-
-
 
 void processusControlMoteur_barreCommande()
 {
