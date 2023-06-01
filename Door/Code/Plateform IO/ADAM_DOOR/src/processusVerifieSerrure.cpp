@@ -27,6 +27,7 @@
 #include "interfaceInfrarouge.h"
 #include "serviceBaseDeTemps.h"
 #include "ServiceCommunication.h"
+#include "processusGestionPairing.h"
 #include "processusVerifieSerrure.h"
 
 #include <stdio.h>
@@ -55,6 +56,9 @@ unsigned int processusVerifieSerrure_compteur;
 
 void processusVerifieSerrure_Detection()
 {
+  if (processusGestionPairing_PairedState == PROCESSUSGGESTIONPAIRING_ATTEMPTPAIRING)
+  return;
+
   interfaceInfrarouge.RequeteActive = INTERFACEINFRAROUGE_ACTIVE;
   if (interfaceInfrarouge.presence == INTERFACEINFRAROUGE_PRESENCE_PRESENT)
     serviceBaseDeTemps_execute[PROCESSUSVERIFIESERRURE_PHASE] = processusVerifieSerrure_DetecteBarrer;

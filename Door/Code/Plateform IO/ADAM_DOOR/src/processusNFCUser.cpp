@@ -26,6 +26,7 @@
 #include "processusPourTest.h"
 #include "serviceBaseDeTemps.h"
 #include "ServiceCommunication.h"
+#include "processusGestionPairing.h"
 #include "processusNFCUser.h"
 
 
@@ -34,7 +35,8 @@ void processusNFCUser_verifiePresenceNFC();
 
 void processusNFCUser_verifiePresenceNFC()
 {
-
+  if (processusGestionPairing_PairedState == PROCESSUSGGESTIONPAIRING_ATTEMPTPAIRING)
+  return;
 }
 void processusNFCUser_initialise()
 {

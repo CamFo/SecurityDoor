@@ -22,8 +22,10 @@
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
+#define PROCESSUSGGESTIONPAIRING_FINISHEDPAIRING 1
+#define PROCESSUSGGESTIONPAIRING_ATTEMPTPAIRING 0
 // Structure d'envoie et de réception
-
+extern unsigned char processusGestionPairing_PairedState;
 
 //Fonctions publiques:
 void processusGestionPairing_initialise(void);

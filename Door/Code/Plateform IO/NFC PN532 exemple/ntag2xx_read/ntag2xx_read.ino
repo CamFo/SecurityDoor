@@ -22,7 +22,6 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_PN532.h>
-#include "pins_arduino.h"
 // If using the breakout with SPI, define the pins for SPI communication.
 #define PN532_SCK  (2)
 #define PN532_MOSI (3)

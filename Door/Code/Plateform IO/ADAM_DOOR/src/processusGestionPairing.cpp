@@ -55,7 +55,7 @@ void loop3();
 //Definitions de variables privees:
 unsigned int processusGestionPairing_compteur;
 unsigned int processusGestionPairing_compteur2;
-
+unsigned char processusGestionPairing_PairedState;
 //Definitions de fonctions privees:
 
 
@@ -116,13 +116,14 @@ void processusGestionPairing_comState()
       Serial.print("\n Pair success.");
       #endif
       processusGestionPairing_compteur = 0;
+      processusGestionPairing_PairedState = PROCESSUSGGESTIONPAIRING_FINISHEDPAIRING;
       serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_VerifieIfStillPaired;
       return;
   }
-  
   processusGestionPairing_compteur++;
   if (processusGestionPairing_compteur < PROCESSUSPOURGESTIONPAIRING_COMPTE_30S)
   return;
+  processusGestionPairing_PairedState = PROCESSUSGGESTIONPAIRING_FINISHEDPAIRING;
   interfaceRGB.couleur = INTERFACERGB_VALEUR_MAUVE;
   interfaceRGB.RequeteActive = INTERFACERGB_ACTIVE;
   interfaceRGB.dureeActive = PROCESSUSPOURGESTIONPAIRING_COMPTE_2S;
@@ -147,6 +148,7 @@ void processusGestionPairing_attemptPairing_indicators()
 }
 void processusGestionPairing_initialise()
 {
+  processusGestionPairing_PairedState = PROCESSUSGGESTIONPAIRING_ATTEMPTPAIRING;
   serviceBaseDeTemps_execute[PROCESSUSGESTIONPAIRING_PHASE] = processusGestionPairing_attemptPairing_indicators;
  //processusGestionPairing_Detection_init;
 }
