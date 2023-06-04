@@ -122,7 +122,7 @@ void serviceCommunication_EnvoieDoor(void)
     if(ServiceCommunication.CompteurS == true)
     {
         ServiceCommunication.compteurSendC++;
-        if(ServiceCommunication.compteurSendC == 5)
+        if(ServiceCommunication.compteurSendC == 3)
         {
             ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_NULL;
             ServiceCommunication.compteurSendC = 0;

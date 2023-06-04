@@ -75,12 +75,18 @@ void interfaceLCD_initialise(void)
   interfaceLCD_afficheString(345, 192, os, 0, WHITE, DarkGrey);
   BRS_LCD_Draw_Shape_CircleF(450, 198, 8, LightGrey);  // Led RGB qui indique l'état de la Serrure
 
-
   //FIN ÉTAT DE LA PORTE
+
+  //BOUTTON ARMEMENT
+  interfaceLCD_boutton(60, 180, 140, 70, true, 0x0016, 0x000F, 0x001F);
+  unsigned char armStr[] = "A R M E M E N T";
+  interfaceLCD_afficheString(80, 208, armStr, true, WHITE, 0x0016);
+  //FIN BOUTTON ARMEMENT
+
   // AUTRE BOUTTONS
 
   interfaceLCD_rectangle(20, 270, 60, 30, BLACK); // Boutton réglages
-  unsigned char Setstr[] = "Setting";
+  unsigned char Setstr[] = "Reglage";
   interfaceLCD_afficheString(26, 280, Setstr, 1, LightGrey, BLACK);
   interfaceLCD_rectangle(100, 270, 60, 30, BLACK); // Boutton LOG
   unsigned char Lostr[] = "LOG";
