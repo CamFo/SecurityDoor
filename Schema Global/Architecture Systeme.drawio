@@ -1,1 +1,73 @@
-<mxfile host="app.diagrams.net" modified="2023-03-21T21:09:53.744Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="coFVwTeeVX1CUCq_F1C3" version="21.0.8" type="device"><diagram name="Page-1" id="qHw1JFBlz0CdFhUstOGD">7VnbcpswEP0aZtqHdACBL4++pU2atO64nTSPitkYtYAYWcR2v76LEcZYsevUSZTbS4IO0rLac3a1Bov04vlHQdPwnAcQWa4dzC3St1y35bTxbw4sCsAjzQKYCBYUkFMBI/YHFGgrNGMBTGsTJeeRZGkdHPMkgbGsYVQIPqtPu+ZR/akpnYAGjMY00tELFshQbcttVvgnYJOwfLLTUBuOaTlZ7WQa0oDP1iAysEhPcC6Lq3jegyiPXRmXYt3xlrsrxwQkcp8FwyRpHp/AYH7aGf6YXZ6OTsNvR67yTS7KDUOA+1dDLmTIJzyh0aBCu4JnSQC5VRtH1ZwzzlMEHQR/gZQLRSbNJEcolHGk7qLDYvEzX//BL4eXytxy0J/XRgs1KnzNHdwaAgVNeSbGsGPfpZSomIDcMY+siEKBA48B/cF1AiIq2U3dD6qkNlnNWy0dcoYeurbKikZTaUIlBSk1Upoo/FKrKk47QtDF2rQ0nzDd/hy/sfEcuyYRvCgslqO1PVbQUkZ3kFSZuTc0ylSATIjMgFja9yGWu3Ls+SY4JhrHFyfHJ6+EZ8c9kOg1cv4j9r4W+8FoePTl68VbLd9Nm2eUNo21EYgbEGhsSLF3oZlGX52cWcgkjFK6jMUMm63b8gANSpjvDqkegXLBxnHhttR4VnU+jiovdrjW9Xj2AwWN6Fp/5jWG7Nt4GBWrXt77nIvPCb8yLlLf2dI7/Uuk5KFE6huuu66pwuvtW3hNStnTpNylUoJggOgZkyHLYo1AlKesx5tGbJLg9RijhEWbdHMRM/yd2FE3YhYEBbUwZX/o1dJUHnDVwKFdv2v5/dwWsjktiM1NT6Xgv6HHI452+wlPcivXLIo2oPuo8GSjwpfNxHryOI+ZPG2Nnh5NJWR4LtrvuiJj8r3xkuPtUXJajxk0x9Wi9h0iSMNcKKajtdlFeLbpLsLRa8CayM55dgMxbs680FYqejJnW/me6+U0YG5j31PLaAdWuvl2bi0To+nXE6Nt+twiL+4tl9vaMzEOfc11WF603vKiyotVHjydvNDfczz3vGjvmReHfis4LC/0RvoV54VvP7m80HvQc65a0KHVI1YH/70Wehqb3yxu6XPb98MODqtPrMXnj+o7NRn8BQ==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-06-04T18:56:43.747Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="R7ujXcOT5BcvVqXMB5ye" version="21.3.4" type="device">
+  <diagram name="Page-1" id="qHw1JFBlz0CdFhUstOGD">
+    <mxGraphModel dx="819" dy="437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Pnn7FIeExJAPUwYJSJhQ-1" target="Pnn7FIeExJAPUwYJSJhQ-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="560" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-13" value="WIFI" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Pnn7FIeExJAPUwYJSJhQ-1" target="Pnn7FIeExJAPUwYJSJhQ-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-15" value="ESP-NOW" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Pnn7FIeExJAPUwYJSJhQ-1" target="Pnn7FIeExJAPUwYJSJhQ-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-1" value="Server/Panneau" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="280" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Pnn7FIeExJAPUwYJSJhQ-3" target="Pnn7FIeExJAPUwYJSJhQ-34" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-3" value="Serrure(s)**" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="320" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-12" value="Telephone(s)**" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="325" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-14" value="Capteur(s)*" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="320" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="L2Y73AesUkdKJAkDmZRX-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="Pnn7FIeExJAPUwYJSJhQ-28" target="Pnn7FIeExJAPUwYJSJhQ-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="410" />
+              <mxPoint x="560" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L2Y73AesUkdKJAkDmZRX-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="Pnn7FIeExJAPUwYJSJhQ-28" target="Pnn7FIeExJAPUwYJSJhQ-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="410" />
+              <mxPoint x="370" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-28" value="Source d&#39;alimentation" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="380" y="465" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Pnn7FIeExJAPUwYJSJhQ-34" value="Moteur courant continue" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="640" y="335" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="L2Y73AesUkdKJAkDmZRX-7" value="*Plusieurs variations de capteur&lt;br&gt;et le nombre de capteur &lt;br&gt;totaux varient selon le besoin" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="210" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="L2Y73AesUkdKJAkDmZRX-8" value="** Nombres totaux varient selon le besoin" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="340" y="240" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="L2Y73AesUkdKJAkDmZRX-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="L2Y73AesUkdKJAkDmZRX-9" target="Pnn7FIeExJAPUwYJSJhQ-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L2Y73AesUkdKJAkDmZRX-9" value="Source d&#39;alimentation" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="140" y="465" width="140" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

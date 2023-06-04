@@ -11,7 +11,6 @@
 #include <Arduino.h>
 #include "main.h"
 #include "AnnexeADAM.h"
-#include "piloteBuzzer.h"
 #include "piloteESPNOW.h"
 #include "piloteIOEA1.h"
 #include "piloteIOM1.h"
@@ -21,7 +20,6 @@
 #include "piloteIOT3.h"
 #include "piloteIOIR1.h"
 #include "piloteIOIR2.h"
-#include "interfaceBuzzer.h"
 #include "interfaceMoteur.h"
 #include "interfaceRGB.h"
 #include "interfaceInfrarouge.h"
