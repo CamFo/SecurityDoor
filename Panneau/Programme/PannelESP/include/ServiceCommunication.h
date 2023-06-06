@@ -19,6 +19,19 @@
 #define SERVICECOMMUNICATION_MODULE_PAS_EN_FONCTION 0
 
 //-----------------------------------------------------------------------------
+#define SERVICECOMMUNICATION_STATE_ENARRET    0x09
+#define SERVICECOMMUNICATION_STATE_OPERATION  0x08
+#define SERVICECOMMUNCATIION_STATE_ERREUR     0x07
+//State
+#define SERVICECOMMUNICATION_COMMANDE_BARRER   0x10
+#define SERVICECOMMUNICATION_COMMANDE_DEBARRER 0x11
+#define SERVICECOMMUNICATION_COMMANDE_NULL   0x00
+// État Porte 
+#define SERVICECOMMUNICATION_PORTE_OUVERTE 0x00
+#define SERVICECOMMUNICAIOTN_PORTE_FERMEE  0x01
+// État Serrure
+#define SERVICECOMMUNICATION_SERRURE_BARREE  0x13
+#define SERVICECOMMUNICATION_SERRURE_DEBARREE 0x14
 
 /**
  * @brief Indicates that the library is not currently in any errors.
@@ -61,6 +74,8 @@ typedef struct
 {
   unsigned char etatDuModule;
   unsigned char information;
+  bool CompteurS;
+  unsigned int compteurSendC;
 
 } SERVICECOMMUNICATION;
 extern SERVICECOMMUNICATION ServiceCommunication;

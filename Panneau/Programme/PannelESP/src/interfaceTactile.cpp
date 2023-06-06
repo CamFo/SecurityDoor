@@ -12,25 +12,65 @@
 //INCLUSIONS
 #include "main.h"
 #include "FT6236.h"
+#include "piloteESPNOWCapteur.h"
+#include "piloteESPNOWDoor.h"
 #include "serviceBaseDeTemps.h"
+#include "ServiceCommunication.h"
 #include "interfaceTactile.h"
+#include "processusPanneau.h"
 
 
 //Definitions privees
+INTERFACETACTILE interfaceTactile;
+
 
 //Declarations de fonctions privees:
 void interfaceTactile_gere(void);
-void interfaceTactile_detectePave(void);
+void interfaceTactile_detecteBoutton(void);
 
 //Definitions de variables privees:
 FT6236 ts = FT6236();
+TS_Point p;
 
 unsigned int interfaceTactile_compteurAvantLecture;
 
 //Definitions de fonctions privees:
-void interfaceTactile_detectePave(void)
+void interfaceTactile_detecteBoutton(void)
 {
+  // Retrieve a point
+  p = ts.getPoint();
+  if(p.x >= 180 && p.x <= 250)
+  {
+    if(p.y >= 280 && p.y <= 420)
+    {
+      processusPanneau.requete = PROCESSUSPANNEAU_REQUETE_ACTIVE;
+      interfaceTactile.etatBouttonArmee = true;
+    }
+  }
+  if(p.x >= 80 && p.x <= 150)  // Si on est entre 80 et 150 X
+  {
+    if(p.y >= 360 && p.y <= 460)
+    {
+      interfaceTactile.etatBouttonDebarre = false;
+      interfaceTactile.etatBouttonBarre = true;
+      ServiceCommunication.CompteurS = true;
+      ServiceCommunication.compteurSendC = 0;
+      ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_BARRER;
+      Serial.println("BARRE");
+    }
+    if(p.y >= 240 && p.y <= 360)
+    {
+      interfaceTactile.etatBouttonBarre = false;
+      interfaceTactile.etatBouttonDebarre = true;
+      ServiceCommunication.CompteurS = true;
+      ServiceCommunication.compteurSendC = 0;
+      ValeurEnvoieDoor.Commande = SERVICECOMMUNICATION_COMMANDE_DEBARRER;
+      Serial.println("DEBARRE");
+    }
+  }
 
+  interfaceTactile.x = p.x;
+  interfaceTactile.y = p.y;
   interfaceTactile.etatDuModule = INTERFACETACTILE_MODULE_EN_FONCTION;
 }
 
@@ -45,26 +85,15 @@ void interfaceTactile_gere(void)
 
   if (ts.touched())
   {
-    // Retrieve a point
-    TS_Point p = ts.getPoint();
-
-    // Print coordinates to the serial output
-    Serial.print("X Coordinate: ");
-    Serial.println(p.x);
-    Serial.print("Y Coordinate: ");
-    Serial.println(p.y);
-
-    interfaceTactile.x = p.x;
-    interfaceTactile.y = p.y;
+    ValeurEnvoieDoor.States = SERVICECOMMUNICATION_STATE_OPERATION;
+    ValeurEnvoieCapteur.States = SERVICECOMMUNICATION_STATE_OPERATION;
+    interfaceTactile_detecteBoutton();
     interfaceTactile.information = INTERFACETACTILE_INFORMATION_DISPONIBLE;
     interfaceTactile.etatDeLEntree = INTERFACETACTILE_ACTIVE;
   }
     
   interfaceTactile.etatDeLEntree = INTERFACETACTILE_INACTIVE;   // Entré inactive car il n'as pas de détection présentement
 }
-
-//Definitions de variables publiques:
-INTERFACETACTILE interfaceTactile;
 
 //Definitions de fonctions publiques:
 void interfaceTactile_initialise(void)

@@ -3,7 +3,9 @@
         "random": "cpp",
         "stdio.h": "c",
         "25q32.h": "c",
-        "fontchip.h": "c"
+        "fontchip.h": "c",
+        "BRS_Lcd.C": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "cmake.configureOnOpen": false
 }

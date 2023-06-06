@@ -27,6 +27,9 @@ typedef struct
   unsigned char etatDeLEntree;
   int x;
   int y;
+  bool etatBouttonBarre;
+  bool etatBouttonDebarre;
+  bool etatBouttonArmee;
 } INTERFACETACTILE;
 
 //Fonctions publiques:

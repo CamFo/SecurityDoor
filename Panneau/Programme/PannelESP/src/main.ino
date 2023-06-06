@@ -39,36 +39,49 @@
 
 // Include des processus
 #include "processusClignotant.h"
+#include "processusAffichage.h"
 
 //Definitions privees
-//pas de definitions privees
-void main_faitUnTest(void);
 
-//Declarations de fonctions privees:
+INTERFACELCD interfaceLCD;  // Pour passer les information à afficher à chaue Module
+
+//pas de definitions privees
 
 /// @brief Fonction qui permet de tester certain module en activant 
 //      leur requête tout de suite après leur initialisation
 /// @param void
-void main_faitUnTest(void)
-{
-  
-}
+void main_faitUnTest(void);
 /// @brief Fonction qui fait l'initialisation de tout les modules permettant
 //   au fonctionnement global du véhicule.
 /// @param void
 void main_initialise(void);
 
-//Definitions de variables privees:
-//pas de variables privees
+void TaskWiFicode( void * parameter);
 
-//Definitions de fonctions privees:
+/// @brief Fonction qui permet de faire des state machine sur un autre Core
+/// @param parameter 
+void TaskWiFicode( void * parameter)  
+{
+  Serial.print("\nTaskWiFi running on core ");
+  Serial.println(xPortGetCoreID());
+  while(true)
+  {
+    delay(10);
+    serviceBaseDeTemps_gereDansLoop();
+  }
+}
+
+
+//Declarations de fonctions privees:
+void main_faitUnTest(void)
+{
+}
 
 void main_initialise(void)
 {
   serviceTaskServer_initialise();
   serviceBaseDeTemps_initialise();
-  serviceCommunication_initialise();
-
+  serviceCommunication_initialise();  //Base de temps n'as pas de bug sans la COM
   piloteEntree1_initialise();
   piloteIOT1_initialise(); 
   piloteIOTVert_initialise();
@@ -81,24 +94,20 @@ void main_initialise(void)
   interfaceLCD_initialise();
   
   processusClignotant_initialise();
+  processusAffichage_initialise();
 }
 
 void setup(void) 
 {
-  Serial.begin(115200);
+  Serial.begin(115200); 
   main_initialise();
   main_faitUnTest();
+  xTaskCreatePinnedToCore(TaskWiFicode, "TaskWiFi", 10000, NULL, 1, NULL, 0);
+  delay(100);
   serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup();
 }
 
 void loop(void) 
 {
   serviceTaskServer_gestion.execute();
-  serviceBaseDeTemps_gereDansLoop();   
 }
-
-//Definitions de variables publiques:
-//pas de variables publiques
-
-//Definitions de fonctions publiques:
-//pas de fonctions publiques

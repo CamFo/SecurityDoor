@@ -23,6 +23,8 @@
 #include "serviceTaskServer.h"
 #include "serviceBaseDeTemps.h"
 
+#include "interfaceTVert.h"
+
 //Definitions privees
 //pas de definitions privees
 
@@ -41,11 +43,14 @@ void serviceBaseDeTemps_neFaitRien(void)
 
 void serviceBaseDeTemps_gere(void)
 {
-unsigned char i;
+  interfaceTVert_allume(); // Permet de vérifier le temps de calcul
+  unsigned char i;
   for (i = 0; i < SERVICEBASEDETEMPS_NOMBRE_DE_PHASES; i++)
   {
+    delayMicroseconds(2); // Délais de 2 micro pour ajouter un petit temps de calcul
     serviceBaseDeTemps_execute[i]();
   }
+  interfaceTVert_eteint(); // Fin du temps de calcul attend du nouvel interupt
 }
     
 //Definitions de variables publiques:
@@ -53,7 +58,7 @@ unsigned char i;
 /**
  * @brief Tableau de pointeur de fonction qui peuvent être assigné par leur processus respectif.
  *  Ce tableau est au centre du fonctionnement de la base de temps. Pour plus d'explication voir 
- *  le fichier de définition de la base de temps \ref xserviceBaseDeTemps.h
+ *  le fichier de définition de la base de temps \ref serviceBaseDeTemps.h
  * 
  */
 void (*serviceBaseDeTemps_execute[SERVICEBASEDETEMPS_NOMBRE_DE_PHASES])(void);
