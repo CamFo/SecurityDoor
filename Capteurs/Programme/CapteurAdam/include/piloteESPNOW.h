@@ -41,7 +41,7 @@ typedef struct
     unsigned char Humiditee;    
     unsigned char Motion;
     
-}CAPTEUR_ADAM_R;
+}CAPTEUR_ADAM_S;
 
 //Structure d'envoie au capteur
 typedef struct 
@@ -52,11 +52,12 @@ typedef struct
     unsigned char ValeurB;
     unsigned char ValeurC;
 
-}CAPTEUR_ADAM_S;
+}CAPTEUR_ADAM_R;
 
 
-extern CAPTEUR_ADAM_R ValeurRecuCapteur;
-extern CAPTEUR_ADAM_S ValeurEnvoieCapteur;
+extern CAPTEUR_ADAM_R ValeurRecu;
+extern CAPTEUR_ADAM_S ValeurEnvoie;
+
 
 //Fonctions publiques:
 

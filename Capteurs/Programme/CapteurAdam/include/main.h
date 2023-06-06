@@ -49,6 +49,22 @@
  */
 #define PILOTEENTREE1_BROCHE 34
 /**
+ * @brief Définition pour choisir le mode de lecture de PIN
+ * 
+ */
+
+#define PILOTEDIRECTLINK_MODE_FLOTTANT_SANS_PULL_UP
+/**
+ * @brief Définition qui undique le numéro de broche du ESP32 utilisé par l'entrée1
+ * 
+ */
+#define PILOTEDIRECTLINK_BROCHE 27
+/**
+ * @brief Définition de la broche de l'entreé Serin du PYQ 1548 / 7660
+ * 
+ */
+#define PILOTESERINPYQ_BROCHE 26
+/**
  * @brief Définition qui assigne le bon numéro de broche du ESP32 au témoin 1
  * 
  */
@@ -84,8 +100,6 @@
  */
 #define PILOTEI2C1_FREQUENCE_D_HORLOGE_EN_HZ 400000
 
-//#define PILOTEESPNOW_BRODCASTADRESS[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
-
 
 //*** Define pour les interfaces ***//
 
@@ -108,26 +122,31 @@
  */
 #define INTERFACEENTREE1_NOMBRE_MINIMUM_DE_LECTURES_PAR_DECISION 10
 
+#define INTERFACEMOTION_VALEUR_LUE_SI_ACTIVE  1   
+#define INTERFACEMOTION_VALEUR_LUE_SI_INACTIVE 0
+#define INTERFACEMOTION_FREQUENCE_DES_LECTURES_EN_HZ  250
+#define INTERFACEMOTION_NOMBRE_MINIMUM_DE_LECTURES_PAR_DECISION 10
+
 /** Définition pour le témoin 1 **/
 /**
  * @brief Valeur pour allumer le témoin 1
  */
-#define INTERFACET1_VALEUR_POUR_ALLUMER  1
+#define INTERFACET1_VALEUR_POUR_ALLUMER  0
 /**
  * @brief Valeur pour éteindre le témoin 1
  */
-#define INTERFACET1_VALEUR_POUR_ETEINDRE 0
+#define INTERFACET1_VALEUR_POUR_ETEINDRE 1
 
 
 /** Définition pour le témoin Vert **/
 /**
  * @brief Valeur pour allumer le témoin Vert
  */
-#define INTERFACETVERT_VALEUR_POUR_ALLUMER  1
+#define INTERFACETVERT_VALEUR_POUR_ALLUMER  0
 /**
  * @brief Valeur pour éteindre le témoin Vert
  */
-#define INTERFACETVERT_VALEUR_POUR_ETEINDRE 0
+#define INTERFACETVERT_VALEUR_POUR_ETEINDRE 1
 
 
 /***###########  DÉFINITION NÉCESSAIRE À LA BASE DE TEMPS  ###########***/
@@ -143,7 +162,7 @@
 /**
  * @brief Nombre de phase dans une période de la base de temps (1 si pas utilisé)
  */
-#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES_DANS_LOOP 1
+#define SERVICEBASEDETEMPS_NOMBRE_DE_PHASES_DANS_LOOP 2
 /**
  * @brief Nombre de phase de la base de temps \ref xserviceBaseDeTemps.h
  */
@@ -157,9 +176,18 @@
  */
 #define PROCESSUSCLIGNOTANT_PHASE 1
 /**
+ * @brief Numéro de phase de l'interface Motion
+ */
+#define INTERFACEMOTION_PHASE 2
+/**
  * @brief Numéro de phase du Service Communication
  */
-#define SERVICECOMMUNICATION_PHASE 2
+#define SERVICECOMMUNICATION_PHASE 0
+/**
+ * @brief Numéro de phase de l'interface du senseur de température
+ */
+#define INTERFACESHT4X_PHASE 1
+
 
 
 /**###########  DEFINE DES PROCESSUS  ###########**/

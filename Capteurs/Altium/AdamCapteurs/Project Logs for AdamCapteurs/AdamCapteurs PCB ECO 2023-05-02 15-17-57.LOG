@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=NetQ2_1 Pin=R8-1
+Change Component DesignItemId : Designator=F1 Old DesignItemId=NANOSMDCH030F/24-02 New DesignItemId=0ZCJ0100FF2E
+Change Footprint: Footprint Not Found FUSE_NANOSMDCH030F/24-02_LTF
+Change Component Comment : Designator=MTH2 Old Comment=ANTENNA New Comment=HOLE
+Change Component Comment : Designator=MTH1 Old Comment=NTENNA New Comment=HOLE
+Change Component Description : Designator=F1 Old Description=No Description Available New Description=Polyswitch 1A 5V
+Change component parameters: Designator = "D4" ("D4"); Footprint = "SOD123F"; UniqueID = "\JBUTNVYN" ("\JBUTNVYN")
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "CPDQ5V0-HF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "D5" ("D5"); Footprint = "SOD123F"; UniqueID = "\SAWLKQOY" ("\SAWLKQOY")
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "CPDQ5V0-HF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Comchip"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "F1" ("F1"); Footprint = "Fuse 500mA 0.6mm"; UniqueID = "\ZJRZZDWV" ("\ZJRZZDWV")
+Change component parameters (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00081"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "0ZCJ0100FF2E"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mfr_Name"; Value = "Littelfuse Inc"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number 1"; Value = "507-1806-1-ND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "JP1" ("JP1"); Footprint = "HDR1X6"; UniqueID = "\YICNQKYX" ("\YICNQKYX")
+Change component parameters (AddParameter): Name = "Manufacturer Part Number 1"; Value = "MEZD41501A-A"; VariantName = "[No Variations]"
+Added Component: Designator=D4(DIODE_PMEG2010ER,115_NEX)
+Add component (AddParameter): Name = "ADAM Inventory Number 1"; Value = "E00031"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number 1"; Value = "PMEG2010ER115"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "1727-5192-1-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetQ2_1 Pin=D4-1
+Change Net Name : Old Net Name=NetQ2_1 New Net Name=NetD4_1
+Add Net: Net with name "NetD4_2" already exists
+Added Member To Class: ClassName=AdamCapteurs-1 Member=Component D4 PMEG2010ER,115

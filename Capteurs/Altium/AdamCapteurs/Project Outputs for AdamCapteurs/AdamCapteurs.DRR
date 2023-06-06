@@ -1,0 +1,23 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: AdamCapteurs.PcbDoc   2023-05-04  09:14:10
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : AdamCapteurs-RoundHoles.TXT
+ASCII SlotHoles File : AdamCapteurs-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.305mm (12mil)                                           Round             47        PTH        235.72mm (9.28inch)
+T2      0.508mm (20mil)                                           Round             2         PTH        17.84mm (0.70inch)
+T3      0.66mm (26mil)                                            Round             16        PTH        162.42mm (6.39inch)
+T4      0.66mm (26mil)                                            Slot              2         PTH        15.46mm (0.61inch)
+T5      0.7mm (28mil)                                             Round             4         PTH        10.78mm (0.42inch)
+T6      0.889mm (35mil)                                           Round             2         PTH        5.00mm (0.20inch)
+T7      0.9mm (35mil)                                             Round             10        PTH        61.61mm (2.43inch)
+T8      1.1mm (43mil)           +0mm (0mil)/-0.25mm (10mil)       Round             12        PTH        27.94mm (1.10inch)
+T9      2.032mm (80mil)                                           Round             2         PTH        73.98mm (2.91inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              97
+
+Total Processing Time (hh:mm:ss) : 00:00:00

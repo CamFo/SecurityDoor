@@ -19,6 +19,10 @@
 #define SERVICECOMMUNICATION_MODULE_EN_FONCTION 1
 #define SERVICECOMMUNICATION_MODULE_PAS_EN_FONCTION 0
 
+#define SERVICECOMMUNICATION_STATE_ENARRET    0x09
+#define SERVICECOMMUNICATION_STATE_OPERATION  0x08
+#define SERVICECOMMUNCATIION_STATE_ERREUR     0x07
+
 //#############################################################################
 #pragma region SERVICECOMMUNICATIONMUNICATION_ERROR_DEFINES
 //-----------------------------------------------------------------------------
