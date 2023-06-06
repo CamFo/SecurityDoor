@@ -19,18 +19,21 @@
 #include "serviceBaseDeTemps.h"
 #include "ServiceCommunication.h"
 #include "processusPanneau.h"
+#include "processusAffichage.h"
 
 //Definitions privees
-
+PROCESSUSPANNEAU processusPanneau;
    
 //Declarations de fonctions privees:
 //pas de fonction privees
 void processusPanneau_attendReponsesModules(void);
 void processusPanneau_attendArmement(void);
+void processusPanneau_attendFinArmement(void);
 
 //Definitions de variables privees:
 
 unsigned long processusPanneau_compteur;
+unsigned int comptArmement;
 
 //Definitions de fonctions privees:
 void processusPanneau_attendReponsesModules(void)
@@ -48,9 +51,31 @@ void processusPanneau_attendReponsesModules(void)
 }
 void processusPanneau_attendArmement(void)
 {
-  //if()
+  if(processusPanneau.requete != PROCESSUSPANNEAU_REQUETE_ACTIVE)
+  {
+    return;
+  }
+  processusPanneau.requete = PROCESSUSPANNEAU_REQUETE_TRAITEE;
+
+
 
 }
+
+void processusPanneau_attendFinArmement(void)
+{
+  comptArmement ++;
+  if(comptArmement <= 200)
+  {
+    return;  
+  }
+  /*
+  processusAffichage.compteurArm --;
+  processusAffichage.chiffreAffichee = true;
+  comptArmement = 0; 
+  */
+
+}
+
 
 //Definitions de variables publiques:
 //pas de variables publiques

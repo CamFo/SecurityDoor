@@ -11,7 +11,15 @@
 #ifndef PROCESSUSAFFICHAGE_H
 #define PROCESSUSAFFICHAGE_H
 
+typedef struct
+{
+    bool etatArmement;
+    unsigned int compteurArm;
+    bool chiffreAffichee = false;
+}
+PROCESSUSAFFICHAGE;
 
+extern PROCESSUSAFFICHAGE processusAffichage;
 
 void processusAffichage_initialise(void);
 

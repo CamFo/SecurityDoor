@@ -86,7 +86,7 @@ void interfaceLCD_initialise(void)
   // AUTRE BOUTTONS
 
   interfaceLCD_rectangle(20, 270, 60, 30, BLACK); // Boutton réglages
-  unsigned char Setstr[] = "Reglage";
+  unsigned char Setstr[] = "Option";
   interfaceLCD_afficheString(26, 280, Setstr, 1, LightGrey, BLACK);
   interfaceLCD_rectangle(100, 270, 60, 30, BLACK); // Boutton LOG
   unsigned char Lostr[] = "LOG";

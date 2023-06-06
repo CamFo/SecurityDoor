@@ -12,11 +12,12 @@
 //INCLUSIONS
 #include "main.h"
 #include "FT6236.h"
-#include "serviceBaseDeTemps.h"
-#include "interfaceTactile.h"
-#include "ServiceCommunication.h"
 #include "piloteESPNOWCapteur.h"
 #include "piloteESPNOWDoor.h"
+#include "serviceBaseDeTemps.h"
+#include "ServiceCommunication.h"
+#include "interfaceTactile.h"
+#include "processusPanneau.h"
 
 
 //Definitions privees
@@ -38,7 +39,14 @@ void interfaceTactile_detecteBoutton(void)
 {
   // Retrieve a point
   p = ts.getPoint();
-
+  if(p.x >= 180 && p.x <= 250)
+  {
+    if(p.y >= 280 && p.y <= 420)
+    {
+      processusPanneau.requete = PROCESSUSPANNEAU_REQUETE_ACTIVE;
+      interfaceTactile.etatBouttonArmee = true;
+    }
+  }
   if(p.x >= 80 && p.x <= 150)  // Si on est entre 80 et 150 X
   {
     if(p.y >= 360 && p.y <= 460)

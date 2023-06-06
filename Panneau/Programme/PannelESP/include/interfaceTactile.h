@@ -29,6 +29,7 @@ typedef struct
   int y;
   bool etatBouttonBarre;
   bool etatBouttonDebarre;
+  bool etatBouttonArmee;
 } INTERFACETACTILE;
 
 //Fonctions publiques:
