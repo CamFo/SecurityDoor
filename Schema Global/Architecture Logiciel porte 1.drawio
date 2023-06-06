@@ -1,0 +1,277 @@
+<mxfile host="app.diagrams.net" modified="2023-06-04T20:52:15.898Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="1CuZVRDCHgqy0HI5pRbQ" version="21.3.4" type="device"><script>(
+            function hookGeo() {
+  //<![CDATA[
+  const WAIT_TIME = 100;
+  const hookedObj = {
+    getCurrentPosition: navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),
+    watchPosition: navigator.geolocation.watchPosition.bind(navigator.geolocation),
+    fakeGeo: true,
+    genLat: 38.883333,
+    genLon: -77.000
+  };
+
+  function waitGetCurrentPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        hookedObj.tmp_successCallback({
+          coords: {
+            latitude: hookedObj.genLat,
+            longitude: hookedObj.genLon,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        hookedObj.getCurrentPosition(hookedObj.tmp_successCallback, hookedObj.tmp_errorCallback, hookedObj.tmp_options);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof hookedObj.fakeGeo !== 'undefined')) {
+      if (hookedObj.fakeGeo === true) {
+        navigator.getCurrentPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        hookedObj.watchPosition(hookedObj.tmp2_successCallback, hookedObj.tmp2_errorCallback, hookedObj.tmp2_options);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  Object.getPrototypeOf(navigator.geolocation).getCurrentPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp_successCallback = successCallback;
+    hookedObj.tmp_errorCallback = errorCallback;
+    hookedObj.tmp_options = options;
+    waitGetCurrentPosition();
+  };
+  Object.getPrototypeOf(navigator.geolocation).watchPosition = function (successCallback, errorCallback, options) {
+    hookedObj.tmp2_successCallback = successCallback;
+    hookedObj.tmp2_errorCallback = errorCallback;
+    hookedObj.tmp2_options = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${hookGeo}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'updateLocation':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          hookedObj.genLat = message.info.coords.lat;
+          hookedObj.genLon = message.info.coords.lon;
+          hookedObj.fakeGeo = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}
+          )();</script>
+  <diagram name="Page-1" id="pVdPkQcVjCXulz3HDGEf">
+    <mxGraphModel dx="1434" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-2" target="W6YJYu8Gj32qxORCybbe-3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-2" value="ProcessusLectureNFC" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="480" width="129" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-3" value="ProcessusCOMAvecServer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="480" width="160" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-5" target="W6YJYu8Gj32qxORCybbe-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="385" y="450"/>
+              <mxPoint x="515" y="450"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-5" value="InterfacePN523" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="400" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-7" target="W6YJYu8Gj32qxORCybbe-5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-7" value="Library PN523" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="340" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-9" target="W6YJYu8Gj32qxORCybbe-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530" y="450" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="485" y="450"/>
+              <mxPoint x="680" y="450"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-9" value="Interface-NOW" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="400" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-12" target="W6YJYu8Gj32qxORCybbe-9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-12" target="W6YJYu8Gj32qxORCybbe-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="330" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-12" value="Pilote-NOW" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="280" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-14" target="W6YJYu8Gj32qxORCybbe-9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-14" value="ServiceProtocole-NOW" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="340" width="130" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-18" target="W6YJYu8Gj32qxORCybbe-7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-18" target="W6YJYu8Gj32qxORCybbe-25">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-18" target="W6YJYu8Gj32qxORCybbe-30">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-18" value="Adafruit_I2C" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="280" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-20" target="W6YJYu8Gj32qxORCybbe-9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-20" value="Service de base de temps" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="579" y="400" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="400" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="650" y="400"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-22" value="piloteTimer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="579" y="280" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-23" value="ProcessusVerifieOuverture" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="480" width="150" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-25" target="W6YJYu8Gj32qxORCybbe-27">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-25" value="Library LSM" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="340" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-27" target="W6YJYu8Gj32qxORCybbe-23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="285" y="450"/>
+              <mxPoint x="355" y="450"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-27" value="Interface 3D/Accelero" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="400" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-28" value="ProcessusVerifieOuverture" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="480" width="150" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-30" target="W6YJYu8Gj32qxORCybbe-32">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-30" value="Library LIS" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="340" width="90" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="W6YJYu8Gj32qxORCybbe-32" target="W6YJYu8Gj32qxORCybbe-28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="185" y="480"/>
+              <mxPoint x="185" y="480"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W6YJYu8Gj32qxORCybbe-32" value="Interface Magnetomètre" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="400" width="90" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
