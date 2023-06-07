@@ -30,10 +30,16 @@ void interfaceMotion_gere(void);
 
 //Definitions de variables privees:
 unsigned int interfaceMotion_compteurAvantLecture;
+unsigned int comptLed;
 
 //Definitions de fonctions privees:
 void interfaceMotion_gere(void)
 {
+  comptLed++;
+  if(comptLed >= 1000)
+  {
+    interfaceT1_eteint();
+  }
   interfaceMotion_compteurAvantLecture++;
   if (interfaceMotion_compteurAvantLecture < INTERFACEMOTION_COMPTE_MAXIMUM_AVANT_LECTURE)
   {
@@ -43,6 +49,7 @@ void interfaceMotion_gere(void)
   if (piloteDirectLink_lit() == INTERFACEMOTION_VALEUR_LUE_SI_ACTIVE)
   {
     interfaceT1_allume();
+    comptLed = 0;
     Serial.println("MOTIONNNN");
     interfaceMotion.etatDuModule = INTERFACEMOTION_MODULE_EN_FONCTION;
     interfaceMotion.etatDeLEntree = INTERFACEMOTION_ACTIVE;
